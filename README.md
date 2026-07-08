@@ -41,5 +41,19 @@ works without JavaScript).
 
 ## Deploy
 
-`dist/` is fully static — suitable for GitHub Pages (prototype review) or the
-on-prem VM (nginx `root` at `dist/`).
+Live prototype: **https://vemula78.github.io/sssihms-website/**
+(GitHub Pages, served from the `gh-pages` branch of
+github.com/vemula78/sssihms-website).
+
+To redeploy after changes:
+
+```bash
+node build.mjs
+cd dist && git init -q && git checkout -q -b gh-pages && touch .nojekyll \
+  && git add -A && git commit -q -m "Deploy" \
+  && git push -f https://github.com/vemula78/sssihms-website.git gh-pages \
+  && rm -rf .git
+```
+
+`dist/` is fully static, so the same output also suits the on-prem VM
+(nginx `root` at `dist/`).
