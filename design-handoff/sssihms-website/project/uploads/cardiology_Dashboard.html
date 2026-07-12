@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSSIHMS Whitefield — Cardiology Statistics Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0D2137;color:#E8EAED;min-height:100vh}
+.header{background:linear-gradient(135deg,#1E3A5F 0%,#0D2137 100%);padding:24px 32px;border-bottom:3px solid #1E88E5}
+.header h1{font-size:22px;font-weight:700;color:#fff;letter-spacing:0.5px}
+.header p{font-size:12px;color:#90CAF9;margin-top:4px}
+.tag{display:inline-block;background:#1E88E5;color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:3px;margin-left:10px;vertical-align:middle}
+.kpi-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;padding:20px 32px}
+.kpi{background:#1E3A5F;border-radius:8px;padding:16px;border-top:3px solid var(--accent,#1E88E5)}
+.kpi .label{font-size:10px;color:#90CAF9;text-transform:uppercase;letter-spacing:0.8px;font-weight:600}
+.kpi .value{font-size:26px;font-weight:700;color:#fff;margin:6px 0 2px}
+.kpi .sub{font-size:11px;color:#B0BEC5}
+.charts-row{display:grid;grid-template-columns:2fr 1fr;gap:12px;padding:0 32px 12px}
+.charts-row2{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;padding:0 32px 12px}
+.charts-row3{display:grid;grid-template-columns:3fr 2fr;gap:12px;padding:0 32px 12px}
+.charts-row4{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 32px 12px}
+.card{background:#1A2F4A;border-radius:8px;padding:20px}
+.card h3{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:#90CAF9;margin-bottom:14px;border-bottom:1px solid #2A3F5F;padding-bottom:8px}
+canvas{max-width:100%}
+.footer{text-align:center;padding:16px;font-size:11px;color:#607D8B;border-top:1px solid #1E3A5F;margin-top:8px}
+.badge-row{display:flex;gap:10px;flex-wrap:wrap;padding:0 32px 16px}
+.badge{background:#1E3A5F;border-radius:6px;padding:8px 14px;font-size:11px;color:#90CAF9;border:1px solid #2A3F5F}
+.badge strong{color:#fff;font-size:13px;display:block}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>SSSIHMS Whitefield — Cardiology <span class="tag">25 YEARS</span></h1>
+  <p>Catheterisation Laboratory &nbsp;|&nbsp; Sri Sathya Sai Institute of Higher Medical Sciences, Bangalore &nbsp;|&nbsp; Jan 2001 – Jun 2026</p>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi" style="--accent:#1E88E5"><div class="label">Total Procedures</div><div class="value">71,483</div><div class="sub">Jan 2001 – Jun 2026</div></div>
+<div class="kpi" style="--accent:#43A047"><div class="label">Interventional</div><div class="value">46,454</div><div class="sub">14,540 diagnostic</div></div>
+<div class="kpi" style="--accent:#AB47BC"><div class="label">Unique Patients</div><div class="value">54,569</div><div class="sub">distinct MRNs</div></div>
+<div class="kpi" style="--accent:#1E88E5"><div class="label">Complex Cases</div><div class="value">26,298</div><div class="sub">43.1% of sessions</div></div>
+<div class="kpi" style="--accent:#26A69A"><div class="label">Outpatients</div><div class="value">1,123,653</div><div class="sub">cumulative since 2001</div></div>
+</div>
+
+<div class="badge-row">
+  <div class="badge"><strong>38.7 yrs</strong>Mean Age</div>
+<div class="badge"><strong>37,282 M / 23,706 F</strong>Gender</div>
+<div class="badge"><strong>1,123,653</strong>Outpatients OPD</div>
+<div class="badge"><strong>43.1%</strong>Complexity Rate</div>
+<div class="badge"><strong>11,358/11,773</strong>Discharge Summaries</div>
+<div class="badge"><strong>5,459</strong>Multi-Procedure</div>
+</div>
+
+<!-- Row 1: Monthly volume + Yearly rate -->
+<div class="charts-row">
+  <div class="card">
+    <h3>Monthly Procedure Volume&nbsp;+ Complexity Rate</h3>
+    <canvas id="monthlyChart" height="90"></canvas>
+  </div>
+  <div class="card">
+    <h3>Annual Volume by Year</h3>
+    <canvas id="yearlyRateChart" height="90"></canvas>
+  </div>
+</div>
+
+<!-- Row 2: Procedures + Doughnut -->
+<div class="charts-row3">
+  <div class="card">
+    <h3>Top 15 Procedures — Total Count</h3>
+    <canvas id="procChart" height="120"></canvas>
+  </div>
+  <div class="card">
+    <h3>Complexity Case Type</h3>
+    <canvas id="doughnutChart" height="120"></canvas>
+  </div>
+</div>
+
+<!-- Row 3: Age dist + Standard vs Complex + Operators -->
+<div class="charts-row2">
+  <div class="card">
+    <h3>Patient Age Distribution</h3>
+    <canvas id="ageChart" height="130"></canvas>
+  </div>
+  <div class="card">
+    <h3>Standard vs Complex — Annual</h3>
+    <canvas id="stackedBar" height="130"></canvas>
+  </div>
+  <div class='card'><h3>Yearly Complexity Rate (%)</h3><canvas id='cpxRateLine' height='130'></canvas></div>
+</div>
+
+<!-- Row 4: Operators -->
+<div class='charts-row4'>
+<div class="card" style="overflow-x:auto">
+  <h3>Top Catheterisation Labs by Volume</h3>
+  <table style="width:100%;border-collapse:collapse;font-size:11px">
+    <thead>
+      <tr style="border-bottom:1px solid #2A3F5F">
+        <th style="color:#90CAF9;text-align:left;padding:4px 6px">#</th>
+        <th style="color:#90CAF9;text-align:left;padding:4px 6px">Catheterisation Lab</th>
+        <th style="color:#90CAF9;text-align:right;padding:4px 6px">Volume</th>
+        <th style="color:#90CAF9;text-align:right;padding:4px 6px">Complex</th>
+      </tr>
+    </thead>
+    <tbody style="color:#B0BEC5">
+      <tr><td style="color:#90CAF9;font-size:11px">1</td><td style="color:#E8EAED">CATH LAB 1</td><td style="text-align:right;color:#fff;font-weight:700">11,376</td><td style="text-align:right;color:#FFB300">3,531 (31%)</td></tr><tr><td style="color:#90CAF9;font-size:11px">2</td><td style="color:#E8EAED">CATH LAB 2</td><td style="text-align:right;color:#fff;font-weight:700">277</td><td style="text-align:right;color:#FFB300">60 (22%)</td></tr><tr><td style="color:#90CAF9;font-size:11px">3</td><td style="color:#E8EAED">CATH LAB 2 (BI-PLANAR)</td><td style="text-align:right;color:#fff;font-weight:700">125</td><td style="text-align:right;color:#FFB300">40 (32%)</td></tr>
+    </tbody>
+  </table>
+</div><div class="card">
+    <h3>Discharge Summary Coverage</h3>
+    <canvas id="dcChart" height="200"></canvas>
+  </div></div>
+
+<div class="footer">
+  SSSIHMS Whitefield — Cardiology &nbsp;|&nbsp; Jan 2001 – Jun 2026 &nbsp;|&nbsp; 71,483 procedures · 54,569 patients &nbsp;|&nbsp; All care provided free of charge
+</div>
+
+<script>
+const ACCENT='#1E88E5';
+const BLUE='#1E88E5',ORANGE='#E8711C',GREEN='#43A047',TEAL='#26A69A',
+      PURPLE='#AB47BC',RED='#EF5350',YELLOW='#FFB300',CYAN='#00BCD4',
+      INDIGO='#5C6BC0',LIME='#9CCC65',PINK='#EC407A',BROWN='#8D6E63';
+const GRID={color:'rgba(255,255,255,0.05)'};
+const TICK={color:'#90CAF9',font:{size:10}};
+
+// 1. Monthly volume (stacked bar + rate line)
+const mLabels=["2001-01", "2001-02", "2001-03", "2001-04", "2001-05", "2001-06", "2001-07", "2001-08", "2001-09", "2001-10", "2001-11", "2001-12", "2002-01", "2002-02", "2002-03", "2002-04", "2002-05", "2002-06", "2002-07", "2002-08", "2002-09", "2002-10", "2002-11", "2002-12", "2003-01", "2003-02", "2003-03", "2003-04", "2003-05", "2003-06", "2003-07", "2003-08", "2003-09", "2003-10", "2003-11", "2003-12", "2004-01", "2004-02", "2004-03", "2004-04", "2004-05", "2004-06", "2004-07", "2004-08", "2004-09", "2004-10", "2004-11", "2004-12", "2005-01", "2005-02", "2005-03", "2005-04", "2005-05", "2005-06", "2005-07", "2005-08", "2005-09", "2005-10", "2005-11", "2005-12", "2006-01", "2006-02", "2006-03", "2006-04", "2006-06", "2006-07", "2006-08", "2006-09", "2006-10", "2006-11", "2006-12", "2007-01", "2007-02", "2007-03", "2007-04", "2007-05", "2007-06", "2007-07", "2007-08", "2007-09", "2007-10", "2007-11", "2007-12", "2008-01", "2008-02", "2008-03", "2008-04", "2008-05", "2008-06", "2008-07", "2008-08", "2008-09", "2008-10", "2008-11", "2008-12", "2009-01", "2009-02", "2009-03", "2009-04", "2009-05", "2009-06", "2009-07", "2009-08", "2009-09", "2009-10", "2009-11", "2009-12", "2010-01", "2010-02", "2010-03", "2010-04", "2010-05", "2010-06", "2010-07", "2010-08", "2010-09", "2010-10", "2010-11", "2010-12", "2011-01", "2011-02", "2011-03", "2011-04", "2011-05", "2011-06", "2011-07", "2011-08", "2011-09", "2011-10", "2011-11", "2011-12", "2012-01", "2012-02", "2012-03", "2012-04", "2012-05", "2012-06", "2012-07", "2012-08", "2012-09", "2012-10", "2012-11", "2012-12", "2013-01", "2013-02", "2013-03", "2013-04", "2013-05", "2013-06", "2013-07", "2013-08", "2013-09", "2013-10", "2013-11", "2013-12", "2014-01", "2014-02", "2014-03", "2014-04", "2014-05", "2014-06", "2014-07", "2014-08", "2014-09", "2014-10", "2014-11", "2014-12", "2015-01", "2015-02", "2015-03", "2015-04", "2015-05", "2015-06", "2015-07", "2015-08", "2015-09", "2015-10", "2015-11", "2015-12", "2016-01", "2016-02", "2016-03", "2016-04", "2016-05", "2016-06", "2016-07", "2016-08", "2016-09", "2016-10", "2016-11", "2016-12", "2017-01", "2017-02", "2017-03", "2017-04", "2017-05", "2017-06", "2017-07", "2017-08", "2017-09", "2017-10", "2017-11", "2017-12", "2018-01", "2018-02", "2018-03", "2018-04", "2018-05", "2018-06", "2018-07", "2018-08", "2018-09", "2018-10", "2018-11", "2018-12", "2019-01", "2019-02", "2019-03", "2019-04", "2019-05", "2019-06", "2019-07", "2019-08", "2019-09", "2019-10", "2019-11", "2019-12", "2020-01", "2020-02", "2020-03", "2020-05", "2020-06", "2020-07", "2020-08", "2020-09", "2020-10", "2020-11", "2020-12", "2021-01", "2021-02", "2021-03", "2021-04", "2021-06", "2021-07", "2021-08", "2021-09", "2021-10", "2021-11", "2021-12", "2022-01", "2022-02", "2022-03", "2022-04", "2022-05", "2022-06", "2022-07", "2022-08", "2022-09", "2022-10", "2022-11", "2022-12", "2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12", "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06"];
+const mStd=[16, 28, 49, 55, 86, 83, 33, 56, 92, 74, 81, 64, 74, 83, 86, 70, 73, 57, 95, 85, 77, 85, 106, 99, 102, 79, 99, 68, 79, 85, 105, 74, 66, 70, 59, 70, 85, 77, 68, 82, 70, 71, 74, 80, 75, 72, 59, 60, 57, 65, 81, 69, 71, 72, 69, 104, 93, 89, 78, 107, 112, 110, 107, 2, 97, 88, 108, 112, 85, 105, 105, 106, 60, 128, 113, 150, 127, 140, 112, 101, 109, 71, 135, 119, 137, 110, 137, 159, 96, 144, 133, 132, 73, 144, 138, 116, 106, 146, 110, 127, 144, 145, 119, 130, 107, 126, 150, 121, 148, 143, 110, 133, 135, 155, 143, 104, 124, 100, 102, 110, 100, 163, 147, 138, 170, 137, 169, 156, 79, 143, 160, 161, 118, 153, 110, 176, 168, 191, 179, 129, 151, 100, 115, 191, 132, 112, 145, 125, 151, 168, 143, 123, 163, 105, 99, 159, 129, 105, 145, 175, 144, 140, 108, 146, 93, 137, 146, 114, 124, 99, 147, 151, 136, 156, 132, 148, 113, 88, 166, 119, 132, 114, 130, 136, 130, 161, 153, 146, 124, 138, 143, 117, 131, 134, 154, 171, 194, 151, 161, 159, 143, 147, 166, 144, 123, 186, 167, 188, 179, 149, 181, 164, 152, 113, 152, 162, 73, 135, 173, 177, 145, 161, 127, 165, 158, 120, 153, 118, 119, 92, 1, 6, 14, 7, 29, 32, 42, 106, 87, 118, 123, 34, 7, 56, 107, 118, 108, 130, 118, 48, 64, 184, 128, 132, 109, 121, 108, 138, 95, 95, 120, 113, 107, 112, 111, 131, 113, 153, 125, 105, 124, 115, 119, 114, 111, 93, 118, 145, 112, 129, 109, 110, 107, 110, 97, 93, 82, 119, 111, 119, 99, 127, 124, 104, 139, 129, 125, 119, 131, 114, 122, 123, 197];
+const mCpx=[4, 5, 27, 36, 68, 54, 14, 66, 82, 55, 68, 68, 63, 50, 41, 69, 80, 34, 56, 69, 68, 64, 49, 71, 79, 67, 67, 80, 84, 73, 80, 85, 59, 49, 73, 55, 72, 65, 76, 90, 85, 100, 113, 96, 100, 83, 85, 120, 102, 127, 136, 126, 136, 132, 126, 126, 112, 100, 106, 83, 90, 100, 138, 2, 84, 91, 104, 108, 110, 97, 85, 123, 109, 111, 86, 131, 169, 127, 117, 115, 117, 138, 127, 137, 132, 120, 136, 131, 150, 135, 122, 115, 108, 103, 101, 126, 114, 138, 116, 100, 156, 136, 118, 131, 103, 103, 113, 90, 116, 111, 94, 113, 140, 117, 108, 139, 129, 94, 79, 70, 93, 123, 98, 137, 107, 113, 80, 100, 119, 94, 144, 86, 111, 130, 121, 147, 152, 103, 98, 107, 127, 159, 149, 86, 99, 86, 82, 128, 98, 124, 97, 95, 118, 117, 91, 90, 96, 130, 133, 122, 153, 152, 97, 157, 114, 87, 86, 87, 105, 149, 134, 155, 157, 142, 79, 97, 62, 167, 134, 64, 110, 175, 106, 112, 129, 82, 70, 81, 92, 81, 107, 88, 84, 139, 107, 93, 116, 78, 92, 91, 83, 78, 76, 99, 102, 100, 102, 100, 106, 110, 100, 58, 64, 48, 85, 77, 119, 112, 103, 70, 63, 59, 243, 78, 99, 101, 37, 55, 51, 21, 0, 1, 0, 0, 9, 10, 22, 24, 34, 48, 41, 6, 1, 15, 45, 34, 28, 59, 39, 21, 21, 51, 93, 38, 42, 63, 94, 64, 33, 33, 39, 48, 66, 91, 66, 78, 58, 68, 72, 48, 83, 51, 40, 44, 53, 77, 66, 40, 57, 41, 42, 82, 65, 32, 45, 39, 71, 70, 42, 58, 57, 59, 52, 77, 57, 41, 72, 48, 26, 80, 44, 49, 3];
+const mRate=[20.0, 15.2, 35.5, 39.6, 44.2, 39.4, 29.8, 54.1, 47.1, 42.6, 45.6, 51.5, 46.0, 37.6, 32.3, 49.6, 52.3, 37.4, 37.1, 44.8, 46.9, 43.0, 31.6, 41.8, 43.6, 45.9, 40.4, 54.1, 51.5, 46.2, 43.2, 53.5, 47.2, 41.2, 55.3, 44.0, 45.9, 45.8, 52.8, 52.3, 54.8, 58.5, 60.4, 54.5, 57.1, 53.5, 59.0, 66.7, 64.2, 66.1, 62.7, 64.6, 65.7, 64.7, 64.6, 54.8, 54.6, 52.9, 57.6, 43.7, 44.6, 47.6, 56.3, 50.0, 46.4, 50.8, 49.1, 49.1, 56.4, 48.0, 44.7, 53.7, 64.5, 46.4, 43.2, 46.6, 57.1, 47.6, 51.1, 53.2, 51.8, 66.0, 48.5, 53.5, 49.1, 52.2, 49.8, 45.2, 61.0, 48.4, 47.8, 46.6, 59.7, 41.7, 42.3, 52.1, 51.8, 48.6, 51.3, 44.1, 52.0, 48.4, 49.8, 50.2, 49.0, 45.0, 43.0, 42.7, 43.9, 43.7, 46.1, 45.9, 50.9, 43.0, 43.0, 57.2, 51.0, 48.5, 43.6, 38.9, 48.2, 43.0, 40.0, 49.8, 38.6, 45.2, 32.1, 39.1, 60.1, 39.7, 47.4, 34.8, 48.5, 45.9, 52.4, 45.5, 47.5, 35.0, 35.4, 45.3, 45.7, 61.4, 56.4, 31.0, 42.9, 43.4, 36.1, 50.6, 39.4, 42.5, 40.4, 43.6, 42.0, 52.7, 47.9, 36.1, 42.7, 55.3, 47.8, 41.1, 51.5, 52.1, 47.3, 51.8, 55.1, 38.8, 37.1, 43.3, 45.9, 60.1, 47.7, 50.7, 53.6, 47.7, 37.4, 39.6, 35.4, 65.5, 44.7, 35.0, 45.5, 60.6, 44.9, 45.2, 49.8, 33.7, 31.4, 35.7, 42.6, 37.0, 42.8, 42.9, 39.1, 50.9, 41.0, 35.2, 37.4, 34.1, 36.4, 36.4, 36.7, 34.7, 31.4, 40.7, 45.3, 35.0, 37.9, 34.7, 37.2, 42.5, 35.6, 26.1, 29.6, 29.8, 35.9, 32.2, 62.0, 45.3, 37.3, 28.3, 30.3, 26.8, 65.7, 32.1, 38.5, 45.7, 19.5, 31.8, 30.0, 18.6, 0.0, 14.3, 0.0, 0.0, 23.7, 23.8, 34.4, 18.5, 28.1, 28.9, 25.0, 15.0, 12.5, 21.1, 29.6, 22.4, 20.6, 31.2, 24.8, 30.4, 24.7, 21.7, 42.1, 22.4, 27.8, 34.2, 46.5, 31.7, 25.8, 25.8, 24.5, 29.8, 38.2, 44.8, 37.3, 37.3, 33.9, 30.8, 36.5, 31.4, 40.1, 30.7, 25.2, 27.8, 32.3, 45.3, 35.9, 21.6, 33.7, 24.1, 27.8, 42.7, 37.8, 22.5, 31.7, 29.5, 46.4, 37.0, 27.5, 32.8, 36.5, 31.7, 29.5, 42.5, 29.1, 24.1, 36.5, 28.7, 16.6, 41.2, 26.5, 28.5, 1.5];
+const showRate=true;
+
+const monthlyDatasets=[
+  {label:'Standard',data:mStd,backgroundColor:'rgba(30,136,229,0.65)',borderColor:'#1E88E5',borderWidth:1,stack:'a',order:2},
+  {label:'Complex',data:mCpx,backgroundColor:'rgba(232,113,28,0.75)',borderColor:ORANGE,borderWidth:1,stack:'a',order:2},
+];
+if(showRate){
+  monthlyDatasets.push({
+    label:'Complexity Rate (%)',data:mRate,type:'line',yAxisID:'y2',
+    borderColor:ORANGE,backgroundColor:'transparent',borderWidth:2,pointRadius:0,tension:0.3,order:1
+  });
+}
+new Chart(document.getElementById('monthlyChart'),{
+  type:'bar',
+  data:{labels:mLabels,datasets:monthlyDatasets},
+  options:{
+    responsive:true,maintainAspectRatio:true,
+    plugins:{legend:{labels:{color:'#B0BEC5',font:{size:10}}}},
+    scales:{
+      x:{ticks:{...TICK,maxRotation:90,minRotation:45,maxTicksLimit:26},grid:GRID,stacked:true},
+      y:{ticks:TICK,grid:GRID,stacked:true,title:{display:true,text:'Procedures',color:'#90CAF9',font:{size:10}}},
+      y2:showRate?{position:'right',ticks:{...TICK,callback:v=>v+'%'},grid:{display:false},title:{display:true,text:'Complexity %',color:ORANGE,font:{size:10}}}:undefined
+    }
+  }
+});
+
+// 2. Annual bar
+const aYears=["2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"];
+const aTotal=[1264, 1704, 1807, 1958, 2367, 2040, 2822, 3012, 2980, 2848, 2950, 3241, 2878, 3044, 3042, 2835, 2953, 2972, 2910, 759, 1356, 1934, 2197, 1999, 2066, 1056];
+new Chart(document.getElementById('yearlyRateChart'),{
+  type:'bar',
+  data:{labels:aYears,datasets:[{label:'Procedures',data:aTotal,backgroundColor:ACCENT+'aa',borderColor:ACCENT,borderWidth:1,borderRadius:4}]},
+  options:{
+    responsive:true,maintainAspectRatio:true,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{ticks:{...TICK,maxRotation:45},grid:GRID},
+      y:{ticks:TICK,grid:GRID}
+    }
+  }
+});
+
+// 3. Procedures horizontal bar
+const pLabels=["CAG", "PTMC", "PTCA", "EPS", "Diagnostic - Left/Right Hear", "Coronary PCI \u2014 PTCA/PCI", "RFA/Ablation", "ASD Device Closure", "Pulmonary Valve Balloon Dila", "Permanent Pacemaker", "Other \u2014 PDACC", "PDA Device Closure", "AVBD", "Peripheral Angiogram", "VSD Device Closure"];
+const pVals=[15513, 14314, 13528, 4173, 3055, 3011, 2751, 2276, 1531, 1263, 1050, 1021, 725, 613, 587];
+const pColors=["#1E88E5", "#E8711C", "#43A047", "#AB47BC", "#26A69A", "#EF5350", "#FFB300", "#00BCD4", "#5C6BC0", "#9CCC65", "#EC407A", "#8D6E63", "#29B6F6", "#FF7043", "#66BB6A"];
+new Chart(document.getElementById('procChart'),{
+  type:'bar',
+  data:{labels:pLabels,datasets:[{label:'Count',data:pVals,backgroundColor:pColors,borderRadius:3}]},
+  options:{
+    indexAxis:'y',responsive:true,maintainAspectRatio:true,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{ticks:TICK,grid:GRID},
+      y:{ticks:{...TICK,font:{size:10}},grid:{display:false}}
+    }
+  }
+});
+
+// 4. Doughnut (complexity or gender)
+const dLabels=["Complex Structural", "Complex EP", "Complex", "Complex Coronary", "Complex Vascular", "Complex ASD", "Complex VSD", "Complex PDA"];
+const dVals=[18829, 4723, 2035, 591, 68, 43, 7, 2];
+const dColors=["#1E88E5", "#E8711C", "#43A047", "#AB47BC", "#26A69A", "#EF5350", "#FFB300", "#00BCD4"];
+new Chart(document.getElementById('doughnutChart'),{
+  type:'doughnut',
+  data:{labels:dLabels,datasets:[{data:dVals,backgroundColor:dColors,borderWidth:2,borderColor:'#1A2F4A'}]},
+  options:{
+    responsive:true,maintainAspectRatio:true,
+    plugins:{legend:{position:'bottom',labels:{color:'#B0BEC5',font:{size:10},boxWidth:12,padding:10}}}
+  }
+});
+
+// 5. Age distribution
+const ageLbl=["<18", "18\u201329", "30\u201344", "45\u201359", "60\u201374", "\u226575"];
+const ageVal=[9182, 8620, 15561, 22312, 5109, 198];
+new Chart(document.getElementById('ageChart'),{
+  type:'bar',
+  data:{labels:ageLbl,datasets:[{label:'Patients',data:ageVal,backgroundColor:['#5C6BC0','#1E88E5','#43A047','#FFB300','#EF5350','#AB47BC'],borderRadius:3}]},
+  options:{
+    responsive:true,maintainAspectRatio:true,
+    plugins:{legend:{display:false}},
+    scales:{x:{ticks:TICK,grid:GRID},y:{ticks:TICK,grid:GRID}}
+  }
+});
+
+// 6. Stacked annual: standard vs complex
+const aStd=[717, 990, 956, 873, 955, 1031, 1352, 1522, 1526, 1518, 1672, 1751, 1657, 1627, 1574, 1626, 1828, 1898, 1749, 566, 1006, 1342, 1428, 1355, 1371, 806];
+const aCpx=[547, 714, 851, 1085, 1412, 1009, 1470, 1490, 1454, 1330, 1278, 1490, 1221, 1417, 1468, 1209, 1125, 1074, 1161, 193, 350, 592, 769, 644, 695, 250];
+new Chart(document.getElementById('stackedBar'),{
+  type:'bar',
+  data:{labels:aYears,datasets:[
+    {label:'Standard',data:aStd,backgroundColor:'rgba(30,136,229,0.7)',stack:'a'},
+    {label:'Complex',data:aCpx,backgroundColor:'rgba(232,113,28,0.8)',stack:'a'}
+  ]},
+  options:{
+    responsive:true,maintainAspectRatio:true,
+    plugins:{legend:{labels:{color:'#B0BEC5',font:{size:10}}}},
+    scales:{
+      x:{ticks:{...TICK,maxRotation:45},grid:GRID,stacked:true},
+      y:{ticks:TICK,grid:GRID,stacked:true}
+    }
+  }
+});
+
+// 7. Yearly complexity rate line (or volume trend if no complexity)
+const aRate=[43.3, 41.9, 47.1, 55.4, 59.7, 49.5, 52.1, 49.5, 48.8, 46.7, 43.3, 46.0, 42.4, 46.6, 48.3, 42.6, 38.1, 36.1, 39.9, 25.4, 25.8, 30.6, 35.0, 32.2, 33.6, 23.7];
+const showARate=true;
+if(showARate && document.getElementById('cpxRateLine')){
+  new Chart(document.getElementById('cpxRateLine'),{
+    type:'line',
+    data:{labels:aYears,datasets:[{
+      label:'Complexity Rate (%)',data:aRate,
+      borderColor:ORANGE,backgroundColor:'rgba(232,113,28,0.15)',
+      borderWidth:2,pointRadius:4,pointBackgroundColor:ORANGE,
+      fill:true,tension:0.3
+    }]},
+    options:{
+      responsive:true,maintainAspectRatio:true,
+      plugins:{legend:{display:false}},
+      scales:{
+        x:{ticks:{...TICK,maxRotation:45},grid:GRID},
+        y:{ticks:{...TICK,callback:v=>v+'%'},grid:GRID,min:0}
+      }
+    }
+  });
+} else if(document.getElementById('cpxRateLine')){
+  // Volume trend line as fallback
+  new Chart(document.getElementById('cpxRateLine'),{
+    type:'line',
+    data:{labels:aYears,datasets:[{
+      label:'Annual Volume',data:aTotal,
+      borderColor:ACCENT,backgroundColor:ACCENT+'22',
+      borderWidth:2,pointRadius:3,fill:true,tension:0.3
+    }]},
+    options:{
+      responsive:true,maintainAspectRatio:true,
+      plugins:{legend:{display:false}},
+      scales:{
+        x:{ticks:{...TICK,maxRotation:45},grid:GRID},
+        y:{ticks:TICK,grid:GRID}
+      }
+    }
+  });
+}
+
+// 8. Discharge coverage (if data present)
+const dcYears=["2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"];
+const dcTotal=[411, 759, 1356, 1934, 2197, 1999, 2066, 1051];
+const dcWith=[411, 759, 1356, 1934, 2197, 1999, 1812, 890];
+const dcPct=[100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 87.7, 84.7];
+if(dcYears && document.getElementById('dcChart')){
+  new Chart(document.getElementById('dcChart'),{
+    type:'bar',
+    data:{labels:dcYears,datasets:[
+      {label:'With DS',data:dcWith,backgroundColor:'rgba(67,160,71,0.75)',stack:'a',borderRadius:3},
+      {label:'Without DS',data:dcTotal.map((t,i)=>t-dcWith[i]),backgroundColor:'rgba(239,83,80,0.5)',stack:'a'}
+    ]},
+    options:{
+      responsive:true,maintainAspectRatio:true,
+      plugins:{legend:{labels:{color:'#B0BEC5',font:{size:10}}}},
+      scales:{
+        x:{ticks:TICK,grid:GRID,stacked:true},
+        y:{ticks:TICK,grid:GRID,stacked:true}
+      }
+    }
+  });
+}
+</script>
+</body>
+</html>

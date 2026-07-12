@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSSIHMS Whitefield — Combined Clinical Activity Dashboard</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{
+ --navy:#1A2A4F; --blue:#1A5276; --card:#C0392B; --ctvs:#1A5276; --nesu:#E67E22; --ms:#27AE60;
+ --ink:#1c2733; --muted:#6b7785; --line:#e4e9ef; --bg:#f4f6f9; --panel:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px 64px}
+header{background:linear-gradient(135deg,var(--navy),#24406e);color:#fff;padding:34px 0 30px;margin-bottom:28px}
+header .wrap{padding-bottom:0}
+.eyebrow{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:#aebfdd;font-weight:600}
+h1{font-size:30px;font-weight:700;margin:6px 0 4px}
+.sub{color:#c5d2ea;font-size:14px}
+.grand{display:flex;align-items:baseline;gap:16px;margin-top:20px;flex-wrap:wrap}
+.grand .num{font-size:54px;font-weight:800;color:#f4b860;line-height:1}
+.grand .lbl{font-size:14px;color:#c5d2ea;max-width:360px}
+section{margin-top:34px}
+h2{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--line)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.kpi{background:var(--panel);border-radius:12px;padding:18px 18px 16px;box-shadow:0 1px 3px rgba(20,40,80,.07);border-top:4px solid var(--blue)}
+.kpi.card{border-top-color:var(--card)} .kpi.ctvs{border-top-color:var(--ctvs)}
+.kpi.nesu{border-top-color:var(--nesu)} .kpi.ms{border-top-color:var(--ms)}
+.kpi .dept{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted)}
+.kpi .big{font-size:34px;font-weight:800;margin:6px 0 2px}
+.kpi .meta{font-size:12.5px;color:var(--muted)}
+.kpi .row{display:flex;justify-content:space-between;font-size:12.5px;margin-top:9px;padding-top:9px;border-top:1px solid var(--line);color:#445}
+.kpi .row b{color:var(--ink)}
+.grid2{display:grid;grid-template-columns:1.4fr 1fr;gap:20px}
+.panel{background:var(--panel);border-radius:12px;padding:18px 20px 20px;box-shadow:0 1px 3px rgba(20,40,80,.07)}
+.panel h3{font-size:14px;color:var(--navy);margin-bottom:10px;font-weight:700}
+.chartbox{position:relative;height:300px}
+.chartbox.tall{height:340px}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.btn{border:1px solid var(--line);background:#fff;border-radius:20px;padding:6px 14px;font-size:13px;cursor:pointer;color:#445;font-weight:600}
+.btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted)}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+.tabs{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+.note{font-size:12px;color:var(--muted);margin-top:10px;font-style:italic}
+footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+@media(max-width:880px){.kpis{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap">
+  <div class="eyebrow">SSSIHMS Whitefield · Sri Sathya Sai Institute of Higher Medical Sciences</div>
+  <h1>Combined Clinical Activity Dashboard</h1>
+  <div class="sub">Cardiology · Cardiac Surgery · Neurosurgery · Multi-Specialty Surgery &nbsp;|&nbsp; 2001–2026 &nbsp;|&nbsp; Compiled 18 Jun 2026</div>
+  <div class="grand">
+   <div class="num" id="grandNum">195,100</div>
+   <div class="lbl">Total procedures &amp; cath-lab sessions across four departments over 26 calendar years.</div>
+  </div>
+ </div>
+</header>
+<div class="wrap">
+
+<section>
+ <h2>Department snapshot</h2>
+ <div class="kpis" id="kpis"></div>
+ <div class="note">Cath Lab counted as sessions; surgical departments as procedure records. Acuity definitions differ by department (see notes).</div>
+</section>
+
+<section>
+ <h2>Activity over time</h2>
+ <div class="panel">
+  <div class="controls" id="trendCtl">
+   <button class="btn active" data-m="line">Per-department lines</button>
+   <button class="btn" data-m="stack">Stacked volume</button>
+  </div>
+  <div class="chartbox tall"><canvas id="trendChart"></canvas></div>
+  <div class="note">2026 is partial (through June). Cath Lab complexity classification method changes in 2020 (HIS action-line).</div>
+ </div>
+</section>
+
+<section>
+ <h2>Composition</h2>
+ <div class="grid2">
+  <div class="panel">
+   <h3>Top procedures / case-mix by department</h3>
+   <div class="tabs" id="procTabs"></div>
+   <div class="chartbox"><canvas id="procChart"></canvas></div>
+  </div>
+  <div class="panel">
+   <h3>Share of total activity</h3>
+   <div class="chartbox"><canvas id="shareChart"></canvas></div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <h2>Demographics &amp; acuity</h2>
+ <div class="grid2">
+  <div class="panel">
+   <h3>Sex distribution (where recorded)</h3>
+   <div class="chartbox"><canvas id="sexChart"></canvas></div>
+  </div>
+  <div class="panel">
+   <h3>Department summary</h3>
+   <table id="demoTable"></table>
+   <div class="note">All four departments now carry record-level demographics. Mean age and M:F derived from full source exports.</div>
+  </div>
+ </div>
+</section>
+
+<footer id="footer"></footer>
+</div>
+
+<script>
+const DEPTS={
+ "Cardiology (Cath Lab)":{c:"#C0392B",total:71483,k2l:"Cath sessions",k2:60945,k3l:"Interventional",k3:46454,acuity:"56.6%",acuityL:"Complex (interv.)",male:37282,female:23706,age:38.8,period:"2001–2026",cls:"card"},
+ "Cardiac Surgery (CTVS)":{c:"#1A5276",total:30837,k2l:"Unique patients",k2:24978,k3l:"Complex cases",k3:1672,acuity:"5.6%",acuityL:"Complex",male:17692,female:12105,age:28.5,period:"2001–2025",cls:"ctvs"},
+ "Neurosurgery (NESU)":{c:"#E67E22",total:41185,k2l:"Unique patients",k2:31489,k3l:"Complex cases",k3:16800,acuity:"40.8%",acuityL:"Complex",male:24859,female:15357,age:37.3,period:"2001–2026",cls:"nesu"},
+ "Multi-Specialty Surgery":{c:"#27AE60",total:51595,k2l:"Since 1976 (GH)",k2:51595,k3l:"HIS-era 2012–25",k3:17967,acuity:"37.9%",acuityL:"Major (HIS)",male:7755,female:10309,age:41.6,period:"1976–2026",cls:"ms"},
+};
+const YEARS=Array.from({length:26},(_,i)=>2001+i);
+const YEARLY={
+ "Cardiology (Cath Lab)":{2001:1293,2002:1760,2003:1851,2004:1989,2005:2411,2006:2140,2007:3226,2008:3571,2009:3517,2010:3551,2011:3308,2012:3835,2013:3348,2014:3744,2015:3914,2016:3164,2017:2953,2018:2972,2019:3005,2020:959,2021:1955,2022:2911,2023:3238,2024:2853,2025:2718,2026:1297},
+ "Cardiac Surgery (CTVS)":{2001:1730,2002:1307,2003:1099,2004:1020,2005:1110,2006:1015,2007:1246,2008:1123,2009:1451,2010:1264,2011:1114,2012:1775,2013:1571,2014:1878,2015:1536,2016:1421,2017:1324,2018:1165,2019:1058,2020:398,2021:728,2022:1051,2023:1079,2024:984,2025:900,2026:490},
+ "Neurosurgery (NESU)":{2001:1633,2002:1279,2003:1295,2004:1234,2005:1091,2006:1196,2007:1400,2008:1464,2009:1652,2010:1693,2011:1751,2012:1793,2013:1907,2014:2011,2015:1960,2016:1842,2017:1894,2018:1784,2019:1820,2020:738,2021:1280,2022:1726,2023:1819,2024:1880,2025:2016,2026:1027},
+ "Multi-Specialty Surgery":{2001:0,2002:0,2003:0,2004:0,2005:0,2006:0,2007:0,2008:1124,2009:1019,2010:1067,2011:965,2012:1094,2013:1355,2014:1352,2015:1326,2016:1454,2017:1824,2018:2039,2019:2047,2020:705,2021:1650,2022:2813,2023:3206,2024:3524,2025:3324,2026:0},
+};
+const TOP={
+ "Cardiology (Cath Lab)":[["Coronary Angiography (CAG)",15513],["PTMC (mitral)",14314],["PTCA (coronary)",13528],["EP Study",4173],["Left/Right Heart Cath",3055],["Coronary PCI",3011],["RFA / Ablation",2751],["ASD Device Closure",2276]],
+ "Cardiac Surgery (CTVS)":[["Congenital open-heart",10977],["CABG",7829],["Valvular",4369],["Congenital closed",3485],["Other",2005],["Redo / re-explore",417],["Cardiac tumour",204],["Thoracic aortic",200]],
+ "Neurosurgery (NESU)":[["Lumbar discectomy",3240],["Lumbar lam+disc",2648],["Craniotomy frontal",2411],["Post. fossa cranio",2400],["Re-explore/revision",1725],["VP shunt",1447],["Transsphenoidal",1408],["Cranio pterional",1117]],
+ "Multi-Specialty Surgery":[["Obstetrics & Gynaecology",13859],["Ophthalmology",10402],["General Surgery",8709],["ENT",8155],["Orthopaedics",5952],["Urology",2474],["Plastic Surgery",2044]],
+};
+const fmt=n=>n.toLocaleString('en-IN');
+const names=Object.keys(DEPTS);
+
+// KPIs
+document.getElementById('kpis').innerHTML=names.map(n=>{const d=DEPTS[n];return `
+ <div class="kpi ${d.cls}">
+  <div class="dept">${n}</div>
+  <div class="big">${fmt(d.total)}</div>
+  <div class="meta">${d.period}</div>
+  <div class="row"><span>${d.k2l}</span><b>${fmt(d.k2)}</b></div>
+  <div class="row"><span>${d.acuityL}</span><b>${d.acuity}</b></div>
+ </div>`;}).join('');
+
+const baseOpts={responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:12,font:{size:11}}}}};
+
+// Trend chart
+let trendChart;
+function drawTrend(mode){
+ const ds=names.map(n=>({label:n,data:YEARS.map(y=>YEARLY[n][y]??0),borderColor:DEPTS[n].c,backgroundColor:DEPTS[n].c+(mode==='stack'?'cc':'22'),fill:mode==='stack',tension:.3,pointRadius:mode==='stack'?0:2,borderWidth:2}));
+ const cfg={type:mode==='stack'?'line':'line',data:{labels:YEARS,datasets:ds},
+  options:{...baseOpts,scales:{x:{stacked:mode==='stack',grid:{display:false}},y:{stacked:mode==='stack',title:{display:true,text:'Procedures / sessions'}}}}};
+ if(trendChart)trendChart.destroy(); trendChart=new Chart(document.getElementById('trendChart'),cfg);
+}
+drawTrend('line');
+document.querySelectorAll('#trendCtl .btn').forEach(b=>b.onclick=()=>{
+ document.querySelectorAll('#trendCtl .btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');drawTrend(b.dataset.m);});
+
+// Procedure chart with tabs
+let procChart,curDept=names[0];
+document.getElementById('procTabs').innerHTML=names.map((n,i)=>`<button class="btn ${i?'':'active'}" data-d="${n}"><span class="dot" style="background:${DEPTS[n].c}"></span>${n.split(' (')[0]}</button>`).join('');
+function drawProc(n){
+ const rows=TOP[n];
+ const cfg={type:'bar',data:{labels:rows.map(r=>r[0]),datasets:[{data:rows.map(r=>r[1]),backgroundColor:DEPTS[n].c,borderRadius:4}]},
+  options:{...baseOpts,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{title:{display:true,text:'Cases'}}}}};
+ if(procChart)procChart.destroy();procChart=new Chart(document.getElementById('procChart'),cfg);
+}
+drawProc(curDept);
+document.querySelectorAll('#procTabs .btn').forEach(b=>b.onclick=()=>{
+ document.querySelectorAll('#procTabs .btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');drawProc(b.dataset.d);});
+
+// Share donut
+new Chart(document.getElementById('shareChart'),{type:'doughnut',
+ data:{labels:names,datasets:[{data:names.map(n=>DEPTS[n].total),backgroundColor:names.map(n=>DEPTS[n].c),borderWidth:2,borderColor:'#fff'}]},
+ options:{...baseOpts,cutout:'58%',plugins:{legend:{position:'bottom',labels:{boxWidth:12,font:{size:11}}},
+  tooltip:{callbacks:{label:c=>` ${c.label}: ${fmt(c.raw)} (${(c.raw/195100*100).toFixed(1)}%)`}}}}});
+
+// Sex chart
+const sexDepts=names.filter(n=>DEPTS[n].male);
+new Chart(document.getElementById('sexChart'),{type:'bar',
+ data:{labels:sexDepts.map(n=>n.split(' (')[0]),datasets:[
+  {label:'Male',data:sexDepts.map(n=>DEPTS[n].male),backgroundColor:'#2E6DB4'},
+  {label:'Female',data:sexDepts.map(n=>DEPTS[n].female),backgroundColor:'#E5739A'}]},
+ options:{...baseOpts,scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true}}}});
+
+// Demo table
+document.getElementById('demoTable').innerHTML=`<thead><tr><th>Department</th><th class="n">Mean age</th><th class="n">M:F</th><th class="n">Acuity</th></tr></thead><tbody>`+
+ names.map(n=>{const d=DEPTS[n];const mf=d.male?(d.male/d.female).toFixed(2)+':1':'n/r';return `<tr><td><span class="dot" style="background:${d.c}"></span>${n}</td><td class="n">${d.age??'n/r'}</td><td class="n">${mf}</td><td class="n">${d.acuity}</td></tr>`;}).join('')+`</tbody>`;
+
+document.getElementById('footer').innerHTML="Sources: Cath_Lab_Statistics (eHIS+HIS+Cath Register) · CTVS_Classified_Register · NESU_Statistics 2001–2026 (HIS export + ATHMA discharge summaries) · EM_ALL_MS_Surgery_Statistics. Departments span different windows and acuity definitions; totals are additive but unique-patient counts are not deduplicated across departments. 2026 partial through June.";
+</script>
+</body>
+</html>

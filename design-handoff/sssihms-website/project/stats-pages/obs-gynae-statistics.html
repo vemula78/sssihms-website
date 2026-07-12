@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSSIHMS Whitefield — Obstetrics & Gynaecology 2012–2026 — SSSIHMS</title>
+<style>html, body { margin: 0; padding: 0; } [id^="ssdash"] { min-height: 0 !important; }</style>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+<style>
+#ssdash-obs-gynae *{box-sizing:border-box;margin:0;padding:0}#ssdash-obs-gynae{font-family:'Segoe UI',system-ui,sans-serif;background:#0D2137;color:#E8EAED;min-height:100vh}#ssdash-obs-gynae .header{background:linear-gradient(135deg,#1E3A5F 0%,#0D2137 100%);padding:24px 32px;border-bottom:3px solid #C0396E}#ssdash-obs-gynae .header h1{font-size:22px;font-weight:700;color:#fff;letter-spacing:0.5px}#ssdash-obs-gynae .header p{font-size:12px;color:#90CAF9;margin-top:4px}#ssdash-obs-gynae .tag{display:inline-block;background:#C0396E;color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:3px;margin-left:10px;vertical-align:middle}#ssdash-obs-gynae .kpi-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;padding:20px 32px}#ssdash-obs-gynae .kpi{background:#1E3A5F;border-radius:8px;padding:16px;border-top:3px solid var(--accent,#C0396E)}#ssdash-obs-gynae .kpi .label{font-size:10px;color:#90CAF9;text-transform:uppercase;letter-spacing:0.8px;font-weight:600}#ssdash-obs-gynae .kpi .value{font-size:26px;font-weight:700;color:#fff;margin:6px 0 2px}#ssdash-obs-gynae .kpi .sub{font-size:11px;color:#B0BEC5}#ssdash-obs-gynae .charts-row{display:grid;grid-template-columns:2fr 1fr;gap:12px;padding:0 32px 12px}#ssdash-obs-gynae .charts-row2{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;padding:0 32px 12px}#ssdash-obs-gynae .charts-row3{display:grid;grid-template-columns:3fr 2fr;gap:12px;padding:0 32px 12px}#ssdash-obs-gynae .charts-row4{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 32px 12px}#ssdash-obs-gynae .card{background:#1A2F4A;border-radius:8px;padding:20px}#ssdash-obs-gynae .card h3{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:#90CAF9;margin-bottom:14px;border-bottom:1px solid #2A3F5F;padding-bottom:8px}#ssdash-obs-gynae canvas{max-width:100%}#ssdash-obs-gynae .footer{text-align:center;padding:16px;font-size:11px;color:#607D8B;border-top:1px solid #1E3A5F;margin-top:8px}#ssdash-obs-gynae .badge-row{display:flex;gap:10px;flex-wrap:wrap;padding:0 32px 16px}#ssdash-obs-gynae .badge{background:#1E3A5F;border-radius:6px;padding:8px 14px;font-size:11px;color:#90CAF9;border:1px solid #2A3F5F}#ssdash-obs-gynae .badge strong{color:#fff;font-size:13px;display:block}
+
+#ssdash-obs-gynae{width:100%;overflow-x:hidden}
+</style>
+<div id="ssdash-obs-gynae">
+
+
+<div class="header">
+  <h1>SSSIHMS Whitefield — Obstetrics & Gynaecology <span class="tag">2012–2026</span></h1>
+  <p>Obstetrics, Gynaecology & Neonatology &nbsp;|&nbsp; Sri Sathya Sai Institute of Higher Medical Sciences, Bangalore &nbsp;|&nbsp; 2012 – Jun 2026 (HIS detail); since 1976 (institutional aggregate)</p>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi" style="--accent:#1E88E5"><div class="label">Total Procedures</div><div class="value">5,682</div><div class="sub">2012 – Jun 2026 (HIS detail); since 1976 (institutional aggregate)</div></div>
+<div class="kpi" style="--accent:#AB47BC"><div class="label">Unique Patients</div><div class="value">5,074</div><div class="sub">distinct MRNs</div></div>
+<div class="kpi" style="--accent:#C0396E"><div class="label">Mean Age</div><div class="value">33.1 yr</div><div class="sub">at time of procedure</div></div>
+<div class="kpi" style="--accent:#26A69A"><div class="label">Male / Female</div><div class="value">3 / 5,679</div><div class="sub">gender split</div></div>
+<div class="kpi" style="--accent:#43A047"><div class="label">Cases / Day</div><div class="value">1.67</div><div class="sub">operating days</div></div>
+</div>
+
+<div class="badge-row">
+  <div class="badge"><strong>33.1 yrs</strong>Mean Age</div>
+<div class="badge"><strong>3 M / 5,679 F</strong>Gender</div>
+<div class="badge"><strong>1,434/1,434</strong>Discharge Summaries</div>
+</div>
+
+<!-- Row 1: Monthly volume + Yearly rate -->
+<div class="charts-row">
+  <div class="card">
+    <h3>Monthly Procedure Volume</h3>
+    <canvas id="monthlyChart" height="90"></canvas>
+  </div>
+  <div class="card">
+    <h3>Annual Volume by Year</h3>
+    <canvas id="yearlyRateChart" height="90"></canvas>
+  </div>
+</div>
+
+<!-- Row 2: Procedures + Doughnut -->
+<div class="charts-row3">
+  <div class="card">
+    <h3>Top 15 Procedures — Total Count</h3>
+    <canvas id="procChart" height="120"></canvas>
+  </div>
+  <div class="card">
+    <h3>Gender Distribution</h3>
+    <canvas id="doughnutChart" height="120"></canvas>
+  </div>
+</div>
+
+<!-- Row 3: Age dist + Standard vs Complex + Operators -->
+<div class="charts-row2">
+  <div class="card">
+    <h3>Patient Age Distribution</h3>
+    <canvas id="ageChart" height="130"></canvas>
+  </div>
+  <div class="card">
+    <h3>Standard vs Complex — Annual</h3>
+    <canvas id="stackedBar" height="130"></canvas>
+  </div>
+  <div class='card'><h3>Annual Volume Trend</h3><canvas id='cpxRateLine' height='130'></canvas></div>
+</div>
+
+<!-- Row 4: Operators -->
+<div class='charts-row4'>
+<div class="card" style="overflow-x:auto">
+  <h3>Top Surgeons by Volume</h3>
+  <table style="width:100%;border-collapse:collapse;font-size:11px">
+    <thead>
+      <tr style="border-bottom:1px solid #2A3F5F">
+        <th style="color:#90CAF9;text-align:left;padding:4px 6px">#</th>
+        <th style="color:#90CAF9;text-align:left;padding:4px 6px">Surgeon</th>
+        <th style="color:#90CAF9;text-align:right;padding:4px 6px">Volume</th>
+        <th style="color:#90CAF9;text-align:right;padding:4px 6px">Complex</th>
+      </tr>
+    </thead>
+    <tbody style="color:#B0BEC5">
+      <tr><td style="color:#90CAF9;font-size:11px">1</td><td style="color:#E8EAED">DR SHARMILA N</td><td style="text-align:right;color:#fff;font-weight:700">2,100</td><td style="text-align:right;color:#FFB300">—</td></tr><tr><td style="color:#90CAF9;font-size:11px">2</td><td style="color:#E8EAED">DR AKKAMAHADEVI C H</td><td style="text-align:right;color:#fff;font-weight:700">1,304</td><td style="text-align:right;color:#FFB300">—</td></tr><tr><td style="color:#90CAF9;font-size:11px">3</td><td style="color:#E8EAED">DR AKKAMAHADEVI C HIREMATH</td><td style="text-align:right;color:#fff;font-weight:700">733</td><td style="text-align:right;color:#FFB300">—</td></tr><tr><td style="color:#90CAF9;font-size:11px">4</td><td style="color:#E8EAED">DR NEEKITA P</td><td style="text-align:right;color:#fff;font-weight:700">490</td><td style="text-align:right;color:#FFB300">—</td></tr><tr><td style="color:#90CAF9;font-size:11px">5</td><td style="color:#E8EAED">DR ANUJA DOOLAM</td><td style="text-align:right;color:#fff;font-weight:700">230</td><td style="text-align:right;color:#FFB300">—</td></tr><tr><td style="color:#90CAF9;font-size:11px">6</td><td style="color:#E8EAED">DR HARSHITA R</td><td style="text-align:right;color:#fff;font-weight:700">152</td><td style="text-align:right;color:#FFB300">—</td></tr><tr><td style="color:#90CAF9;font-size:11px">7</td><td style="color:#E8EAED">DR GIRIJA K J</td><td style="text-align:right;color:#fff;font-weight:700">96</td><td style="text-align:right;color:#FFB300">—</td></tr><tr><td style="color:#90CAF9;font-size:11px">8</td><td style="color:#E8EAED">DR KAVYA KSHATRIYA</td><td style="text-align:right;color:#fff;font-weight:700">92</td><td style="text-align:right;color:#FFB300">—</td></tr><tr><td style="color:#90CAF9;font-size:11px">9</td><td style="color:#E8EAED">DR JYOTHI SHILAWANT</td><td style="text-align:right;color:#fff;font-weight:700">77</td><td style="text-align:right;color:#FFB300">—</td></tr><tr><td style="color:#90CAF9;font-size:11px">10</td><td style="color:#E8EAED">DR SUSHILA SHETTY</td><td style="text-align:right;color:#fff;font-weight:700">64</td><td style="text-align:right;color:#FFB300">—</td></tr>
+    </tbody>
+  </table>
+</div><div class="card">
+    <h3>Discharge Summary Coverage</h3>
+    <canvas id="dcChart" height="200"></canvas>
+  </div></div>
+
+<div class="footer">
+  SSSIHMS Whitefield — Obstetrics & Gynaecology &nbsp;|&nbsp; 2012 – Jun 2026 (HIS detail); since 1976 (institutional aggregate) &nbsp;|&nbsp; 5,682 procedures · 5,074 patients &nbsp;|&nbsp; All care provided free of charge
+</div>
+
+<script>
+const ACCENT='#C0396E';
+const BLUE='#1E88E5',ORANGE='#E8711C',GREEN='#43A047',TEAL='#26A69A',
+      PURPLE='#AB47BC',RED='#EF5350',YELLOW='#FFB300',CYAN='#00BCD4',
+      INDIGO='#5C6BC0',LIME='#9CCC65',PINK='#EC407A',BROWN='#8D6E63';
+const GRID={color:'rgba(255,255,255,0.05)'};
+const TICK={color:'#90CAF9',font:{size:10}};
+
+// 1. Monthly volume (stacked bar + rate line)
+const mLabels=["2017-02", "2017-03", "2017-04", "2017-05", "2017-06", "2017-07", "2017-08", "2017-09", "2017-10", "2017-11", "2017-12", "2018-01", "2018-02", "2018-03", "2018-04", "2018-05", "2018-06", "2018-07", "2018-08", "2018-09", "2018-10", "2018-11", "2018-12", "2019-01", "2019-02", "2019-03", "2019-04", "2019-05", "2019-06", "2019-07", "2019-08", "2019-09", "2019-10", "2019-11", "2019-12", "2020-01", "2020-02", "2020-03", "2020-04", "2020-05", "2020-06", "2020-07", "2020-08", "2020-09", "2020-10", "2020-11", "2020-12", "2021-01", "2021-02", "2021-03", "2021-04", "2021-05", "2021-06", "2021-07", "2021-08", "2021-09", "2021-10", "2021-11", "2021-12", "2022-01", "2022-02", "2022-03", "2022-04", "2022-05", "2022-06", "2022-07", "2022-08", "2022-09", "2022-10", "2022-11", "2022-12", "2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12", "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06"];
+const mStd=[16, 27, 19, 33, 25, 30, 22, 28, 24, 26, 41, 38, 32, 35, 37, 40, 24, 33, 35, 26, 33, 30, 40, 31, 35, 33, 28, 40, 33, 43, 42, 37, 39, 46, 37, 43, 35, 41, 5, 14, 12, 10, 16, 20, 15, 20, 21, 20, 34, 37, 17, 12, 13, 21, 40, 40, 44, 37, 54, 22, 34, 62, 58, 64, 66, 62, 64, 74, 83, 91, 69, 75, 64, 85, 63, 91, 85, 81, 77, 86, 87, 67, 57, 63, 47, 48, 48, 55, 60, 67, 85, 79, 76, 66, 76, 75, 77, 76, 86, 84, 111, 82, 93, 97, 106, 97, 70, 96, 77, 81, 78, 91, 9];
+const mCpx=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+const mRate=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];
+const showRate=false;
+
+const monthlyDatasets=[
+  {label:'Standard',data:mStd,backgroundColor:'rgba(30,136,229,0.65)',borderColor:'#1E88E5',borderWidth:1,stack:'a',order:2},
+  {label:'Complex',data:mCpx,backgroundColor:'rgba(232,113,28,0.75)',borderColor:ORANGE,borderWidth:1,stack:'a',order:2},
+];
+if(showRate){
+  monthlyDatasets.push({
+    label:'Complexity Rate (%)',data:mRate,type:'line',yAxisID:'y2',
+    borderColor:ORANGE,backgroundColor:'transparent',borderWidth:2,pointRadius:0,tension:0.3,order:1
+  });
+}
+new Chart(document.getElementById('monthlyChart'),{
+  type:'bar',
+  data:{labels:mLabels,datasets:monthlyDatasets},
+  options:{
+    responsive:true,maintainAspectRatio:true,
+    plugins:{legend:{labels:{color:'#B0BEC5',font:{size:10}}}},
+    scales:{
+      x:{ticks:{...TICK,maxRotation:90,minRotation:45,maxTicksLimit:26},grid:GRID,stacked:true},
+      y:{ticks:TICK,grid:GRID,stacked:true,title:{display:true,text:'Procedures',color:'#90CAF9',font:{size:10}}},
+      y2:showRate?{position:'right',ticks:{...TICK,callback:v=>v+'%'},grid:{display:false},title:{display:true,text:'Complexity %',color:ORANGE,font:{size:10}}}:undefined
+    }
+  }
+});
+
+// 2. Annual bar
+const aYears=["2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"];
+const aTotal=[291, 403, 444, 252, 369, 749, 918, 770, 1002, 432];
+new Chart(document.getElementById('yearlyRateChart'),{
+  type:'bar',
+  data:{labels:aYears,datasets:[{label:'Procedures',data:aTotal,backgroundColor:ACCENT+'aa',borderColor:ACCENT,borderWidth:1,borderRadius:4}]},
+  options:{
+    responsive:true,maintainAspectRatio:true,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{ticks:{...TICK,maxRotation:45},grid:GRID},
+      y:{ticks:TICK,grid:GRID}
+    }
+  }
+});
+
+// 3. Procedures horizontal bar
+const pLabels=["EMERGENCY LSCS", "ELECTIVE LSCS", "FTVD WITH RMLE", "TAH + SALPHINGECTOMY", "LAPAROSCOPIC OVARIAN CYSTECT", "TLH WITH BILATERAL SALPINGEC", "TLH + SO", "OTHER OBG SURGERY", "OPEN MYOMECTOMY", "DIAGNOSTIC HYSTEROLAPAROSCOP", "TOTAL ABDOMINAL HYSTERECTOMY", "VH + PFR", "VAGINAL HYSTERECTOMY (VH)", "TOTAL ABDOMINAL HYSTERECTOMY", "DIAGNOSTIC LAPAROSCOPY + CHR"];
+const pVals=[1449, 441, 430, 365, 255, 238, 166, 151, 146, 145, 133, 114, 113, 88, 68];
+const pColors=["#1E88E5", "#E8711C", "#43A047", "#AB47BC", "#26A69A", "#EF5350", "#FFB300", "#00BCD4", "#5C6BC0", "#9CCC65", "#EC407A", "#8D6E63", "#29B6F6", "#FF7043", "#66BB6A"];
+new Chart(document.getElementById('procChart'),{
+  type:'bar',
+  data:{labels:pLabels,datasets:[{label:'Count',data:pVals,backgroundColor:pColors,borderRadius:3}]},
+  options:{
+    indexAxis:'y',responsive:true,maintainAspectRatio:true,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{ticks:TICK,grid:GRID},
+      y:{ticks:{...TICK,font:{size:10}},grid:{display:false}}
+    }
+  }
+});
+
+// 4. Doughnut (complexity or gender)
+const dLabels=["Male", "Female"];
+const dVals=[3, 5679];
+const dColors=["#1E88E5", "#EC407A"];
+new Chart(document.getElementById('doughnutChart'),{
+  type:'doughnut',
+  data:{labels:dLabels,datasets:[{data:dVals,backgroundColor:dColors,borderWidth:2,borderColor:'#1A2F4A'}]},
+  options:{
+    responsive:true,maintainAspectRatio:true,
+    plugins:{legend:{position:'bottom',labels:{color:'#B0BEC5',font:{size:10},boxWidth:12,padding:10}}}
+  }
+});
+
+// 5. Age distribution
+const ageLbl=["<18", "18\u201329", "30\u201344", "45\u201359", "60\u201374", "\u226575"];
+const ageVal=[44, 2778, 1841, 848, 155, 12];
+new Chart(document.getElementById('ageChart'),{
+  type:'bar',
+  data:{labels:ageLbl,datasets:[{label:'Patients',data:ageVal,backgroundColor:['#5C6BC0','#1E88E5','#43A047','#FFB300','#EF5350','#AB47BC'],borderRadius:3}]},
+  options:{
+    responsive:true,maintainAspectRatio:true,
+    plugins:{legend:{display:false}},
+    scales:{x:{ticks:TICK,grid:GRID},y:{ticks:TICK,grid:GRID}}
+  }
+});
+
+// 6. Stacked annual: standard vs complex
+const aStd=[291, 403, 444, 252, 369, 749, 918, 770, 1002, 432];
+const aCpx=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+new Chart(document.getElementById('stackedBar'),{
+  type:'bar',
+  data:{labels:aYears,datasets:[
+    {label:'Standard',data:aStd,backgroundColor:'rgba(30,136,229,0.7)',stack:'a'},
+    {label:'Complex',data:aCpx,backgroundColor:'rgba(232,113,28,0.8)',stack:'a'}
+  ]},
+  options:{
+    responsive:true,maintainAspectRatio:true,
+    plugins:{legend:{labels:{color:'#B0BEC5',font:{size:10}}}},
+    scales:{
+      x:{ticks:{...TICK,maxRotation:45},grid:GRID,stacked:true},
+      y:{ticks:TICK,grid:GRID,stacked:true}
+    }
+  }
+});
+
+// 7. Yearly complexity rate line (or volume trend if no complexity)
+const aRate=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];
+const showARate=false;
+if(showARate && document.getElementById('cpxRateLine')){
+  new Chart(document.getElementById('cpxRateLine'),{
+    type:'line',
+    data:{labels:aYears,datasets:[{
+      label:'Complexity Rate (%)',data:aRate,
+      borderColor:ORANGE,backgroundColor:'rgba(232,113,28,0.15)',
+      borderWidth:2,pointRadius:4,pointBackgroundColor:ORANGE,
+      fill:true,tension:0.3
+    }]},
+    options:{
+      responsive:true,maintainAspectRatio:true,
+      plugins:{legend:{display:false}},
+      scales:{
+        x:{ticks:{...TICK,maxRotation:45},grid:GRID},
+        y:{ticks:{...TICK,callback:v=>v+'%'},grid:GRID,min:0}
+      }
+    }
+  });
+} else if(document.getElementById('cpxRateLine')){
+  // Volume trend line as fallback
+  new Chart(document.getElementById('cpxRateLine'),{
+    type:'line',
+    data:{labels:aYears,datasets:[{
+      label:'Annual Volume',data:aTotal,
+      borderColor:ACCENT,backgroundColor:ACCENT+'22',
+      borderWidth:2,pointRadius:3,fill:true,tension:0.3
+    }]},
+    options:{
+      responsive:true,maintainAspectRatio:true,
+      plugins:{legend:{display:false}},
+      scales:{
+        x:{ticks:{...TICK,maxRotation:45},grid:GRID},
+        y:{ticks:TICK,grid:GRID}
+      }
+    }
+  });
+}
+
+// 8. Discharge coverage (if data present)
+const dcYears=["2025", "2026"];
+const dcTotal=[1002, 432];
+const dcWith=[1002, 432];
+const dcPct=[100.0, 100.0];
+if(dcYears && document.getElementById('dcChart')){
+  new Chart(document.getElementById('dcChart'),{
+    type:'bar',
+    data:{labels:dcYears,datasets:[
+      {label:'With DS',data:dcWith,backgroundColor:'rgba(67,160,71,0.75)',stack:'a',borderRadius:3},
+      {label:'Without DS',data:dcTotal.map((t,i)=>t-dcWith[i]),backgroundColor:'rgba(239,83,80,0.5)',stack:'a'}
+    ]},
+    options:{
+      responsive:true,maintainAspectRatio:true,
+      plugins:{legend:{labels:{color:'#B0BEC5',font:{size:10}}}},
+      scales:{
+        x:{ticks:TICK,grid:GRID,stacked:true},
+        y:{ticks:TICK,grid:GRID,stacked:true}
+      }
+    }
+  });
+}
+</script>
+
+</div>
+<script>
+(function(){
+  function post(){ try { parent.postMessage({ type:'ssdash-height', slug:'obs-gynae-statistics', h: document.body.scrollHeight }, '*'); } catch(e){} }
+  window.addEventListener('load', function(){ post(); setTimeout(post, 500); setTimeout(post, 1500); });
+  if (window.ResizeObserver) { new ResizeObserver(post).observe(document.body); }
+})();
+</script>
+</body>
+</html>

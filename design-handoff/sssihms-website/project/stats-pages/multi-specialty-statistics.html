@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSSIHMS Whitefield — Multi-Specialty Surgery 2012–2026 — SSSIHMS</title>
+<style>html, body { margin: 0; padding: 0; } [id^="ssdash"] { min-height: 0 !important; }</style>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+<style>
+#ssdash-multi-specialty *{box-sizing:border-box;margin:0;padding:0}#ssdash-multi-specialty{font-family:'Segoe UI',system-ui,sans-serif;background:#0D2137;color:#E8EAED;min-height:100vh}#ssdash-multi-specialty .header{background:linear-gradient(135deg,#1E3A5F 0%,#0D2137 100%);padding:24px 32px;border-bottom:3px solid #7B1FA2}#ssdash-multi-specialty .header h1{font-size:22px;font-weight:700;color:#fff;letter-spacing:0.5px}#ssdash-multi-specialty .header p{font-size:12px;color:#90CAF9;margin-top:4px}#ssdash-multi-specialty .tag{display:inline-block;background:#7B1FA2;color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:3px;margin-left:10px;vertical-align:middle}#ssdash-multi-specialty .kpi-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;padding:20px 32px}#ssdash-multi-specialty .kpi{background:#1E3A5F;border-radius:8px;padding:16px;border-top:3px solid var(--accent,#7B1FA2)}#ssdash-multi-specialty .kpi .label{font-size:10px;color:#90CAF9;text-transform:uppercase;letter-spacing:0.8px;font-weight:600}#ssdash-multi-specialty .kpi .value{font-size:26px;font-weight:700;color:#fff;margin:6px 0 2px}#ssdash-multi-specialty .kpi .sub{font-size:11px;color:#B0BEC5}#ssdash-multi-specialty .charts-row{display:grid;grid-template-columns:2fr 1fr;gap:12px;padding:0 32px 12px}#ssdash-multi-specialty .charts-row2{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;padding:0 32px 12px}#ssdash-multi-specialty .charts-row3{display:grid;grid-template-columns:3fr 2fr;gap:12px;padding:0 32px 12px}#ssdash-multi-specialty .charts-row4{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 32px 12px}#ssdash-multi-specialty .card{background:#1A2F4A;border-radius:8px;padding:20px}#ssdash-multi-specialty .card h3{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:#90CAF9;margin-bottom:14px;border-bottom:1px solid #2A3F5F;padding-bottom:8px}#ssdash-multi-specialty canvas{max-width:100%}#ssdash-multi-specialty .footer{text-align:center;padding:16px;font-size:11px;color:#607D8B;border-top:1px solid #1E3A5F;margin-top:8px}#ssdash-multi-specialty .badge-row{display:flex;gap:10px;flex-wrap:wrap;padding:0 32px 16px}#ssdash-multi-specialty .badge{background:#1E3A5F;border-radius:6px;padding:8px 14px;font-size:11px;color:#90CAF9;border:1px solid #2A3F5F}#ssdash-multi-specialty .badge strong{color:#fff;font-size:13px;display:block}
+
+#ssdash-multi-specialty{width:100%;overflow-x:hidden}
+</style>
+<div id="ssdash-multi-specialty">
+
+
+<div class="header">
+  <h1>SSSIHMS Whitefield — Multi-Specialty Surgery <span class="tag">2012–2026</span></h1>
+  <p>Combined Multi-Specialty Surgical Services &nbsp;|&nbsp; Sri Sathya Sai Institute of Higher Medical Sciences, Bangalore &nbsp;|&nbsp; 1976 – Jun 2026</p>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi" style="--accent:#1E88E5"><div class="label">Total Procedures</div><div class="value">23,849</div><div class="sub">1976 – Jun 2026</div></div>
+<div class="kpi" style="--accent:#AB47BC"><div class="label">Unique Patients</div><div class="value">19,770</div><div class="sub">distinct MRNs</div></div>
+<div class="kpi" style="--accent:#7B1FA2"><div class="label">Mean Age</div><div class="value">41.8 yr</div><div class="sub">at time of procedure</div></div>
+<div class="kpi" style="--accent:#26A69A"><div class="label">Male / Female</div><div class="value">10,022 / 13,827</div><div class="sub">gender split</div></div>
+<div class="kpi" style="--accent:#43A047"><div class="label">Cases / Day</div><div class="value">0.00</div><div class="sub">operating days</div></div>
+</div>
+
+<div class="badge-row">
+  <div class="badge"><strong>41.8 yrs</strong>Mean Age</div>
+<div class="badge"><strong>10,022 M / 13,827 F</strong>Gender</div>
+</div>
+
+<!-- Row 1: Monthly volume + Yearly rate -->
+<div class="charts-row">
+  <div class="card">
+    <h3>Monthly Procedure Volume</h3>
+    <canvas id="monthlyChart" height="90"></canvas>
+  </div>
+  <div class="card">
+    <h3>Annual Volume by Year</h3>
+    <canvas id="yearlyRateChart" height="90"></canvas>
+  </div>
+</div>
+
+<!-- Row 2: Procedures + Doughnut -->
+<div class="charts-row3">
+  <div class="card">
+    <h3>Top 15 Procedures — Total Count</h3>
+    <canvas id="procChart" height="120"></canvas>
+  </div>
+  <div class="card">
+    <h3>Gender Distribution</h3>
+    <canvas id="doughnutChart" height="120"></canvas>
+  </div>
+</div>
+
+<!-- Row 3: Age dist + Standard vs Complex + Operators -->
+<div class="charts-row2">
+  <div class="card">
+    <h3>Patient Age Distribution</h3>
+    <canvas id="ageChart" height="130"></canvas>
+  </div>
+  <div class="card">
+    <h3>Standard vs Complex — Annual</h3>
+    <canvas id="stackedBar" height="130"></canvas>
+  </div>
+  <div class='card'><h3>Annual Volume Trend</h3><canvas id='cpxRateLine' height='130'></canvas></div>
+</div>
+
+
+
+
+<div class="footer">
+  SSSIHMS Whitefield — Multi-Specialty Surgery &nbsp;|&nbsp; 1976 – Jun 2026 &nbsp;|&nbsp; 23,849 procedures · 19,770 patients &nbsp;|&nbsp; All care provided free of charge
+</div>
+
+<script>
+const ACCENT='#7B1FA2';
+const BLUE='#1E88E5',ORANGE='#E8711C',GREEN='#43A047',TEAL='#26A69A',
+      PURPLE='#AB47BC',RED='#EF5350',YELLOW='#FFB300',CYAN='#00BCD4',
+      INDIGO='#5C6BC0',LIME='#9CCC65',PINK='#EC407A',BROWN='#8D6E63';
+const GRID={color:'rgba(255,255,255,0.05)'};
+const TICK={color:'#90CAF9',font:{size:10}};
+
+// 1. Monthly volume (stacked bar + rate line)
+const mLabels=["2016-06", "2016-12", "2017-02", "2017-03", "2017-04", "2017-05", "2017-06", "2017-07", "2017-08", "2017-09", "2017-10", "2017-11", "2017-12", "2018-01", "2018-02", "2018-03", "2018-04", "2018-05", "2018-06", "2018-07", "2018-08", "2018-09", "2018-10", "2018-11", "2018-12", "2019-01", "2019-02", "2019-03", "2019-04", "2019-05", "2019-06", "2019-07", "2019-08", "2019-09", "2019-10", "2019-11", "2019-12", "2020-01", "2020-02", "2020-03", "2020-04", "2020-05", "2020-06", "2020-07", "2020-08", "2020-09", "2020-10", "2020-11", "2020-12", "2021-01", "2021-02", "2021-03", "2021-04", "2021-05", "2021-06", "2021-07", "2021-08", "2021-09", "2021-10", "2021-11", "2021-12", "2022-01", "2022-02", "2022-03", "2022-04", "2022-05", "2022-06", "2022-07", "2022-08", "2022-09", "2022-10", "2022-11", "2022-12", "2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12", "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06"];
+const mStd=[1, 1, 105, 149, 137, 177, 131, 159, 140, 128, 141, 95, 148, 145, 148, 184, 143, 188, 157, 173, 191, 173, 147, 156, 176, 168, 161, 166, 117, 165, 151, 186, 182, 187, 177, 189, 196, 188, 140, 122, 7, 16, 19, 18, 23, 38, 37, 39, 69, 109, 165, 205, 101, 12, 35, 89, 165, 181, 177, 143, 217, 104, 175, 254, 213, 265, 282, 259, 228, 290, 268, 296, 259, 245, 200, 264, 224, 327, 282, 314, 304, 296, 296, 287, 309, 296, 279, 307, 285, 357, 322, 328, 308, 338, 289, 310, 310, 316, 310, 383, 365, 383, 351, 352, 297, 397, 382, 354, 341, 340, 329, 369, 343, 374, 40];
+const mCpx=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+const mRate=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];
+const showRate=false;
+
+const monthlyDatasets=[
+  {label:'Standard',data:mStd,backgroundColor:'rgba(30,136,229,0.65)',borderColor:'#1E88E5',borderWidth:1,stack:'a',order:2},
+  {label:'Complex',data:mCpx,backgroundColor:'rgba(232,113,28,0.75)',borderColor:ORANGE,borderWidth:1,stack:'a',order:2},
+];
+if(showRate){
+  monthlyDatasets.push({
+    label:'Complexity Rate (%)',data:mRate,type:'line',yAxisID:'y2',
+    borderColor:ORANGE,backgroundColor:'transparent',borderWidth:2,pointRadius:0,tension:0.3,order:1
+  });
+}
+new Chart(document.getElementById('monthlyChart'),{
+  type:'bar',
+  data:{labels:mLabels,datasets:monthlyDatasets},
+  options:{
+    responsive:true,maintainAspectRatio:true,
+    plugins:{legend:{labels:{color:'#B0BEC5',font:{size:10}}}},
+    scales:{
+      x:{ticks:{...TICK,maxRotation:90,minRotation:45,maxTicksLimit:26},grid:GRID,stacked:true},
+      y:{ticks:TICK,grid:GRID,stacked:true,title:{display:true,text:'Procedures',color:'#90CAF9',font:{size:10}}},
+      y2:showRate?{position:'right',ticks:{...TICK,callback:v=>v+'%'},grid:{display:false},title:{display:true,text:'Complexity %',color:ORANGE,font:{size:10}}}:undefined
+    }
+  }
+});
+
+// 2. Annual bar
+const aYears=["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"];
+const aTotal=[2, 1510, 1981, 2045, 716, 1599, 2893, 3348, 3729, 3998, 1795];
+new Chart(document.getElementById('yearlyRateChart'),{
+  type:'bar',
+  data:{labels:aYears,datasets:[{label:'Procedures',data:aTotal,backgroundColor:ACCENT+'aa',borderColor:ACCENT,borderWidth:1,borderRadius:4}]},
+  options:{
+    responsive:true,maintainAspectRatio:true,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{ticks:{...TICK,maxRotation:45},grid:GRID},
+      y:{ticks:TICK,grid:GRID}
+    }
+  }
+});
+
+// 3. Procedures horizontal bar
+const pLabels=["PHACO + IOL", "EMERGENCY LSCS", "TYMPANOPLASTY", "SICS + PCIOL", "LAPAROSCOPIC CHOLECYSTECTOMY", "SEPTOPLASTY", "OTHER ORTHO SURGERY", "FTVD WITH RMLE", "INGUINAL HERNIOPLASTY (LICHE", "ELECTIVE LSCS", "ARTHROSCOPIC ACL RECONSTRUCT", "TAH + SALPHINGECTOMY", "FUNCTIONAL ENDOSCOPIC SINUS", "EXCISION BIOPSY", "UMBLICAL HERNIA REPAIR"];
+const pVals=[2670, 1186, 844, 797, 556, 468, 455, 430, 394, 365, 336, 320, 275, 274, 247];
+const pColors=["#1E88E5", "#E8711C", "#43A047", "#AB47BC", "#26A69A", "#EF5350", "#FFB300", "#00BCD4", "#5C6BC0", "#9CCC65", "#EC407A", "#8D6E63", "#29B6F6", "#FF7043", "#66BB6A"];
+new Chart(document.getElementById('procChart'),{
+  type:'bar',
+  data:{labels:pLabels,datasets:[{label:'Count',data:pVals,backgroundColor:pColors,borderRadius:3}]},
+  options:{
+    indexAxis:'y',responsive:true,maintainAspectRatio:true,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{ticks:TICK,grid:GRID},
+      y:{ticks:{...TICK,font:{size:10}},grid:{display:false}}
+    }
+  }
+});
+
+// 4. Doughnut (complexity or gender)
+const dLabels=["Male", "Female"];
+const dVals=[10022, 13827];
+const dColors=["#1E88E5", "#EC407A"];
+new Chart(document.getElementById('doughnutChart'),{
+  type:'doughnut',
+  data:{labels:dLabels,datasets:[{data:dVals,backgroundColor:dColors,borderWidth:2,borderColor:'#1A2F4A'}]},
+  options:{
+    responsive:true,maintainAspectRatio:true,
+    plugins:{legend:{position:'bottom',labels:{color:'#B0BEC5',font:{size:10},boxWidth:12,padding:10}}}
+  }
+});
+
+// 5. Age distribution
+const ageLbl=["<18", "18\u201329", "30\u201344", "45\u201359", "60\u201374", "\u226575"];
+const ageVal=[1766, 5525, 5946, 5515, 4201, 731];
+new Chart(document.getElementById('ageChart'),{
+  type:'bar',
+  data:{labels:ageLbl,datasets:[{label:'Patients',data:ageVal,backgroundColor:['#5C6BC0','#1E88E5','#43A047','#FFB300','#EF5350','#AB47BC'],borderRadius:3}]},
+  options:{
+    responsive:true,maintainAspectRatio:true,
+    plugins:{legend:{display:false}},
+    scales:{x:{ticks:TICK,grid:GRID},y:{ticks:TICK,grid:GRID}}
+  }
+});
+
+// 6. Stacked annual: standard vs complex
+const aStd=[2, 1510, 1981, 2045, 716, 1599, 2893, 3348, 3729, 3998, 1795];
+const aCpx=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+new Chart(document.getElementById('stackedBar'),{
+  type:'bar',
+  data:{labels:aYears,datasets:[
+    {label:'Standard',data:aStd,backgroundColor:'rgba(30,136,229,0.7)',stack:'a'},
+    {label:'Complex',data:aCpx,backgroundColor:'rgba(232,113,28,0.8)',stack:'a'}
+  ]},
+  options:{
+    responsive:true,maintainAspectRatio:true,
+    plugins:{legend:{labels:{color:'#B0BEC5',font:{size:10}}}},
+    scales:{
+      x:{ticks:{...TICK,maxRotation:45},grid:GRID,stacked:true},
+      y:{ticks:TICK,grid:GRID,stacked:true}
+    }
+  }
+});
+
+// 7. Yearly complexity rate line (or volume trend if no complexity)
+const aRate=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];
+const showARate=false;
+if(showARate && document.getElementById('cpxRateLine')){
+  new Chart(document.getElementById('cpxRateLine'),{
+    type:'line',
+    data:{labels:aYears,datasets:[{
+      label:'Complexity Rate (%)',data:aRate,
+      borderColor:ORANGE,backgroundColor:'rgba(232,113,28,0.15)',
+      borderWidth:2,pointRadius:4,pointBackgroundColor:ORANGE,
+      fill:true,tension:0.3
+    }]},
+    options:{
+      responsive:true,maintainAspectRatio:true,
+      plugins:{legend:{display:false}},
+      scales:{
+        x:{ticks:{...TICK,maxRotation:45},grid:GRID},
+        y:{ticks:{...TICK,callback:v=>v+'%'},grid:GRID,min:0}
+      }
+    }
+  });
+} else if(document.getElementById('cpxRateLine')){
+  // Volume trend line as fallback
+  new Chart(document.getElementById('cpxRateLine'),{
+    type:'line',
+    data:{labels:aYears,datasets:[{
+      label:'Annual Volume',data:aTotal,
+      borderColor:ACCENT,backgroundColor:ACCENT+'22',
+      borderWidth:2,pointRadius:3,fill:true,tension:0.3
+    }]},
+    options:{
+      responsive:true,maintainAspectRatio:true,
+      plugins:{legend:{display:false}},
+      scales:{
+        x:{ticks:{...TICK,maxRotation:45},grid:GRID},
+        y:{ticks:TICK,grid:GRID}
+      }
+    }
+  });
+}
+
+// 8. Discharge coverage (if data present)
+const dcYears=null;
+const dcTotal=null;
+const dcWith=null;
+const dcPct=null;
+if(dcYears && document.getElementById('dcChart')){
+  new Chart(document.getElementById('dcChart'),{
+    type:'bar',
+    data:{labels:dcYears,datasets:[
+      {label:'With DS',data:dcWith,backgroundColor:'rgba(67,160,71,0.75)',stack:'a',borderRadius:3},
+      {label:'Without DS',data:dcTotal.map((t,i)=>t-dcWith[i]),backgroundColor:'rgba(239,83,80,0.5)',stack:'a'}
+    ]},
+    options:{
+      responsive:true,maintainAspectRatio:true,
+      plugins:{legend:{labels:{color:'#B0BEC5',font:{size:10}}}},
+      scales:{
+        x:{ticks:TICK,grid:GRID,stacked:true},
+        y:{ticks:TICK,grid:GRID,stacked:true}
+      }
+    }
+  });
+}
+</script>
+
+</div>
+<script>
+(function(){
+  function post(){ try { parent.postMessage({ type:'ssdash-height', slug:'multi-specialty-statistics', h: document.body.scrollHeight }, '*'); } catch(e){} }
+  window.addEventListener('load', function(){ post(); setTimeout(post, 500); setTimeout(post, 1500); });
+  if (window.ResizeObserver) { new ResizeObserver(post).observe(document.body); }
+})();
+</script>
+</body>
+</html>

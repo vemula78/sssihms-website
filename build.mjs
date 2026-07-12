@@ -26,11 +26,17 @@ const RES = {
 };
 const FAVICON = 'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2017/02/cropped-hospital-logo-e1487405066482-270x270.png';
 
-// ── Load PAGES from the design data file (kept verbatim for easy re-import) ──
+// ── Load PAGES from the design data files (kept verbatim for easy re-import) ──
+// Order matters: dept-pages / extra-pages mutate window.PAGES and window.DEPT_SUBNAV
+// that sssihms-data.js establishes first.
 const sandbox = { window: { __resources: RES } };
 vm.createContext(sandbox);
-vm.runInContext(readFileSync(join(ROOT, 'src/sssihms-data.js'), 'utf8'), sandbox);
+for (const f of ['sssihms-data.js', 'sssihms-dept-pages.js', 'sssihms-extra-pages.js']) {
+  vm.runInContext(readFileSync(join(ROOT, 'src', f), 'utf8'), sandbox);
+}
 const PAGES = sandbox.window.PAGES;
+const DEPT_SUBNAV = sandbox.window.DEPT_SUBNAV || {};
+const STATS_DASHBOARDS = sandbox.window.STATS_DASHBOARDS || [];
 if (!PAGES || !Object.keys(PAGES).length) throw new Error('PAGES failed to load from src/sssihms-data.js');
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
@@ -168,7 +174,27 @@ const SECTIONS = {
   banner(s) {
     return `<div class="full-banner"><img src="${esc(s.src)}" alt="" loading="lazy"></div>`;
   },
+
+  statsdash(s) {
+    const pills = STATS_DASHBOARDS.map((d) => `<a class="dash-pill${d.slug === s.slug ? ' active' : ''}" href="${href(d.slug)}">${esc(d.label)}</a>`).join('');
+    return `<section class="section" style="padding-top:36px"><div class="wrap">
+      <div class="dash-switch">${pills}</div>
+      <div class="dash-frame"><iframe src="stats-pages/${esc(s.slug)}.html" data-slug="${esc(s.slug)}" title="Statistics dashboard" style="width:100%;height:1200px;border:none;display:block"></iframe></div>
+    </div></section>`;
+  },
+
+  framepage(s) {
+    return `<div style="background:${esc(s.bg || '#fff')}"><iframe src="${esc(s.src)}" data-slug="${esc(s.slug)}" title="${esc(s.slug)}" style="width:100%;height:900px;border:none;display:block"></iframe></div>`;
+  },
 };
+
+function deptSubNav(subnavKey, currentKey) {
+  const items = DEPT_SUBNAV[subnavKey];
+  if (!items) return '';
+  return `<div class="subnav"><div class="wrap subnav-inner">
+    ${items.map(([label, key]) => `<a class="subnav-link${key === currentKey ? ' active' : ''}" href="${href(key)}">${esc(label)}</a>`).join('')}
+  </div></div>`;
+}
 
 function pageBanner({ title, subtitle, crumb, icon }) {
   return `<section class="page-banner"><div class="wrap">
@@ -182,13 +208,25 @@ function pageBanner({ title, subtitle, crumb, icon }) {
 }
 
 // ── Site chrome ──────────────────────────────────────────────────────────────
+// Each top-level item: [label, page, items]. Each item: [label, key, children?].
+// `children` (a further [label, key] array) renders as a nested flyout on desktop
+// and as extra-indented links on mobile — see NAV in the design handoff.
 const NAV = [
   { label: 'About Hospital', page: 'about', items: [['Hospital Overview', 'about'], ['Guiding Philosophy', 'philosophy'], ['Genesis', 'genesis'], ['Statistics', 'statistics'], ['Patient Speak', 'patient-speak'], ['Visitor Speak', 'visitor-speak'], ['Manohriday Newsletter', 'manohriday'], ['About the Trust', 'trust']] },
-  { label: 'Departments', page: 'departments', items: [['Cardiology', 'cardiology'], ['Cardiac Surgery', 'cardiac-surgery'], ['Neurosurgery', 'neurosurgery'], ['Neurology', 'neurology'], ['Anesthesiology', 'anesthesiology'], ['Radiology', 'radiology'], ['General Hospital (SSSGH)', 'sssgh']] },
+  { label: 'Departments', page: 'departments', items: [
+    ['Cardiology', 'cardiology', [['Faculty', 'cardiology-faculty'], ['Infrastructure', 'cardiology-infrastructure'], ['Achievements', 'cardiology-achievements'], ['Events', 'cardiology-events'], ['Academics', 'cardiology-academics'], ['Statistics', 'cardiology-statistics']]],
+    ['Cardiac Surgery', 'cardiac-surgery', [['Faculty', 'ctvs-faculty'], ['Infrastructure', 'ctvs-infrastructure'], ['Academics', 'ctvs-academics'], ['Statistics', 'cardiac-surgery-statistics']]],
+    ['Neurosurgery', 'neurosurgery', [['Faculty', 'nesu-faculty'], ['Infrastructure', 'nesu-infrastructure'], ['Achievements', 'nesu-achievements'], ['Events', 'nesu-events'], ['Academics', 'nesu-academics'], ['Statistics', 'neurosurgery-statistics']]],
+    ['Neurology', 'neurology', [['Services', 'neurology-services'], ['Infrastructure', 'neurology-infrastructure']]],
+    ['Anesthesiology', 'anesthesiology', [['Faculty', 'anes-faculty'], ['Infrastructure', 'anes-infrastructure'], ['Achievements', 'anes-achievements'], ['Events', 'anes-events'], ['Academics', 'anes-academics']]],
+    ['Radiology', 'radiology', [['Faculty', 'radiology-faculty'], ['Infrastructure', 'radiology-infrastructure'], ['Academics', 'radiology-academics']]],
+    ['General Hospital (SSSGH)', 'sssgh', [['History', 'sssgh-history'], ['Statistics — Multi-Specialty', 'multi-specialty-statistics'], ['Statistics — Ophthalmology', 'ophthalmology-statistics'], ['Statistics — Obs & Gynae', 'obs-gynae-statistics'], ['Statistics — Orthopaedics', 'orthopaedics-statistics'], ['Statistics — ENT', 'ent-statistics'], ['Statistics — General Surgery', 'general-surgery-statistics'], ['Statistics — Paediatrics', 'paediatrics-statistics'], ['Statistics — Urology', 'urology-statistics']]],
+    ['Support Services', 'services', [['Lab Infrastructure', 'lab-infrastructure']]],
+  ] },
   { label: 'For Patients', page: 'patients', items: [['Conditions & Treatments', 'treatments'], ['Appointments & Admission', 'appointments'], ['Help Desk / Telemedicine', 'helpdesk'], ['Facilities', 'facilities']] },
   { label: 'Academics', page: 'academics', items: [['DNB Programmes', 'dnb'], ['Fellowship Courses', 'fellowship'], ['Nursing & Allied Health', 'nursing'], ['Career Opportunities', 'careers']] },
-  { label: 'Get Involved', page: 'involved', items: [['Sevadal – Volunteer', 'sevadal'], ['Donations', 'involved'], ['Volunteer Expertise', 'volunteer'], ['Go Green', 'gogreen']] },
-  { label: 'Bhagawan', page: 'bhagawan', items: [['Life & Mission', 'bhagawan'], ['Teachings & Discourses', 'bhagawan'], ['Songs & Poems', 'songs'], ['Sai Projects', 'bhagawan']] },
+  { label: 'Get Involved', page: 'involved', items: [['Sevadal – Volunteer', 'sevadal'], ['Donations', 'involved'], ['Volunteer Expertise', 'volunteer'], ['Go Green', 'gogreen', [['Solar Power Plant', 'gg-solar'], ['Rain Water Harvesting', 'gg-rainwater'], ['Water Use Maximization', 'gg-water'], ['Trees on Campus', 'gg-trees'], ['Power Conservation', 'gg-power'], ['Waste Management', 'gg-waste'], ['Biomedical Waste', 'gg-biomedical']]]] },
+  { label: 'Bhagawan', page: 'bhagawan', items: [['Life & Mission', 'bhagawan'], ['Teachings & Discourses', 'bhagawan'], ['Songs & Poems', 'songs', [['Divine Poetry', 'divine-poetry'], ['Sai Compositions', 'sai-compositions'], ['Padya Sudha (Telugu)', 'padya-sudha']]], ['Sai Projects', 'bhagawan']] },
 ];
 
 function chrome(pageKey) {
@@ -202,19 +240,26 @@ function chrome(pageKey) {
       <span class="tb-sep">|</span><a href="blog.html">Blog</a>
     </span>
   </div></div>`;
+  const dropdownItem = ([label, key, children]) => children
+    ? `<div class="dd-item">
+        <a href="${href(key)}">${esc(label)}<span class="dd-arrow">›</span></a>
+        <div class="dd-flyout">${children.map(([l2, k2]) => `<a href="${href(k2)}">${esc(l2)}</a>`).join('')}</div>
+      </div>`
+    : `<a href="${href(key)}">${esc(label)}</a>`;
   const navLinks = NAV.map((g) => `<li class="nav-item">
       <a class="nav-btn${activeGroup(g) ? ' active' : ''}" href="${href(g.page)}">${esc(g.label)} ${chevron}</a>
-      <div class="dropdown">${g.items.map(([label, key]) => `<a href="${href(key)}">${esc(label)}</a>`).join('')}</div>
+      <div class="dropdown">${g.items.map(dropdownItem).join('')}</div>
     </li>`).join('\n');
+  const mobileSubs = (items) => items.map(([label, key, children]) => `<a href="${href(key)}">${esc(label)}</a>
+      ${(children || []).map(([l2, k2]) => `<a href="${href(k2)}" style="padding-left:58px;opacity:.55">${esc(l2)}</a>`).join('')}`).join('\n');
   const mobileMenu = NAV.map((g) => `<div class="mm-group">
       <a class="mm-head" href="${href(g.page)}">${esc(g.label)}</a>
-      <div class="mm-subs">${g.items.map(([label, key]) => `<a href="${href(key)}">${esc(label)}</a>`).join('')}</div>
+      <div class="mm-subs">${mobileSubs(g.items)}</div>
     </div>`).join('\n');
   const navbar = `<nav class="navbar">
     <div class="nav-inner">
       <a class="nav-brand" href="index.html">
-        <span class="nav-emblem">◆</span>
-        <span class="nav-logo-text">SSSIHMS<span class="nav-logo-sub">Whitefield · Bengaluru</span></span>
+        <img class="nav-logo" src="${RES.logo}" alt="SSSIHMS — Sri Sathya Sai Institute of Higher Medical Sciences" loading="lazy">
       </a>
       <ul class="nav-links">
         ${navLinks}
@@ -264,7 +309,7 @@ function document_(pageKey, title, description, main) {
   <link rel="icon" href="${FAVICON}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
@@ -466,6 +511,8 @@ rmSync(DIST, { recursive: true, force: true });
 mkdirSync(DIST, { recursive: true });
 cpSync(join(ROOT, 'src/css'), join(DIST, 'css'), { recursive: true });
 cpSync(join(ROOT, 'src/js'), join(DIST, 'js'), { recursive: true });
+cpSync(join(ROOT, 'src/stats-pages'), join(DIST, 'stats-pages'), { recursive: true });
+cpSync(join(ROOT, 'src/poetry-pages'), join(DIST, 'poetry-pages'), { recursive: true });
 
 const SITE_NAME = 'SSSIHMS Whitefield';
 const HOME_TITLE = 'SSSIHMS — Sri Sathya Sai Institute of Higher Medical Sciences, Whitefield';
@@ -480,7 +527,8 @@ for (const [key, data] of Object.entries(PAGES)) {
     if (!render) throw new Error(`Unknown section type "${s.type}" on page "${key}"`);
     return render(s);
   }).join('\n');
-  const main = pageBanner(data) + '\n' + sections;
+  const subnav = data.subnav ? deptSubNav(data.subnav, key) : '';
+  const main = pageBanner(data) + '\n' + subnav + '\n' + sections;
   const title = `${data.title.replace(/<[^>]+>/g, '')} — ${SITE_NAME}`;
   const desc = data.subtitle || HOME_DESC;
   writeFileSync(join(DIST, `${key}.html`), document_(key, title, desc, main));

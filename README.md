@@ -2,30 +2,35 @@
 
 Static multi-page implementation of the **SSSIHMS Website** Claude Design project
 (claude.ai/design project `f3cca125-321f-4519-b989-c580afe8354e`), in the
-**"Dignified Modern"** variation selected in the design (navy `#1e2d4a` / orange
-`#e8922a`, Libre Baskerville + DM Sans).
+**"Sacred Warmth"** variation selected in the design (warm cream/brown, primary
+`#c8813a`, EB Garamond + Nunito Sans).
 
 ## Layout
 
 ```
-design-source/     Source extracted from the design export (reference only)
+design-handoff/    Current design handoff bundle from Claude Design (source of truth)
+design-source/     Earlier design export (13-Jun snapshot, reference only)
   sssihms-data.jsx   All inner-page content (window.PAGES)
   sssihms-render.jsx Data-driven section renderers (React prototype)
   template.html      App shell: nav, home page, themes, CSS
 src/
-  sssihms-data.js    Copy of the design's data file — kept VERBATIM so an updated
-                     export from Claude Design can be dropped in directly
-  css/site.css       Site stylesheet ("Dignified Modern" resolved as the theme)
-  js/site.js         Mobile menu toggle (only JS on the site)
+  sssihms-data.js,
+  sssihms-dept-pages.js,
+  sssihms-extra-pages.js   The design's data files — kept VERBATIM so updated
+                           exports from Claude Design drop in directly
+  stats-pages/       12 self-contained Chart.js statistics dashboards (iframed)
+  poetry-pages/      3 self-contained poetry pages (iframed)
+  css/site.css       Site stylesheet ("Sacred Warmth" resolved as the theme)
+  js/site.js         Mobile menu toggle + iframe auto-resize listener
 build.mjs          Zero-dependency static site generator (Node ≥18)
-dist/              Build output — 34 plain HTML pages, deployable anywhere
+dist/              Build output — 82 plain HTML pages + embeds, deployable anywhere
 screenshots/       Verification screenshots (Playwright)
 ```
 
 ## Build
 
 ```bash
-node build.mjs        # regenerates dist/ (index.html + 33 inner pages)
+node build.mjs        # regenerates dist/ (index.html + 81 inner pages + embeds)
 ```
 
 No npm install, no framework at runtime — the React/Babel prototype has been
@@ -34,8 +39,8 @@ works without JavaScript).
 
 ## Updating content
 
-- Page content: edit `src/sssihms-data.js` (or replace it with a fresh
-  `sssihms-data.jsx` from the design project), then rebuild.
+- Page content: edit the `src/sssihms-*.js` data files (or replace them with fresh
+  `.jsx` exports from the design project), then rebuild.
 - Home page copy / navigation / footer: edit the constants in `build.mjs`.
 - Images are hot-linked from whitefield.sssihms.org (same URLs the design uses).
 
