@@ -8,9 +8,11 @@
 set -euo pipefail
 
 WP=/srv/www/wordpress
+SITE_URL="https://whitefield.sssihms.org/"   # multisite: blog_id 4 in the network
 JSON_DIR="$(cd "$(dirname "$0")" && pwd)"   # the folder this script lives in
 
 echo "==> WordPress path: $WP"
+echo "==> Site (multisite): $SITE_URL"
 echo "==> Layouts:        $JSON_DIR"
 
 # ---- 1. locate (or fetch) WP-CLI ------------------------------------------
@@ -23,8 +25,8 @@ else
   WP_CLI="php /tmp/wp-cli.phar"
 fi
 
-# Run WP-CLI as the web user so created posts/options have the right ownership.
-run_wp() { sudo -u www-data HOME=/tmp $WP_CLI --path="$WP" "$@"; }
+# Run WP-CLI as the web user, scoped to the whitefield subsite (multisite requires --url).
+run_wp() { sudo -u www-data HOME=/tmp $WP_CLI --path="$WP" --url="$SITE_URL" "$@"; }
 
 echo "==> WordPress: $(run_wp core version 2>/dev/null || echo '??')"
 
