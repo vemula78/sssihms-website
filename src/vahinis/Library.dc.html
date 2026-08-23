@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/classical-4c530195-8fa0-4a32-858b-97045e7bdb22/styles.css">
+<script src="_ds/classical-4c530195-8fa0-4a32-858b-97045e7bdb22/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+  body { background: var(--color-bg); margin: 0; }
+  a { color: var(--color-accent-700); text-decoration: none; border-bottom: 1px solid var(--color-accent-300); }
+  a:hover { color: var(--color-accent-800); border-bottom-color: var(--color-accent-600); }
+  a.plain, a.plain:hover { border-bottom: 0; }
+</style>
+</helmet>
+
+<div style="position:sticky;top:0;z-index:900;background:var(--color-bg);border-bottom:1px solid var(--color-divider);font-family:var(--font-body)">
+  <div style="max-width:1080px;margin:0 auto;padding:10px var(--space-6);display:flex;align-items:center;gap:24px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase">
+    <a class="plain" href="../SSSIHMS%20Website.html#vahinis" style="color:var(--color-neutral-700)">← SSSIHMS</a>
+    <a class="plain" href="../SSSIHMS%20Website.html#bhagawan" style="color:var(--color-neutral-700)">Bhagawan</a>
+    <a class="plain" href="Library.dc.html" style="color:var(--color-neutral-700)">Reading Library</a>
+  </div>
+</div>
+
+<div style="min-height:100vh;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);padding:var(--space-8) var(--space-6) 0">
+
+  <header style="max-width:1080px;margin:0 auto;text-align:center;padding:var(--space-8) 0 var(--space-6)">
+    <div style="font-size:11.5px;letter-spacing:0.3em;text-transform:uppercase;color:var(--color-neutral-600)">Sri Sathya Sai Sadhana Trust · Prasanthi Nilayam</div>
+    <div style="height:1px;background:var(--color-divider);margin:var(--space-6) 0"></div>
+    <h1 style="font-family:var(--font-heading);font-weight:400;font-size:clamp(52px,10vw,124px);line-height:0.92;letter-spacing:0.02em;margin:0">The Vahini Series</h1>
+    <div style="font-family:var(--font-heading);font-style:italic;font-size:clamp(21px,3.2vw,32px);color:var(--color-accent-700);margin-top:var(--space-3)">Fifteen streams, written by Sathya Sai Baba</div>
+    <div style="height:1px;background:var(--color-divider);margin:var(--space-6) 0"></div>
+    <div style="display:flex;justify-content:center;gap:var(--space-6);flex-wrap:wrap;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-neutral-700);font-variant-numeric:tabular-nums">
+      <span>15 volumes</span><span>{{ totalChapters }} chapters</span><span>{{ totalWords }} words</span><span>{{ totalTerms }} glossary entries</span>
+    </div>
+  </header>
+
+  <section style="max-width:1080px;margin:0 auto;padding:var(--space-6) 0 var(--space-8);display:grid;grid-template-columns:{{ introCols }};gap:var(--space-8);align-items:start">
+    <div class="plate" style="width:100%;height:420px;display:flex;align-items:center;justify-content:center;overflow:hidden">
+      <img src="photos/G-23.jpg" alt="Bhagavan Sri Sathya Sai Baba writing" style="max-width:100%;max-height:100%;width:auto;height:auto;display:block"/>
+    </div>
+    <div>
+      <p style="font-size:16px;line-height:1.8;text-align:justify;hyphens:auto;text-wrap:pretty;margin:0 0 1em">The Vahinis were written by Bhagavan Sri Sathya Sai Baba for <em>Sanathana Sarathi</em> and gathered afterwards into volumes. Each is a stream: love, righteousness, meditation, wisdom, peace — and, in the two Ramakatha volumes and the Bhagavatha, the old stories told again as instruction rather than legend.</p>
+      <p style="font-size:16px;line-height:1.8;text-align:justify;hyphens:auto;text-wrap:pretty;margin:0 0 var(--space-6);color:var(--color-neutral-700)">Every volume here carries the complete text, its own glossary, and a reading place kept between visits. Search below to find a chapter across all fifteen.</p>
+      <input class="input" placeholder="Search 376 chapters and 15 volumes…" value="{{ q }}" onInput="{{ onQuery }}" style="width:100%;max-width:460px"/>
+      <div style="margin-top:var(--space-2);font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-neutral-600);font-variant-numeric:tabular-nums">{{ resultLine }}</div>
+    </div>
+  </section>
+
+  <sc-if value="{{ hasHits }}">
+    <section style="max-width:1080px;margin:0 auto var(--space-8);border-top:1px solid var(--color-divider);padding-top:var(--space-6)">
+      <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--color-accent-700);margin-bottom:var(--space-4)">Matching chapters</div>
+      <div style="columns:2 340px;column-gap:var(--space-8)">
+        <sc-for list="{{ hits }}" as="h" hint-placeholder-count="6">
+          <div style="break-inside:avoid;border-bottom:1px solid var(--color-divider);padding:var(--space-2) 0">
+            <a class="plain" href="{{ h.href }}" style="display:flex;gap:var(--space-3);align-items:baseline">
+              <span style="font-variant-numeric:tabular-nums;font-size:12px;color:var(--color-accent-700);min-width:28px">{{ h.num }}</span>
+              <span style="flex:1">
+                <span style="display:block;font-family:var(--font-heading);font-size:18px;line-height:1.25;color:var(--color-text)">{{ h.title }}</span>
+                <span style="display:block;font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-neutral-600);margin-top:3px">{{ h.book }}</span>
+              </span>
+            </a>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+  </sc-if>
+
+  <sc-if value="{{ hasReading }}">
+    <section style="max-width:1080px;margin:0 auto var(--space-8);border-top:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider);padding:var(--space-6) 0">
+      <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--color-accent-700);margin-bottom:var(--space-4)">Continue reading</div>
+      <div style="display:flex;gap:var(--space-6);flex-wrap:wrap">
+        <sc-for list="{{ reading }}" as="r" hint-placeholder-count="1">
+          <a class="plain" href="{{ r.href }}" style="flex:1 1 260px;min-width:240px;border:1px solid var(--color-divider);border-radius:var(--radius-md);padding:var(--space-4)">
+            <div style="font-family:var(--font-heading);font-size:22px;line-height:1.15;color:var(--color-text)">{{ r.title }}</div>
+            <div style="font-size:13px;color:var(--color-neutral-700);margin:6px 0 var(--space-3);line-height:1.5">{{ r.where }}</div>
+            <div style="height:2px;background:var(--color-divider)"><div style="height:100%;width:{{ r.pct }};background:var(--color-accent)"></div></div>
+            <div style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-neutral-600);margin-top:var(--space-2);font-variant-numeric:tabular-nums">{{ r.pct }} read</div>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+  </sc-if>
+
+  <main style="max-width:1080px;margin:0 auto;padding-bottom:var(--space-8)">
+    <sc-for list="{{ groups }}" as="g" hint-placeholder-count="3">
+      <section style="padding-bottom:var(--space-8)">
+        <div style="display:flex;align-items:baseline;gap:var(--space-4);border-bottom:1px solid var(--color-neutral-400);padding-bottom:var(--space-2);margin-bottom:var(--space-6)">
+          <h2 style="font-family:var(--font-heading);font-weight:400;font-size:clamp(28px,4vw,40px);margin:0">{{ g.title }}</h2>
+          <div style="flex:1;font-size:12.5px;line-height:1.5;color:var(--color-neutral-600);text-align:right;max-width:420px">{{ g.note }}</div>
+        </div>
+        <div style="display:grid;grid-template-columns:{{ cardCols }};gap:var(--space-6)">
+          <sc-for list="{{ g.books }}" as="bk" hint-placeholder-count="4">
+            <a class="plain card" href="{{ bk.file }}" style="display:flex;flex-direction:column;gap:var(--space-2);padding:var(--space-6);border:1px solid var(--color-divider);border-radius:var(--radius-md);background:none" style-hover="border-color:var(--color-accent-400);box-shadow:var(--shadow-sm)">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:var(--space-3)">
+                <span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--color-accent-700);font-variant-numeric:tabular-nums">{{ bk.index }}</span>
+                <span style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-neutral-600)">{{ bk.theme }}</span>
+              </div>
+              <div style="font-family:var(--font-heading);font-weight:400;font-size:30px;line-height:1.1;color:var(--color-text)">{{ bk.title }}</div>
+              <div style="font-family:var(--font-heading);font-style:italic;font-size:18px;color:var(--color-accent-700)">{{ bk.subtitle }}</div>
+              <div style="height:1px;background:var(--color-divider);margin:var(--space-2) 0"></div>
+              <p style="font-size:14px;line-height:1.65;color:var(--color-neutral-700);margin:0;text-wrap:pretty">{{ bk.blurb }}</p>
+              <div style="margin-top:auto;padding-top:var(--space-4);display:flex;justify-content:space-between;gap:var(--space-3);font-size:11.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-600);font-variant-numeric:tabular-nums">
+                <span>{{ bk.tally }}</span>
+                <span style="color:var(--color-accent-700)">{{ bk.state }}</span>
+              </div>
+            </a>
+          </sc-for>
+        </div>
+      </section>
+    </sc-for>
+  </main>
+
+  <footer style="max-width:1080px;margin:0 auto;padding:var(--space-8) 0 96px;text-align:center;font-size:12px;line-height:1.9;color:var(--color-neutral-600);border-top:1px solid var(--color-divider)">
+    <div>© Sri Sathya Sai Sadhana Trust, Publications Division, Prasanthi Nilayam 515 134, Anantapur District, Andhra Pradesh, India. All rights reserved.</div>
+    <div style="margin-top:var(--space-2)"><a href="https://www.sssbpt.org">www.sssbpt.org</a></div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;grouped&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;},&quot;cardWidth&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:240,&quot;max&quot;:420,&quot;step&quot;:20,&quot;default&quot;:300,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Layout&quot;},&quot;showPlate&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;}}">
+class Component extends DCLogic {
+  state = { index: null, q: '', progress: {} };
+
+  GROUPS = [
+    { title: 'The teaching streams', note: 'Instruction given directly — love, righteousness, meditation, wisdom, peace, and the disciplines that carry them.',
+      slugs: ['prema-vahini', 'dharma-vahini', 'dhyana-vahini', 'jnana-vahini', 'prasanthi-vahini', 'sathya-sai-vahini'] },
+    { title: 'Scripture expounded', note: 'The Upanishads, the Brahma Sutras, the Vedas and the schooling of the mind, taken text by text.',
+      slugs: ['upanishad-vahini', 'sutra-vahini', 'leela-kaivalya', 'vidya-vahini'] },
+    { title: 'Questions answered', note: 'Doubts brought to Baba and answered in his own words, question by question.',
+      slugs: ['prasnothara-vahini', 'sandeha-nivarini'] },
+    { title: 'The sacred narratives', note: 'The Bhagavatha and the Rama story retold at length — teaching carried inside the tale.',
+      slugs: ['bhagavatha-vahini', 'ramakatha-rasavahini-part-1', 'ramakatha-rasavahini-part-2'] }
+  ];
+
+  componentDidMount() {
+    fetch('data/index.json').then(r => r.json()).then(index => this.setState({ index }));
+    const progress = {};
+    try {
+      for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (k && k.startsWith('vahini-reader:')) progress[k.slice(14)] = JSON.parse(localStorage.getItem(k) || '{}');
+      }
+    } catch (e) {}
+    this.setState({ progress });
+  }
+
+  renderVals() {
+    const index = this.state.index || [];
+    const prog = this.state.progress || {};
+    const q = this.state.q.trim().toLowerCase();
+    const order = new Map(index.map((b, i) => [b.slug, i]));
+    const num = n => n.toLocaleString('en-US');
+
+    const hits = [];
+    if (q.length >= 2) {
+      for (const b of index) {
+        for (const c of b.chapters) {
+          if (c.title.toLowerCase().includes(q) || b.title.toLowerCase().includes(q)) {
+            hits.push({ num: String(c.n).padStart(2, '0'), title: c.title, book: b.title, href: encodeURI(b.file) + '#ch-' + c.n });
+          }
+          if (hits.length >= 60) break;
+        }
+        if (hits.length >= 60) break;
+      }
+    }
+
+    const reading = index.filter(b => prog[b.slug] && (prog[b.slug].pct > 1 || prog[b.slug].n > 1))
+      .sort((a, b) => (prog[b.slug].at || 0) - (prog[a.slug].at || 0))
+      .slice(0, 3)
+      .map(b => {
+        const p = prog[b.slug];
+        const ch = b.chapters[(p.n || 1) - 1];
+        return {
+          title: b.title, href: encodeURI(b.file) + '#ch-' + (p.n || 1),
+          where: ch ? 'Chapter ' + (ch.num || ch.n) + ' · ' + ch.title : 'Front matter',
+          pct: Math.max(1, Math.min(100, p.pct || 0)) + '%'
+        };
+      });
+
+    const filtered = q.length >= 2
+      ? index.filter(b => b.title.toLowerCase().includes(q) || b.subtitle.toLowerCase().includes(q) || b.blurb.toLowerCase().includes(q) || b.chapters.some(c => c.title.toLowerCase().includes(q)))
+      : index;
+
+    const grouped = (this.props.grouped ?? true);
+    const raw = grouped
+      ? this.GROUPS.map(g => ({ title: g.title, note: g.note, books: filtered.filter(b => g.slugs.includes(b.slug)).sort((a, c) => g.slugs.indexOf(a.slug) - g.slugs.indexOf(c.slug)) }))
+      : [{ title: 'All fifteen volumes', note: 'In the order they appear in the series.', books: filtered.slice().sort((a, b) => order.get(a.slug) - order.get(b.slug)) }];
+
+    const groups = raw.filter(g => g.books.length).map(g => ({
+      title: g.title, note: g.note,
+      books: g.books.map(b => {
+        const p = prog[b.slug];
+        return {
+          file: encodeURI(b.file), title: b.title, subtitle: b.subtitle, blurb: b.blurb, theme: b.theme,
+          index: String(order.get(b.slug) + 1).padStart(2, '0'),
+          tally: b.counts.chapters + ' chapters · ' + num(b.counts.words) + ' words',
+          state: p && p.pct > 1 ? p.pct + '% read' : ''
+        };
+      })
+    }));
+
+    const totals = index.reduce((a, b) => ({ c: a.c + b.counts.chapters, w: a.w + b.counts.words, t: a.t + b.counts.terms }), { c: 0, w: 0, t: 0 });
+
+    return {
+      groups, hits, hasHits: hits.length > 0, reading, hasReading: reading.length > 0,
+      q: this.state.q,
+      onQuery: e => this.setState({ q: e.target.value }),
+      resultLine: q.length >= 2
+        ? hits.length + ' chapters · ' + filtered.length + ' volumes match “' + this.state.q.trim() + '”'
+        : 'Complete texts · glossaries · reading place kept',
+      totalChapters: totals.c, totalWords: num(totals.w), totalTerms: num(totals.t),
+      cardCols: 'repeat(auto-fit, minmax(' + (this.props.cardWidth || 300) + 'px, 1fr))',
+      introCols: (this.props.showPlate ?? true) ? 'minmax(0,0.8fr) minmax(0,1.2fr)' : '0 1fr'
+    };
+  }
+}
+</script>
+</body>
+</html>

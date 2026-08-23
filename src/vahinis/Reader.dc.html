@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/classical-4c530195-8fa0-4a32-858b-97045e7bdb22/styles.css">
+<script src="_ds/classical-4c530195-8fa0-4a32-858b-97045e7bdb22/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: var(--color-bg); margin: 0; }
+  a { color: var(--color-accent-700); text-decoration: none; border-bottom: 1px solid var(--color-accent-300); }
+  a:hover { color: var(--color-accent-800); border-bottom-color: var(--color-accent-600); }
+  @media print {
+    [data-chrome] { display: none !important; }
+    html, body { background: #fff !important; }
+    [data-flow] { padding-top: 0 !important; }
+    [data-ch] { break-before: page; columns: auto !important; }
+    [data-ch]:first-of-type { break-before: auto; }
+  }
+</style>
+</helmet>
+
+<div style="position:sticky;top:0;z-index:900;background:var(--color-bg);border-bottom:1px solid var(--color-divider);font-family:var(--font-body)">
+  <div style="max-width:1080px;margin:0 auto;padding:10px var(--space-6);display:flex;align-items:center;gap:24px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase">
+    <a class="plain" href="../SSSIHMS%20Website.html#vahinis" style="color:var(--color-neutral-700)">← SSSIHMS</a>
+    <a class="plain" href="../SSSIHMS%20Website.html#bhagawan" style="color:var(--color-neutral-700)">Bhagawan</a>
+    <a class="plain" href="Library.dc.html" style="color:var(--color-neutral-700)">Reading Library</a>
+  </div>
+</div>
+
+<div style="min-height:100vh;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body)">
+
+  <div data-chrome="1" style="position:fixed;top:0;left:0;right:0;height:2px;background:var(--color-divider);z-index:60">
+    <div style="height:100%;width:{{ pct }};background:var(--color-accent);transition:width .12s linear"></div>
+  </div>
+
+  <header data-chrome="1" style="position:fixed;top:2px;left:0;right:0;height:52px;z-index:55;display:flex;align-items:center;gap:var(--space-4);padding:0 var(--space-6);background:color-mix(in srgb, var(--color-bg) 88%, transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--color-divider)">
+    <a href="Library.dc.html" title="All fifteen volumes" style="border:0;font-family:var(--font-heading);font-size:20px;line-height:1;color:var(--color-accent-700);flex:none">☰</a>
+    <div style="font-family:var(--font-heading);font-size:15px;letter-spacing:0.18em;text-transform:uppercase;white-space:nowrap;flex:none">{{ title }}</div>
+    <div style="flex:1;min-width:0;font-size:12.5px;color:var(--color-neutral-600);font-variant-numeric:tabular-nums;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ crumb }}</div>
+    <div style="display:flex;align-items:center;gap:var(--space-1);flex:none">
+      <button class="btn btn-ghost" onClick="{{ smaller }}" title="Smaller text" style="font-family:var(--font-heading);padding:4px 9px;font-size:13px">A−</button>
+      <button class="btn btn-ghost" onClick="{{ bigger }}" title="Larger text" style="font-family:var(--font-heading);padding:4px 9px;font-size:17px">A+</button>
+      <div style="width:1px;height:20px;background:var(--color-divider);margin:0 var(--space-2)"></div>
+      <button class="btn btn-ghost" onClick="{{ cycleLayout }}" title="Change reading layout" style="padding:4px 11px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase">{{ layout }}</button>
+      <button class="btn btn-ghost" onClick="{{ doPrint }}" title="Print or save as PDF" style="padding:4px 11px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase">Print</button>
+      <button class="btn btn-secondary" onClick="{{ toggleDrawer }}" style="padding:5px 13px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase">Contents</button>
+    </div>
+  </header>
+
+  <sc-if value="{{ resume }}">
+    <div data-chrome="1" style="position:fixed;left:var(--space-6);bottom:var(--space-6);z-index:56;max-width:320px;background:var(--color-bg);border:1px solid var(--color-divider);border-radius:var(--radius-md);box-shadow:var(--shadow-md);padding:var(--space-4)">
+      <div style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-accent-700);margin-bottom:var(--space-2)">Where you stopped</div>
+      <div style="font-family:var(--font-heading);font-size:19px;line-height:1.2;margin-bottom:var(--space-3)">{{ resumeTitle }}</div>
+      <div style="display:flex;gap:var(--space-2)">
+        <button class="btn btn-primary" onClick="{{ doResume }}" style="padding:5px 14px;font-size:12.5px">Resume</button>
+        <button class="btn btn-ghost" onClick="{{ dismissResume }}" style="padding:5px 12px;font-size:12.5px">Start over</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ drawer }}">
+    <div data-chrome="1" style="position:fixed;inset:0;z-index:70;display:flex;justify-content:flex-end">
+      <div onClick="{{ toggleDrawer }}" style="position:absolute;inset:0;background:color-mix(in srgb, var(--color-neutral-900) 28%, transparent)"></div>
+      <aside style="position:relative;width:min(430px,100%);height:100%;background:var(--color-bg);border-left:1px solid var(--color-divider);box-shadow:var(--shadow-lg);display:flex;flex-direction:column">
+        <div style="padding:var(--space-6) var(--space-6) var(--space-4);border-bottom:1px solid var(--color-divider)">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:var(--space-3)">
+            <div style="font-family:var(--font-heading);font-size:26px">Contents</div>
+            <button class="btn btn-ghost" onClick="{{ toggleDrawer }}" style="padding:2px 10px;font-size:18px;line-height:1">×</button>
+          </div>
+          <input class="input" placeholder="{{ searchHint }}" value="{{ q }}" onInput="{{ onQuery }}" style="width:100%"/>
+          <div style="margin-top:var(--space-2);font-size:11.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-600);font-variant-numeric:tabular-nums">{{ resultLine }}</div>
+        </div>
+        <div style="flex:1;overflow-y:auto;padding:var(--space-4) var(--space-6) var(--space-8)">
+          <sc-if value="{{ hasMarks }}">
+            <div style="margin-bottom:var(--space-6)">
+              <div style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-accent-700);margin-bottom:var(--space-2)">Bookmarked</div>
+              <sc-for list="{{ marked }}" as="m" hint-placeholder-count="2">
+                <button onClick="{{ m.go }}" style="display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--color-divider);padding:var(--space-2) 0;cursor:pointer;font-family:var(--font-body);font-size:14px;color:var(--color-text)">
+                  <span style="font-variant-numeric:tabular-nums;color:var(--color-accent-700);margin-right:8px">{{ m.num }}</span>{{ m.title }}
+                </button>
+              </sc-for>
+            </div>
+          </sc-if>
+          <sc-for list="{{ navList }}" as="c" hint-placeholder-count="12">
+            <button onClick="{{ c.go }}" style="display:flex;gap:var(--space-3);width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--color-divider);padding:var(--space-3) 0;cursor:pointer;font-family:var(--font-body);color:var(--color-text)">
+              <span style="font-variant-numeric:tabular-nums;color:var(--color-accent-700);font-size:13px;min-width:30px;padding-top:3px">{{ c.num }}</span>
+              <span style="flex:1">
+                <span style="display:block;font-family:var(--font-heading);font-size:18px;line-height:1.2">{{ c.title }}</span>
+                <sc-if value="{{ c.snippet }}">
+                  <span style="display:block;font-size:12.5px;color:var(--color-neutral-600);margin-top:4px;line-height:1.45">…{{ c.snippet }}…</span>
+                </sc-if>
+              </span>
+            </button>
+          </sc-for>
+        </div>
+        <div style="border-top:1px solid var(--color-divider);padding:var(--space-3) var(--space-6);display:flex;gap:var(--space-2);flex-wrap:wrap">
+          <button class="btn btn-ghost" onClick="{{ goFront }}" style="padding:4px 10px;font-size:12px">Front matter</button>
+          <button class="btn btn-ghost" onClick="{{ goGlossary }}" style="padding:4px 10px;font-size:12px">Glossary</button>
+          <a class="btn btn-ghost" href="Library.dc.html" style="padding:4px 10px;font-size:12px;border-bottom-width:1px">All volumes</a>
+        </div>
+      </aside>
+    </div>
+  </sc-if>
+
+  <main data-flow="1" style="padding:calc(54px + var(--space-8)) var(--space-6) 0">
+
+    <sc-if value="{{ showMasthead }}">
+      <section style="max-width:760px;margin:0 auto;padding:var(--space-8) 0;text-align:center">
+        <div style="font-size:11.5px;letter-spacing:0.28em;text-transform:uppercase;color:var(--color-neutral-600);margin-bottom:var(--space-6)">Sri Sathya Sai Sadhana Trust · Prasanthi Nilayam</div>
+        <div style="height:1px;background:var(--color-divider);margin-bottom:var(--space-6)"></div>
+        <h1 style="font-family:var(--font-heading);font-weight:400;font-size:clamp(48px,9vw,104px);line-height:0.96;letter-spacing:0.02em;margin:0">{{ title }}</h1>
+        <div style="font-family:var(--font-heading);font-style:italic;font-size:clamp(21px,3.2vw,31px);color:var(--color-accent-700);margin-top:var(--space-3)">{{ subtitle }}</div>
+        <div style="height:1px;background:var(--color-divider);margin:var(--space-6) 0"></div>
+        <div style="font-size:12.5px;letter-spacing:0.22em;text-transform:uppercase">Sathya Sai Baba</div>
+        <div style="margin:var(--space-8) auto 0;max-width:520px">
+          <div class="plate" style="width:100%;display:flex;align-items:center;justify-content:center;height:440px;overflow:hidden">
+            <img src="{{ photo }}" alt="Bhagavan Sri Sathya Sai Baba" style="max-width:100%;max-height:100%;width:auto;height:auto;display:block"/>
+          </div>
+          <div style="font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-neutral-600);margin-top:var(--space-3)">Frontispiece</div>
+        </div>
+        <p style="max-width:560px;margin:var(--space-8) auto 0;font-size:14.5px;line-height:1.75;color:var(--color-neutral-700);text-wrap:pretty">{{ tally }}</p>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ showExtras }}">
+      <section id="front-matter" style="max-width:{{ measure }};margin:0 auto;padding:var(--space-8) 0">
+        <sc-for list="{{ front }}" as="f" hint-placeholder-count="2">
+          <div style="padding-bottom:var(--space-8)">
+            <div style="height:1px;background:var(--color-divider);margin-bottom:var(--space-8)"></div>
+            <h2 style="font-family:var(--font-heading);font-weight:400;font-size:34px;margin:0 0 var(--space-4)">{{ f.title }}</h2>
+            <sc-for list="{{ f.paras }}" as="p" hint-placeholder-count="3">
+              <p style="{{ paraStyle }}">{{ p }}</p>
+            </sc-for>
+          </div>
+        </sc-for>
+      </section>
+    </sc-if>
+
+    <div style="{{ bookStyle }}">
+      <sc-for list="{{ visible }}" as="ch" hint-placeholder-count="4">
+        <article id="{{ ch.id }}" data-ch="{{ ch.n }}" data-screen-label="{{ ch.num }}" style="{{ chapterStyle }}">
+          <div style="display:flex;align-items:flex-start;gap:var(--space-4);margin-bottom:var(--space-4)">
+            <div style="flex:1">
+              <div style="font-variant-numeric:tabular-nums;font-size:12px;letter-spacing:0.2em;color:var(--color-accent-700);margin-bottom:var(--space-2)">{{ ch.label }}</div>
+              <h2 style="font-family:var(--font-heading);font-weight:400;font-size:clamp(28px,3.2vw,38px);line-height:1.08;margin:0">{{ ch.title }}</h2>
+            </div>
+            <button data-chrome="1" onClick="{{ ch.mark }}" title="Bookmark this chapter" style="background:none;border:1px solid var(--color-divider);border-radius:var(--radius-md);cursor:pointer;padding:5px 9px;font-size:14px;line-height:1;color:{{ ch.markColor }}">★</button>
+          </div>
+          <div style="width:56px;height:1px;background:var(--color-accent-400);margin-bottom:var(--space-6)"></div>
+          <sc-for list="{{ ch.blocks }}" as="b" hint-placeholder-count="5">
+            <sc-if value="{{ b.isLead }}">
+              <p style="{{ leadStyle }}"><span style="{{ capStyle }}">{{ b.cap }}</span>{{ b.rest }}</p>
+            </sc-if>
+            <sc-if value="{{ b.isHead }}">
+              <h3 style="{{ headStyle }}">{{ b.x }}</h3>
+            </sc-if>
+            <sc-if value="{{ b.isBody }}">
+              <p style="{{ paraStyle }}">{{ b.x }}</p>
+            </sc-if>
+            <sc-if value="{{ b.isQuote }}">
+              <blockquote style="{{ quoteStyle }}">{{ b.x }}</blockquote>
+            </sc-if>
+          </sc-for>
+        </article>
+      </sc-for>
+    </div>
+
+    <sc-if value="{{ isFocus }}">
+      <div data-chrome="1" style="max-width:{{ measure }};margin:0 auto;padding:var(--space-8) 0;display:flex;justify-content:space-between;gap:var(--space-4);border-top:1px solid var(--color-divider)">
+        <button class="btn btn-secondary" onClick="{{ prevCh }}" style="padding:6px 16px;font-size:13px">← {{ prevLabel }}</button>
+        <button class="btn btn-primary" onClick="{{ nextCh }}" style="padding:6px 16px;font-size:13px">{{ nextLabel }} →</button>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ showExtras }}">
+      <section id="glossary" style="max-width:1080px;margin:0 auto;padding:var(--space-8) 0">
+        <div style="height:1px;background:var(--color-divider);margin-bottom:var(--space-8)"></div>
+        <h2 style="font-family:var(--font-heading);font-weight:400;font-size:clamp(34px,5vw,54px);margin:0 0 var(--space-4)">Glossary</h2>
+        <p style="max-width:640px;font-size:14.5px;line-height:1.75;color:var(--color-neutral-700);text-wrap:pretty">{{ gIntro }}</p>
+        <div data-chrome="1" style="margin:var(--space-6) 0;max-width:420px">
+          <input class="input" placeholder="Find a term…" value="{{ gq }}" onInput="{{ onGQuery }}" style="width:100%"/>
+        </div>
+        <div style="columns:2 300px;column-gap:var(--space-8)">
+          <sc-for list="{{ entries }}" as="e" hint-placeholder-count="10">
+            <div style="break-inside:avoid;padding:var(--space-2) 0;border-bottom:1px solid var(--color-divider);font-size:14px;line-height:1.65">
+              <span style="font-family:var(--font-heading);font-size:17px;color:var(--color-accent-800)">{{ e.term }}</span>
+              <span style="color:var(--color-neutral-700)"> — {{ e.def }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <footer style="max-width:{{ measure }};margin:0 auto;padding:var(--space-8) 0 96px;text-align:center;font-size:12px;line-height:1.9;color:var(--color-neutral-600)">
+        <div style="height:1px;background:var(--color-divider);margin-bottom:var(--space-6)"></div>
+        <div>© Sri Sathya Sai Sadhana Trust, Publications Division, Prasanthi Nilayam 515 134, Anantapur District, Andhra Pradesh, India. All rights reserved.</div>
+        <div style="margin-top:var(--space-2)"><a href="Library.dc.html">The fifteen volumes</a> · <a href="https://www.sssbpt.org">www.sssbpt.org</a></div>
+      </footer>
+    </sc-if>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;slug&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;prema-vahini&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;layout&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Column&quot;,&quot;Spread&quot;,&quot;Focus&quot;],&quot;default&quot;:&quot;Column&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Reading&quot;},&quot;textWidth&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:540,&quot;max&quot;:880,&quot;step&quot;:20,&quot;default&quot;:680,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Reading&quot;},&quot;justify&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Typography&quot;},&quot;dropCaps&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Typography&quot;}}">
+class Component extends DCLogic {
+  state = { book: null, layout: null, scale: null, drawer: false, q: '', gq: '',
+            marks: null, pct: '0%', current: 1, focusN: 1, resume: null };
+
+  slug() { return this.props.slug || 'prema-vahini'; }
+  key() { return 'vahini-reader:' + this.slug(); }
+
+  componentDidMount() {
+    const hash = (location.hash || '').match(/^#ch-(\d+)$/);
+    fetch('data/' + this.slug() + '.json').then(r => r.json()).then(book => this.setState({ book }, () => {
+      if (hash) { this.setState({ resume: null, focusN: +hash[1] }); setTimeout(() => this.goTo(+hash[1]), 120); }
+    }));
+    let s = {};
+    try { s = JSON.parse(localStorage.getItem(this.key()) || '{}'); } catch (e) {}
+    this.setState({
+      scale: s.scale || 1, marks: s.marks || [], layout: s.layout || null,
+      focusN: s.n || 1, resume: (s.y > 600) ? { y: s.y, n: s.n || 1 } : null
+    });
+    this._tick = false;
+    this.onScroll = () => {
+      if (this._tick) return;
+      this._tick = true;
+      requestAnimationFrame(() => {
+        this._tick = false;
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = Math.max(0, Math.min(1, h > 0 ? window.scrollY / h : 0));
+        let cur = this.state.current;
+        document.querySelectorAll('[data-ch]').forEach(el => { if (el.getBoundingClientRect().top < 140) cur = +el.dataset.ch; });
+        if (Math.round(pct * 1000) !== Math.round(parseFloat(this.state.pct) * 10) || cur !== this.state.current) {
+          this.setState({ pct: (pct * 100).toFixed(1) + '%', current: cur });
+        }
+        this.save();
+      });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+  }
+
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); clearTimeout(this._t); }
+
+  save() {
+    clearTimeout(this._t);
+    this._t = setTimeout(() => {
+      const b = this.state.book;
+      const n = this.layout() === 'Focus' ? this.state.focusN : this.state.current;
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      try {
+        localStorage.setItem(this.key(), JSON.stringify({
+          y: window.scrollY, n, scale: this.state.scale || 1, marks: this.state.marks || [],
+          layout: this.layout(), pct: h > 0 ? Math.round(window.scrollY / h * 100) : 0,
+          chTitle: b && b.chapters[n - 1] ? b.chapters[n - 1].title : '', at: Date.now()
+        }));
+      } catch (e) {}
+    }, 350);
+  }
+
+  layout() { return this.state.layout || this.props.layout || 'Column'; }
+  measure() { return (this.props.textWidth || 680) + 'px'; }
+  fs(px) { return (px * (this.state.scale || 1)).toFixed(2) + 'px'; }
+
+  goTo(n) {
+    if (this.layout() === 'Focus') { this.setState({ focusN: n, drawer: false }, () => this.save()); window.scrollTo(0, 0); return; }
+    this.setState({ drawer: false });
+    requestAnimationFrame(() => {
+      const el = document.getElementById('ch-' + n);
+      if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 78, behavior: 'smooth' });
+    });
+  }
+
+  jump(id) {
+    this.setState({ drawer: false });
+    requestAnimationFrame(() => {
+      const el = document.getElementById(id);
+      if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 78, behavior: 'smooth' });
+    });
+  }
+
+  renderVals() {
+    const b = this.state.book;
+    const lay = this.layout();
+    const isFocus = lay === 'Focus';
+    const marks = this.state.marks || [];
+    const just = (this.props.justify ?? true) ? 'justify' : 'left';
+    const measure = this.measure();
+
+    const paraStyle = `font-size:${this.fs(17)};line-height:1.78;margin:0 0 1.15em;text-align:${just};hyphens:auto;text-wrap:pretty`;
+    const leadStyle = paraStyle + ';margin-top:0';
+    const headStyle = `font-family:var(--font-heading);font-weight:400;font-size:${this.fs(23)};line-height:1.25;margin:1.6em 0 0.6em;color:var(--color-accent-800)`;
+    const quoteStyle = `font-family:var(--font-heading);font-style:italic;font-size:${this.fs(21)};line-height:1.5;margin:1.4em 0;padding-left:var(--space-6);border-left:1px solid var(--color-accent-400);color:var(--color-accent-800)`;
+    const capStyle = (this.props.dropCaps ?? true)
+      ? `float:left;font-family:var(--font-heading);font-weight:400;font-size:${this.fs(64)};line-height:0.82;padding:6px 10px 0 0;color:var(--color-accent-700)`
+      : '';
+
+    const chapters = (b ? b.chapters : []).map(ch => {
+      let leadDone = false;
+      const blocks = ch.blocks.map(blk => {
+        if (blk.t === 'h') return { isHead: true, x: blk.x };
+        if (blk.t === 'q') return { isQuote: true, x: blk.x };
+        if (!leadDone) {
+          leadDone = true;
+          const m = blk.x.match(/^(\S)([\s\S]*)$/);
+          return { isLead: true, cap: m ? m[1] : '', rest: m ? m[2] : blk.x };
+        }
+        return { isBody: true, x: blk.x };
+      });
+      return {
+        n: ch.n, id: 'ch-' + ch.n, title: ch.title, blocks,
+        num: String(ch.n).padStart(2, '0'),
+        label: 'Chapter ' + (ch.num || ch.n),
+        markColor: marks.includes(ch.n) ? 'var(--color-accent)' : 'var(--color-neutral-400)',
+        mark: () => this.setState(st => {
+          const m = st.marks || [];
+          return { marks: m.includes(ch.n) ? m.filter(x => x !== ch.n) : m.concat(ch.n).sort((a, c) => a - c) };
+        }, () => this.save())
+      };
+    });
+
+    const q = this.state.q.trim().toLowerCase();
+    const navList = chapters.filter(c => {
+      if (!q) return true;
+      if (c.title.toLowerCase().includes(q)) return true;
+      return b.chapters[c.n - 1].blocks.some(bl => bl.x.toLowerCase().includes(q));
+    }).map(c => {
+      let snippet = '';
+      if (q && !c.title.toLowerCase().includes(q)) {
+        const src = b.chapters[c.n - 1].blocks.map(bl => bl.x).join(' ');
+        const i = src.toLowerCase().indexOf(q);
+        if (i >= 0) snippet = src.slice(Math.max(0, i - 60), i + q.length + 70).trim();
+      }
+      return { num: c.num, title: c.title, snippet, go: () => this.goTo(c.n) };
+    });
+
+    const gq = this.state.gq.trim().toLowerCase();
+    const entries = (b ? b.glossary : []).filter(e =>
+      !gq || e.term.toLowerCase().includes(gq) || e.def.toLowerCase().includes(gq));
+
+    const cur = isFocus ? this.state.focusN : this.state.current;
+    const curCh = chapters[cur - 1];
+    const resumeCh = this.state.resume ? chapters[this.state.resume.n - 1] : null;
+    const visible = isFocus ? chapters.filter(c => c.n === this.state.focusN) : chapters;
+    const prev = chapters[this.state.focusN - 2];
+    const next = chapters[this.state.focusN];
+    const counts = b ? b.counts : { chapters: 0, terms: 0 };
+
+    return {
+      pct: this.state.pct,
+      title: b ? b.title : (this.props.slug || ''),
+      subtitle: b ? b.subtitle : '',
+      photo: 'photos/' + ({
+        'prema-vahini': 'G-33_1', 'dharma-vahini': 'G-24', 'dhyana-vahini': 'G-26',
+        'jnana-vahini': 'G-29', 'prasanthi-vahini': 'G-37', 'prasnothara-vahini': 'G-25',
+        'sandeha-nivarini': 'G-25', 'sathya-sai-vahini': 'G-37', 'sutra-vahini': 'G-26',
+        'upanishad-vahini': 'G-29', 'vidya-vahini': 'G-23', 'leela-kaivalya': 'G-27',
+        'bhagavatha-vahini': 'G-30', 'ramakatha-rasavahini-part-1': 'G-32',
+        'ramakatha-rasavahini-part-2': 'G-32'
+      }[this.slug()] || 'G-33_1') + '.jpg',
+      crumb: curCh ? curCh.num + ' · ' + curCh.title : (b ? 'Front matter' : 'Loading the text…'),
+      tally: b ? counts.chapters + ' chapters · ' + counts.terms + ' glossary terms · about ' + (Math.round(counts.words / 1000)) + ',000 words. Your place is kept between visits.' : '',
+      layout: lay, isFocus, showMasthead: !isFocus, showExtras: !isFocus, measure,
+      bookStyle: lay === 'Spread' ? 'max-width:1180px;margin:0 auto' : 'max-width:none',
+      chapterStyle: lay === 'Spread'
+        ? 'max-width:none;margin:0 auto var(--space-8);padding-bottom:var(--space-8);border-bottom:1px solid var(--color-divider);columns:2 340px;column-gap:56px'
+        : `max-width:${measure};margin:0 auto var(--space-8);padding-bottom:var(--space-8);border-bottom:1px solid var(--color-divider)`,
+      paraStyle, leadStyle, quoteStyle, capStyle, headStyle,
+      visible, navList, entries,
+      front: b ? b.front : [],
+      gIntro: b ? b.gIntro : '',
+      q: this.state.q, gq: this.state.gq,
+      searchHint: 'Search all ' + counts.chapters + ' chapters…',
+      resultLine: q ? navList.length + ' of ' + counts.chapters + ' chapters' : counts.chapters + ' chapters · ' + counts.terms + ' glossary terms',
+      drawer: this.state.drawer,
+      marked: chapters.filter(c => marks.includes(c.n)).map(c => ({ num: c.num, title: c.title, go: () => this.goTo(c.n) })),
+      hasMarks: marks.length > 0,
+      resume: !!resumeCh,
+      resumeTitle: resumeCh ? resumeCh.num + ' · ' + resumeCh.title : '',
+      doResume: () => { const y = this.state.resume.y, n = this.state.resume.n; this.setState({ resume: null, focusN: n }); requestAnimationFrame(() => window.scrollTo({ top: y, behavior: 'smooth' })); },
+      dismissResume: () => this.setState({ resume: null }),
+      toggleDrawer: () => this.setState(s => ({ drawer: !s.drawer })),
+      onQuery: e => this.setState({ q: e.target.value }),
+      onGQuery: e => this.setState({ gq: e.target.value }),
+      bigger: () => this.setState(s => ({ scale: Math.min(1.6, (s.scale || 1) + 0.08) }), () => this.save()),
+      smaller: () => this.setState(s => ({ scale: Math.max(0.85, (s.scale || 1) - 0.08) }), () => this.save()),
+      cycleLayout: () => { const order = ['Column', 'Spread', 'Focus']; this.setState({ layout: order[(order.indexOf(lay) + 1) % 3] }, () => this.save()); window.scrollTo(0, 0); },
+      doPrint: () => window.print(),
+      goFront: () => this.jump('front-matter'),
+      goGlossary: () => this.jump('glossary'),
+      prevLabel: prev ? 'Chapter ' + (prev.num || '') : 'Beginning',
+      nextLabel: next ? 'Chapter ' + (next.num || '') : 'End',
+      prevCh: () => { if (prev) { this.setState({ focusN: prev.n }, () => this.save()); window.scrollTo(0, 0); } },
+      nextCh: () => { if (next) { this.setState({ focusN: next.n }, () => this.save()); window.scrollTo(0, 0); } }
+    };
+  }
+}
+</script>
+</body>
+</html>
