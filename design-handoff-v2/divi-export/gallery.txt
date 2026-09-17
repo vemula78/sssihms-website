@@ -1,0 +1,31 @@
+<!-- Gallery — sssihms-render.jsx:166-207 (Gallery + Covers share this shape). COLS = s.cols (default 3). -->
+[et_pb_section _builder_version="4.24.0" background_color="{{BG_COLOR}}" custom_padding="72px||72px||true|false"]
+[et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px"]
+[et_pb_column type="4_4" _builder_version="4.24.0"]
+{{#IF TITLE}}
+[et_pb_text _builder_version="4.24.0"
+  header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="clamp(24px,3vw,32px)"]
+{{#IF EYEBROW}}<span style="color:#c8813a;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;">{{EYEBROW}}</span>{{/IF}}
+<h2>{{TITLE}}</h2>
+[/et_pb_text]
+{{/IF}}
+
+[et_pb_gallery gallery_ids="{{IMAGE_IDS_CSV}}" fullwidth="off" posts_number="{{ITEM_COUNT}}"
+  _builder_version="4.24.0" columns="{{COLS}}" gutter_width="1"
+  caption_font="Nunito Sans||||||||" caption_font_size="13.5px" caption_text_color="#7a6a55"
+  custom_css_image="border:1px solid #e0d5c0;border-radius:10px;object-fit:cover;"]
+[/et_pb_gallery]
+[/et_pb_column]
+[/et_pb_row]
+[/et_pb_section]
+
+<!--
+Fields: EYEBROW, TITLE, IMAGE_IDS_CSV (WP media-library attachment IDs, comma-separated, in
+source order — captions come from each attachment's caption field, so uploaded images must
+carry the source `caption` text as their WP caption), ITEM_COUNT, COLS.
+Covers-type items (publication cover images with an external `href` + `note`, sssihms-render.
+jsx:190-207) don't fit Divi's native Gallery module (no per-image outbound link + secondary
+note line) — for those 4 uses, either accept losing the click-through (gallery becomes
+decorative only) or build them as individual Image+Text-overlay modules in a manual row
+instead of this template. Flag which of the 4 pages need the click-through before deciding.
+-->

@@ -1,0 +1,24 @@
+<!-- CTA — sssihms-render.jsx:371-388. Gradient banner, text left, button right. -->
+[et_pb_section _builder_version="4.24.0" background_color="#c8813a"
+  background_image="" use_background_color_gradient="on"
+  background_color_gradient_stops="#c8813a 0%|#7a4a2e 100%" background_color_gradient_direction="130deg"
+  custom_padding="64px||64px||true|false"]
+[et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px" column_structure="2_3,1_3"
+  use_custom_gutter="on" gutter_width="2" custom_css_main_element="align-items:center;flex-wrap:wrap;"]
+[et_pb_column type="2_3" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" text_text_color="#ffffff" header_font="EB Garamond|600|||||||"
+  header_text_color="#ffffff" header_font_size="clamp(22px,3vw,36px)"]
+{{#IF PILL}}<span style="display:inline-block;background:rgba(255,255,255,.18);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:14px;">{{PILL}}</span>{{/IF}}
+<h2>{{TITLE}}</h2>
+<p style="opacity:.88;font-size:15px;line-height:1.65;max-width:600px;">{{BODY}}</p>
+[/et_pb_text]
+[/et_pb_column]
+[et_pb_column type="1_3" _builder_version="4.24.0"]
+[et_pb_button button_text="{{ACTION_LABEL}} →" button_url="{{ACTION_URL}}" _builder_version="4.24.0"
+  button_bg_color="#ffffff" button_text_color="#7a4a2e" button_border_radius="6px" button_font="Nunito Sans|600||||||"]
+[/et_pb_button]
+[/et_pb_column]
+[/et_pb_row]
+[/et_pb_section]
+
+<!-- Fields: PILL (optional), TITLE, BODY (may contain inline HTML e.g. <strong>), ACTION_LABEL, ACTION_URL. -->

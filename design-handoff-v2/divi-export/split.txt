@@ -1,0 +1,35 @@
+<!-- Split — sssihms-render.jsx:302-320. Always exactly 2 columns (s.cols has 2 entries). -->
+[et_pb_section _builder_version="4.24.0" background_color="{{BG_COLOR}}" custom_padding="72px||72px||true|false"]
+[et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px"]
+[et_pb_column type="4_4" _builder_version="4.24.0"]
+{{#IF TITLE}}
+[et_pb_text _builder_version="4.24.0"
+  header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="clamp(24px,3vw,32px)"]
+{{#IF EYEBROW}}<span style="color:#c8813a;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;">{{EYEBROW}}</span>{{/IF}}
+<h2>{{TITLE}}</h2>
+[/et_pb_text]
+{{/IF}}
+[/et_pb_column]
+[/et_pb_row]
+
+[et_pb_row _builder_version="4.24.0" column_structure="1_2,1_2" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="3"]
+[et_pb_column type="1_2" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_text_color="#2a1f14" text_line_height="1.65"
+  header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="clamp(22px,2.6vw,30px)"]
+{{#IF COL1_EYEBROW}}<span style="color:#c8813a;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;">{{COL1_EYEBROW}}</span>{{/IF}}
+<h3>{{COL1_TITLE}}</h3>
+{{COL1_BODY_PARAGRAPHS_HTML}}
+[/et_pb_text]
+{{#IF COL1_LINK}}[et_pb_button button_text="{{COL1_LINK_LABEL}} →" button_url="{{COL1_LINK_URL}}" _builder_version="4.24.0" button_text_color="#c8813a" button_bg_color="rgba(0,0,0,0)" button_border_width="2px" button_border_color="#c8813a" button_border_radius="6px"][/et_pb_button]{{/IF}}
+[/et_pb_column]
+[et_pb_column type="1_2" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_text_color="#2a1f14" text_line_height="1.65"
+  header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="clamp(22px,2.6vw,30px)"]
+{{#IF COL2_EYEBROW}}<span style="color:#c8813a;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;">{{COL2_EYEBROW}}</span>{{/IF}}
+<h3>{{COL2_TITLE}}</h3>
+{{COL2_BODY_PARAGRAPHS_HTML}}
+[/et_pb_text]
+{{#IF COL2_LINK}}[et_pb_button button_text="{{COL2_LINK_LABEL}} →" button_url="{{COL2_LINK_URL}}" _builder_version="4.24.0" button_text_color="#c8813a" button_bg_color="rgba(0,0,0,0)" button_border_width="2px" button_border_color="#c8813a" button_border_radius="6px"][/et_pb_button]{{/IF}}
+[/et_pb_column]
+[/et_pb_row]
+[/et_pb_section]

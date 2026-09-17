@@ -1,0 +1,36 @@
+<!-- Faculty — sssihms-render.jsx:345-369. COLS = 3 or 4 (s.cols). See LIMITATIONS.md re: image-slot / avatar fallback. -->
+[et_pb_section _builder_version="4.24.0" background_color="{{BG_COLOR}}" custom_padding="72px||72px||true|false"]
+[et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px"]
+[et_pb_column type="4_4" _builder_version="4.24.0"]
+{{#IF TITLE}}
+[et_pb_text _builder_version="4.24.0"
+  header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="clamp(24px,3vw,32px)"]
+{{#IF EYEBROW}}<span style="color:#c8813a;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;">{{EYEBROW}}</span>{{/IF}}
+<h2>{{TITLE}}</h2>
+{{/IF}}
+[/et_pb_text]
+[/et_pb_column]
+[/et_pb_row]
+
+[et_pb_row _builder_version="4.24.0" column_structure="{{DIVI_COLUMN_STRUCTURE}}" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="2"]
+<!-- repeat once per faculty member, wrap to a new et_pb_row every COLS members -->
+[et_pb_column type="{{DIVI_COLUMN_TYPE}}" _builder_version="4.24.0"]
+[et_pb_team_member name="{{FACULTY_NAME}}" position="{{FACULTY_ROLE}}" image_url="{{FACULTY_PHOTO_URL}}"
+  _builder_version="4.24.0" header_font="EB Garamond|700|||||||" header_font_size="14px"
+  body_font="Nunito Sans||||||||" body_font_size="12px" body_text_color="#7a6a55"
+  background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;"]
+{{#IF FACULTY_DETAIL}}{{FACULTY_DETAIL}}{{/IF}}
+[/et_pb_team_member]
+[/et_pb_column]
+[/et_pb_row]
+[/et_pb_section]
+
+<!--
+Fields: FACULTY_NAME, FACULTY_ROLE, FACULTY_PHOTO_URL, FACULTY_DETAIL (optional).
+IMPORTANT — see LIMITATIONS.md: this template assumes FACULTY_PHOTO_URL always resolves to
+a real, already-uploaded image. The source `image-slot` component and the initials-avatar
+`onError` fallback (sssihms-render.jsx:352-357) have no native Divi Team Member equivalent.
+Do not bulk-generate this block until every faculty photo referenced in PAGES has been
+confirmed to exist as a media-library upload — otherwise broken images will show Divi's
+generic placeholder icon, not the branded initials avatar the current site shows.
+-->

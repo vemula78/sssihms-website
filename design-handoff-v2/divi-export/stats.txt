@@ -1,0 +1,39 @@
+<!-- Stats — sssihms-render.jsx:253-269. Always centered heading; 3-col grid (2-col under 768px, per site.css:182). -->
+[et_pb_section _builder_version="4.24.0" background_color="{{BG_COLOR}}" custom_padding="72px||72px||true|false"]
+[et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px"]
+[et_pb_column type="4_4" _builder_version="4.24.0"]
+{{#IF TITLE}}
+[et_pb_text _builder_version="4.24.0" text_orientation="center" max_width="680px" module_alignment="center"
+  header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="clamp(24px,3vw,32px)"]
+{{#IF EYEBROW}}<span style="color:#c8813a;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;">{{EYEBROW}}</span>{{/IF}}
+<h2>{{TITLE}}</h2>
+[/et_pb_text]
+{{/IF}}
+[/et_pb_column]
+[/et_pb_row]
+
+[et_pb_row _builder_version="4.24.0" column_structure="1_3,1_3,1_3" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="2"]
+<!-- repeat once per stat, wrap to a new et_pb_row every 3 stats -->
+[et_pb_column type="1_3" _builder_version="4.24.0"]
+[et_pb_number_counter title="{{STAT_LABEL}}" number="{{STAT_VALUE_NUMERIC}}" percent_sign="{{STAT_SUFFIX}}"
+  _builder_version="4.24.0" number_font="EB Garamond|700|||||||" number_text_color="#c8813a" number_font_size="46px"
+  title_font="Nunito Sans|600||||||" title_text_color="#7a6a55" title_font_size="12.5px"
+  background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-top:3px solid #c8813a;border-radius:10px;padding:28px 22px;text-align:center;"]
+[/et_pb_number_counter]
+[/et_pb_column]
+[/et_pb_row]
+[/et_pb_section]
+
+<!--
+Fields: EYEBROW, TITLE, per stat: STAT_LABEL, STAT_VALUE_NUMERIC, STAT_SUFFIX.
+CAUTION: source stat values are pre-formatted strings like "1,43,500+" or "100%" (Indian
+digit grouping, plus a trailing "+"/"%") — Divi's Number Counter module animates a plain
+integer and appends its own suffix, it does not accept an arbitrary pre-formatted string.
+Two options: (a) strip formatting and let Divi's counter animate the bare number, then set
+percent_sign to "+" or "%" — loses Indian lakh/crore grouping during the animation but shows
+correctly at rest if a companion CSS number-format script is added, or (b) skip et_pb_number_
+counter entirely and use a plain Text/Blurb module with the string exactly as authored (no
+count-up animation, but zero formatting risk). Given these are hospital statistics numbers
+where the exact string matters more than an animation, (b) is the safer default — validate
+against the source page before choosing (a).
+-->

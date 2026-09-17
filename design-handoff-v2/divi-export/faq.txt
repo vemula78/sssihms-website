@@ -1,0 +1,22 @@
+<!-- FAQ — sssihms-render.jsx:453-469. Only 2 uses site-wide. Divi's native Accordion module (et_pb_accordion). -->
+[et_pb_section _builder_version="4.24.0" background_color="{{BG_COLOR}}" custom_padding="72px||72px||true|false"]
+[et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px"]
+[et_pb_column type="4_4" _builder_version="4.24.0"]
+{{#IF TITLE}}
+[et_pb_text _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14"]
+{{#IF EYEBROW}}<span style="color:#c8813a;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;">{{EYEBROW}}</span>{{/IF}}
+<h2>{{TITLE}}</h2>
+[/et_pb_text]
+{{/IF}}
+[et_pb_accordion _builder_version="4.24.0" toggle_font="EB Garamond|600|||||||" toggle_text_color="#2a1f14"
+  body_font="Nunito Sans||||||||" body_text_color="#7a6a55" open_toggle_background_color="#fefcf8"
+  closed_toggle_background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;"]
+{{#EACH ITEM}}
+[et_pb_accordion_item title="{{ITEM_Q}}" _builder_version="4.24.0" open="off"]
+{{ITEM_A_HTML}}
+[/et_pb_accordion_item]
+{{/EACH}}
+[/et_pb_accordion]
+[/et_pb_column]
+[/et_pb_row]
+[/et_pb_section]

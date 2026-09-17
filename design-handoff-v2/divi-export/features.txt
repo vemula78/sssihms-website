@@ -1,0 +1,35 @@
+<!-- Features — sssihms-render.jsx:235-251. Fixed 2-col checklist grid regardless of item count. -->
+[et_pb_section _builder_version="4.24.0" background_color="{{BG_COLOR}}" custom_padding="72px||72px||true|false"]
+[et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px"]
+[et_pb_column type="4_4" _builder_version="4.24.0"]
+{{#IF TITLE}}
+[et_pb_text _builder_version="4.24.0" text_orientation="{{CENTER_OR_LEFT}}"
+  header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="clamp(24px,3vw,32px)"]
+{{#IF EYEBROW}}<span style="color:#c8813a;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;">{{EYEBROW}}</span>{{/IF}}
+<h2>{{TITLE}}</h2>
+{{#IF SUB}}<p style="color:#7a6a55;">{{SUB}}</p>{{/IF}}
+[/et_pb_text]
+{{/IF}}
+
+[et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_text_color="#2a1f14" text_font_size="15px" text_line_height="1.55"]
+<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:2px 28px;">
+{{#EACH ITEM}}
+<div style="display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px solid #e0d5c0;">
+  <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#f0d5b0;color:#7a4a2e;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;margin-top:1px;">✓</span>
+  <span>{{ITEM_TEXT}}</span>
+</div>
+{{/EACH}}
+</div>
+[/et_pb_text]
+[/et_pb_column]
+[/et_pb_row]
+[/et_pb_section]
+
+<!--
+Fields: EYEBROW, TITLE, SUB, ITEM_TEXT[] (each may contain inline HTML e.g. <strong>).
+Rendered as one raw HTML grid inside a single Divi Text module rather than N separate Divi
+modules — a native per-item module (e.g. one et_pb_blurb per checklist row) is possible but
+adds no editing benefit for a plain checklist line and would 4x the module count on pages
+that use this block (up to 91 uses site-wide). If click-editing individual list items turns
+out to matter in practice, revisit and split into Blurb modules instead.
+-->

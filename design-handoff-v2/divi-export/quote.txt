@@ -1,0 +1,34 @@
+<!-- Quote — sssihms-render.jsx:271-300. Two variants: plain centered, or photo-split (s.image set). -->
+
+<!-- VARIANT A: plain, centered, dark section -->
+[et_pb_section _builder_version="4.24.0" background_color="#2c1a0e" custom_padding="72px||72px||true|false"]
+[et_pb_row _builder_version="4.24.0" width="100%" max_width="780px"]
+[et_pb_column type="4_4" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" text_orientation="center"]
+{{#IF EYEBROW}}<span style="color:#c8813a;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;">{{EYEBROW}}</span>{{/IF}}
+<div style="font-family:'EB Garamond',serif;font-size:100px;line-height:.8;color:#c8813a;opacity:.45;">"</div>
+<p style="font-family:'EB Garamond',serif;font-style:italic;font-size:clamp(17px,2.2vw,23px);line-height:1.65;color:rgba(255,255,255,.93);">{{QUOTE_TEXT}}</p>
+<div style="font-size:12.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#c8813a;opacity:.9;">— {{ATTRIBUTION}}</div>
+[/et_pb_text]
+[/et_pb_column]
+[/et_pb_row]
+[/et_pb_section]
+
+<!-- VARIANT B: photo-split, dark section — photo left, quote right -->
+[et_pb_section _builder_version="4.24.0" background_color="#2c1a0e" custom_padding="72px||72px||true|false"]
+[et_pb_row _builder_version="4.24.0" column_structure="2_5,3_5" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="3"]
+[et_pb_column type="2_5" _builder_version="4.24.0"]
+[et_pb_image src="{{QUOTE_IMAGE_URL}}" alt="Bhagawan Sri Sathya Sai Baba" _builder_version="4.24.0" border_radii="on|10px|10px|10px|10px"][/et_pb_image]
+[/et_pb_column]
+[et_pb_column type="3_5" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0"]
+{{#IF EYEBROW}}<span style="color:#c8813a;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;">{{EYEBROW}}</span>{{/IF}}
+<div style="font-family:'EB Garamond',serif;font-size:100px;line-height:.8;color:#c8813a;opacity:.45;">"</div>
+<p style="font-family:'EB Garamond',serif;font-style:italic;font-size:clamp(17px,2.2vw,23px);line-height:1.65;color:rgba(255,255,255,.93);">{{QUOTE_TEXT}}</p>
+<div style="font-size:12.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#c8813a;opacity:.9;">— {{ATTRIBUTION}}</div>
+[/et_pb_text]
+[/et_pb_column]
+[/et_pb_row]
+[/et_pb_section]
+
+<!-- Fields: EYEBROW (optional), QUOTE_TEXT, ATTRIBUTION (s.attr || s.author), QUOTE_IMAGE_URL (variant B only). -->

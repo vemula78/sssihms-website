@@ -1,0 +1,41 @@
+<!-- Cards — sssihms-render.jsx:209-233. One column group per card, COLS = 2/3/4 (s.cols). -->
+[et_pb_section _builder_version="4.24.0" background_color="{{BG_COLOR}}" custom_padding="72px||72px||true|false"]
+[et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px"]
+[et_pb_column type="4_4" _builder_version="4.24.0"]
+{{#IF TITLE}}
+[et_pb_text _builder_version="4.24.0" text_orientation="{{CENTER_OR_LEFT}}"
+  header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="clamp(24px,3vw,32px)"]
+{{#IF EYEBROW}}<span style="color:#c8813a;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;">{{EYEBROW}}</span>{{/IF}}
+<h2>{{TITLE}}</h2>
+{{#IF SUB}}<p style="color:#7a6a55;">{{SUB}}</p>{{/IF}}
+[/et_pb_text]
+{{/IF}}
+[/et_pb_column]
+[/et_pb_row]
+
+[et_pb_row _builder_version="4.24.0" column_structure="{{DIVI_COLUMN_STRUCTURE}}" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="2"]
+<!-- repeat this et_pb_column block once per card (up to COLS per row, wrap to a new et_pb_row every COLS cards) -->
+[et_pb_column type="{{DIVI_COLUMN_TYPE}}" _builder_version="4.24.0"]
+[et_pb_blurb {{#IF CARD_IMAGE}}image="{{CARD_IMAGE}}"{{/IF}} title="{{CARD_TITLE}}" content="{{CARD_DESC}}"
+  _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" header_font_size="20px"
+  body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="13.5px"
+  background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-top:3px solid #c8813a;border-radius:10px;padding:24px;height:100%;"]
+{{#IF CARD_BADGE}}[/et_pb_blurb][et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_font_size="10px" background_color="#f0d5b0" text_text_color="#7a4a2e" custom_margin="-8px||||false|false"]{{CARD_BADGE}}[/et_pb_text]{{/IF}}
+{{#IF CARD_META}}[et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_font_size="12px" text_text_color="#7a6a55"]{{CARD_META}}[/et_pb_text]{{/IF}}
+{{#IF CARD_LINK}}[et_pb_button button_text="{{CARD_LINK_LABEL}} →" button_url="{{CARD_LINK_URL}}" _builder_version="4.24.0" button_text_color="#c8813a" button_bg_color="rgba(0,0,0,0)" button_border_width="2px" button_border_color="#c8813a" button_border_radius="6px" button_font_size="12.5px"][/et_pb_button]{{/IF}}
+{{^IF CARD_BADGE}}[/et_pb_blurb]{{/IF}}
+[/et_pb_column]
+[/et_pb_row]
+[/et_pb_section]
+
+<!--
+Fields per card: CARD_IMAGE (or CARD_ICON — Divi Blurb supports an icon font in place of an
+image via icon/font_icon params, use whichever the source item has), CARD_TITLE, CARD_BADGE
+(small pill, optional), CARD_META, CARD_DESC, CARD_LINK_LABEL/URL.
+COLS → DIVI_COLUMN_STRUCTURE: 2 → "1_2,1_2", 3 → "1_3,1_3,1_3", 4 → "1_4,1_4,1_4,1_4"
+(DIVI_COLUMN_TYPE matches: "1_2" / "1_3" / "1_4"). Divi's et_pb_blurb doesn't natively
+support a badge overlapping the title the way the source CSS does (.free-pill-sm positioned
+inline next to <h3>) — the two-element workaround above (blurb + small text block) is an
+approximation, not pixel-identical; validate visually and accept the minor layout difference
+before bulk-generating, per the "each block gets validated once" rule in README.md.
+-->

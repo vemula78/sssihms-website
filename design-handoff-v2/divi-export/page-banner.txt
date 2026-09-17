@@ -1,0 +1,43 @@
+[et_pb_section fb_built="1" admin_label="Page Banner" _builder_version="4.24.0" background_color="#f0e8d6" custom_padding="48px||48px||true|false"]
+[et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px"]
+[et_pb_column type="4_4" _builder_version="4.24.0"]
+
+[et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_text_color="#7a6a55" text_font_size="13px"]
+Home &nbsp;›&nbsp; <span style="color:#c8813a">{{CRUMB}}</span>
+[/et_pb_text]
+
+[et_pb_row_inner _builder_version="4.24.0" column_structure="1_5,4_5" use_custom_gutter="on" gutter_width="1"]
+{{#IF ICON}}
+[et_pb_column_inner type="1_5" _builder_version="4.24.0"]
+[et_pb_image src="{{ICON_URL}}" _builder_version="4.24.0" width="56px" height="56px" max_width="56px"][/et_pb_image]
+[/et_pb_column_inner]
+[et_pb_column_inner type="4_5" _builder_version="4.24.0"]
+{{ELSE}}
+[et_pb_column_inner type="4_4" _builder_version="4.24.0"]
+{{/IF}}
+
+[et_pb_text _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="clamp(28px,4vw,42px)"]
+<h1>{{TITLE}}</h1>
+[/et_pb_text]
+
+[/et_pb_column_inner]
+[/et_pb_row_inner]
+
+{{#IF SUBTITLE}}
+[et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_text_color="#2a1f14" text_font_size="16px" text_line_height="1.7" max_width="640px" custom_margin="12px||||false|false"]
+{{SUBTITLE}}
+[/et_pb_text]
+{{/IF}}
+
+[/et_pb_column]
+[/et_pb_row]
+[/et_pb_section]
+
+<!--
+Fields: CRUMB, TITLE (may contain inline HTML), SUBTITLE (optional), ICON (bool), ICON_URL.
+Source: PageBanner in sssihms-render.jsx:20-44. Background = --bg-alt (#f0e8d6), not --bg,
+to read as a distinct band from the page body below it (which uses --bg #f9f5ef).
+Fonts/colors are hardcoded hex here for a first validation pass — once confirmed, replace
+with Divi global colors (gcid-primary etc.) and a global font set so future edits stay
+consistent across all pages instead of per-instance.
+-->

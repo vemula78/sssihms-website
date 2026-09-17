@@ -1,0 +1,21 @@
+<!-- Table — sssihms-render.jsx:106-121. Only 2 uses site-wide; Divi has no native data-table
+     module, so this stays a raw HTML table inside a Text module rather than a bespoke module. -->
+[et_pb_section _builder_version="4.24.0" background_color="{{BG_COLOR}}" custom_padding="72px||72px||true|false"]
+[et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px"]
+[et_pb_column type="4_4" _builder_version="4.24.0"]
+{{#IF TITLE}}
+[et_pb_text _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14"]
+{{#IF EYEBROW}}<span style="color:#c8813a;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;">{{EYEBROW}}</span>{{/IF}}
+<h2>{{TITLE}}</h2>
+[/et_pb_text]
+{{/IF}}
+[et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_text_color="#2a1f14" text_font_size="14px"]
+<table style="width:100%;border-collapse:collapse;border:1px solid #e0d5c0;">
+<thead><tr style="background:#f0e8d6;">{{#EACH COL}}<th style="padding:10px;text-align:left;border:1px solid #e0d5c0;">{{COL_LABEL}}</th>{{/EACH}}</tr></thead>
+<tbody>{{#EACH ROW}}<tr>{{#EACH CELL}}<td style="padding:10px;border:1px solid #e0d5c0;">{{CELL_TEXT}}</td>{{/EACH}}</tr>{{/EACH}}</tbody>
+</table>
+{{#IF NOTE}}<p style="font-size:.92rem;opacity:.75;margin-top:16px;">{{NOTE}}</p>{{/IF}}
+[/et_pb_text]
+[/et_pb_column]
+[/et_pb_row]
+[/et_pb_section]
