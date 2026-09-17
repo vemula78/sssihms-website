@@ -54,7 +54,7 @@ ALL MEDICAL CARE PROVIDED FREE OF COST
 <p>Sri Sathya Sai Institute of Higher Medical Sciences provides world-class tertiary care to all patients, regardless of caste, creed, religion or financial status.</p>
 [/et_pb_text]
 [et_pb_text _builder_version="4.24.0" text_orientation="center"]
-<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:6px;"><a href="/appointments-admission" style="background:#c8813a;color:#fff;font-weight:600;font-size:14px;padding:11px 26px;border-radius:6px;display:inline-block;">Book Appointment &rarr;</a><a href="/about-hospital" style="border:2px solid #c8813a;color:#c8813a;font-weight:600;font-size:14px;padding:9px 24px;border-radius:6px;display:inline-block;">Our Mission &rarr;</a></div>
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:6px;"><a href="/appointments-admission" style="background:#c8813a;color:#fff;font-weight:600;font-size:14px;padding:11px 26px;border-radius:6px;display:inline-block;">Book Appointment</a><a href="/about-hospital" style="border:2px solid #c8813a;color:#c8813a;font-weight:600;font-size:14px;padding:9px 24px;border-radius:6px;display:inline-block;">Our Mission</a></div>
 [/et_pb_text]
 [/et_pb_column]
 [et_pb_column type="1_4" _builder_version="4.24.0"]
@@ -67,14 +67,14 @@ ALL MEDICAL CARE PROVIDED FREE OF COST
 [/et_pb_row]
 [/et_pb_section]
 
-<!-- 2. FREE STRIP — 5-item inline badge row -->
-[et_pb_section _builder_version="4.24.0" background_color="#f0e8d6" custom_padding="16px||16px||true|false"]
-[et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px"]
+<!-- 2. FREE STRIP — saffron band, 5 divider-separated items (site.css .free-strip/.fi) -->
+[et_pb_section _builder_version="4.24.0" background_color="#c8813a" custom_padding="16px||16px||true|false"]
+[et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px" custom_padding="0|0|0|0|false|false"]
 [et_pb_column type="4_4" _builder_version="4.24.0"]
 [et_pb_text _builder_version="4.24.0" text_orientation="center" text_font="Nunito Sans|600||||||"
-  text_font_size="15px" text_text_color="#2a1f14"]
-<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:28px;">
-<span>♥ No Charges. Ever.</span><span>◆ All Religions Welcome</span><span>◆ All Castes Welcome</span><span>◆ All Financial Statuses</span><span>◆ Emergency to Critical Care</span>
+  text_font_size="13px" text_text_color="#ffffff"]
+<div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0;">
+<span style="display:inline-flex;align-items:center;gap:7px;padding:4px 20px;letter-spacing:.02em;border-right:1px solid rgba(255,255,255,.25);"><span style="opacity:.75">♥</span>No Charges. Ever.</span><span style="display:inline-flex;align-items:center;gap:7px;padding:4px 20px;letter-spacing:.02em;border-right:1px solid rgba(255,255,255,.25);"><span style="opacity:.75">◆</span>All Religions Welcome</span><span style="display:inline-flex;align-items:center;gap:7px;padding:4px 20px;letter-spacing:.02em;border-right:1px solid rgba(255,255,255,.25);"><span style="opacity:.75">◆</span>All Castes Welcome</span><span style="display:inline-flex;align-items:center;gap:7px;padding:4px 20px;letter-spacing:.02em;border-right:1px solid rgba(255,255,255,.25);"><span style="opacity:.75">◆</span>All Financial Statuses</span><span style="display:inline-flex;align-items:center;gap:7px;padding:4px 20px;letter-spacing:.02em;"><span style="opacity:.75">◆</span>Emergency to Critical Care</span>
 </div>
 [/et_pb_text]
 [/et_pb_column]
