@@ -11,7 +11,7 @@ Alt background: ALT bool → section bg var(--bg-alt) #f0e8d6 instead of #f9f5ef
 [et_pb_row _builder_version="4.24.0" width="100%" max_width="{{MAX_WIDTH}}"]
 [et_pb_column type="4_4" _builder_version="4.24.0"]
 [et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_text_color="#2a1f14" text_line_height="1.65"
-  header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="clamp(24px,3vw,32px)"]
+  header_2_font="EB Garamond|600|||||||" header_2_text_color="#2a1f14" header_2_font_size="42px"]
 {{#IF EYEBROW}}<span style="color:#c8813a;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;">{{EYEBROW}}</span>{{/IF}}
 {{#IF TITLE}}<h2>{{TITLE}}</h2>{{/IF}}
 {{BODY_PARAGRAPHS_HTML}}
@@ -27,7 +27,7 @@ Alt background: ALT bool → section bg var(--bg-alt) #f0e8d6 instead of #f9f5ef
 [et_pb_row _builder_version="4.24.0" column_structure="1_2,1_2" {{#IF REVERSE}}reverse_order_tablet="on" reverse_order_phone="on"{{/IF}} use_custom_gutter="on" gutter_width="2"]
 [et_pb_column type="1_2" _builder_version="4.24.0" {{#IF REVERSE}}order="2"{{/IF}}]
 [et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_text_color="#2a1f14" text_line_height="1.65"
-  header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="clamp(24px,3vw,32px)"]
+  header_2_font="EB Garamond|600|||||||" header_2_text_color="#2a1f14" header_2_font_size="42px"]
 {{#IF EYEBROW}}<span style="color:#c8813a;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;">{{EYEBROW}}</span>{{/IF}}
 {{#IF TITLE}}<h2>{{TITLE}}</h2>{{/IF}}
 {{BODY_PARAGRAPHS_HTML}}
@@ -45,7 +45,7 @@ Alt background: ALT bool → section bg var(--bg-alt) #f0e8d6 instead of #f9f5ef
 [et_pb_row _builder_version="4.24.0" width="100%" max_width="860px"]
 [et_pb_column type="4_4" _builder_version="4.24.0"]
 [et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_text_color="#2a1f14" text_line_height="1.65"
-  header_font="EB Garamond|600|||||||" header_text_color="#2a1f14"]
+  header_2_font="EB Garamond|600|||||||" header_2_text_color="#2a1f14"]
 {{#IF EYEBROW}}<span style="color:#c8813a;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;">{{EYEBROW}}</span>{{/IF}}
 {{#IF TITLE}}<h2>{{TITLE}}</h2>{{/IF}}
 {{BODY_PARAGRAPHS_HTML}}

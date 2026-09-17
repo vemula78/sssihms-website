@@ -48,6 +48,39 @@ embeds), `DeptSubNav` (SPA sub-tab bar).
 See `LIMITATIONS.md` for what genuinely cannot be ported as a template fill and needs a
 one-time decision instead.
 
+## THE BIG ONE: `header_font` styles H1 only
+
+Divi's `header_font` / `header_font_size` / `header_text_color` on a Text module generate CSS
+for **`h1` only** — `.et_pb_text_6 h1 { … }`. Every block template here writes its section
+title as `<h2>`, so for a long time *none* of the heading styling applied and every heading
+silently fell back to Divi's theme default (Open Sans 26px #333). The same is true of `<h3>`.
+
+Use the level-specific attributes:
+- `<h2>` → `header_2_font`, `header_2_font_size`, `header_2_text_color`
+- `<h3>` → `header_3_font`, `header_3_font_size`, `header_3_text_color`
+- `<h1>` → plain `header_font` (correct as-is; only page-banner.txt uses h1)
+
+Related: a Text module's `text_font` / `text_font_size` / `text_text_color` styles the module's
+body copy. A heading module that also carries a `.section-sub` paragraph needs these set too,
+or that paragraph falls back to 14px Open Sans #666 while the heading looks right.
+
+**How this was caught, and how to check it:** eyeballing screenshots never revealed it, because
+Divi's fallback looks like a deliberate (if flat) design rather than an error. Fingerprint both
+sites instead — read `getComputedStyle` for h2/h3/p in each section on the mock and on the Divi
+page, and diff. Anything rendering "Open Sans / 14px / rgb(102,102,102)" is unstyled, not
+styled-differently. Target values from the mock at 1500px:
+| element | value |
+|---|---|
+| section h2 | 42px EB Garamond #2a1f14 |
+| section sub p | 16px Nunito Sans #7a6a55, line-height 1.75 |
+| eyebrow | 11px Nunito Sans 700 #c8813a |
+| news card h3 / p | 20px EB Garamond / 13px Nunito Sans |
+| CTA band h2 / p | 36px white / 15px white |
+| section padding | 72px top and bottom (64px for the CTA band) |
+
+**Also:** the WordPress page cache can serve a stale render right after a save. If a change
+looks like it did not apply, re-request with a cache-busting query param before debugging it.
+
 ## Divi gotchas — found by actually building the homepage draft (17-Sep-2026)
 
 Validated against Divi on WordPress 7.0.4 by creating page ID 54830 as a draft, enabling the

@@ -51,7 +51,7 @@ ALL MEDICAL CARE PROVIDED FREE OF COST
 [et_pb_section _builder_version="4.24.0" background_color="#f9f5ef" custom_padding="72px||72px||true|false"]
 [et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px"]
 [et_pb_column type="4_4" _builder_version="4.24.0"]
-[et_pb_text _builder_version="4.24.0" text_orientation="center" max_width="680px" module_alignment="center" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="40px"]
+[et_pb_text _builder_version="4.24.0" text_orientation="center" max_width="680px" module_alignment="center" header_2_font="EB Garamond|600|||||||" header_2_text_color="#2a1f14" header_2_font_size="42px" text_font="Nunito Sans||||||||" text_font_size="16px" text_text_color="#7a6a55" text_line_height="1.75"]
 <span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">◆&nbsp; Our Impact</span>
 <h2>Service in Numbers</h2>
 <p style="color:#7a6a55;">Decades of compassionate healthcare — touching millions of lives across India and beyond.</p>
@@ -96,7 +96,7 @@ ALL MEDICAL CARE PROVIDED FREE OF COST
 [et_pb_section _builder_version="4.24.0" background_color="#f0e8d6" custom_padding="72px||72px||true|false"]
 [et_pb_row column_structure="3_4,1_4" _builder_version="4.24.0" width="100%" max_width="1180px"]
 [et_pb_column type="3_4" _builder_version="4.24.0"]
-[et_pb_text _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="40px"]
+[et_pb_text _builder_version="4.24.0" header_2_font="EB Garamond|600|||||||" header_2_text_color="#2a1f14" header_2_font_size="42px" text_font="Nunito Sans||||||||" text_font_size="16px" text_text_color="#7a6a55" text_line_height="1.75"]
 <span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">◆&nbsp; Clinical Specialties</span>
 <h2>World-Class Care. Zero Cost.</h2>
 <p style="color:#7a6a55;">Advanced tertiary and super-specialty care across all major disciplines, for every patient who walks through our doors.</p>
@@ -144,7 +144,7 @@ Expert diagnostic and interventional imaging — X-ray, ultrasound, CT, MRI, DSA
 [et_pb_section _builder_version="4.24.0" background_color="#2c1a0e" custom_padding="72px||72px||true|false"]
 [et_pb_row _builder_version="4.24.0" column_structure="3_5,2_5" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="3"]
 [et_pb_column type="3_5" _builder_version="4.24.0"]
-[et_pb_text _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_font_size="16px" text_text_color="#7a6a55" text_line_height="1.75"]
 <span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">◆&nbsp; The Foundation</span>
 <div style="font-family:'EB Garamond',serif;font-size:100px;line-height:.8;color:#c8813a;opacity:.45;">"</div>
 <p style="font-family:'EB Garamond',serif;font-style:italic;font-size:23px;line-height:1.65;color:rgba(255,255,255,.93);">Doctors should serve the poor with a spirit of sacrifice. There is no greater service than this. Medicine should not be commercialised. It is meant to promote a heart-to-heart and love-to-love relationship between doctor and patient. A true doctor is one who realises this truth and conducts himself accordingly.</p>
@@ -162,7 +162,7 @@ Expert diagnostic and interventional imaging — X-ray, ultrasound, CT, MRI, DSA
 [et_pb_image src="https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Swami-with-stethoscope-e1487392181378.jpg" alt="Bhagawan Sri Sathya Sai Baba" _builder_version="4.24.0" border_radii="on|10px|10px|10px|10px"][/et_pb_image]
 [/et_pb_column]
 [et_pb_column type="3_5" _builder_version="4.24.0"]
-[et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_text_color="#2a1f14" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="40px"]
+[et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_text_color="#2a1f14" header_2_font="EB Garamond|600|||||||" header_2_text_color="#2a1f14" header_2_font_size="42px"]
 <span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">◆&nbsp; The Guiding Light</span>
 <h2>Bhagawan Sri Sathya Sai Baba</h2>
 <p>SSSIHMS stands as a living testament to the compassionate vision of Bhagawan Sri Sathya Sai Baba — that every human being deserves the highest quality medical care, regardless of their ability to pay.</p>
@@ -176,7 +176,7 @@ Expert diagnostic and interventional imaging — X-ray, ultrasound, CT, MRI, DSA
 [et_pb_section _builder_version="4.24.0" background_color="#f0e8d6" custom_padding="72px||72px||true|false"]
 [et_pb_row _builder_version="4.24.0" column_structure="3_4,1_4" width="100%" max_width="1180px" custom_css_main_element="align-items:center;flex-wrap:wrap;"]
 [et_pb_column type="3_4" _builder_version="4.24.0"]
-[et_pb_text _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="40px"]
+[et_pb_text _builder_version="4.24.0" header_2_font="EB Garamond|600|||||||" header_2_text_color="#2a1f14" header_2_font_size="42px" text_font="Nunito Sans||||||||" text_font_size="16px" text_text_color="#7a6a55" text_line_height="1.75"]
 <span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">◆&nbsp; Education &amp; Training</span>
 <h2>Building Future Healers</h2>
 <p style="color:#7a6a55;">Post-graduate and undergraduate programmes rooted in the spirit of selfless service — with no tuition fees.</p>
@@ -212,7 +212,7 @@ Fellowship in Interventional Cardiology, Paediatric Cardiac Surgery, Cardiac Ane
 [et_pb_section _builder_version="4.24.0" background_color="#f9f5ef" custom_padding="72px||72px||true|false"]
 [et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px"]
 [et_pb_column type="4_4" _builder_version="4.24.0"]
-[et_pb_text _builder_version="4.24.0" text_orientation="center" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="40px"]
+[et_pb_text _builder_version="4.24.0" text_orientation="center" header_2_font="EB Garamond|600|||||||" header_2_text_color="#2a1f14" header_2_font_size="42px" text_font="Nunito Sans||||||||" text_font_size="16px" text_text_color="#7a6a55" text_line_height="1.75"]
 <span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">◆&nbsp; For Patients</span>
 <h2>We Are Here for You</h2>
 <p style="color:#7a6a55;">Every service at SSSIHMS — from consultation to complex surgery — is provided without any charge to the patient.</p>
@@ -243,7 +243,7 @@ Our Emergency Department is open round the clock, every day of the year. Critica
 [et_pb_section _builder_version="4.24.0" background_color="#c8813a" use_background_color_gradient="on" background_color_gradient_stops="#c8813a 0%|#7a4a2e 100%" background_color_gradient_start="#c8813a" background_color_gradient_end="#7a4a2e" background_color_gradient_direction="130deg" custom_padding="64px||64px||true|false"]
 [et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px" column_structure="2_3,1_3" use_custom_gutter="on" gutter_width="2" custom_css_main_element="align-items:center;flex-wrap:wrap;"]
 [et_pb_column type="2_3" _builder_version="4.24.0"]
-[et_pb_text _builder_version="4.24.0" text_text_color="#ffffff" header_font="EB Garamond|600|||||||" header_text_color="#ffffff" header_font_size="36px"]
+[et_pb_text _builder_version="4.24.0" text_text_color="#ffffff" header_2_font="EB Garamond|600|||||||" header_2_text_color="#ffffff" header_2_font_size="36px" text_font="Nunito Sans||||||||" text_font_size="16px" text_text_color="#7a6a55" text_line_height="1.75"]
 <span style="display:inline-block;background:rgba(255,255,255,.18);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:14px;">Admissions Open 2026–27</span>
 <h2>B.Sc Nursing Programme</h2>
 <p style="opacity:.88;font-size:15px;line-height:1.65;max-width:600px;">Applications are open for the 4-year B.Sc Nursing programme. Last date: <strong>19th June 2026</strong>. No tuition fees. Fully residential, exclusively for women. Affiliated to Rajiv Gandhi University of Health Sciences.</p>
@@ -257,7 +257,7 @@ Our Emergency Department is open round the clock, every day of the year. Critica
 [et_pb_section _builder_version="4.24.0" background_color="#f0e8d6" custom_padding="72px||72px||true|false"]
 [et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px"]
 [et_pb_column type="4_4" _builder_version="4.24.0"]
-[et_pb_text _builder_version="4.24.0" text_orientation="center" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="40px"]
+[et_pb_text _builder_version="4.24.0" text_orientation="center" header_2_font="EB Garamond|600|||||||" header_2_text_color="#2a1f14" header_2_font_size="42px" text_font="Nunito Sans||||||||" text_font_size="16px" text_text_color="#7a6a55" text_line_height="1.75"]
 <span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">◆&nbsp; Get Involved</span>
 <h2>Join the Mission of Love</h2>
 <p style="color:#7a6a55;">Be part of this extraordinary mission — serve with love, contribute with care, transform lives with purpose.</p>
@@ -288,7 +288,7 @@ Medical professionals can offer their expertise to support the hospital's missio
 [et_pb_section _builder_version="4.24.0" background_color="#f9f5ef" custom_padding="72px||72px||true|false"]
 [et_pb_row _builder_version="4.24.0" column_structure="3_4,1_4" width="100%" max_width="1180px" custom_css_main_element="align-items:center;flex-wrap:wrap;"]
 [et_pb_column type="3_4" _builder_version="4.24.0"]
-[et_pb_text _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="40px"]
+[et_pb_text _builder_version="4.24.0" header_2_font="EB Garamond|600|||||||" header_2_text_color="#2a1f14" header_2_font_size="42px"]
 <span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">◆&nbsp; News &amp; Updates</span>
 <h2>Latest from SSSIHMS</h2>
 [/et_pb_text]
@@ -299,7 +299,7 @@ Medical professionals can offer their expertise to support the hospital's missio
 [/et_pb_row]
 [et_pb_row _builder_version="4.24.0" column_structure="1_3,1_3,1_3" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="2"]
 [et_pb_column type="1_3" _builder_version="4.24.0"]
-[et_pb_text _builder_version="4.24.0" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;padding:22px;" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" text_font="Nunito Sans||||||||" text_text_color="#7a6a55" text_font_size="15px"]
+[et_pb_text _builder_version="4.24.0" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;padding:22px;" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" text_font="Nunito Sans||||||||" text_text_color="#7a6a55" text_font_size="15px" header_3_font="EB Garamond|600|||||||" header_3_text_color="#2a1f14" header_3_font_size="20px"]
 <span style="display:inline-block;background:#f0d5b0;color:#7a4a2e;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:100px;">Admissions</span>
 <h3>B.Sc Nursing Applications Now Open — 2026–27</h3>
 <p>Online applications for the 4-year B.Sc Nursing program are open. Deadline: 19th June 2026. No tuition fees charged. Residential programme.</p>
@@ -307,7 +307,7 @@ Medical professionals can offer their expertise to support the hospital's missio
 [/et_pb_text]
 [/et_pb_column]
 [et_pb_column type="1_3" _builder_version="4.24.0"]
-[et_pb_text _builder_version="4.24.0" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;padding:22px;" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" text_font="Nunito Sans||||||||" text_text_color="#7a6a55" text_font_size="15px"]
+[et_pb_text _builder_version="4.24.0" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;padding:22px;" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" text_font="Nunito Sans||||||||" text_text_color="#7a6a55" text_font_size="15px" header_3_font="EB Garamond|600|||||||" header_3_text_color="#2a1f14" header_3_font_size="20px"]
 <span style="display:inline-block;background:#f0d5b0;color:#7a4a2e;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:100px;">Notice</span>
 <h3>Allied Health Science Admissions Paused for 2026–27</h3>
 <p>AHS programme admissions are temporarily paused for this academic year. Candidates are advised to visit the website regularly for updates.</p>
@@ -315,7 +315,7 @@ Medical professionals can offer their expertise to support the hospital's missio
 [/et_pb_text]
 [/et_pb_column]
 [et_pb_column type="1_3" _builder_version="4.24.0"]
-[et_pb_text _builder_version="4.24.0" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;padding:22px;" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" text_font="Nunito Sans||||||||" text_text_color="#7a6a55" text_font_size="15px"]
+[et_pb_text _builder_version="4.24.0" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;padding:22px;" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" text_font="Nunito Sans||||||||" text_text_color="#7a6a55" text_font_size="15px" header_3_font="EB Garamond|600|||||||" header_3_text_color="#2a1f14" header_3_font_size="20px"]
 <span style="display:inline-block;background:#f0d5b0;color:#7a4a2e;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:100px;">Newsletter</span>
 <h3>Manohriday Newsletter — Latest Edition</h3>
 <p>The new Manohriday newsletter is available, featuring hospital updates, patient stories and highlights from our departments.</p>
