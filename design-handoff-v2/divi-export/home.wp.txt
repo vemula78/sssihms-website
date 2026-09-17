@@ -13,15 +13,15 @@ ALL MEDICAL CARE PROVIDED FREE OF COST
 [/et_pb_row]
 [/et_pb_section]
 [et_pb_section _builder_version="4.24.0" background_color="#f9f5ef" custom_padding="48px||48px||true|false"]
-[et_pb_row _builder_version="4.24.0" column_structure="1_3,1_3,1_3" custom_css_main_element="align-items:center;" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="2"]
-[et_pb_column type="1_3" _builder_version="4.24.0"]
-[et_pb_text _builder_version="4.24.0" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;padding:24px;" header_font="EB Garamond|600|||||||" header_text_color="#c8813a" header_font_size="38px" text_font="Nunito Sans||||||||" text_font_size="15px" text_text_color="#2a1f14"]
+[et_pb_row _builder_version="4.24.0" column_structure="1_4,1_2,1_4" custom_css_main_element="align-items:center;" width="100%" max_width="1360px" use_custom_gutter="on" gutter_width="2"]
+[et_pb_column type="1_4" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#c8813a" header_font_size="38px" text_font="Nunito Sans||||||||" text_text_color="#7a6a55" text_font_size="14.5px" text_line_height="1.8"]
 <span style="display:block;font-family:'EB Garamond',serif;font-weight:600;color:#c8813a;font-size:38px;margin-bottom:14px;">Vision</span>
 <p>To create a world where healthcare is accessible, compassionate, and holistic, fostering physical, mental, and spiritual well-being for all individuals. Guided by the principles of love, service, and selflessness as taught by Bhagawan Sri Sathya Sai Baba, we envision a society where every person receives the care they need, to lead a healthy and fulfilling life.</p>
 [/et_pb_text]
 [/et_pb_column]
-[et_pb_column type="1_3" _builder_version="4.24.0"]
-[et_pb_text _builder_version="4.24.0" text_orientation="center" header_font="EB Garamond|700|||||||" header_text_color="#2a1f14" header_font_size="46px" text_font="Nunito Sans||||||||" text_font_size="16px" text_text_color="#2a1f14"]
+[et_pb_column type="1_2" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" text_orientation="center" header_font="EB Garamond|700|||||||" header_text_color="#2a1f14" header_font_size="52px" text_font="Nunito Sans||||||||" text_font_size="17px" text_text_color="#2a1f14"]
 <h1>Healing Through Love &amp; Selfless Service</h1>
 <p>Sri Sathya Sai Institute of Higher Medical Sciences provides world-class tertiary care to all patients, regardless of caste, creed, religion or financial status.</p>
 [/et_pb_text]
@@ -29,8 +29,8 @@ ALL MEDICAL CARE PROVIDED FREE OF COST
 <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:6px;"><a href="/appointments-admission" style="background:#c8813a;color:#fff;font-weight:600;font-size:14px;padding:11px 26px;border-radius:6px;display:inline-block;">Book Appointment &rarr;</a><a href="/about-hospital" style="border:2px solid #c8813a;color:#c8813a;font-weight:600;font-size:14px;padding:9px 24px;border-radius:6px;display:inline-block;">Our Mission &rarr;</a></div>
 [/et_pb_text]
 [/et_pb_column]
-[et_pb_column type="1_3" _builder_version="4.24.0"]
-[et_pb_text _builder_version="4.24.0" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;padding:24px;" text_font="Nunito Sans||||||||" text_font_size="15px" text_text_color="#2a1f14"]
+[et_pb_column type="1_4" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_text_color="#7a6a55" text_font_size="14.5px" text_line_height="1.8"]
 <span style="display:block;font-family:'EB Garamond',serif;font-weight:600;color:#c8813a;font-size:38px;margin-bottom:14px;">Mission</span>
 <p>To provide compassionate, holistic, and accessible healthcare that nurtures physical, mental, and spiritual well-being. Our mission is to promote preventive measures, educate communities on healthy living, and offer free medical services to all, ensuring that healthcare is a right, not a privilege. We are dedicated to serving humanity with love, service, and selflessness, inspired by the teachings of Bhagawan Sri Sathya Sai Baba.</p>
 [/et_pb_text]
@@ -188,22 +188,22 @@ Expert diagnostic and interventional imaging — X-ray, ultrasound, CT, MRI, DSA
 [/et_pb_row]
 [et_pb_row _builder_version="4.24.0" column_structure="1_2,1_2" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="2"]
 [et_pb_column type="1_2" _builder_version="4.24.0"]
-[et_pb_blurb title="DNB PG Programmes" _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px"]
+[et_pb_blurb custom_css_before="content:&#39;◆&#39;;display:block;width:44px;height:44px;line-height:44px;text-align:center;border-radius:10px;background:#f0d5b0;color:#7a4a2e;font-size:20px;margin-bottom:14px;" title="DNB PG Programmes" _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px"]
 Post-graduate training in Cardiothoracic Surgery, Cardiology, Neurosurgery and Anesthesiology, accredited by the National Board of Examinations, New Delhi.
 [/et_pb_blurb]
 [/et_pb_column]
 [et_pb_column type="1_2" _builder_version="4.24.0"]
-[et_pb_blurb title="B.Sc Nursing — Admissions Open  [2026–27]" content="4-year degree programme, 40 seats. Affiliated to RGUHS, Bengaluru. Exclusively for women, fully residential. No tuition fees. Deadline: 19th June 2026." _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px"][/et_pb_blurb]
+[et_pb_blurb custom_css_before="content:&#39;◆&#39;;display:block;width:44px;height:44px;line-height:44px;text-align:center;border-radius:10px;background:#f0d5b0;color:#7a4a2e;font-size:20px;margin-bottom:14px;" title="B.Sc Nursing — Admissions Open  [2026–27]" content="4-year degree programme, 40 seats. Affiliated to RGUHS, Bengaluru. Exclusively for women, fully residential. No tuition fees. Deadline: 19th June 2026." _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px"][/et_pb_blurb]
 [/et_pb_column]
 [/et_pb_row]
 [et_pb_row _builder_version="4.24.0" column_structure="1_2,1_2" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="2"]
 [et_pb_column type="1_2" _builder_version="4.24.0"]
-[et_pb_blurb title="Allied Health Sciences" _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px"]
+[et_pb_blurb custom_css_before="content:&#39;◆&#39;;display:block;width:44px;height:44px;line-height:44px;text-align:center;border-radius:10px;background:#f0d5b0;color:#7a4a2e;font-size:20px;margin-bottom:14px;" title="Allied Health Sciences" _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px"]
 BSc programmes in Cardiac Care Technology, Perfusion Technology, Anesthesia Technology, Medical Imaging Technology and Medical Lab Technology.
 [/et_pb_blurb]
 [/et_pb_column]
 [et_pb_column type="1_2" _builder_version="4.24.0"]
-[et_pb_blurb title="Fellowship Courses" _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px"]
+[et_pb_blurb custom_css_before="content:&#39;◆&#39;;display:block;width:44px;height:44px;line-height:44px;text-align:center;border-radius:10px;background:#f0d5b0;color:#7a4a2e;font-size:20px;margin-bottom:14px;" title="Fellowship Courses" _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px"]
 Fellowship in Interventional Cardiology, Paediatric Cardiac Surgery, Cardiac Anesthesia and Radiology — for experienced professionals seeking advanced specialisation.
 [/et_pb_blurb]
 [/et_pb_column]
@@ -221,19 +221,19 @@ Fellowship in Interventional Cardiology, Paediatric Cardiac Surgery, Cardiac Ane
 [/et_pb_row]
 [et_pb_row _builder_version="4.24.0" column_structure="1_3,1_3,1_3" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="2"]
 [et_pb_column type="1_3" _builder_version="4.24.0"]
-[et_pb_blurb title="Book Appointment" _builder_version="4.24.0" text_orientation="center" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px"]
+[et_pb_blurb custom_css_before="content:&#39;◆&#39;;display:block;width:44px;height:44px;line-height:44px;text-align:center;border-radius:10px;background:#f0d5b0;color:#7a4a2e;font-size:20px;margin:0 auto 14px;" title="Book Appointment" _builder_version="4.24.0" text_orientation="center" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px"]
 Walk in to our OPD or schedule in advance. Our team registers and guides you at every step.
 [/et_pb_blurb]
 [et_pb_button custom_button="on"  button_text="Learn More →" button_url="/patients" _builder_version="4.24.0" module_alignment="center" button_bg_color="rgba(0,0,0,0)" button_text_color="#c8813a" button_border_width="2px" button_border_color="#c8813a" button_border_radius="6px" button_font_size="13px"][/et_pb_button]
 [/et_pb_column]
 [et_pb_column type="1_3" _builder_version="4.24.0"]
-[et_pb_blurb title="Telemedicine / Help Desk" _builder_version="4.24.0" text_orientation="center" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px"]
+[et_pb_blurb custom_css_before="content:&#39;◆&#39;;display:block;width:44px;height:44px;line-height:44px;text-align:center;border-radius:10px;background:#f0d5b0;color:#7a4a2e;font-size:20px;margin:0 auto 14px;" title="Telemedicine / Help Desk" _builder_version="4.24.0" text_orientation="center" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px"]
 Access medical guidance remotely via our telemedicine portal. Especially valuable for patients unable to travel to Bengaluru.
 [/et_pb_blurb]
 [et_pb_button custom_button="on"  button_text="Learn More →" button_url="/patients" _builder_version="4.24.0" module_alignment="center" button_bg_color="rgba(0,0,0,0)" button_text_color="#c8813a" button_border_width="2px" button_border_color="#c8813a" button_border_radius="6px" button_font_size="13px"][/et_pb_button]
 [/et_pb_column]
 [et_pb_column type="1_3" _builder_version="4.24.0"]
-[et_pb_blurb title="Emergency Care — 24/7" _builder_version="4.24.0" text_orientation="center" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px"]
+[et_pb_blurb custom_css_before="content:&#39;◆&#39;;display:block;width:44px;height:44px;line-height:44px;text-align:center;border-radius:10px;background:#f0d5b0;color:#7a4a2e;font-size:20px;margin:0 auto 14px;" title="Emergency Care — 24/7" _builder_version="4.24.0" text_orientation="center" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px"]
 Our Emergency Department is open round the clock, every day of the year. Critical care, ICU and emergency services are available at all hours.
 [/et_pb_blurb]
 [et_pb_button custom_button="on"  button_text="Learn More →" button_url="/patients" _builder_version="4.24.0" module_alignment="center" button_bg_color="rgba(0,0,0,0)" button_text_color="#c8813a" button_border_width="2px" button_border_color="#c8813a" button_border_radius="6px" button_font_size="13px"][/et_pb_button]
