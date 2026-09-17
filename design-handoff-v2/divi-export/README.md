@@ -61,8 +61,14 @@ Divi Builder on it, and saving. Apply these to every template before generating 
   between the opening and closing tags.
 - **Buttons need `custom_button="on"`** or every `button_*` styling attribute is ignored and
   you get Divi's default button.
-- **`background_color_gradient_stops=` is not a real attribute.** Use
-  `background_color_gradient_start=` / `_end=` with `use_background_color_gradient="on"`.
+- **Gradients need `background_color_gradient_stops=`.** (An earlier note here said the opposite
+  — that was wrong, corrected 17-Sep-2026 after testing on the live draft.) On Divi 4.27,
+  `background_color_gradient_start=` / `_end=` alone are **ignored** and the section silently
+  renders Divi's default blue→teal gradient. The working form is:
+  `use_background_color_gradient="on" background_color_gradient_stops="#c8813a 0%|#7a4a2e 100%"`
+  (keep `_start`/`_end` alongside it for older Divi). Verify the computed
+  `background-image` actually contains your colours — a wrong attribute fails silently
+  and looks like a theme colour, not like an error.
 - **Images need `force_fullwidth="on"`** to span their column — `width="100%"` alone leaves the
   image at its natural size, left-aligned, with blank space beside it.
 - **Body text needs an explicit size.** 13.5px (matching the source CSS) reads far too small in

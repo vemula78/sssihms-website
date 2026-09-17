@@ -51,8 +51,8 @@ ALL MEDICAL CARE PROVIDED FREE OF COST
 [et_pb_section _builder_version="4.24.0" background_color="#f9f5ef" custom_padding="72px||72px||true|false"]
 [et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px"]
 [et_pb_column type="4_4" _builder_version="4.24.0"]
-[et_pb_text _builder_version="4.24.0" text_orientation="center" max_width="680px" module_alignment="center" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="32px"]
-<span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">Our Impact</span>
+[et_pb_text _builder_version="4.24.0" text_orientation="center" max_width="680px" module_alignment="center" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="40px"]
+<span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">◆&nbsp; Our Impact</span>
 <h2>Service in Numbers</h2>
 <p style="color:#7a6a55;">Decades of compassionate healthcare — touching millions of lives across India and beyond.</p>
 [/et_pb_text]
@@ -96,8 +96,8 @@ ALL MEDICAL CARE PROVIDED FREE OF COST
 [et_pb_section _builder_version="4.24.0" background_color="#f0e8d6" custom_padding="72px||72px||true|false"]
 [et_pb_row column_structure="3_4,1_4" _builder_version="4.24.0" width="100%" max_width="1180px"]
 [et_pb_column type="3_4" _builder_version="4.24.0"]
-[et_pb_text _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="32px"]
-<span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">Clinical Specialties</span>
+[et_pb_text _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="40px"]
+<span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">◆&nbsp; Clinical Specialties</span>
 <h2>World-Class Care. Zero Cost.</h2>
 <p style="color:#7a6a55;">Advanced tertiary and super-specialty care across all major disciplines, for every patient who walks through our doors.</p>
 [/et_pb_text]
@@ -145,7 +145,7 @@ Expert diagnostic and interventional imaging — X-ray, ultrasound, CT, MRI, DSA
 [et_pb_row _builder_version="4.24.0" column_structure="3_5,2_5" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="3"]
 [et_pb_column type="3_5" _builder_version="4.24.0"]
 [et_pb_text _builder_version="4.24.0"]
-<span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">The Foundation</span>
+<span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">◆&nbsp; The Foundation</span>
 <div style="font-family:'EB Garamond',serif;font-size:100px;line-height:.8;color:#c8813a;opacity:.45;">"</div>
 <p style="font-family:'EB Garamond',serif;font-style:italic;font-size:23px;line-height:1.65;color:rgba(255,255,255,.93);">Doctors should serve the poor with a spirit of sacrifice. There is no greater service than this. Medicine should not be commercialised. It is meant to promote a heart-to-heart and love-to-love relationship between doctor and patient. A true doctor is one who realises this truth and conducts himself accordingly.</p>
 <div style="font-size:12.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#c8813a;opacity:.9;">— Bhagawan Sri Sathya Sai Baba, 2003</div>
@@ -162,8 +162,8 @@ Expert diagnostic and interventional imaging — X-ray, ultrasound, CT, MRI, DSA
 [et_pb_image src="https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Swami-with-stethoscope-e1487392181378.jpg" alt="Bhagawan Sri Sathya Sai Baba" _builder_version="4.24.0" border_radii="on|10px|10px|10px|10px"][/et_pb_image]
 [/et_pb_column]
 [et_pb_column type="3_5" _builder_version="4.24.0"]
-[et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_text_color="#2a1f14" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="32px"]
-<span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">The Guiding Light</span>
+[et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_text_color="#2a1f14" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="40px"]
+<span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">◆&nbsp; The Guiding Light</span>
 <h2>Bhagawan Sri Sathya Sai Baba</h2>
 <p>SSSIHMS stands as a living testament to the compassionate vision of Bhagawan Sri Sathya Sai Baba — that every human being deserves the highest quality medical care, regardless of their ability to pay.</p>
 <p>Founded under the auspices of the Sri Sathya Sai Central Trust, this hospital embodies His teaching that service to man is service to God. The institution has served millions of patients from across India and the world, without asking anything in return.</p>
@@ -176,8 +176,8 @@ Expert diagnostic and interventional imaging — X-ray, ultrasound, CT, MRI, DSA
 [et_pb_section _builder_version="4.24.0" background_color="#f0e8d6" custom_padding="72px||72px||true|false"]
 [et_pb_row _builder_version="4.24.0" column_structure="3_4,1_4" width="100%" max_width="1180px" custom_css_main_element="align-items:center;flex-wrap:wrap;"]
 [et_pb_column type="3_4" _builder_version="4.24.0"]
-[et_pb_text _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="32px"]
-<span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">Education &amp; Training</span>
+[et_pb_text _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="40px"]
+<span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">◆&nbsp; Education &amp; Training</span>
 <h2>Building Future Healers</h2>
 <p style="color:#7a6a55;">Post-graduate and undergraduate programmes rooted in the spirit of selfless service — with no tuition fees.</p>
 [/et_pb_text]
@@ -212,8 +212,8 @@ Fellowship in Interventional Cardiology, Paediatric Cardiac Surgery, Cardiac Ane
 [et_pb_section _builder_version="4.24.0" background_color="#f9f5ef" custom_padding="72px||72px||true|false"]
 [et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px"]
 [et_pb_column type="4_4" _builder_version="4.24.0"]
-[et_pb_text _builder_version="4.24.0" text_orientation="center" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="32px"]
-<span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">For Patients</span>
+[et_pb_text _builder_version="4.24.0" text_orientation="center" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="40px"]
+<span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">◆&nbsp; For Patients</span>
 <h2>We Are Here for You</h2>
 <p style="color:#7a6a55;">Every service at SSSIHMS — from consultation to complex surgery — is provided without any charge to the patient.</p>
 [/et_pb_text]
@@ -240,7 +240,7 @@ Our Emergency Department is open round the clock, every day of the year. Critica
 [/et_pb_column]
 [/et_pb_row]
 [/et_pb_section]
-[et_pb_section _builder_version="4.24.0" background_color="#c8813a" use_background_color_gradient="on" background_color_gradient_start="#c8813a" background_color_gradient_end="#7a4a2e" background_color_gradient_direction="130deg" custom_padding="64px||64px||true|false"]
+[et_pb_section _builder_version="4.24.0" background_color="#c8813a" use_background_color_gradient="on" background_color_gradient_stops="#c8813a 0%|#7a4a2e 100%" background_color_gradient_start="#c8813a" background_color_gradient_end="#7a4a2e" background_color_gradient_direction="130deg" custom_padding="64px||64px||true|false"]
 [et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px" column_structure="2_3,1_3" use_custom_gutter="on" gutter_width="2" custom_css_main_element="align-items:center;flex-wrap:wrap;"]
 [et_pb_column type="2_3" _builder_version="4.24.0"]
 [et_pb_text _builder_version="4.24.0" text_text_color="#ffffff" header_font="EB Garamond|600|||||||" header_text_color="#ffffff" header_font_size="36px"]
@@ -257,8 +257,8 @@ Our Emergency Department is open round the clock, every day of the year. Critica
 [et_pb_section _builder_version="4.24.0" background_color="#f0e8d6" custom_padding="72px||72px||true|false"]
 [et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px"]
 [et_pb_column type="4_4" _builder_version="4.24.0"]
-[et_pb_text _builder_version="4.24.0" text_orientation="center" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="32px"]
-<span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">Get Involved</span>
+[et_pb_text _builder_version="4.24.0" text_orientation="center" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="40px"]
+<span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">◆&nbsp; Get Involved</span>
 <h2>Join the Mission of Love</h2>
 <p style="color:#7a6a55;">Be part of this extraordinary mission — serve with love, contribute with care, transform lives with purpose.</p>
 [/et_pb_text]
@@ -266,30 +266,30 @@ Our Emergency Department is open round the clock, every day of the year. Critica
 [/et_pb_row]
 [et_pb_row _builder_version="4.24.0" column_structure="1_3,1_3,1_3" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="2"]
 [et_pb_column type="1_3" _builder_version="4.24.0"]
-[et_pb_blurb title="Sevadal — Volunteer" _builder_version="4.24.0" text_orientation="center" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;padding:24px;"]
+[et_pb_blurb title="Sevadal — Volunteer" _builder_version="4.24.0" text_orientation="center" header_font="EB Garamond|600|||||||" header_text_color="#ffffff" body_font="Nunito Sans||||||||" body_text_color="rgba(255,255,255,0.8)" body_font_size="15px" background_color="#7a4a2e" custom_css_main_element="border-radius:10px;padding:36px 26px;"]
 Join our dedicated volunteer programme and serve patients and families with love and compassion, embodying the spirit of selfless service.
 [/et_pb_blurb]
-[et_pb_button custom_button="on"  button_text="Learn More" button_url="/getinvolved" _builder_version="4.24.0" module_alignment="center" button_bg_color="#c8813a" button_text_color="#ffffff" button_border_radius="6px" button_font_size="13px"][/et_pb_button]
+[et_pb_button custom_button="on"  button_text="Learn More" button_url="/getinvolved" _builder_version="4.24.0" module_alignment="center" button_bg_color="rgba(255,255,255,0.14)" button_text_color="#ffffff" button_border_width="1px" button_border_color="rgba(255,255,255,0.28)" button_border_radius="6px" button_font_size="13px"][/et_pb_button]
 [/et_pb_column]
 [et_pb_column type="1_3" _builder_version="4.24.0"]
-[et_pb_blurb title="Support the Mission" _builder_version="4.24.0" text_orientation="center" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;padding:24px;"]
+[et_pb_blurb title="Support the Mission" _builder_version="4.24.0" text_orientation="center" header_font="EB Garamond|600|||||||" header_text_color="#ffffff" body_font="Nunito Sans||||||||" body_text_color="rgba(255,255,255,0.8)" body_font_size="15px" background_color="#7a4a2e" custom_css_main_element="border-radius:10px;padding:36px 26px;"]
 Your contribution helps sustain this healthcare mission. Every gift ensures world-class care remains accessible regardless of financial status.
 [/et_pb_blurb]
-[et_pb_button custom_button="on"  button_text="Learn More" button_url="/getinvolved" _builder_version="4.24.0" module_alignment="center" button_bg_color="#c8813a" button_text_color="#ffffff" button_border_radius="6px" button_font_size="13px"][/et_pb_button]
+[et_pb_button custom_button="on"  button_text="Learn More" button_url="/getinvolved" _builder_version="4.24.0" module_alignment="center" button_bg_color="rgba(255,255,255,0.14)" button_text_color="#ffffff" button_border_width="1px" button_border_color="rgba(255,255,255,0.28)" button_border_radius="6px" button_font_size="13px"][/et_pb_button]
 [/et_pb_column]
 [et_pb_column type="1_3" _builder_version="4.24.0"]
-[et_pb_blurb title="Volunteer Expertise" _builder_version="4.24.0" text_orientation="center" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;padding:24px;"]
+[et_pb_blurb title="Volunteer Expertise" _builder_version="4.24.0" text_orientation="center" header_font="EB Garamond|600|||||||" header_text_color="#ffffff" body_font="Nunito Sans||||||||" body_text_color="rgba(255,255,255,0.8)" body_font_size="15px" background_color="#7a4a2e" custom_css_main_element="border-radius:10px;padding:36px 26px;"]
 Medical professionals can offer their expertise to support the hospital's mission — on a short or long-term basis.
 [/et_pb_blurb]
-[et_pb_button custom_button="on"  button_text="Learn More" button_url="/getinvolved" _builder_version="4.24.0" module_alignment="center" button_bg_color="#c8813a" button_text_color="#ffffff" button_border_radius="6px" button_font_size="13px"][/et_pb_button]
+[et_pb_button custom_button="on"  button_text="Learn More" button_url="/getinvolved" _builder_version="4.24.0" module_alignment="center" button_bg_color="rgba(255,255,255,0.14)" button_text_color="#ffffff" button_border_width="1px" button_border_color="rgba(255,255,255,0.28)" button_border_radius="6px" button_font_size="13px"][/et_pb_button]
 [/et_pb_column]
 [/et_pb_row]
 [/et_pb_section]
 [et_pb_section _builder_version="4.24.0" background_color="#f9f5ef" custom_padding="72px||72px||true|false"]
 [et_pb_row _builder_version="4.24.0" column_structure="3_4,1_4" width="100%" max_width="1180px" custom_css_main_element="align-items:center;flex-wrap:wrap;"]
 [et_pb_column type="3_4" _builder_version="4.24.0"]
-[et_pb_text _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="32px"]
-<span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">News &amp; Updates</span>
+[et_pb_text _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="40px"]
+<span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">◆&nbsp; News &amp; Updates</span>
 <h2>Latest from SSSIHMS</h2>
 [/et_pb_text]
 [/et_pb_column]
