@@ -1,0 +1,57 @@
+<!--
+Site footer — Divi Theme Builder layout. Source: Footer (SSSIHMS Website.html:865-900),
+styled from site.css .footer / .footer-grid / .footer-col / .footer-bottom.
+
+Same Library-then-import workflow as header.txt (see the note there).
+
+Column split: the source CSS uses grid-template-columns 2fr 1fr 1fr 1fr; Divi's 2_5,1_5,1_5,1_5
+(40/20/20/20) is the closest native equivalent and matches visually.
+
+CAUTION — the link targets below are the REDESIGN's page slugs (about-hospital,
+guiding-philosophy, cardiology, …). Those pages do not exist on the live WordPress site yet,
+so every one of these links will 404 until the rest of the site is built. That is expected for
+a review draft, but do not promote this footer to the Global slot until the target pages exist.
+-->
+
+[et_pb_section fb_built="1" admin_label="Footer" _builder_version="4.24.0" background_color="#2c1a0e" custom_padding="60px||28px||true|false"]
+[et_pb_row column_structure="2_5,1_5,1_5,1_5" _builder_version="4.24.0" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="3" custom_margin="||44px||false|false"]
+
+[et_pb_column type="2_5" _builder_version="4.24.0"]
+[et_pb_image src="https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png" alt="SSSIHMS" url="/" _builder_version="4.24.0" max_height="50px" custom_css_main_element="background:#fff;padding:6px 12px;border-radius:6px;display:inline-block;" custom_margin="||16px||false|false"][/et_pb_image]
+[et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_font_size="13px" text_line_height="1.75" text_text_color="rgba(255,255,255,0.58)"]
+<p>Sri Sathya Sai Institute of Higher Medical Sciences, Whitefield, Bengaluru. Providing world-class medical care in the spirit of love and service — since 2001.</p>
+<span style="display:inline-block;margin-top:16px;background:#c8813a;color:#fff;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:5px 14px;border-radius:4px;">100% Free Medical Care</span>
+[/et_pb_text]
+[/et_pb_column]
+
+[et_pb_column type="1_5" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_font_size="13px" text_text_color="rgba(255,255,255,0.6)"]
+<h4 style="font-family:'EB Garamond',serif;font-size:14px;font-weight:700;color:#c8813a;margin-bottom:14px;">Hospital</h4>
+<p style="line-height:2.1;margin:0;"><a href="/about-hospital" style="color:inherit;">About Hospital</a><br><a href="/guiding-philosophy" style="color:inherit;">Guiding Philosophy</a><br><a href="/genesis" style="color:inherit;">Genesis</a><br><a href="/manohriday" style="color:inherit;">Manohriday–Newsletter</a><br><a href="/patient-speak" style="color:inherit;">Patient Speak</a><br><a href="/visitor-speak" style="color:inherit;">Visitor Speak</a></p>
+[/et_pb_text]
+[/et_pb_column]
+
+[et_pb_column type="1_5" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_font_size="13px" text_text_color="rgba(255,255,255,0.6)"]
+<h4 style="font-family:'EB Garamond',serif;font-size:14px;font-weight:700;color:#c8813a;margin-bottom:14px;">Departments</h4>
+<p style="line-height:2.1;margin:0;"><a href="/cardiology" style="color:inherit;">Cardiology</a><br><a href="/cardiac-surgery" style="color:inherit;">Cardiac Surgery</a><br><a href="/neurosurgery" style="color:inherit;">Neurosurgery</a><br><a href="/neurology" style="color:inherit;">Neurology</a><br><a href="/anesthesiology" style="color:inherit;">Anesthesiology</a><br><a href="/radiology" style="color:inherit;">Radiology</a></p>
+[/et_pb_text]
+[/et_pb_column]
+
+[et_pb_column type="1_5" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_font_size="13px" text_text_color="rgba(255,255,255,0.6)"]
+<h4 style="font-family:'EB Garamond',serif;font-size:14px;font-weight:700;color:#c8813a;margin-bottom:14px;">Quick Links</h4>
+<p style="line-height:2.1;margin:0;"><a href="/appointments-admission" style="color:inherit;">Appointments</a><br><a href="/academics" style="color:inherit;">Academics</a><br><a href="/getinvolved" style="color:inherit;">Get Involved</a><br><a href="/bhagawan" style="color:inherit;">Bhagawan Sri Sathya Sai Baba</a><br><a href="/careers" style="color:inherit;">Career Opportunities</a><br><a href="/gogreen" style="color:inherit;">Go Green</a></p>
+[/et_pb_text]
+[/et_pb_column]
+
+[/et_pb_row]
+
+[et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px" custom_padding="22px|0|0|0|false|false" border_width_top="1px" border_color_top="rgba(255,255,255,0.08)"]
+[et_pb_column type="4_4" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_font_size="11.5px" text_text_color="rgba(255,255,255,0.42)"]
+<div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;"><span>© 2026 Sri Sathya Sai Institute of Higher Medical Sciences. All rights reserved.</span><span>A service of Sri Sathya Sai Central Trust</span></div>
+[/et_pb_text]
+[/et_pb_column]
+[/et_pb_row]
+[/et_pb_section]
