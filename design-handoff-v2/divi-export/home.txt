@@ -1,0 +1,429 @@
+<!--
+Homepage — NOT built from the 11 reusable block templates (those cover the data-driven
+ContentPage sections). The homepage is its own one-off React composition (HomePage in
+design-handoff-v2/SSSIHMS Website.html:902-918): Hero, FreeStrip, StatsSection,
+SpecialtiesSection, PhilosophySection, BhagawanSection, AcademicsSection, PatientSection,
+AdmissionsSection, InvolvedSection, NewsSection — each appears exactly once, site-wide, so
+there is no per-page template-fill benefit here; this file is the actual page content,
+ready to paste into a Divi page draft (not a template to run a generator against).
+
+Two sections reuse an already-built block almost verbatim:
+  - StatsSection  → same shape as stats.txt (content below inlines it directly)
+  - AdmissionsSection → same shape as cta.txt (content below inlines it directly)
+PhilosophySection is the Quote block's photo-split variant (quote.txt Variant B) with
+Bhagawan's photo on the RIGHT instead of left — mirrored below accordingly.
+
+All image URLs point at the live whitefield.sssihms.org media library (same source the
+current React site already uses) — replace with WP attachment URLs once uploaded there,
+or leave as absolute URLs if hot-linking from the existing site is acceptable short-term.
+-->
+
+<!-- 1. HERO — full-width banner image, "free care" band, vision/mission side cards flanking headline -->
+[et_pb_section fb_built="1" admin_label="Hero" _builder_version="4.24.0" custom_padding="0|0|0|0|false|false"]
+[et_pb_row _builder_version="4.24.0" width="100%" max_width="100%" custom_padding="0|0|0|0|false|false"]
+[et_pb_column type="4_4" _builder_version="4.24.0"]
+[et_pb_image src="https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/04/Website-full-length-image-1.png" force_fullwidth="on"
+  alt="SSSIHMS Hospital — front view" _builder_version="4.24.0" width="100%" max_height="480px" always_center_on_mobile="on"][/et_pb_image]
+[/et_pb_column]
+[/et_pb_row]
+[et_pb_row _builder_version="4.24.0" width="100%" max_width="100%" background_color="#c8813a" custom_padding="18px|20px|18px|20px|true|true"]
+[et_pb_column type="4_4" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" text_orientation="center" text_font="Nunito Sans|700||||||"
+  text_font_size="28px" text_letter_spacing="2px" text_text_color="#ffffff"]
+ALL MEDICAL CARE PROVIDED FREE OF COST
+[/et_pb_text]
+[/et_pb_column]
+[/et_pb_row]
+[/et_pb_section]
+
+[et_pb_section _builder_version="4.24.0" background_color="#f9f5ef" custom_padding="48px||48px||true|false"]
+[et_pb_row _builder_version="4.24.0" column_structure="1_4,1_2,1_4" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="2"]
+[et_pb_column type="1_4" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;padding:24px;"
+  header_font="EB Garamond|600|||||||" header_text_color="#c8813a" header_font_size="38px"
+  text_font="Nunito Sans||||||||" text_font_size="15px" text_text_color="#2a1f14"]
+<span style="display:block;font-family:'EB Garamond',serif;font-weight:600;color:#c8813a;font-size:38px;margin-bottom:14px;">Vision</span>
+<p>To create a world where healthcare is accessible, compassionate, and holistic, fostering physical, mental, and spiritual well-being for all individuals. Guided by the principles of love, service, and selflessness as taught by Bhagawan Sri Sathya Sai Baba, we envision a society where every person receives the care they need, to lead a healthy and fulfilling life.</p>
+[/et_pb_text]
+[/et_pb_column]
+[et_pb_column type="1_2" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" text_orientation="center"
+  header_font="EB Garamond|700|||||||" header_text_color="#2a1f14" header_font_size="46px"
+  text_font="Nunito Sans||||||||" text_font_size="16px" text_text_color="#2a1f14"]
+<h1>Healing Through Love &amp; Selfless Service</h1>
+<p>Sri Sathya Sai Institute of Higher Medical Sciences provides world-class tertiary care to all patients, regardless of caste, creed, religion or financial status.</p>
+[/et_pb_text]
+[et_pb_button custom_button="on"  button_text="Book Appointment →" button_url="/appointments-admission" _builder_version="4.24.0"
+  button_bg_color="#c8813a" button_text_color="#ffffff" button_border_radius="6px" custom_margin="||||on|" module_alignment="center"][/et_pb_button]
+[et_pb_button custom_button="on"  button_text="Our Mission →" button_url="/about-hospital" _builder_version="4.24.0"
+  button_bg_color="rgba(0,0,0,0)" button_text_color="#c8813a" button_border_width="2px" button_border_color="#c8813a"
+  button_border_radius="6px" module_alignment="center" custom_margin="8px||||false|false"][/et_pb_button]
+[/et_pb_column]
+[et_pb_column type="1_4" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;padding:24px;"
+  text_font="Nunito Sans||||||||" text_font_size="15px" text_text_color="#2a1f14"]
+<span style="display:block;font-family:'EB Garamond',serif;font-weight:600;color:#c8813a;font-size:38px;margin-bottom:14px;">Mission</span>
+<p>To provide compassionate, holistic, and accessible healthcare that nurtures physical, mental, and spiritual well-being. Our mission is to promote preventive measures, educate communities on healthy living, and offer free medical services to all, ensuring that healthcare is a right, not a privilege. We are dedicated to serving humanity with love, service, and selflessness, inspired by the teachings of Bhagawan Sri Sathya Sai Baba.</p>
+[/et_pb_text]
+[/et_pb_column]
+[/et_pb_row]
+[/et_pb_section]
+
+<!-- 2. FREE STRIP — 5-item inline badge row -->
+[et_pb_section _builder_version="4.24.0" background_color="#f0e8d6" custom_padding="16px||16px||true|false"]
+[et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px"]
+[et_pb_column type="4_4" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" text_orientation="center" text_font="Nunito Sans|600||||||"
+  text_font_size="15px" text_text_color="#2a1f14"]
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:28px;">
+<span>♥ No Charges. Ever.</span><span>◆ All Religions Welcome</span><span>◆ All Castes Welcome</span><span>◆ All Financial Statuses</span><span>◆ Emergency to Critical Care</span>
+</div>
+[/et_pb_text]
+[/et_pb_column]
+[/et_pb_row]
+[/et_pb_section]
+
+<!-- 3. STATS — see stats.txt for the reusable version; content inlined here (home-specific numbers) -->
+[et_pb_section _builder_version="4.24.0" background_color="#f9f5ef" custom_padding="72px||72px||true|false"]
+[et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px"]
+[et_pb_column type="4_4" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" text_orientation="center" max_width="680px" module_alignment="center"
+  header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="32px"]
+<span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">Our Impact</span>
+<h2>Service in Numbers</h2>
+<p style="color:#7a6a55;">Decades of compassionate healthcare — touching millions of lives across India and beyond.</p>
+[/et_pb_text]
+[/et_pb_column]
+[/et_pb_row]
+[et_pb_row column_structure="1_3,1_3,1_3" _builder_version="4.24.0" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="2"]
+[et_pb_column type="1_3" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" text_orientation="center" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-top:3px solid #c8813a;border-radius:10px;padding:28px 22px;"]
+<div style="font-family:&#39;EB Garamond&#39;,serif;font-size:46px;font-weight:700;color:#c8813a;">3,000+</div><div style="font-size:14px;color:#7a6a55;font-weight:600;">Cardiac &amp; Neuro Surgeries per Year</div>
+[/et_pb_text]
+[/et_pb_column]
+[et_pb_column type="1_3" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" text_orientation="center" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-top:3px solid #c8813a;border-radius:10px;padding:28px 22px;"]
+<div style="font-family:&#39;EB Garamond&#39;,serif;font-size:46px;font-weight:700;color:#c8813a;">1,700+</div><div style="font-size:14px;color:#7a6a55;font-weight:600;">Multi-Specialty Surgeries per Year</div>
+[/et_pb_text]
+[/et_pb_column]
+[et_pb_column type="1_3" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" text_orientation="center" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-top:3px solid #c8813a;border-radius:10px;padding:28px 22px;"]
+<div style="font-family:&#39;EB Garamond&#39;,serif;font-size:46px;font-weight:700;color:#c8813a;">12</div><div style="font-size:14px;color:#7a6a55;font-weight:600;">Modular Operation Theatres</div>
+[/et_pb_text]
+[/et_pb_column]
+[/et_pb_row]
+[et_pb_row column_structure="1_3,1_3,1_3" _builder_version="4.24.0" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="2"]
+[et_pb_column type="1_3" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" text_orientation="center" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-top:3px solid #c8813a;border-radius:10px;padding:28px 22px;"]
+<div style="font-family:&#39;EB Garamond&#39;,serif;font-size:46px;font-weight:700;color:#c8813a;">6</div><div style="font-size:14px;color:#7a6a55;font-weight:600;">Intensive Care Units</div>
+[/et_pb_text]
+[/et_pb_column]
+[et_pb_column type="1_3" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" text_orientation="center" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-top:3px solid #c8813a;border-radius:10px;padding:28px 22px;"]
+<div style="font-family:&#39;EB Garamond&#39;,serif;font-size:46px;font-weight:700;color:#c8813a;">25+</div><div style="font-size:14px;color:#7a6a55;font-weight:600;">Years of Compassionate Service</div>
+[/et_pb_text]
+[/et_pb_column]
+[et_pb_column type="1_3" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" text_orientation="center" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-top:3px solid #c8813a;border-radius:10px;padding:28px 22px;"]
+<div style="font-family:&#39;EB Garamond&#39;,serif;font-size:46px;font-weight:700;color:#c8813a;">100%</div><div style="font-size:14px;color:#7a6a55;font-weight:600;">Care Given Free of Cost</div>
+[/et_pb_text]
+[/et_pb_column]
+[/et_pb_row]
+[/et_pb_section]
+
+<!-- 4. SPECIALTIES — 6-card grid, image + name + desc, links to department pages -->
+[et_pb_section _builder_version="4.24.0" background_color="#f0e8d6" custom_padding="72px||72px||true|false"]
+[et_pb_row column_structure="3_4,1_4" _builder_version="4.24.0" width="100%" max_width="1180px"]
+[et_pb_column type="3_4" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="32px"]
+<span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">Clinical Specialties</span>
+<h2>World-Class Care. Zero Cost.</h2>
+<p style="color:#7a6a55;">Advanced tertiary and super-specialty care across all major disciplines, for every patient who walks through our doors.</p>
+[/et_pb_text]
+[/et_pb_column]
+[et_pb_column type="1_4" _builder_version="4.24.0"]
+[et_pb_button custom_button="on" button_text="All Departments →" button_url="/specialties" _builder_version="4.24.0" button_bg_color="rgba(0,0,0,0)" button_text_color="#c8813a" button_border_width="2px" button_border_color="#c8813a" button_border_radius="6px"][/et_pb_button]
+[/et_pb_column]
+[/et_pb_row]
+[et_pb_row column_structure="1_3,1_3,1_3" _builder_version="4.24.0" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="2"]
+[et_pb_column type="1_3" _builder_version="4.24.0"]
+[et_pb_blurb title="Cardiology" url="/cardiology" image="https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Cardiology.png" _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;padding:24px;"]
+Complete cardiac services — OPD, inpatient and critical care. Leading institution for adult and paediatric cardiac interventions nationwide.
+[/et_pb_blurb]
+[/et_pb_column]
+[et_pb_column type="1_3" _builder_version="4.24.0"]
+[et_pb_blurb title="Cardiac Surgery" url="/cardiac-surgery" image="https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/CTVS.png" _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;padding:24px;"]
+Full range of invasive and minimally invasive cardiothoracic and vascular surgical services for adults and children.
+[/et_pb_blurb]
+[/et_pb_column]
+[et_pb_column type="1_3" _builder_version="4.24.0"]
+[et_pb_blurb title="Neurosurgery" url="/neurosurgery" image="https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Neurosurgery.png" _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;padding:24px;"]
+Among the finest neuroscience centres in India. Complex cases from across the country and abroad, referred from every state of India.
+[/et_pb_blurb]
+[/et_pb_column]
+[/et_pb_row]
+[et_pb_row column_structure="1_3,1_3,1_3" _builder_version="4.24.0" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="2"]
+[et_pb_column type="1_3" _builder_version="4.24.0"]
+[et_pb_blurb title="Neurology" url="/neurology" image="https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Neurology.png" _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;padding:24px;"]
+Well-equipped centre providing the latest facilities for a broad range of neurological conditions and ailments.
+[/et_pb_blurb]
+[/et_pb_column]
+[et_pb_column type="1_3" _builder_version="4.24.0"]
+[et_pb_blurb title="Anesthesiology" url="/anesthesiology" image="https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Anesthesiology.png" _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;padding:24px;"]
+Serving 12 modular operation theatres, 6 ICUs, 3 catheterisation labs, emergency department and CT/MRI suite — round the clock.
+[/et_pb_blurb]
+[/et_pb_column]
+[et_pb_column type="1_3" _builder_version="4.24.0"]
+[et_pb_blurb title="Radiology" url="/radiology" image="https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Radiology.png" _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;padding:24px;"]
+Expert diagnostic and interventional imaging — X-ray, ultrasound, CT, MRI, DSA — using state-of-the-art technology.
+[/et_pb_blurb]
+[/et_pb_column]
+[/et_pb_row]
+[/et_pb_section]
+
+<!-- 5. PHILOSOPHY (Quote, photo-split, photo on RIGHT) — reuses quote.txt Variant B, mirrored -->
+[et_pb_section _builder_version="4.24.0" background_color="#2c1a0e" custom_padding="72px||72px||true|false"]
+[et_pb_row _builder_version="4.24.0" column_structure="3_5,2_5" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="3"]
+[et_pb_column type="3_5" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0"]
+<span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">The Foundation</span>
+<div style="font-family:'EB Garamond',serif;font-size:100px;line-height:.8;color:#c8813a;opacity:.45;">"</div>
+<p style="font-family:'EB Garamond',serif;font-style:italic;font-size:23px;line-height:1.65;color:rgba(255,255,255,.93);">Doctors should serve the poor with a spirit of sacrifice. There is no greater service than this. Medicine should not be commercialised. It is meant to promote a heart-to-heart and love-to-love relationship between doctor and patient. A true doctor is one who realises this truth and conducts himself accordingly.</p>
+<div style="font-size:12.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#c8813a;opacity:.9;">— Bhagawan Sri Sathya Sai Baba, 2003</div>
+[/et_pb_text]
+[/et_pb_column]
+[et_pb_column type="2_5" _builder_version="4.24.0"]
+[et_pb_image src="https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Swami-with-stethoscope-e1487392181378.jpg"
+  alt="Bhagawan Sri Sathya Sai Baba" _builder_version="4.24.0" border_radii="on|10px|10px|10px|10px"][/et_pb_image]
+[/et_pb_column]
+[/et_pb_row]
+[/et_pb_section]
+
+<!-- 6. BHAGAWAN — photo LEFT, text right (opposite layout from section 5) -->
+[et_pb_section _builder_version="4.24.0" background_color="#f9f5ef" custom_padding="72px||72px||true|false"]
+[et_pb_row _builder_version="4.24.0" column_structure="2_5,3_5" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="3"]
+[et_pb_column type="2_5" _builder_version="4.24.0"]
+[et_pb_image src="https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Swami-with-stethoscope-e1487392181378.jpg"
+  alt="Bhagawan Sri Sathya Sai Baba" _builder_version="4.24.0" border_radii="on|10px|10px|10px|10px"][/et_pb_image]
+[/et_pb_column]
+[et_pb_column type="3_5" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_text_color="#2a1f14"
+  header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="32px"]
+<span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">The Guiding Light</span>
+<h2>Bhagawan Sri Sathya Sai Baba</h2>
+<p>SSSIHMS stands as a living testament to the compassionate vision of Bhagawan Sri Sathya Sai Baba — that every human being deserves the highest quality medical care, regardless of their ability to pay.</p>
+<p>Founded under the auspices of the Sri Sathya Sai Central Trust, this hospital embodies His teaching that service to man is service to God. The institution has served millions of patients from across India and the world, without asking anything in return.</p>
+<p>His life and teachings continue to inspire the dedicated doctors, nurses and volunteers who serve here every single day.</p>
+[/et_pb_text]
+[et_pb_button custom_button="on"  button_text="Life &amp; Teachings →" button_url="/bhagawan" _builder_version="4.24.0"
+  button_bg_color="rgba(0,0,0,0)" button_text_color="#c8813a" button_border_width="2px" button_border_color="#c8813a" button_border_radius="6px"][/et_pb_button]
+[/et_pb_column]
+[/et_pb_row]
+[/et_pb_section]
+
+<!-- 7. ACADEMICS — 4-card icon+title+badge+desc grid -->
+[et_pb_section _builder_version="4.24.0" background_color="#f0e8d6" custom_padding="72px||72px||true|false"]
+[et_pb_row _builder_version="4.24.0" column_structure="3_4,1_4" width="100%" max_width="1180px" custom_css_main_element="align-items:center;flex-wrap:wrap;"]
+[et_pb_column type="3_4" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="32px"]
+<span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">Education &amp; Training</span>
+<h2>Building Future Healers</h2>
+<p style="color:#7a6a55;">Post-graduate and undergraduate programmes rooted in the spirit of selfless service — with no tuition fees.</p>
+[/et_pb_text]
+[/et_pb_column]
+[et_pb_column type="1_4" _builder_version="4.24.0"]
+[et_pb_button custom_button="on"  button_text="All Programmes →" button_url="/academics" _builder_version="4.24.0"
+  button_bg_color="rgba(0,0,0,0)" button_text_color="#c8813a" button_border_width="2px" button_border_color="#c8813a" button_border_radius="6px"][/et_pb_button]
+[/et_pb_column]
+[/et_pb_row]
+[et_pb_row _builder_version="4.24.0" column_structure="1_2,1_2" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="2"]
+[et_pb_column type="1_2" _builder_version="4.24.0"]
+[et_pb_blurb title="DNB PG Programmes"
+  _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px"]
+Post-graduate training in Cardiothoracic Surgery, Cardiology, Neurosurgery and Anesthesiology, accredited by the National Board of Examinations, New Delhi.
+[/et_pb_blurb]
+[/et_pb_column]
+[et_pb_column type="1_2" _builder_version="4.24.0"]
+[et_pb_blurb title="B.Sc Nursing — Admissions Open  [2026–27]" content="4-year degree programme, 40 seats. Affiliated to RGUHS, Bengaluru. Exclusively for women, fully residential. No tuition fees. Deadline: 19th June 2026."
+  _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px"][/et_pb_blurb]
+[/et_pb_column]
+[/et_pb_row]
+[et_pb_row _builder_version="4.24.0" column_structure="1_2,1_2" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="2"]
+[et_pb_column type="1_2" _builder_version="4.24.0"]
+[et_pb_blurb title="Allied Health Sciences"
+  _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px"]
+BSc programmes in Cardiac Care Technology, Perfusion Technology, Anesthesia Technology, Medical Imaging Technology and Medical Lab Technology.
+[/et_pb_blurb]
+[/et_pb_column]
+[et_pb_column type="1_2" _builder_version="4.24.0"]
+[et_pb_blurb title="Fellowship Courses"
+  _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px"]
+Fellowship in Interventional Cardiology, Paediatric Cardiac Surgery, Cardiac Anesthesia and Radiology — for experienced professionals seeking advanced specialisation.
+[/et_pb_blurb]
+[/et_pb_column]
+[/et_pb_row]
+[/et_pb_section]
+
+<!-- 8. PATIENT SECTION — 3-card centered grid: appointment / telemedicine / emergency -->
+[et_pb_section _builder_version="4.24.0" background_color="#f9f5ef" custom_padding="72px||72px||true|false"]
+[et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px"]
+[et_pb_column type="4_4" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" text_orientation="center"
+  header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="32px"]
+<span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">For Patients</span>
+<h2>We Are Here for You</h2>
+<p style="color:#7a6a55;">Every service at SSSIHMS — from consultation to complex surgery — is provided without any charge to the patient.</p>
+[/et_pb_text]
+[/et_pb_column]
+[/et_pb_row]
+[et_pb_row _builder_version="4.24.0" column_structure="1_3,1_3,1_3" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="2"]
+[et_pb_column type="1_3" _builder_version="4.24.0"]
+[et_pb_blurb title="Book Appointment"
+  _builder_version="4.24.0" text_orientation="center" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e"
+  body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px"]
+Walk in to our OPD or schedule in advance. Our team registers and guides you at every step.
+[/et_pb_blurb]
+[et_pb_button custom_button="on"  button_text="Learn More →" button_url="/patients" _builder_version="4.24.0" module_alignment="center"
+  button_bg_color="rgba(0,0,0,0)" button_text_color="#c8813a" button_border_width="2px" button_border_color="#c8813a" button_border_radius="6px" button_font_size="13px"][/et_pb_button]
+[/et_pb_column]
+[et_pb_column type="1_3" _builder_version="4.24.0"]
+[et_pb_blurb title="Telemedicine / Help Desk"
+  _builder_version="4.24.0" text_orientation="center" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e"
+  body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px"]
+Access medical guidance remotely via our telemedicine portal. Especially valuable for patients unable to travel to Bengaluru.
+[/et_pb_blurb]
+[et_pb_button custom_button="on"  button_text="Learn More →" button_url="/patients" _builder_version="4.24.0" module_alignment="center"
+  button_bg_color="rgba(0,0,0,0)" button_text_color="#c8813a" button_border_width="2px" button_border_color="#c8813a" button_border_radius="6px" button_font_size="13px"][/et_pb_button]
+[/et_pb_column]
+[et_pb_column type="1_3" _builder_version="4.24.0"]
+[et_pb_blurb title="Emergency Care — 24/7"
+  _builder_version="4.24.0" text_orientation="center" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e"
+  body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px"]
+Our Emergency Department is open round the clock, every day of the year. Critical care, ICU and emergency services are available at all hours.
+[/et_pb_blurb]
+[et_pb_button custom_button="on"  button_text="Learn More →" button_url="/patients" _builder_version="4.24.0" module_alignment="center"
+  button_bg_color="rgba(0,0,0,0)" button_text_color="#c8813a" button_border_width="2px" button_border_color="#c8813a" button_border_radius="6px" button_font_size="13px"][/et_pb_button]
+[/et_pb_column]
+[/et_pb_row]
+[/et_pb_section]
+
+<!-- 9. ADMISSIONS (CTA) — reuses cta.txt directly, content inlined -->
+[et_pb_section _builder_version="4.24.0" background_color="#c8813a" use_background_color_gradient="on"
+  background_color_gradient_start="#c8813a" background_color_gradient_end="#7a4a2e" background_color_gradient_direction="130deg" custom_padding="64px||64px||true|false"]
+[et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px" column_structure="2_3,1_3" use_custom_gutter="on" gutter_width="2"
+  custom_css_main_element="align-items:center;flex-wrap:wrap;"]
+[et_pb_column type="2_3" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" text_text_color="#ffffff" header_font="EB Garamond|600|||||||" header_text_color="#ffffff" header_font_size="36px"]
+<span style="display:inline-block;background:rgba(255,255,255,.18);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:14px;">Admissions Open 2026–27</span>
+<h2>B.Sc Nursing Programme</h2>
+<p style="opacity:.88;font-size:15px;line-height:1.65;max-width:600px;">Applications are open for the 4-year B.Sc Nursing programme. Last date: <strong>19th June 2026</strong>. No tuition fees. Fully residential, exclusively for women. Affiliated to Rajiv Gandhi University of Health Sciences.</p>
+[/et_pb_text]
+[/et_pb_column]
+[et_pb_column type="1_3" _builder_version="4.24.0"]
+[et_pb_button custom_button="on"  button_text="Apply Now →" button_url="https://tinyurl.com/sssihmsnc" button_alignment="right"
+  _builder_version="4.24.0" button_bg_color="#ffffff" button_text_color="#7a4a2e" button_border_radius="6px"][/et_pb_button]
+[/et_pb_column]
+[/et_pb_row]
+[/et_pb_section]
+
+<!-- 10. GET INVOLVED — 3-card centered grid -->
+[et_pb_section _builder_version="4.24.0" background_color="#f0e8d6" custom_padding="72px||72px||true|false"]
+[et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px"]
+[et_pb_column type="4_4" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" text_orientation="center"
+  header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="32px"]
+<span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">Get Involved</span>
+<h2>Join the Mission of Love</h2>
+<p style="color:#7a6a55;">Be part of this extraordinary mission — serve with love, contribute with care, transform lives with purpose.</p>
+[/et_pb_text]
+[/et_pb_column]
+[/et_pb_row]
+[et_pb_row _builder_version="4.24.0" column_structure="1_3,1_3,1_3" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="2"]
+[et_pb_column type="1_3" _builder_version="4.24.0"]
+[et_pb_blurb title="Sevadal — Volunteer"
+  _builder_version="4.24.0" text_orientation="center" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e"
+  body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px" background_color="#fefcf8"
+  custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;padding:24px;"]
+Join our dedicated volunteer programme and serve patients and families with love and compassion, embodying the spirit of selfless service.
+[/et_pb_blurb]
+[et_pb_button custom_button="on"  button_text="Learn More" button_url="/getinvolved" _builder_version="4.24.0" module_alignment="center"
+  button_bg_color="#c8813a" button_text_color="#ffffff" button_border_radius="6px" button_font_size="13px"][/et_pb_button]
+[/et_pb_column]
+[et_pb_column type="1_3" _builder_version="4.24.0"]
+[et_pb_blurb title="Support the Mission"
+  _builder_version="4.24.0" text_orientation="center" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e"
+  body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px" background_color="#fefcf8"
+  custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;padding:24px;"]
+Your contribution helps sustain this healthcare mission. Every gift ensures world-class care remains accessible regardless of financial status.
+[/et_pb_blurb]
+[et_pb_button custom_button="on"  button_text="Learn More" button_url="/getinvolved" _builder_version="4.24.0" module_alignment="center"
+  button_bg_color="#c8813a" button_text_color="#ffffff" button_border_radius="6px" button_font_size="13px"][/et_pb_button]
+[/et_pb_column]
+[et_pb_column type="1_3" _builder_version="4.24.0"]
+[et_pb_blurb title="Volunteer Expertise"
+  _builder_version="4.24.0" text_orientation="center" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e"
+  body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="15px" background_color="#fefcf8"
+  custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;padding:24px;"]
+Medical professionals can offer their expertise to support the hospital's mission — on a short or long-term basis.
+[/et_pb_blurb]
+[et_pb_button custom_button="on"  button_text="Learn More" button_url="/getinvolved" _builder_version="4.24.0" module_alignment="center"
+  button_bg_color="#c8813a" button_text_color="#ffffff" button_border_radius="6px" button_font_size="13px"][/et_pb_button]
+[/et_pb_column]
+[/et_pb_row]
+[/et_pb_section]
+
+<!-- 11. NEWS — 3-card grid: tag / title / desc / date -->
+[et_pb_section _builder_version="4.24.0" background_color="#f9f5ef" custom_padding="72px||72px||true|false"]
+[et_pb_row _builder_version="4.24.0" column_structure="3_4,1_4" width="100%" max_width="1180px" custom_css_main_element="align-items:center;flex-wrap:wrap;"]
+[et_pb_column type="3_4" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" header_font_size="32px"]
+<span style="color:#c8813a;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;">News &amp; Updates</span>
+<h2>Latest from SSSIHMS</h2>
+[/et_pb_text]
+[/et_pb_column]
+[et_pb_column type="1_4" _builder_version="4.24.0"]
+[et_pb_button custom_button="on"  button_text="View All News →" button_url="/blog" _builder_version="4.24.0"
+  button_bg_color="rgba(0,0,0,0)" button_text_color="#c8813a" button_border_width="2px" button_border_color="#c8813a" button_border_radius="6px"][/et_pb_button]
+[/et_pb_column]
+[/et_pb_row]
+[et_pb_row _builder_version="4.24.0" column_structure="1_3,1_3,1_3" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="2"]
+[et_pb_column type="1_3" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;padding:22px;"
+  header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" text_font="Nunito Sans||||||||" text_text_color="#7a6a55" text_font_size="15px"]
+<span style="display:inline-block;background:#f0d5b0;color:#7a4a2e;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:100px;">Admissions</span>
+<h3>B.Sc Nursing Applications Now Open — 2026–27</h3>
+<p>Online applications for the 4-year B.Sc Nursing program are open. Deadline: 19th June 2026. No tuition fees charged. Residential programme.</p>
+<div style="font-size:13px;color:#7a6a55;margin-top:8px;">June 2026</div>
+[/et_pb_text]
+[/et_pb_column]
+[et_pb_column type="1_3" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;padding:22px;"
+  header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" text_font="Nunito Sans||||||||" text_text_color="#7a6a55" text_font_size="15px"]
+<span style="display:inline-block;background:#f0d5b0;color:#7a4a2e;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:100px;">Notice</span>
+<h3>Allied Health Science Admissions Paused for 2026–27</h3>
+<p>AHS programme admissions are temporarily paused for this academic year. Candidates are advised to visit the website regularly for updates.</p>
+<div style="font-size:13px;color:#7a6a55;margin-top:8px;">May 2026</div>
+[/et_pb_text]
+[/et_pb_column]
+[et_pb_column type="1_3" _builder_version="4.24.0"]
+[et_pb_text _builder_version="4.24.0" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;padding:22px;"
+  header_font="EB Garamond|600|||||||" header_text_color="#2a1f14" text_font="Nunito Sans||||||||" text_text_color="#7a6a55" text_font_size="15px"]
+<span style="display:inline-block;background:#f0d5b0;color:#7a4a2e;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:100px;">Newsletter</span>
+<h3>Manohriday Newsletter — Latest Edition</h3>
+<p>The new Manohriday newsletter is available, featuring hospital updates, patient stories and highlights from our departments.</p>
+<div style="font-size:13px;color:#7a6a55;margin-top:8px;">April 2026</div>
+[/et_pb_text]
+[/et_pb_column]
+[/et_pb_row]
+[/et_pb_section]
+
+<!--
+NOT included above (deliberately, out of scope for a homepage draft):
+- Site header/nav and footer — those belong in the WP Theme Builder as global templates,
+  not on this page's own content, and were not requested here.
+- Image onError fallbacks (broken building/swami/specialty photos → hidden or greyed-out) —
+  see LIMITATIONS.md; needs one small site-wide JS snippet, not a per-section concern.
+- SPECIALTIES card `link_option_url` above makes the whole Blurb clickable to mimic the
+  source's onClick-the-whole-card behavior — confirm this Divi Blurb link option is enabled
+  in the target Divi version; older Divi only supports a link on the title, not the module.
+-->
