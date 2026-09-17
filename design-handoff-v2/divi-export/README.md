@@ -82,5 +82,49 @@ judged Divi's circular-icon treatment **better** than the original design, so it
 applies to `cards.txt` (89 uses) and the homepage specialty/academic cards alike — keep the
 native Blurb default and do not add image-sizing overrides to force the full-bleed look.
 
-Still genuinely unbuilt on that draft: the theme prints the page title above the content, and
-header/footer are still the live site's (Theme Builder scope).
+## Installing header/footer into the Theme Builder (the only route that works)
+
+`header.txt` and `footer.txt` cannot be installed the way page shortcode is. Two dead ends,
+both confirmed on 17-Sep-2026:
+
+- **Classic editor is blocked** for `et_header_layout` / `et_footer_layout` — WordPress returns
+  "Sorry, you are not allowed to edit posts in this post type."
+- **Divi Library doesn't work either** if the layout is created via `post-new.php?post_type=
+  et_pb_layout`. It saves fine and is editable, but never appears in Theme Builder's "Add From
+  Library" picker, because that route skips Divi's hidden `layout_type` taxonomy.
+
+**What works: Theme Builder portability import.** Theme Builder → the ↑↓ icon → Export (to learn
+the schema / take a backup), then Import a JSON of this shape:
+
+```
+{ "context": "et_theme_builder",
+  "templates": [ { "title": …, "use_on": ["singular:post_type:page:id:<PAGE_ID>"],
+                   "layouts": { "header": {"id": 90001, "enabled": true},
+                                "body":   {"id": 0,     "enabled": true},
+                                "footer": {"id": 90002, "enabled": true} } } ],
+  "layouts": { "90001": { "context": "et_builder", "data": {"90001": "<shortcode>"},
+                          "post_type": "et_header_layout", "post_title": …,
+                          "theme_builder": {"is_global": false}, "images": [],
+                          "global_colors": null, "post_meta": [ … ] } },
+  "presets": {}, "has_default_template": false, "has_global_layouts": false }
+```
+
+The layout ids are arbitrary — Divi remaps them on import. Sections inside each layout carry
+`theme_builder_area="et_header_layout"` / `"et_footer_layout"`. `theme-builder-import.json` in
+this folder is the working file; regenerate it from header.txt/footer.txt.
+
+**Import options matter:** untick *Override Existing Default Website Template* and omit the
+default template from the JSON (`has_default_template: false`), or the import will overwrite the
+site-wide template. Leave *Override Existing Assignments* ticked so the scoped assignment applies.
+
+**Scope it, don't globalise it.** Filling the Default Website Template's Global Header/Footer
+applies to all 182 published pages of the live site immediately. Until the redesign is approved,
+assign templates to specific page ids only. To revert, delete the template card — Theme Builder
+was empty before this work, so deletion restores the original state exactly.
+
+Installed and verified on draft page 54830: custom header (logo, trust line, Primary Menu,
+Get Care button) and custom footer (4 columns + bottom bar) both render, replacing the live
+site's own header/footer on that page only.
+
+Still genuinely unbuilt: the theme prints the page title above the content. Also note every
+footer link targets a redesign slug that does not exist on the live site yet, so they 404.
