@@ -2,15 +2,24 @@
 Site header — Divi Theme Builder layout. Sources: TopBar (SSSIHMS Website.html:531-545) and
 NavBar (:547-604), styled from site.css .topbar/.navbar/.nav-logo.
 
-Built as a Divi LIBRARY layout, not pasted into Theme Builder directly: Divi refuses classic
-editing of the et_header_layout post type ("not allowed to edit posts in this post type"), but
-et_pb_layout (the Library) allows it. So the workflow is: paste this into a new Library layout
-→ Theme Builder → Add Custom Header → Add From Library.
+Install via the Theme Builder portability import — see README "Installing header/footer into
+the Theme Builder". Divi refuses classic editing of et_header_layout, and Library layouts made
+through post-new.php never show in the "Add From Library" picker.
 
 The nav uses the site's EXISTING WordPress menu (menu_id="2", "Primary Menu"), which already
-carries the same top-level items and dropdowns the design's NAV array describes. That keeps
-this reusable: editing the menu in Appearance → Menus updates the header everywhere, and no
-menu had to be rebuilt.
+carries the same top-level items and dropdowns the design's NAV array describes. Editing
+Appearance → Menus therefore updates this header; no menu had to be rebuilt.
+
+LAYOUT NOTES — these are measured, not guessed. Reviewed on the live draft 17-Sep-2026:
+- No "Get Care" CTA. It was in the original React design, but in Divi it pushed the menu onto
+  its own line; Praveen asked for it removed and logo + menu kept on one line.
+- The 8 top-level items need ~912px. At 1_4/3_4 the menu column is 877px and the menu wrapped
+  to two lines, so the split is 1_5/4_5 (944px) with 11px type and 6px link padding. If menu
+  labels are ever lengthened, re-check this — the margin is only ~30px.
+- The trust line ("A Unit of Sri Sathya Sai Central Trust") sits in the TOP BAR, right-aligned,
+  not under the logo. Under the logo it wrapped to two lines in the narrow column and made the
+  header taller; in the top bar it also fills space that was otherwise empty.
+- Resulting header height: 137px at 1440px wide.
 
 Not reproduced from the React original: the mobile hamburger drawer (Divi's Menu module has its
 own responsive drawer, used instead) and the logo's onError fallback to a text wordmark.
@@ -20,25 +29,19 @@ own responsive drawer, used instead) and the logo's onError fallback to a text w
 [et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px" custom_padding="0|0|0|0|false|false"]
 [et_pb_column type="4_4" _builder_version="4.24.0"]
 [et_pb_text _builder_version="4.24.0" text_font="Nunito Sans|500||||||" text_font_size="12.5px" text_text_color="#f0d5b0"]
-<span>Help Desk: 080-471004600</span> &nbsp;<span style="opacity:.4">|</span>&nbsp; <a href="/help-desk" style="color:#f0d5b0;opacity:.85;">Telemedicine</a> &nbsp;<span style="opacity:.4">|</span>&nbsp; <a href="/blog" style="color:#f0d5b0;opacity:.85;">Blog</a>
+<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;"><span>Help Desk: 080-471004600 &nbsp;<span style="opacity:.4">|</span>&nbsp; <a href="/help-desk" style="color:#f0d5b0;opacity:.85;">Telemedicine</a> &nbsp;<span style="opacity:.4">|</span>&nbsp; <a href="/blog" style="color:#f0d5b0;opacity:.85;">Blog</a></span><span style="text-transform:uppercase;letter-spacing:1px;opacity:.65;font-size:10.5px;font-weight:600;">A Unit of Sri Sathya Sai Central Trust</span></div>
 [/et_pb_text]
 [/et_pb_column]
 [/et_pb_row]
 [/et_pb_section]
 
-[et_pb_section fb_built="1" admin_label="Nav Bar" _builder_version="4.24.0" background_color="#2c1a0e" custom_padding="10px||10px||true|false" box_shadow_style="preset3" box_shadow_color="rgba(0,0,0,0.2)"]
-[et_pb_row column_structure="1_4,1_2,1_4" _builder_version="4.24.0" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="2" custom_padding="0|0|0|0|false|false"]
-[et_pb_column type="1_4" _builder_version="4.24.0"]
-[et_pb_image src="https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png" alt="SSSIHMS — Sri Sathya Sai Institute of Higher Medical Sciences" url="/" _builder_version="4.24.0" max_height="46px" custom_css_main_element="background:#fff;padding:5px 12px;border-radius:6px;display:inline-block;"][/et_pb_image]
-[et_pb_text _builder_version="4.24.0" text_font="Nunito Sans|600||||||" text_font_size="11px" text_letter_spacing="1.2px" text_text_color="#f0d5b0" custom_margin="6px||||false|false"]
-<span style="text-transform:uppercase;opacity:.7;">A Unit of Sri Sathya Sai Central Trust</span>
-[/et_pb_text]
+[et_pb_section fb_built="1" admin_label="Nav Bar" _builder_version="4.24.0" background_color="#2c1a0e" custom_padding="10px||10px||true|false"]
+[et_pb_row column_structure="1_5,4_5" _builder_version="4.24.0" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="1" custom_padding="0|0|0|0|false|false" custom_css_main_element="align-items:center;"]
+[et_pb_column type="1_5" _builder_version="4.24.0" custom_css_main_element="display:flex;align-items:center;"]
+[et_pb_image src="https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png" alt="SSSIHMS — Sri Sathya Sai Institute of Higher Medical Sciences" url="/" _builder_version="4.24.0" custom_css_main_element="background:#fff;padding:5px 9px;border-radius:6px;display:inline-block;margin:0;"][/et_pb_image]
 [/et_pb_column]
-[et_pb_column type="1_2" _builder_version="4.24.0"]
-[et_pb_menu menu_id="2" _builder_version="4.24.0" background_color="rgba(0,0,0,0)" menu_font="Nunito Sans|600||||||" menu_font_size="13px" menu_text_color="#f0d5b0" active_link_color="#c8813a" dropdown_menu_bg_color="#2c1a0e" dropdown_menu_line_color="#c8813a" dropdown_menu_text_color="#f0d5b0" mobile_menu_bg_color="#2c1a0e" mobile_menu_text_color="#f0d5b0" submenu_direction="downwards" logo="off" show_search="off"][/et_pb_menu]
-[/et_pb_column]
-[et_pb_column type="1_4" _builder_version="4.24.0"]
-[et_pb_button custom_button="on" button_text="Get Care →" button_url="/appointments-admission" button_alignment="right" _builder_version="4.24.0" button_bg_color="#c8813a" button_text_color="#ffffff" button_border_width="0px" button_border_radius="6px" button_font="Nunito Sans|600||||||" button_font_size="13px"][/et_pb_button]
+[et_pb_column type="4_5" _builder_version="4.24.0" custom_css_main_element="display:flex;align-items:center;justify-content:flex-end;"]
+[et_pb_menu menu_id="2" _builder_version="4.24.0" background_color="rgba(0,0,0,0)" menu_font="Nunito Sans|600||||||" menu_font_size="11px" menu_text_color="#f0d5b0" active_link_color="#c8813a" dropdown_menu_bg_color="#2c1a0e" dropdown_menu_line_color="#c8813a" dropdown_menu_text_color="#f0d5b0" mobile_menu_bg_color="#2c1a0e" mobile_menu_text_color="#f0d5b0" submenu_direction="downwards" logo="off" show_search="off" text_orientation="right" custom_css_main_element="width:100%;" custom_css_menu_link="padding-left:6px;padding-right:6px;"][/et_pb_menu]
 [/et_pb_column]
 [/et_pb_row]
 [/et_pb_section]

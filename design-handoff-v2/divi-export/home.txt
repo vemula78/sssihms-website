@@ -37,8 +37,8 @@ ALL MEDICAL CARE PROVIDED FREE OF COST
 [/et_pb_section]
 
 [et_pb_section _builder_version="4.24.0" background_color="#f9f5ef" custom_padding="48px||48px||true|false"]
-[et_pb_row _builder_version="4.24.0" column_structure="1_4,1_2,1_4" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="2"]
-[et_pb_column type="1_4" _builder_version="4.24.0"]
+[et_pb_row _builder_version="4.24.0" column_structure="1_3,1_3,1_3" custom_css_main_element="align-items:center;" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="2"]
+[et_pb_column type="1_3" _builder_version="4.24.0"]
 [et_pb_text _builder_version="4.24.0" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;padding:24px;"
   header_font="EB Garamond|600|||||||" header_text_color="#c8813a" header_font_size="38px"
   text_font="Nunito Sans||||||||" text_font_size="15px" text_text_color="#2a1f14"]
@@ -46,20 +46,18 @@ ALL MEDICAL CARE PROVIDED FREE OF COST
 <p>To create a world where healthcare is accessible, compassionate, and holistic, fostering physical, mental, and spiritual well-being for all individuals. Guided by the principles of love, service, and selflessness as taught by Bhagawan Sri Sathya Sai Baba, we envision a society where every person receives the care they need, to lead a healthy and fulfilling life.</p>
 [/et_pb_text]
 [/et_pb_column]
-[et_pb_column type="1_2" _builder_version="4.24.0"]
+[et_pb_column type="1_3" _builder_version="4.24.0"]
 [et_pb_text _builder_version="4.24.0" text_orientation="center"
   header_font="EB Garamond|700|||||||" header_text_color="#2a1f14" header_font_size="46px"
   text_font="Nunito Sans||||||||" text_font_size="16px" text_text_color="#2a1f14"]
 <h1>Healing Through Love &amp; Selfless Service</h1>
 <p>Sri Sathya Sai Institute of Higher Medical Sciences provides world-class tertiary care to all patients, regardless of caste, creed, religion or financial status.</p>
 [/et_pb_text]
-[et_pb_button custom_button="on"  button_text="Book Appointment →" button_url="/appointments-admission" _builder_version="4.24.0"
-  button_bg_color="#c8813a" button_text_color="#ffffff" button_border_radius="6px" custom_margin="||||on|" module_alignment="center"][/et_pb_button]
-[et_pb_button custom_button="on"  button_text="Our Mission →" button_url="/about-hospital" _builder_version="4.24.0"
-  button_bg_color="rgba(0,0,0,0)" button_text_color="#c8813a" button_border_width="2px" button_border_color="#c8813a"
-  button_border_radius="6px" module_alignment="center" custom_margin="8px||||false|false"][/et_pb_button]
+[et_pb_text _builder_version="4.24.0" text_orientation="center"]
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:6px;"><a href="/appointments-admission" style="background:#c8813a;color:#fff;font-weight:600;font-size:14px;padding:11px 26px;border-radius:6px;display:inline-block;">Book Appointment &rarr;</a><a href="/about-hospital" style="border:2px solid #c8813a;color:#c8813a;font-weight:600;font-size:14px;padding:9px 24px;border-radius:6px;display:inline-block;">Our Mission &rarr;</a></div>
+[/et_pb_text]
 [/et_pb_column]
-[et_pb_column type="1_4" _builder_version="4.24.0"]
+[et_pb_column type="1_3" _builder_version="4.24.0"]
 [et_pb_text _builder_version="4.24.0" background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;padding:24px;"
   text_font="Nunito Sans||||||||" text_font_size="15px" text_text_color="#2a1f14"]
 <span style="display:block;font-family:'EB Garamond',serif;font-weight:600;color:#c8813a;font-size:38px;margin-bottom:14px;">Mission</span>
