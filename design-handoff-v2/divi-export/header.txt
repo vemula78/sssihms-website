@@ -10,16 +10,23 @@ The nav uses the site's EXISTING WordPress menu (menu_id="2", "Primary Menu"), w
 carries the same top-level items and dropdowns the design's NAV array describes. Editing
 Appearance → Menus therefore updates this header; no menu had to be rebuilt.
 
-LAYOUT NOTES — these are measured, not guessed. Reviewed on the live draft 17-Sep-2026:
-- No "Get Care" CTA. It was in the original React design, but in Divi it pushed the menu onto
-  its own line; Praveen asked for it removed and logo + menu kept on one line.
-- The 8 top-level items need ~912px. At 1_4/3_4 the menu column is 877px and the menu wrapped
-  to two lines, so the split is 1_5/4_5 (944px) with 11px type and 6px link padding. If menu
-  labels are ever lengthened, re-check this — the margin is only ~30px.
+LAYOUT NOTES — measured on the live draft, 17-Sep-2026. Do not "tidy" these into one row.
+- No "Get Care" CTA: removed at Praveen's request.
+- The menu gets its OWN full-width row, under the logo. Putting the logo and menu on one line
+  was tried and reverted, because it only fits on a wide monitor:
+    * the 8 top-level items measure ~912px at 11px type;
+    * at a 1440px viewport a 1_5/4_5 split gives the menu 944px, so it fits — but
+    * Praveen's actual browser reports a ~995px CSS viewport (2x Retina display), where the
+      1180px container shrinks to ~965px and a 4_5 column is only ~772px. The menu wrapped,
+      dropping "Opportunities" onto a second line.
+  Fitting one line at ~995px would need roughly 9px type, which is unreadable. A full-width
+  row gives the menu the whole ~965px, which fits at 11px with room to spare.
 - The trust line ("A Unit of Sri Sathya Sai Central Trust") sits in the TOP BAR, right-aligned,
-  not under the logo. Under the logo it wrapped to two lines in the narrow column and made the
-  header taller; in the top bar it also fills space that was otherwise empty.
-- Resulting header height: 137px at 1440px wide.
+  rather than under the logo, where it wrapped and added height.
+- The logo MUST keep `max_height` — without it the image (2560px wide natively) stretches to
+  fill its whole column.
+- Never pass `logo="off"` to et_pb_menu. Divi treats it as a URL and renders a broken image
+  (`src="http://off"`). Omit the attribute entirely.
 
 Not reproduced from the React original: the mobile hamburger drawer (Divi's Menu module has its
 own responsive drawer, used instead) and the logo's onError fallback to a text wordmark.
@@ -35,13 +42,15 @@ own responsive drawer, used instead) and the logo's onError fallback to a text w
 [/et_pb_row]
 [/et_pb_section]
 
-[et_pb_section fb_built="1" admin_label="Nav Bar" _builder_version="4.24.0" background_color="#2c1a0e" custom_padding="10px||10px||true|false"]
-[et_pb_row column_structure="1_5,4_5" _builder_version="4.24.0" width="100%" max_width="1180px" use_custom_gutter="on" gutter_width="1" custom_padding="0|0|0|0|false|false" custom_css_main_element="align-items:center;"]
-[et_pb_column type="1_5" _builder_version="4.24.0" custom_css_main_element="display:flex;align-items:center;"]
-[et_pb_image src="https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png" alt="SSSIHMS — Sri Sathya Sai Institute of Higher Medical Sciences" url="/" _builder_version="4.24.0" custom_css_main_element="background:#fff;padding:5px 9px;border-radius:6px;display:inline-block;margin:0;"][/et_pb_image]
+[et_pb_section fb_built="1" admin_label="Nav Bar" _builder_version="4.24.0" background_color="#2c1a0e" custom_padding="10px||6px||true|false"]
+[et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px" custom_padding="0|0|0|0|false|false"]
+[et_pb_column type="4_4" _builder_version="4.24.0"]
+[et_pb_image src="https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png" alt="SSSIHMS — Sri Sathya Sai Institute of Higher Medical Sciences" url="/" _builder_version="4.24.0" max_height="44px" width="auto" custom_css_main_element="background:#fff;padding:5px 10px;border-radius:6px;display:inline-block;margin:0;"][/et_pb_image]
 [/et_pb_column]
-[et_pb_column type="4_5" _builder_version="4.24.0" custom_css_main_element="display:flex;align-items:center;justify-content:flex-end;"]
-[et_pb_menu menu_id="2" _builder_version="4.24.0" background_color="rgba(0,0,0,0)" menu_font="Nunito Sans|600||||||" menu_font_size="11px" menu_text_color="#f0d5b0" active_link_color="#c8813a" dropdown_menu_bg_color="#2c1a0e" dropdown_menu_line_color="#c8813a" dropdown_menu_text_color="#f0d5b0" mobile_menu_bg_color="#2c1a0e" mobile_menu_text_color="#f0d5b0" submenu_direction="downwards" logo="off" show_search="off" text_orientation="right" custom_css_main_element="width:100%;" custom_css_menu_link="padding-left:6px;padding-right:6px;"][/et_pb_menu]
+[/et_pb_row]
+[et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px" custom_padding="0|0|0|0|false|false" custom_margin="6px||0px||false|false"]
+[et_pb_column type="4_4" _builder_version="4.24.0"]
+[et_pb_menu menu_id="2" _builder_version="4.24.0" background_color="rgba(0,0,0,0)" menu_font="Nunito Sans|600||||||" menu_font_size="11px" menu_text_color="#f0d5b0" active_link_color="#c8813a" dropdown_menu_bg_color="#2c1a0e" dropdown_menu_line_color="#c8813a" dropdown_menu_text_color="#f0d5b0" mobile_menu_bg_color="#2c1a0e" mobile_menu_text_color="#f0d5b0" submenu_direction="downwards" show_search="off" text_orientation="left" custom_css_main_element="width:100%;" custom_css_menu_link="padding-left:0px;padding-right:20px;"][/et_pb_menu]
 [/et_pb_column]
 [/et_pb_row]
 [/et_pb_section]
