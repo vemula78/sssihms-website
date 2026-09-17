@@ -75,6 +75,12 @@ Round-trip result: the builder parsed the hand-authored shortcode into 12 sectio
 rather than stripping the custom ones (31,687 → 34,446 chars; all 27 `custom_css_main_element`
 blocks, 38 EB Garamond and 37 saffron references survived). The approach works.
 
-Still unstyled on that draft: Blurb images render as Divi's small centred icons rather than the
-source design's full-bleed card-top images, the theme prints the page title above the content,
-and header/footer are still the live site's (Theme Builder scope).
+**Accepted deviation from the mockup — do not "fix" this back.** Divi's Blurb module renders the
+card image as a small centred circular icon above the title, rather than the source design's
+full-bleed image across the card top. Praveen reviewed this on the live draft (17-Sep-2026) and
+judged Divi's circular-icon treatment **better** than the original design, so it stays. This
+applies to `cards.txt` (89 uses) and the homepage specialty/academic cards alike — keep the
+native Blurb default and do not add image-sizing overrides to force the full-bleed look.
+
+Still genuinely unbuilt on that draft: the theme prints the page title above the content, and
+header/footer are still the live site's (Theme Builder scope).

@@ -32,6 +32,14 @@
 Fields per card: CARD_IMAGE (or CARD_ICON — Divi Blurb supports an icon font in place of an
 image via icon/font_icon params, use whichever the source item has), CARD_TITLE, CARD_BADGE
 (small pill, optional), CARD_META, CARD_DESC, CARD_LINK_LABEL/URL.
+
+CARD_DESC goes between the opening and closing [et_pb_blurb] tags — a `content=` attribute
+renders an empty card (see README "Divi gotchas").
+
+Keep Divi's native Blurb image treatment: a small centred circular icon above the title.
+It does NOT match the source design's full-bleed image across the card top, and that is a
+deliberate, reviewed choice (Praveen, 17-Sep-2026) — the circular icon was judged better than
+the original. Do not add image-sizing overrides to recreate the full-bleed look.
 COLS → DIVI_COLUMN_STRUCTURE: 2 → "1_2,1_2", 3 → "1_3,1_3,1_3", 4 → "1_4,1_4,1_4,1_4"
 (DIVI_COLUMN_TYPE matches: "1_2" / "1_3" / "1_4"). Divi's et_pb_blurb doesn't natively
 support a badge overlapping the title the way the source CSS does (.free-pill-sm positioned
