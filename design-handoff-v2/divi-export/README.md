@@ -78,6 +78,24 @@ styled-differently. Target values from the mock at 1500px:
 | CTA band h2 / p | 36px white / 15px white |
 | section padding | 72px top and bottom (64px for the CTA band) |
 
+**Divi sets every heading's line-height to 1.0.** Unless you pass `header_2_line_height` etc., a
+42px h2 sits in a 42px box against the mock's 50.4px, and two-line headings nearly touch. Always
+pair a `*_font_size` with a `*_line_height`: h1 `1.14em`, h2 `1.2em`, h3 `1.3em`, Blurb titles
+`1.2em` (`1.25em` for the 20px academics cards).
+
+**Blurb titles are `<h4>` and are styled by plain `header_*`.** They are NOT covered by
+`header_2_*`/`header_3_*`, and a heading scan that only looks at h1–h3 will not see them at all —
+16 card titles on the homepage sat at Divi's default 18px/600 long after the h2 fix, because
+nothing in the audit was looking at h4. Set `header_font`, `header_font_size`, `header_line_height`
+and `header_text_color` on the Blurb itself. Target sizes from the mock: specialty cards 21px 700
+`#7a4a2e`, academics 20px 700 `#2a1f14`, patient 21px 700 `#2a1f14`, get-involved 24px 700 white.
+
+**Shortcode attributes are last-wins, so a failed "replace" silently becomes a no-op.** When
+editing an existing tag, strip every occurrence of the attribute before appending the new one. A
+rewrite that prepends its value while the old one survives later in the tag looks like it worked
+(the content changes, the length grows) but renders the old value — *added* attributes take effect
+while *replaced* ones do not, which is the signature of this bug.
+
 **The same trap via inheritance:** raw `<a>`/`<div>` markup inside a Text module inherits Divi's
 Open Sans unless it sets `font-family` itself. The hero buttons set weight, size and colour but
 not family, and rendered in Open Sans for weeks without looking broken. Any inline-styled element

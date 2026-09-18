@@ -4,7 +4,7 @@
 [et_pb_column type="4_4" _builder_version="4.24.0"]
 {{#IF TITLE}}
 [et_pb_text _builder_version="4.24.0"
-  header_2_font="EB Garamond|600|||||||" header_2_text_color="#2a1f14" header_2_font_size="42px"]
+  header_2_font="EB Garamond|600|||||||" header_2_text_color="#2a1f14" header_2_font_size="42px" header_2_line_height="1.2em"]
 {{#IF EYEBROW}}<span style="color:#c8813a;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;">{{EYEBROW}}</span>{{/IF}}
 <h2>{{TITLE}}</h2>
 {{/IF}}
@@ -16,7 +16,7 @@
 <!-- repeat once per faculty member, wrap to a new et_pb_row every COLS members -->
 [et_pb_column type="{{DIVI_COLUMN_TYPE}}" _builder_version="4.24.0"]
 [et_pb_team_member name="{{FACULTY_NAME}}" position="{{FACULTY_ROLE}}" image_url="{{FACULTY_PHOTO_URL}}"
-  _builder_version="4.24.0" header_font="EB Garamond|700|||||||" header_font_size="14px"
+  _builder_version="4.24.0" header_font="EB Garamond|700|||||||" header_font_size="14px" header_line_height="1.2em"
   body_font="Nunito Sans||||||||" body_font_size="12px" body_text_color="#7a6a55"
   background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-radius:10px;"]
 {{#IF FACULTY_DETAIL}}{{FACULTY_DETAIL}}{{/IF}}

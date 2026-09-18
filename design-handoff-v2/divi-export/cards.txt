@@ -4,7 +4,7 @@
 [et_pb_column type="4_4" _builder_version="4.24.0"]
 {{#IF TITLE}}
 [et_pb_text _builder_version="4.24.0" text_orientation="{{CENTER_OR_LEFT}}"
-  header_2_font="EB Garamond|600|||||||" header_2_text_color="#2a1f14" header_2_font_size="42px" text_font="Nunito Sans||||||||" text_font_size="16px" text_text_color="#7a6a55" text_line_height="1.75"]
+  header_2_font="EB Garamond|600|||||||" header_2_text_color="#2a1f14" header_2_font_size="42px" header_2_line_height="1.2em" text_font="Nunito Sans||||||||" text_font_size="16px" text_text_color="#7a6a55" text_line_height="1.75"]
 {{#IF EYEBROW}}<span style="color:#c8813a;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;">{{EYEBROW}}</span>{{/IF}}
 <h2>{{TITLE}}</h2>
 {{#IF SUB}}<p style="color:#7a6a55;">{{SUB}}</p>{{/IF}}
@@ -17,7 +17,7 @@
 <!-- repeat this et_pb_column block once per card (up to COLS per row, wrap to a new et_pb_row every COLS cards) -->
 [et_pb_column type="{{DIVI_COLUMN_TYPE}}" _builder_version="4.24.0"]
 [et_pb_blurb {{#IF CARD_IMAGE}}image="{{CARD_IMAGE}}"{{/IF}} title="{{CARD_TITLE}}" content="{{CARD_DESC}}"
-  _builder_version="4.24.0" header_font="EB Garamond|600|||||||" header_text_color="#7a4a2e" header_font_size="20px"
+  _builder_version="4.24.0" header_font="EB Garamond|700|||||||" header_text_color="#7a4a2e" header_font_size="21px" header_line_height="1.2em"
   body_font="Nunito Sans||||||||" body_text_color="#7a6a55" body_font_size="13.5px"
   background_color="#fefcf8" custom_css_main_element="border:1px solid #e0d5c0;border-top:3px solid #c8813a;border-radius:10px;padding:24px;height:100%;"]
 {{#IF CARD_BADGE}}[/et_pb_blurb][et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_font_size="10px" background_color="#f0d5b0" text_text_color="#7a4a2e" custom_margin="-8px||||false|false"]{{CARD_BADGE}}[/et_pb_text]{{/IF}}
