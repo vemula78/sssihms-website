@@ -236,7 +236,9 @@ const PAGES = {
           { icon:'❤', title:'Cardiology', desc:'The full gamut of cardiac services — outpatient, inpatient and critical care — among the leading national centres for adult and paediatric interventions.', link:{ label:'Cardiology', page:'cardiology' } },
           { icon:'✚', title:'Cardiac Surgery', desc:'The complete range of invasive and minimally invasive cardiothoracic and vascular surgery for adults and children.', link:{ label:'Cardiac Surgery', page:'cardiac-surgery' } },
           { icon:'◆', title:'Neurosurgery', desc:'Among the finest neuroscience services in the country — complex cases referred from across India and abroad.', link:{ label:'Neurosurgery', page:'neurosurgery' } },
-          { icon:'◇', title:'Neurology', desc:'A well-equipped centre with the latest facilities for the full breadth of neurological conditions.', link:{ label:'Neurology', page:'neurology' } },
+          // Neurology is temporarily closed (18-Sep-2026) and its pages are private, so the
+          // card keeps its description but no longer links anywhere — the link 404'd for visitors.
+          { icon:'◇', title:'Neurology', desc:'A well-equipped centre with the latest facilities for the full breadth of neurological conditions.' },
           { icon:'✦', title:'Anesthesiology', desc:'Serving 12 modular OTs, 6 ICUs, 3 cath labs, emergency department and CT/MRI suite — round the clock.', link:{ label:'Anesthesiology', page:'anesthesiology' } },
           { icon:'⬡', title:'Radiology', desc:'Expert diagnostic and interventional imaging — X-ray, ultrasound, CT, MRI, DSA — using state-of-the-art technology.', link:{ label:'Radiology', page:'radiology' } }
         ] },
