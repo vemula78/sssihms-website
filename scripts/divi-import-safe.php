@@ -29,8 +29,9 @@ if ( ! defined( 'WP_CLI' ) || ! WP_CLI ) {
 
 $dir = isset( $args[0] ) ? rtrim( $args[0], '/' ) : '/tmp/divi-export';
 
-// Optional 2nd arg: import ONLY this slug (e.g. "blog"). Omit to import all.
-$only = isset( $args[1] ) ? $args[1] : '';
+// Optional 2nd arg: import ONLY these slugs — one, or a comma-separated batch
+// (e.g. "blog" or "blog,careers,trust"). Omit to import all.
+$only = isset( $args[1] ) ? array_filter( array_map( 'trim', explode( ',', $args[1] ) ) ) : array();
 
 if ( ! is_dir( $dir ) ) {
 	WP_CLI::error( "Directory not found: $dir" );
@@ -72,6 +73,7 @@ $titles = array(
 	'trust'          => 'The Trust',
 	'songs'          => 'Songs &amp; Bhajans',
 	'blog'           => 'Blog',
+	'statistics-combined' => 'Combined Hospital &mdash; Statistics',
 );
 
 $skip  = array( 'header', 'footer', 'gg-biomedical' );
@@ -121,7 +123,17 @@ $aliases = array(
 	// 'patients': #1316 looked like the live page but is a custom nav_menu_item pointing
 	// at /conditions-treatment/; there is no page at /for-patients/ (404). Created new.
 	'blog'                     => 1458,  // /sssihms-blog/
-	'statistics-combined'      => 53091, // /statistics/  (private)
+	// 'statistics-combined' had been aliased to 53091, but #53091 (/statistics/) is the
+	// Statistics LANDING page, which the pack supplies as statistics.json. The combined
+	// dashboard is the eleventh department dashboard, sibling to cardiology-statistics
+	// (#54908) etc., and had no live page — aliasing both files to #53091 meant whichever
+	// imported second silently destroyed the other. It now gets its own page.
+	// home.json is built by scripts/make-home-json.py from dist/index.html (the design
+	// pass never exported it, because in the prototype the home page is index.html).
+	// Without this alias the slug "home" matches #37, which is the CURRENT live front
+	// page — the redesign belongs in the draft, #54830, which then becomes the front page.
+	'home'                     => 54830, // "Home — Divi Draft (Sacred Warmth redesign)"
+
 	'fellowship'               => 255,   // /academics/fellowship/ — confirmed 18-Sep-2026;
 	                                     // #550 (private, under /radiology1/) is a different page.
 	// 'gg-biomedical' deliberately absent: biomedical-waste-management (54788) is the
@@ -153,8 +165,8 @@ $skipped = 0;
 foreach ( $files as $file ) {
 	$slug = basename( $file, '.json' );
 
-	if ( $only !== '' && $slug !== $only ) {
-		continue; // single-page mode: skip everything except the requested slug
+	if ( $only && ! in_array( $slug, $only, true ) ) {
+		continue; // batch mode: skip everything except the requested slugs
 	}
 
 	if ( in_array( $slug, $skip, true ) ) {

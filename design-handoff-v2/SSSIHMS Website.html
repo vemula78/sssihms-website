@@ -508,7 +508,10 @@ const SPECIALTIES = [
   { name:'Cardiology', key:'cardiology', img:window.__resources.imgCardiology, desc:'Complete cardiac services — OPD, inpatient and critical care. Leading institution for adult and paediatric cardiac interventions nationwide.' },
   { name:'Cardiac Surgery', key:'cardiac-surgery', img:window.__resources.imgCTVS, desc:'Full range of invasive and minimally invasive cardiothoracic and vascular surgical services for adults and children.' },
   { name:'Neurosurgery', key:'neurosurgery', img:window.__resources.imgNeurosurgery, desc:'Among the finest neuroscience centres in India. Complex cases from across the country and abroad, referred from every state of India.' },
-  { name:'Neurology', key:'neurology', img:window.__resources.imgNeurology, desc:'Well-equipped centre providing the latest facilities for a broad range of neurological conditions and ailments.' },
+  // Neurology is temporarily closed (18-Sep-2026) and all three of its pages are private,
+  // so the card keeps its description but carries no key — with no key it renders as a
+  // plain div instead of a link, rather than sending visitors to a 404.
+  { name:'Neurology', img:window.__resources.imgNeurology, desc:'Well-equipped centre providing the latest facilities for a broad range of neurological conditions and ailments.' },
   { name:'Anesthesiology', key:'anesthesiology', img:window.__resources.imgAnesthesiology, desc:'Serving 12 modular operation theatres, 6 ICUs, 3 catheterisation labs, emergency department and CT/MRI suite — round the clock.' },
   { name:'Radiology', key:'radiology', img:window.__resources.imgRadiology, desc:'Expert diagnostic and interventional imaging — X-ray, ultrasound, CT, MRI, DSA — using state-of-the-art technology.' },
 ];
@@ -715,14 +718,16 @@ function SpecialtiesSection({ navigate }) {
         </div>
         <div className="spec-grid">
           {SPECIALTIES.map((s,i) => (
-            <div key={s.name} className="spec-card" style={{animationDelay:`${i*0.06}s`}} onClick={() => navigate(s.key)}>
+            <div key={s.name} className="spec-card" style={{animationDelay:`${i*0.06}s`, cursor: s.key ? undefined : 'default'}} onClick={() => navigate(s.key)}>
               <img className="spec-img" src={s.img} alt={s.name} style={{background:'var(--bg-alt)'}} onError={e => { e.target.style.background='var(--border)'; e.target.removeAttribute('src'); e.target.alt=''; }} />
               <div className="spec-body">
                 <div className="spec-head">
                   <h3 className="spec-name">{s.name}</h3>
                 </div>
                 <p className="spec-desc">{s.desc}</p>
-                <span className="spec-link">Learn more →</span>
+                {s.key
+                  ? <span className="spec-link">Learn more →</span>
+                  : <span className="spec-link" style={{opacity:.7}}>Temporarily closed</span>}
               </div>
             </div>
           ))}
