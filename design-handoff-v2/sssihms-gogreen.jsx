@@ -16,7 +16,7 @@ window.DEPT_SUBNAV = SUBNAV;
 
 PAGES['gogreen'] = {
   title:'Going Green', crumb:'Go Green', subnav:'gogreen',
-  subtitle:'Sri Sathya Sai Institute of Higher Medical Sciences, Whitefield aims to responsible hospital which balances patient care with care for nature.',
+  subtitle:'Sri Sathya Sai Institute of Higher Medical Sciences, Whitefield aims to be a responsible hospital, balancing patient care with care for nature.',
   sections:[
     { type:'cards', eyebrow:'Initiatives', title:'Care for Patients, Care for Nature', cols:3, items:[
       { icon:'◆', title:'Waste management', desc:'All waste generated in the Hospital is segregated and recycled to generate wealth and is responsibly recycled or disposed.', link:{ label:'Waste Management', page:'gg-waste' } },
