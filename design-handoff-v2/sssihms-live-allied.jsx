@@ -174,7 +174,18 @@ PAGES['bsc-mit'] = {
       { src:U + '2015/05/MRI.jpg', caption:'Siemens MAGNETOM Aera 1.5 T MRI' },
       { src:U + '2015/05/GE-CT-Scanner.jpg', caption:'GE HD 750 128 Slice CT Scanner' },
       { src:U + '2015/05/Biplane-Cathlab.jpg', caption:'Siemens Artis Zee Biplane Cath Lab' }
-    ] }
-  ]
+    ] },
+        { type:'intro', eyebrow:"BSc MIT", title:"Programme Details", body:[
+        "Offered at: Sri Sathya Sai Institute of Higher Medical Sciences, Whitefield, BangaloreAffiliated to: Rajiv Gandhi University of Health Sciences (RGUHS), Karnataka",
+        "This program integrates academic learning with hands-on clinical training, preparing students to:",
+        "Clinical rotations and real-world hospital exposure included",
+        "Eligibility to apply abroad (subject to respective country’s registration/licensure norms)",
+        "Rotational postings across departments: General X-ray, CT, MRI, Ultrasound, DSA, etc.",
+        "Shift duties included (day/night) as per training schedule",
+        "The Academic CoordinatorSri Sathya Sai Institute of Higher Medical SciencesEPIP Area, Whitefield, Bangalore – 560066📧 Email: registrarblr@sssihms.org.in📞 Tel: 080-28411500 (Ext: 415)",
+        "If you are a compassionate, committed individual with a passion for healthcare, science, and service — this course is for you.",
+        "“With skill in your hands and love in your heart, you can light up lives from within.”",
+      ] },
+    ]
 };
 })();

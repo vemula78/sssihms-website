@@ -113,8 +113,68 @@ PAGES['history-gh'] = {
       { src:'assets/sssgh/parthi-yatra-2002-group.jpg', caption:'Parthi Yatra, 2002 — group photograph' },
       { src:'assets/sssgh/parthi-yatra-group.jpg', caption:'Parthi Yatra — group photograph' }
     ] },
-    FREE
-  ]
+    FREE,
+      { type:'intro', eyebrow:"History", title:"The Story in Full", body:[
+        "Man can engage himself in obligatory and option functions only if he is healthy.”",
+        "This radical approach challenges conventional healthcare models, where financial considerations often dictate the quality and accessibility of medical treatment.",
+        "The atmosphere within the hospital is often described as serene and uplifting, fostering a sense of hope and reassurance for both patients and their families.",
+        "The success and sustainability of the Sri Sathya Sai General Hospital are a tribute to the dedicated efforts of the Sri Sathya Sai Central Trust, which meticulously oversees its operations.",
+        "The Trust ensures that the hospital maintains high standards of medical excellence, investing in advanced equipment and attracting skilled medical professionals who are willing to serve with a spirit of selflessness.",
+        "Furthermore, the hospital is supported by a vast network of volunteers, donors, and well-wishers from around the globe, all inspired by Bhagawan Sri Sathya Sai Baba's mission.",
+        "Their collective contributions, whether in terms of financial aid, time, or expertise, are vital to the continuous functioning of this unique institution.",
+        "In a world grappling with disparities in healthcare access and escalating medical costs, the Sri Sathya Sai General Hospital stands as a powerful paradigm of what is possible when compassion and service are placed at the forefront.",
+        "It serves as an enduring legacy of Bhagawan Sri Sathya Sai Baba, demonstrating that true healing transcends the boundaries of medicine and extends into the realm of unconditional love and selfless giving.",
+        "Its continuing mission to provide free healthcare to all remains a beacon of hope, inspiring humanity to strive for a more equitable and compassionate world.",
+        "In 1969 Sri NG Ganapuley started a small clinic, called Health and Educational society in Whitefield, which distributed medicines to villagers of Whitefield free of cost.",
+        "Excerpts from Discourse during the inauguration of SSSGH",
+        "The villages and other can come here, regain their health and return hale and hearty in order to carry out their task an fulfil their responsibilities.”",
+        "An excerpt from 10 June 2001.",
+        "Hence, it is said, \"The proper study of mankind is man.\" The doctors of this hospital are rendering service with such purity and broad feelings.",
+        "I would tell her, \"Rajeswari, it is possible for you to serve others more and more only when you have good health.",
+        "So, you should take proper rest.\" She would say that serving others was her way of taking rest.",
+        "The doctor who is arranging this programme is an orthopaedic surgeon.",
+        "He worked in America before coming here.",
+        "Every doctor should have such love for the patients.",
+        "They should talk to the patients with love and make them feel comfortable.",
+        "They should develop the noble virtues of understanding and adjustment.",
+        "I wish to give you a small example to illustrate this.",
+        "When I gave mementos to the doctors, one doctor did not receive the memento, because he came in the end.",
+        "Immediately, one of the doctors offered the memento that was given to him.",
+        "What a noble act it is!",
+        "All these doctors are endowed with such selfless love.",
+        "Love alone sustains the entire world.",
+        "Love is God, live in love.",
+        "God does not exist in the form of Vishnu, Siva, etc.",
+        "He exists in the form of love.",
+        "One doctor has practically demonstrated such spirit of love in action just now.",
+        "None of you have taken note of it, but I noticed it.",
+        "Only the fortunate few are endowed with such spirit of sacrifice.",
+        "They are interested in advertising their achievements, whereas our doctors do not care for name and fame.",
+        "I have noticed that the space available here is very less.",
+        "There are four operation theatres here.",
+        "Not an inch of space is left, because all the five acres of land are occupied by this building.",
+        "That general hospital is meant for treating ailments relating to disorders of lungs, bones, liver, etc.",
+        "This hospital will be exclusively meant for the mother and child.",
+        "On July 7th, 2016, a significant event unfolded in the history of the Sri Sathya Sai Healthcare Mission as the Sri Sathya Sai General Hospital, located in Whitefield, officially shifted its operations to the campus of the Sri Sathya Sai Institute of Higher Medical Sciences (SSSIHMS) in Whitefield.",
+        "This move was a fulfillment of Bhagawan Sri Sathya Sai Baba's vision, expressed as early as 2001, that the General Hospital would eventually be located within the same campus as the super specialty hospital.",
+        "The integration aimed to provide more comprehensive medical care to patients under one roof, allowing them easier access to high-end diagnostic modalities and world-class facilities.",
+        "While the General Hospital continues to function as an independent entity, this strategic relocation allows for synergistic operations with the super specialty hospital's cardiac and neuro specialists, enhancing the overall quality and scope of free healthcare services offered to countless patients.",
+        "The Sri Sathya Sai General Hospital in Whitefield, now operating from the campus of the Sri Sathya Sai Institute of Higher Medical Sciences (SSSIHMS), provides a wide range of general healthcare services.",
+        "While SSSIHMS focuses on super-specialties like Cardiology and Neurology, the General Hospital complements this by offering essential primary and secondary care.",
+        "Departments at the Sri Sathya Sai General Hospital (Whitefield) include:",
+        "ENT (Ear, Nose, and Throat): Dealing with conditions related to these areas.",
+        "Ophthalmology: Focusing on eye health and vision.",
+        "Urology: Specializing in the urinary tract and male reproductive system.",
+        "Dentistry: Providing dental care and oral health services.",
+        "Deramtology: For skin aliments and other conditions",
+        "Gasteroenterology: Addressing basic gut and abdomen related issues.",
+        "In addition to these clinical departments, the hospital also has crucial support services such as:",
+        "Radiology: For imaging services like X-rays and ultrasound scans.",
+        "Physiotherapy: For rehabilitation and physical therapy.",
+        "Amount of work done at SRI SATHYA SAI GENERAL HOSPITAL at SSSIHMS PREMISES from 2016 to Dec 2024",
+        "Statistics since inception in 1976 till 2016, i.e.",
+      ] },
+    ]
 };
 
 // ── STATISTICS-GH ────────────────────────────────────────────────────────────
@@ -148,8 +208,17 @@ PAGES['statistics-gh'] = {
         { title:'Paediatrics', desc:'Children’s surgery.', link:{ label:'Open Dashboard', page:'paediatrics-statistics' } },
         { title:'Urology', desc:'Urological surgery.', link:{ label:'Open Dashboard', page:'urology-statistics' } }
       ] },
-    FREE
-  ]
+    FREE,
+        { type:'intro', eyebrow:"Statistics", title:"About These Statistics", body:[
+        "SRI SATHYA SAI GENERAL HOSPITAL, WHITEFIELD, BANGALORE",
+        "CUMULATIVE STATISTICS FROM AUG 1976 TO 2022",
+        "Doctors should serve the poor with a spirit of sacrifice.",
+        "There is no greater service than this.",
+        "As man is the embodiment of God, it is his primary duty to help the destitute and the forlorn.",
+        "It is meant to promote a heart-to-heart and love-to-love relationship between doctor and patient.",
+        "A true doctor is one who realises this truth and conducts himself accordingly.",
+      ] },
+    ]
 };
 
 // ── OPHTHALMOLOGY ────────────────────────────────────────────────────────────

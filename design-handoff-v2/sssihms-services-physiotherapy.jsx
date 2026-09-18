@@ -104,7 +104,12 @@ PAGES['physiotherapy'] = {
       { src:IMG.aerial, caption:'Ariel View of Hospital' },
       { src:IMG.dome, caption:'Dome Area' },
       { src:IMG.diwali, caption:'Diwali View' }
-    ] }
-  ]
+    ] },
+        { type:'intro', eyebrow:"Physiotherapy", title:"Further Detail", body:[
+        "Some of the conditions that physical therapists manage include:",
+        "Conditions like Osteoarthritis and Rheumatoid arthritis Back to top",
+        "Contraindications: There are general guidlines as to where SWD should not be used: High Fever; Fluctuating Blood Pressure; Very sensitive Skin; Persons with Untreated Fits; Persons using Cardiac Pace Maker; Severe kidney and Heart problems; Pregnant Women; Mentally Retarded Individuals; Tuberculosis of Bone; Malignant cancer",
+      ] },
+    ]
 };
 })();

@@ -70,6 +70,33 @@ def main():
     if not secs:
         sys.exit(f'{a.slug}: no content sections in the built page')
 
+    # The prototype links pages by their own file names ("genesis.html") and the pack
+    # once carried those verbatim, which under WordPress resolves beneath the current
+    # page and 404s. scripts/link-map.json holds slug -> live permalink for every link
+    # target on the site, so every internal link is rewritten to where the page really
+    # lives — live URLs and slugs differ on 280 of them.
+    lm_path = pathlib.Path(__file__).resolve().parent / 'link-map.json'
+    link_map = json.loads(lm_path.read_text()) if lm_path.exists() else {}
+
+    def remap(html):
+        def sub(m):
+            href = m.group(2)
+            if re.match(r'^(https?:|#|mailto:|tel:|/static/|/wp-content/)', href):
+                return m.group(0)
+            if href.startswith('vahinis/'):
+                return m.group(1) + '/static/' + href + m.group(3)
+            key = href[:-5] if href.endswith('.html') else href
+            key = key.strip('/').split('/')[-1]
+            target = link_map.get(key)
+            if not target:
+                return m.group(0)
+            if not href.endswith('.html') and target.strip('/') == href.strip('/'):
+                return m.group(0)
+            return m.group(1) + target + m.group(3)
+        return re.sub(r'(href=")([^"]+)(")', sub, html)
+
+    secs = [remap(s) for s in secs]
+
     # The built site iframes its dashboards at a relative "stats-pages/<slug>.html".
     # Inside a WordPress page that resolves under the page's own URL and 404s, so point
     # at the deployed copy, which is same-origin and keeps the postMessage height sync.

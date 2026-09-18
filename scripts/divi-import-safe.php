@@ -122,6 +122,8 @@ $aliases = array(
 	// at /conditions-treatment/; there is no page at /for-patients/ (404). Created new.
 	'blog'                     => 1458,  // /sssihms-blog/
 	'statistics-combined'      => 53091, // /statistics/  (private)
+	'fellowship'               => 255,   // /academics/fellowship/ — confirmed 18-Sep-2026;
+	                                     // #550 (private, under /radiology1/) is a different page.
 	// 'gg-biomedical' deliberately absent: biomedical-waste-management (54788) is the
 	// BMW plugin's own page. Do not overwrite a working app with content.
 );

@@ -45,8 +45,47 @@ PAGES['msecho'] = {
     ] },
     { type:'cta', pill:'Applications', title:'Join the MSc Echocardiography Programme',
       body:'Applications are received through the SSSIHMS online admission portal. For the current cycle and eligibility details, see the College of Nursing & Allied Health.',
-      action:{ label:'Nursing & Allied Health', page:'nursing-and-allied-health' } }
-  ]
+      action:{ label:'Nursing & Allied Health', page:'nursing-and-allied-health' } },
+        { type:'intro', eyebrow:"M.Sc Echocardiography", title:"Programme Details", body:[
+        "Echocardiography stands at the forefront of non-invasive cardiac imaging and has become vital in the diagnosis, evaluation, and management of cardiovascular diseases across all age groups — from neonates to the elderly.",
+        "The Department of Cardiology at Sri Sathya Sai Institute of Higher Medical Sciences (SSSIHMS), Bengaluru, offers a distinguished Master of Science (M.Sc.) in Echocardiography.",
+        "This postgraduate programme is designed to develop skilled, compassionate, and research-oriented sonographers equipped to thrive in dynamic clinical environments.",
+        "Blending academic rigour with immersive clinical training, the curriculum integrates advanced imaging modalities, including 2D, 3D, and 4D echocardiography, alongside cutting-edge applications in fetal, paediatric, adult, and perioperative cardiac imaging.",
+        "The course also includes a strong foundation in cardiovascular physiology, pathology, and hands-on exposure to high-end equipment and real-time case work in critical care, intensive care, surgical and interventional settings.",
+        "Comprehensive echocardiography training: Transthoracic, transoesophageal, stress, and contrast echocardiography.",
+        "Advanced 3D and 4D imaging techniques: Applied across adult and paediatric populations, enhancing anatomical clarity and diagnostic accuracy.",
+        "Fetal echocardiography exposure: Early detection and evaluation of congenital heart defects in utero.",
+        "Specialised pediatric and neonatal modules: Early identification of congenital cardiac anomalies through targeted imaging.",
+        "Pre- and post-operative echocardiography: Invaluable in planning, intra-procedural assessment, and post-surgical monitoring.",
+        "Rotational clinical postings: In cardiac operating theatres, intensive care units (ICUs), and cardiac catheterisation laboratories.",
+        "Vascular ultrasound training: Broader perspective on cardiovascular diagnostics beyond the heart.",
+        "Integration of Artificial Intelligence (AI): Exposure to next-gen workflow solutions in echocardiographic reporting and image analysis.",
+        "Structured academic mentorship: Learning under renowned cardiologists and experienced sonographers.",
+        "Emphasis on research and innovation: With guided projects, scientific writing, and conference participation.",
+        "Ethical and values-based learning environment: Rooted in SSSIHMS’s ethos of service and compassion.",
+        "CLICK HERE TO APPLY M.Sc ECHOCARDIOGRAPHY ACADEMIC YEAR 2025-26",
+        "Dedication to mastering both theoretical concepts and practical techniques.",
+        "A proactive approach to learning, research, and clinical problem-solving.",
+        "Willingness to collaborate with peers and contribute to a team-based healthcare model.",
+        "Upholding the institutional values of integrity, selflessness, and service.",
+        "A curriculum aligned with current clinical practice and technological advancements.",
+        "Real-world clinical exposure in a high-volume, tertiary care cardiac hospital.",
+        "Hands-on experience with state-of-the-art imaging tools: 3D/4D echo, strain imaging, PACS systems.",
+        "Development of communication and presentation skills for academic and professional success.",
+        "Access to a multidisciplinary learning environment including surgeons, anaesthetists, and intensivists.",
+        "Mentorship that fosters leadership, ethical decision-making, and lifelong learning.",
+        "Echocardiography programme are well-positioned for roles in:",
+        "Public and private healthcare systems in India and abroad",
+        "Empathy and professionalism in patient interactions are crucial, alongside a proactive approach to learning and research.",
+        "Collaboration with peers and adherence to the institution's values of integrity and service are essential for success.",
+        "Participants gain hands-on experience with cutting-edge imaging tools and are involved in supervised postings in surgical and interventional cardiology settings.",
+        "Opportunities for conducting and publishing research, along with developing communication and presentation skills, are integral to the programme.",
+        "The mentorship provided fosters leadership, ethical decision-making, and a commitment to lifelong learning, equipping graduates with the skills necessary for academic and professional success.",
+        "in Echocardiography at SSSIHMS is more than just a degree — it’s a transformative journey.",
+        "It empowers healthcare professionals with the skills, values, and vision to make a meaningful impact in cardiovascular medicine.",
+        "Graduates will emerge as future-ready echocardiographers, contributing to better outcomes, improved diagnostics, and compassionate patient care in an ever-evolving clinical landscape.",
+      ] },
+    ]
 };
 
 // ── BSc CARDIAC CARE TECHNOLOGY ──────────────────────────────────────────────
@@ -173,8 +212,13 @@ PAGES['bsc-mlt'] = {
     { type:'intro', eyebrow:'Where You Train', title:'A Full Laboratory Complex', alt:true, narrow:true,
       body:['Students train across the hospital’s microbiology, biochemistry, hematology, clinical pathology and histopathology sections, and the in-house blood bank — all running full LIS integration, barcoding and quality-assurance programmes.'],
       link:{ label:'Lab Infrastructure', page:'lab-infrastructure' } },
-    PAUSED
-  ]
+    PAUSED,
+        { type:'intro', eyebrow:"BSc MLT", title:"Programme Details", body:[
+        "To prepare medical laboratory technologists with a clear, in-depth understanding of those concepts and principles which are the basis of the laboratory investigations and to equip them with the skills required to apply these concepts in practical work such that they are suitable for work in any type of setup - from a primary health center to a tertiary care hospital.",
+        "In addition to technical proficiency, cultivate a personality comprising of good communication skills, ethical behavior and fidelity; and have a compassionate attitude.",
+        "In addition, equip them with information and make them competent to perform in decision-making roles like those of a supervisor or a manager.",
+      ] },
+    ]
 };
 
 // ── Cross-links: point existing pages at the new programme pages ─────────────

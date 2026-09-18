@@ -57,8 +57,45 @@ PAGES['about-hospital'] = {
       { eyebrow:'About the Trust', title:'Sri Sathya Sai Central Trust', body:[
         'SSSIHMS operates under the Sri Sathya Sai Central Trust, which oversees a wide range of educational, medical and service institutions established by Bhagawan Sri Sathya Sai Baba — serving millions across India and the world.'
       ], link:{ label:'Visit the Trust', href:'https://srisathyasai.org.in' } }
-    ] }
-  ]
+    ] },
+      { type:'intro', eyebrow:"From the Record", title:"More About the Hospital", body:[
+        "Healthcare should be provided free to all, in an atmosphere of love with an aim to heal the patient in body, mind and soul.",
+        "To provide free medical care to the sick and ailing with dedication, commitment, love and the best of skills, to facilitate healing in body, mind and spirit.",
+        "Started by Bhagawan Sri Sathya Sai Baba in the year 2001, Sri Sathya Sai Institute of Higher Medical Sciences, Whitefield is 4th such venture of Sri Sathya Sai Central Trust, to provide best of the best, high quality medical and surgical care to the poorest of the poor patient, free of cost, without any discrimination based on caste, creed or nationality.",
+        "It is a 333-bedded tertiary care hospital inaugurated by the then Prime Minister of India, Sri Atal Behari Vajpayee, it is located in the picturesque suburbs of Whitefield in the garden city of Bangalore, Karnataka, India.",
+        "Shaped in the form of letter K, the Hospital stands for Karuna or compassion and has been successful in healing thousands of diseased hearts and brains and returning to the society a healthy and grateful individual touched by spirit of sacrifice and transformed to make a difference to the fellow human beings.",
+        "Sri Sathya Sai Institute of Higher Medical Sciences is equipped with state- of-art diagnostic and treatment facilities, highly skilled medical, nursing and paramedical professionals delivering care with love and compassion, in a clean, aesthetic and spiritual environment ensuring that healing happens in body, mind and spirit.",
+        "Infrastructure wise, Hospital has state of the art 1.5 Tesla Siemens MagnetomAera MRI Scanner, 128 slice HD 750 GE CT Scanner, Siemens Artis Zee Biplane Cath Lab, Philips Monoplane Cathlab, Medtronic S7 Neuro-navigation system, 12 fully equipped operation theaters, automated biochemistry and microbiology analyzers, high end diagnostic Cardiology equipment, full blown Hospital Information System eHIS from M/s Dedalus and Fuji Synapse PACS system.",
+        "Apart from patient care, Hospital is also active creating next generation of doctors, nurses and technologists.",
+        "Hospital has a very active post graduate and post doctoral programs affiliated to National Board of Examinations providing DNB in Cardiac Surgery, Neurosurgery, Cardiology, Anesthesiology and Radiology.",
+        "Additionally Hospital also has post doctoral fellowships in Interventional Cardiology, Cardiac Anesthesia, Critical Care Anesthesia and Cross sectional imaging.",
+        "In the paramedical field, Hospital provides BSc Nursing, BSc Imaging Technology, BSc Perfusion Technology, BSc Anesthesia Technology, BSc Cardiac Technology and BSc Medical Laboratory Technology.",
+        "Sri Sathya Sai Central Trust, Prasanthi Nilayam is perhaps the only charitable trust in INDIA to offer complete medical care including consultation, diagnosis, comprehensive treatment and follow - up and diet at the primary, secondary and tertiary levels to all patients free of all charges irrespective of his caste, creed, religion or economic status.",
+        "The founder, Bhagawan Sri Sathya Sai Baba has established the Trust with the motto of Service to man is service to GOD and with the mission of providing free and quality health care to all patients.",
+        "Board of Trustees- Sri Sathya Sai Central Trust",
+        "Chancellor, Sri Sathya Sai Institute of Higher Learning",
+        "Former Collector & District Magistrate of Anantapuram District,",
+        "Former Commissioner of Relief, Commissioner ofCommercial Taxes, Govt.",
+        "Former Registrar of Sri Sathya Sai Institute of Higher Learning",
+        "Former Secretary, Economic Advisory Council to the Prime Minister of India",
+        "President and Representative Director at Hotel Management International Co., Ltd.",
+        "He was conferred the prestigious Pravasi Bharatiya Samman by the Government of India in 2010 and Padma Shri in 2022",
+        "Overseas Chairman of Sri Sathya Sai International Organization, Zone B, which spans across Asia, the Middle-East and Africa, covering a total of 80 countries.",
+        "Chairman and Chief of Diabetology at Dr.",
+        "President and Director of Madras Diabetes ResearchFoundation, Chennai.",
+        "Chartered Accountant and Senior Advocate of the High Courtof Karnataka and the Supreme Court of India,",
+        "Former President Karnataka section of the International Commission of Jurists",
+        "Full time looking after activities of the Trust as Managing Trustee.",
+        "MBA from Sri Sathya Sai University",
+        "Former Judge of Supreme Court of India",
+        "Former Additional Chief Secretary, Department of Finance, Government of Karnataka",
+        "Hospital Executive Committee- Sri Sathya Sai Institute of Higher Medical Sciences, Whitefield",
+        "Director, Sri Sathya Sai Institute of Higher Medical Sciences",
+        "Consultant Anesthesia & Critical Care and Principal of Critical Care Anesthesia and Cardiac Anesthesia Fellowship and Anesthesia Care Technology",
+        "Coordinator, Hospital Executive Committee, EA to Director, Sr.",
+        "Ariel View of Hospital Diwali View",
+      ] },
+    ]
 };
 
 PAGES['guiding-philosophy'] = {

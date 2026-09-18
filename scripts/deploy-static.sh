@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Deploy the code-heavy static payloads (poetry-pages, stats-pages) to the live web VM.
+# Deploy the code-heavy static payloads (poetry-pages, stats-pages, vahinis) to the live web VM.
 #
 #   ./scripts/deploy-static.sh            # dry run: build, show what would ship, change nothing
 #   ./scripts/deploy-static.sh --apply    # actually deploy
@@ -33,7 +33,9 @@ SSH=(ssh -i "$SSH_KEY" -p "$SSH_PORT" -o ServerAliveInterval=60 -o BatchMode=yes
 
 echo "==> Building"
 node build.mjs >/dev/null
-for d in dist/poetry-pages dist/stats-pages; do
+PAYLOADS=(poetry-pages stats-pages vahinis)
+
+for d in "${PAYLOADS[@]/#/dist/}"; do
   [[ -d "$d" ]] || { echo "FATAL: $d missing after build" >&2; exit 1; }
 done
 
@@ -45,14 +47,14 @@ fi
 [[ -f dist/stats-pages/vendor/chart.umd.min.js ]] || {
   echo "FATAL: dist/stats-pages/vendor/chart.umd.min.js missing" >&2; exit 1; }
 
-FILES=$(find dist/poetry-pages dist/stats-pages -type f | wc -l | tr -d ' ')
-BYTES=$(find dist/poetry-pages dist/stats-pages -type f -exec cat {} + | wc -c | tr -d ' ')
+FILES=$(find "${PAYLOADS[@]/#/dist/}" -type f | wc -l | tr -d ' ')
+BYTES=$(find "${PAYLOADS[@]/#/dist/}" -type f -exec cat {} + | wc -c | tr -d ' ')
 echo "    $FILES files, $(( BYTES / 1024 )) KiB uncompressed"
 
 if [[ $APPLY -eq 0 ]]; then
   echo
   echo "==> DRY RUN — nothing will be changed. Would deploy to $SSH_HOST:$REMOTE_ROOT"
-  find dist/poetry-pages dist/stats-pages -type f | sed 's/^dist\//    /' | sort
+  find "${PAYLOADS[@]/#/dist/}" -type f | sed 's/^dist\//    /' | sort
   echo
   echo "    Re-run with --apply to deploy."
   exit 0
@@ -61,7 +63,7 @@ fi
 echo "==> Shipping to $SSH_HOST:$REMOTE_ROOT"
 # COPYFILE_DISABLE stops macOS bsdtar emitting AppleDouble "._*" sidecar files, which would
 # otherwise land in the web root and be served publicly.
-COPYFILE_DISABLE=1 tar czf - -C dist poetry-pages stats-pages | "${SSH[@]}" "
+COPYFILE_DISABLE=1 tar czf - -C dist "${PAYLOADS[@]}" | "${SSH[@]}" "
   set -euo pipefail
   sudo rm -rf '$REMOTE_ROOT.new'
   sudo mkdir -p '$REMOTE_ROOT.new'
@@ -87,7 +89,8 @@ echo "    file count matches ($FILES)"
 
 echo "==> Verifying over HTTPS"
 fail=0
-for path in stats-pages/cardiology-statistics.html stats-pages/vendor/chart.umd.min.js poetry-pages/divine-poetry.html; do
+for path in stats-pages/cardiology-statistics.html stats-pages/vendor/chart.umd.min.js \
+            poetry-pages/divine-poetry.html 'vahinis/Prema Vahini.dc.html'; do
   code=$(curl -s -o /dev/null -w '%{http_code}' "$BASE_URL/$path")
   enc=$(curl -sI -H 'Accept-Encoding: gzip' "$BASE_URL/$path" | tr -d '\r' \
         | awk -F': ' 'tolower($1)=="content-encoding"{print $2}')

@@ -47,7 +47,7 @@ const PAGES = {
         { eyebrow:'About the Trust', title:'Sri Sathya Sai Central Trust', body:[
           'SSSIHMS operates under the Sri Sathya Sai Central Trust, which oversees a wide range of educational, medical and service institutions established by Bhagawan Sri Sathya Sai Baba — serving millions across India and the world.'
         ], link:{ label:'Visit the Trust', href:'https://srisathyasai.org.in' } }
-      ], alt:true }
+      ], alt:true },
     ]
   },
 
@@ -129,7 +129,15 @@ const PAGES = {
         body:[
           'Behind every figure is a patient who received life-saving care without being asked to pay. The catheterisation labs include two cardiac cath labs and one bi-plane neuro cath lab. The operation theatres, intensive care units, emergency department and CT/MRI suite operate around the clock.',
           'These services are sustained entirely through the Sri Sathya Sai Central Trust and the dedication of doctors, nurses, technicians and volunteers who serve in the spirit of love.'
-        ], narrow:true, alt:true }
+        ], narrow:true, alt:true },
+          { type:'intro', eyebrow:"Statistics", title:"About These Statistics", body:[
+        "Cumulative Statistics from 1976 to Nov 2024",
+        "Doctors should serve the poor with a spirit of sacrifice.",
+        "There is no greater service than this.",
+        "As man is the embodiment of God, it is his primary duty to help the destitute and the forlorn.",
+        "It is meant to promote a heart-to-heart and love-to-love relationship between doctor and patient.",
+        "A true doctor is one who realises this truth and conducts himself accordingly.",
+      ] },
     ]
   },
 
@@ -235,7 +243,19 @@ const PAGES = {
       { type:'intro', eyebrow:'Sri Sathya Sai General Hospital', title:'Multi-Specialty General Hospital', alt:true,
         body:[
           'Alongside the super-specialty Institute, the Sri Sathya Sai General Hospital provides comprehensive multi-specialty care — ophthalmology, obstetrics & gynaecology, orthopaedics, ENT, general medicine, paediatrics, general surgery and dental — all entirely free of charge.'
-        ], link:{ label:'General Hospital (SSSGH)', page:'sssgh' } }
+        ], link:{ label:'General Hospital (SSSGH)', page:'sssgh' } },
+          { type:'intro', eyebrow:"From the Record", title:"The Specialities in Detail", body:[
+        "It figures among leading national institutions performing a wide variety of adult and pediatric interventions.",
+        "SSSIHMS has a well-equipped Center for Neurology which provides the latest facilities for treatment of a broad range of Neurological ailments.",
+        "The department is at present manned by a Consultant Neurologist and a team of Resident doctors besides the technical and ancillary staff.",
+        "Cardiothoracic Surgery Department uses advanced technologies available to perform the complete range of invasive surgical services for adults and children with cardiovascular disease and minimally invasive surgeries for adult patients Read more...",
+        "The anaesthesia services cater to 8 +4 modular operation theatres, 6 Intensive care units, 3 Catheterization labs (2 Cardiac Cathlab & 1 Bi-Plane Neuro cathlab), Emergency (casualty) department and CT/MRI Suite.",
+        "The total number of surgeries (both Cardiac and Neuro surgeries) carried out per annum are 3000 and multi-specialities 1700 approximately.",
+        "The Department is considered one of the best Neuroscience services in the country.",
+        "Patients come here from all parts of India & abroad seeking second opinion for their neurological problem or surgery for a complex disease.",
+        "The Department of Radiodiagnosis and Imaging at SSSIHMS, Bangalore provides expert diagnostic and interventional services to support the clinical needs of our hospital .",
+        "Our services include X-ray, ultrasound, CT, MRI, DSA, and interventional procedures using state-of-the-art technologies.",
+      ] },
     ]
   },
 
@@ -366,7 +386,22 @@ const PAGES = {
         { title:'Fellowship', desc:'Fellowship in Paediatric Cardiac Surgery.', link:{ label:'Fellowships', page:'fellowship' } },
         { title:'BSc Perfusion Technology', desc:'Allied health programme training perfusionists for cardiac surgery.', link:{ label:'Nursing & Allied Health', page:'nursing-and-allied-health' } }
       ] },
-      FREE_BANNER
+      FREE_BANNER,
+          { type:'intro', eyebrow:"From the Record", title:"The Department in Detail", body:[
+        "Welcome to the Division of Cardiothoracic Surgery at SSSIHSM-WFD, where the ethos of Service to Man is Service to God, as taught by Sri Sathya Sai Baba, guides our commitment to excellence in cardiac care.",
+        "Our team of skilled cardiac surgeons, inspired by the teachings and blessings of Sri Sathya Sai Baba, combines cutting-edge technologies with compassionate care to provide comprehensive invasive surgical services for both adults and children with cardiovascular conditions.",
+        "Embracing the principle that love and service are the primary tools for healing, our experienced surgeons offer a wide spectrum of cardiac surgeries.",
+        "From elective procedures to emergency interventions, we address conditions such as heart valve disease, aortic aneurysms, coronary artery disease, arrhythmias, heart failure, congenital heart defects, and other complex cardiac issues.",
+        "Upholding the belief that every patient is a manifestation of the divine, our team consistently achieves outcomes that surpass national averages, including intricate operations previously deemed inoperable.",
+        "In alignment with the teachings of Sri Sathya Sai Baba on the importance of providing high-quality healthcare to all, our department is equipped with state-of-the-art infrastructure.",
+        "Featuring four dedicated operation theaters, a 19-bed Intensive Care Unit, and a 50-bed Pre and Post-operative Wards, we ensure that patients receive holistic care under one roof.",
+        "Complemented by essential services like two cardiac catheterization labs, a Cardiac Care Unit (CCU), an in-house blood bank, and a comprehensive range of radiodiagnostic and imaging facilities, we strive to deliver care at international standards.",
+        "At SSSIHSM-WFD, we embrace the philosophy of unity of faiths and the oneness of humanity, as taught by Sri Sathya Sai Baba, by fostering collaboration between local talent and international expertise.",
+        "Our team works closely with esteemed visiting faculty from around the world, integrating Eastern medical philosophies with Western medical advancements to offer personalized, cutting-edge care to each patient.",
+        "This unique approach ensures that our patients receive the best of both worlds, leading to optimal outcomes and a healthier tomorrow.",
+        "Join us on this journey towards advancing the frontiers of cardiac surgery, inspired by the teachings and blessings of Sri Sathya Sai Baba, as we continue to uphold a tradition of compassionate care that transcends borders.",
+        "Cardiac Surgery in progress Cardiac ICU-Pediatric Patient Swami Blessing patient in ICU Cardiac Surgery in progress",
+      ] },
     ]
   },
 
@@ -403,7 +438,14 @@ const PAGES = {
         { title:'DNB Neurosurgery', desc:'Super-specialty training accredited by the National Board of Examinations.', link:{ label:'DNB Programmes', page:'dnb' } },
         { title:'Research & Achievements', desc:'Faculty publish in reputed national and international journals across the neurosciences.', link:{ label:'Academics', page:'academics' } }
       ] },
-      FREE_BANNER
+      FREE_BANNER,
+          { type:'intro', eyebrow:"From the Record", title:"The Department in Detail", body:[
+        "Neurosciences form a major group in the clinical services at SSSIHMS, Whitefield, Bangalore.",
+        "The services include outpatient & inpatient services in Neurology & Neurosurgery, a total of 158 bed inpatient facility that includes a 38 bed intensive care unit (both critical care & post operative).",
+        "The clinical support services include a 24hrs emergency service, 4 modern neurosurgery operating rooms, Neuro anaesthesia services, well equipped intensive care, radiology & imaging that includes Siemens Magetom Aera 1.5 Tesla MRI, GE HD 750 CT Scanner and Siemens biplane cathlab.",
+        "In keeping with our commitment to provide the best in treatment to our patients, we were the first hospital in India to procure a Neuro Navigation system to access deep seated tumors.",
+        "Swami blessing Neuro Patient Swami blessing a patient Swami blessing a small child Swami Blessing a child after Neurosurgery",
+      ] },
     ]
   },
 
@@ -424,7 +466,21 @@ const PAGES = {
         'Headache & demyelinating disease',
         'Neuro-diagnostics — EEG, EMG, evoked potentials'
       ] },
-      FREE_BANNER
+      FREE_BANNER,
+          { type:'intro', eyebrow:"From the Record", title:"The Department in Detail", body:[
+        "The department is at present manned by a Consultant Neurologist and a team of Resident doctors besides the technical and ancillary staff.",
+        "The facilities available include state-of-the-art diagnostic modalities such as MRI, CT, EEG, NCV/EMG, Evoked potentials and DSA.",
+        "We have out-patient as well as in-patient facility including Intensive Care Unit.",
+        "Out-patients are investigated with CT, MRI imaging and blood tests and neuro-physiological testing as required.",
+        "Patients are admitted depending upon the clinical need and/or if muscle or nerve biopsies or CSF studies are needed.",
+        "Physiotherapy department provides the required support.",
+        "The Department is one of the few places in the country where the equipment and facility for Video Telemetry is available and done on a routine basis.",
+        "Muscle and Nerve biopsies are also done routinely when required for diagnosis of the neuromuscular disorders.",
+        "Patient’s who are seen in SSSIHMS Neurology department are initially screened at the Screening block by Neurology Resident doctors and depending upon their condition, a future date of appointment is provided.",
+        "Patient’s who require immediate care are seen depending upon the availability of consultation slots, beds and emergency facilities.",
+        "Patient’s who come for consultation as per their appointment dates are evaluated in the NOPD and those requiring in-house treatment are admitted.",
+        "Swami blessing Neuro Patient Swami blessing a patient Swami blessing a small child Swami Blessing a child after Neurosurgery",
+      ] },
     ]
   },
 
@@ -456,7 +512,47 @@ const PAGES = {
         { title:'Cardiac Anesthesia Fellowship', desc:'Advanced fellowship in cardiac anesthesia.', link:{ label:'Fellowships', page:'fellowship' } },
         { title:'BSc Anesthesia Technology', desc:'Allied health programme for anesthesia technologists.', link:{ label:'Nursing & Allied Health', page:'nursing-and-allied-health' } }
       ] },
-      FREE_BANNER
+      FREE_BANNER,
+          { type:'intro', eyebrow:"From the Record", title:"The Department in Detail", body:[
+        "The Department of Anaesthesiology and Critical Care Medicine consists of Cardiac and Neuro anaesthesia, Multi-specialities’ anaesthesia, Critical Care Medicine, Chronic pain therapy Clinic/PAC clinic and anaesthesia for day care procedures (NORA in cath labs and radiology suit) and code blue service.",
+        "The anaesthesia services cater to 8 +4 modular operation theatres, 6 Intensive care units, 3 Catheterization labs (2 Cardiac Cathlab & 1 Bi-Plane Neuro cathlab), Emergency (casualty) department and CT/MRI Suite.",
+        "The total number of surgeries (both Cardiac and Neuro surgeries) carried out per annum are 3000 and multi-specialities 1700 approximately.",
+        "There is continuous and uninterrupted service provided by the anaesthesia department with two postgraduates and two consultants on emergency duty.",
+        "The Department imparts postgraduate training (DNB residency), offers Fellowships under aegis of RGUHS in Cardiac Anaesthesiology and also in Critical Care Medicine of 18 months’ duration.",
+        "It regularly conducts continuing medical education programs (CMEs) and national conferences in Machines and monitoring, cardiac anaesthesia and critical care medicine.",
+        "Overseas faculty in Anaesthesiology and Critical Care Medicine take part in the academic and clinical activities of the department of anaesthesiology.",
+        "The Department also undertakes research activities, scientific paper presentation at state and national conferences.",
+        "The faculty and post-graduates regularly take classes and also give clinical training to students of B.Sc Nursing and Paramedical students, B.Sc – Anaesthesia and OT Technology and also nursing staff e.g.",
+        "Annual critical care nursing conference etc.",
+        "BLS and ACLS(AHA affiliated international training site)",
+        "The Department of Anaesthesiology in association with the American Heart Association, and the Phoenix Institute of CPR and Defibrillation, New Delhi periodically conducts BLS & ACLS training for Healthcare providers and volunteers (community CPR).",
+        "With the state of the art manikins from laerdals and AMBU (wireless integration software to monitor high quality CPR), AHA certified instructors, the department imparts training to the nursing staff/students/paramedics, residents, consultants from all the departments in the hospital and outside institutions.",
+        "The successful participants get AHA cards/certificates at the end of the course which is valid for two years.",
+        "The department of Anaesthesia provides both, elective and emergency anaesthesia services in over 1100 adult and paediatric patients.",
+        "CABG, MVR, AVR, Mitral Commisurotomy, Atrial Myxoma Excisions, Adult ASD Closure, Aortic Aneurysms and root replacement, Pericardiectomy, Thymectomy ..",
+        "Minimally invasive surgeries such as Mitral Valve repair and ASD repairs etc.",
+        "ASD closure, VSD closure, Total Correction of TOF, TAPVC repair, PAPVC repair, ALCAPA repair, AV canal repair, DORV, DCRV, Glenn procedure, Fontan procedure, PDA Ligation / Division, Left and Right BT shunt…",
+        "Critical care and pain relief services:",
+        "Post operative care of the above procedures like pain relief, respiratory care haemodynamic support and so on, is rendered by the consultants, senior residents, DNB students.",
+        "There are one cardiac ICU and two CCUs with a total strength of (18+30) beds.",
+        "Anaesthesia services for Cardiac Catheterization procedures and CCU:",
+        "The procedures include the genres of PTMC, PVBD, PTCA, Peripheral stenting and so on.",
+        "Respiratory care and resuscitative services are also made available to the needy patients in CCU.",
+        "Neuro Anesthesia wing provides both elective and emergency anesthesia services in over 1500 adult and pediatric Neuro surgical patients.",
+        "Neurovascular surgeries like Excision of Cranial and Spinal Arterio-Venous Malformation (AVMs), Clipping of aneurysms also under Adenosine Transient Asystole, Surgery for giant aneurysms under CPB, Dural AV fistula disconnection (DAVF), Excision of Cavernomas, Trigeminal Neuralgia etc.",
+        "Neuro-Oncology surgeries like gliomas, acoustic tumors, Meningiomas, Pituitary tumors, Intraventricular tumors, Intracranial metastasis etc.",
+        "Pediatric Neuro surgeries like Posterior Fossa tumors, Optochiasmatic / hypothalamic tumors, Craniopharyngiomas, Pineal tumors; Neuro – Developmental disorders like Chiari malformation, Encephalocoele, Hydrocephalus, Spinal Dysraphism repair, CVJ (Craniovertebral junction) anomalies and also drainage of Cardiogenic Intracranial Abscesses.",
+        "Spinal Surgery procedures like Lumar Discectomies; Pedicle screw fixation/PLIF Posterior lumbar instrumentation and fusion/ALIF Anterior lumbar instrumentation and fusion for Lumbar Spondylolisthesis ; Cervical Discectomy, cervical Corpectomy and instrumentation, Laminoplasty, Laminectomy and also excision of Spinal Tumors like Glioma, Ependyomoma, IDEM Intra Dural Extramedullary Tumour.",
+        "Peripheral nerve surgery like Carpal Tunnel Syndrome, Ulnar nerve release, Brachial plexus injuries.",
+        "Stereotactic procedures like Biopsy, Drainage of abscess / Cyst, Placement of reservoir.",
+        "General anesthesia or Monitored anesthesia care in Neuro Cath lab for patients undergoing embolisation or investigative procedures.",
+        "MAC and Intra operative neuro monitoring",
+        "Neuro Post operative Critical Care (PACU):",
+        "All the above operated cases will receive ICU care & pain relief, in the 16 bedded post operative Neuro ICU till they are found fit to be transferred to the post operative ward.",
+        "It is a 10 bedded unit with all the facilities for long term respiratory support with invasive and non-invasive monitoring.",
+        "Critical care is rendered to patients suffering from neurological conditions like Myasthenia gravis, Guillain Barre syndrome, CVA (stoke / paralysis), SAH patients, Traumatic brain injury, Status epilepticus, hypertensive crisis, Septic Shock syndromes (SIRS), etc.",
+        "Swami blessing Neuro Patient Swami blessing a patient Swami blessing a small child Swami Blessing a child after Neurosurgery",
+      ] },
     ]
   },
 
@@ -518,7 +614,26 @@ const PAGES = {
         'Radiology & imaging', 'Laboratory & blood bank', 'Physiotherapy',
         'Telemedicine', 'Counselling', 'Pharmacy'
       ] },
-      FREE_BANNER
+      FREE_BANNER,
+          { type:'intro', eyebrow:"From the Record", title:"The General Hospital in Detail", body:[
+        "It figures among leading national institutions performing a wide variety of adult and pediatric interventions.",
+        "SSSIHMS has a well-equipped Center for Neurology which provides the latest facilities for treatment of a broad range of Neurological ailments.",
+        "The department is at present manned by a Consultant Neurologist and a team of Resident doctors besides the technical and ancillary staff.",
+        "Cardiothoracic Surgery Department uses advanced technologies available to perform the complete range of invasive surgical services for adults and children with cardiovascular disease and minimally invasive surgeries for adult patients Read more...",
+        "The anaesthesia services cater to 8 +4 modular operation theatres, 6 Intensive care units, 3 Catheterization labs (2 Cardiac Cathlab & 1 Bi-Plane Neuro cathlab), Emergency (casualty) department and CT/MRI Suite.",
+        "The total number of surgeries (both Cardiac and Neuro surgeries) carried out per annum are 3000 and multi-specialities 1700 approximately.",
+        "The Department is considered one of the best Neuroscience services in the country.",
+        "Patients come here from all parts of India & abroad seeking second opinion for their neurological problem or surgery for a complex disease.",
+        "The Department of Radiodiagnosis and Imaging at SSSIHMS, Bangalore provides expert diagnostic and interventional services to support the clinical needs of our hospital .",
+        "Our services include X-ray, ultrasound, CT, MRI, DSA, and interventional procedures using state-of-the-art technologies.",
+        "Faculty actively participate in various research projects and clinical studies and publish in reputed journals Read more",
+        "SSSIHMS offers a Fellowship in Interventional cardiology, Pediatric Cardiac Surgery, Cardiac Anesthesia and Radiology.",
+        "Doctors should serve the poor with a spirit of sacrifice.",
+        "There is no greater service than this.",
+        "As man is the embodiment of God, it is his primary duty to help the destitute and the forlorn.",
+        "It is meant to promote a heart-to-heart and love-to-love relationship between doctor and patient.",
+        "A true doctor is one who realises this truth and conducts himself accordingly.",
+      ] },
     ]
   },
 
@@ -542,7 +657,19 @@ const PAGES = {
         'Online CMEs, DNB training and exchange of expertise',
         'Contact: telemedbkp@gmail.com · telemedbbsr@gmail.com'
       ] },
-      FREE_BANNER
+      FREE_BANNER,
+          { type:'intro', eyebrow:"From the Record", title:"Services in Detail", body:[
+        "The total number of surgeries (both Cardiac and Neuro surgeries) carried out per annum are 3000 and multi-specialities 1700 approximately.",
+        "The department of Cardiology at SSSIHMS, Bangalore offers the entire gamut of services – outpatient, inpatient and critical care – totally free of cost.",
+        "It figures among leading national institutions performing a wide variety of adult and pediatric interventions.",
+        "Cardiothoracic Surgery Department uses advanced technologies available to perform the complete range of invasive surgical services for adults and children with cardiovascular disease and minimally invasive surgeries for adult patients Read more...",
+        "SSSIHMS has a well-equipped Center for Neurology which provides the latest facilities for treatment of a broad range of Neurological ailments.",
+        "The department is at present manned by a Consultant Neurologist and a team of Resident doctors besides the technical and ancillary staff.",
+        "The Department is considered one of the best Neuroscience services in the country.",
+        "Patients come here from all parts of India & abroad seeking second opinion for their neurological problem or surgery for a complex disease.",
+        "The Department of Radiodiagnosis and Imaging at SSSIHMS, Bangalore provides expert diagnostic and interventional services to support the clinical needs of our hospital .",
+        "Our services include X-ray, ultrasound, CT, MRI, DSA, and interventional procedures using state-of-the-art technologies.",
+      ] },
     ]
   },
 
@@ -579,7 +706,7 @@ const PAGES = {
         'Post-operative & intensive care as required',
         'Follow-up and continued support — all free of charge'
       ] },
-      FREE_BANNER
+      FREE_BANNER,
     ]
   },
 
@@ -623,7 +750,23 @@ const PAGES = {
         'Coordination with treating departments',
         'Support for families during hospitalisation'
       ] },
-      FREE_BANNER
+      FREE_BANNER,
+          { type:'intro', eyebrow:"From the Record", title:"The Help Desk in Detail", body:[
+        "Initiated in May, 2020, in response to Covid Pandemic, to enable easier communications for Patients and to expand the base of volunteers who could respond to patient queries in the highly uncertain period of Covid pandemic, using the cloud telephony technology.",
+        "In June, 2021, with a view to reduce waiting time and crowding at the gate and inside the hospital, an advance gate entry appointments system was introduced to enable a staggered arrival and entry of patients into the hospital from 7am to 10am.",
+        "Average calls Handled per day: 800 calls (including General Queries and Gate entry appointments)",
+        "Average appointments created per day: 300 patients",
+        "Reduce cost of stay at Bengaluru, as the patients can plan their travel and arrival based on the confirmed gate entry appointments",
+        "Ability to get responses in multiple languages, based on the wide base of alumni volunteers speaking multiple languages.",
+        "Initiative supported by Alumni of SSSIHL and implemented in coordination with the Hospital Team.",
+        "150 volunteers participate actively every week in specific time slots to receive and respond to patient queries",
+        "All volunteers are put through a formal training process before attending calls.",
+        "Quality of calls is also reviewed by listening to calls by a volunteer team, as all calls are recorded.",
+        "Enabled through the Exotel Cloud Telephony solutions integrated with Health4All, a free and open source software supported by UCDS.",
+        "Call volume to this helpline set to increase with SSSIHMS-PG also implementing this facility from July 2022",
+        "Encourage more volunteers from Samithis to participate in this Remote Seva opportunity as outlined in the SSSSO Saminthi Convenors Conference in June, 2022",
+        "Ariel View of Hospital Dome Area Diwali View",
+      ] },
     ]
   },
 
@@ -639,7 +782,7 @@ const PAGES = {
         { icon:'✦', title:'Emergency Department', desc:'24×7 casualty and emergency services for all patients.' },
         { icon:'✦', title:'Laboratory & Blood Bank', desc:'Full diagnostic laboratory and blood bank support.' }
       ] },
-      FREE_BANNER
+      FREE_BANNER,
     ]
   },
 
@@ -680,7 +823,28 @@ const PAGES = {
         body:[
           'Admission to all specialties is only through the centralised counselling of the National Board of Examinations (NBE) — candidates should follow the NBE website for updates. The DNB degree is equivalent to MCh/DM for super specialties and MD for broad specialties.',
           'In keeping with the Founder\u2019s philosophy that education should be given free of cost, all programmes are offered to eligible doctors entirely free. Three SSSIHMS trainees have secured Gold Medals in the DNB Cardiology and CTVS programmes.'
-        ] }
+        ] },
+          { type:'intro', eyebrow:"DNB", title:"Programme Details", body:[
+        "Sri Sathya Sai Institute of Higher Medical Sciences, Bangalore is accredited by National Board of Examinations, New Delhi, to conduct Post-Graduate training in Super Specialties such as Cardiothoracic and Vascular surgery, Cardiology, Neurosurgery and Broad Specialties such as Anesthesiology and Radio-Diagnosis culminating in a DNB degree.",
+        "Till date more than 5 batches of successful DNB trainees have passed out from the portals of the Hospital.",
+        "The Hospital is proud of having three of its’ students securing Gold Medals in DNB Cardiology and CTVS programs.",
+        "At Sri Sathya Sai Institute of Higher Medical Sciences Residents and faculty are partners in a mutually respectful learning experience that is committed to excellence.",
+        "It is the intent of the program to understand and to respect the physical, intellectual and emotional resources of each DNB Resident as an individual, and to assist the Resident in successfully completing the educational requirements for obtaining the Degree.",
+        "The Hospital plays host to a large number of visiting consultants from within and outside the country from whom Residents can learn about the latest developments in their fields.",
+        "We also have a state-of-the- art ‘video conferencing’ facility to enable our Residents to interact with experts across the globe.",
+        "Our team of surgeons and physicians see one of the largest and most diverse patient populations in the country.",
+        "Therefore the DNB Residents get exposed to the entire gamut of consultations and operations during their training period.",
+        "Residents are expected to participate in basic clinical research projects and are encouraged to present and publish their findings at national meetings and in leading journals.",
+        "All of our patients are seen as being equally precious, providing us with opportunities both to serve and to learn.",
+        "The Residents are taught to uphold the dignity, safety and comfort of the patients in all their interactions.",
+        "Residents will learn to deliver excellent and comprehensive health care in their respective Specialties.",
+        "The Resident will learn the skills of quality improvement, utilization management and risk management in both inpatient and outpatient settings.",
+        "The system taught will assure that high quality care is provided in a cost effective manner.",
+        "Admissions to all specialties will be done only through the Centralized Counseling at National Board of Examinations (NBE).",
+        "Candidates should check the website of NBE for regular updates.",
+        "The details of various courses at SSSIHMS, Whitefield along with total seats are given below.",
+        "MD/DNB General Medicine/Pediatrics+ DNB Super Specialty CET",
+      ] },
     ]
   },
 
@@ -781,7 +945,36 @@ const PAGES = {
         'Translation for patients from across India',
         'Comforting patients through anxiety',
         'Welcoming & wayfinding at the gates and OPD'
-      ] }
+      ] },
+          { type:'intro', eyebrow:"From the Record", title:"Sevadal Service in Detail", body:[
+        "Every week 108 volunteers both men and women come from various districts of Karnataka and Bengaluru to provide selfless service to patients without any expectation of any return on their investment.",
+        "Sevadal volunteers participate in various activities such as serving food for the patients, guiding the patients in their process of treatment, taking patients to various investigations, providing translation services, comforting the patient through their anxiety etc.",
+        "Over time people from various walks of life including IAS, retired military personnel, bankers etc.",
+        "have participated and found fulfilment and happiness.",
+        "The sevadal from various districts of Karnataka come based on a roaster, while sevadal from Bengaluru come as and when they can make time.",
+        "There is a very homely accommodation provided for ladies and gents separately during their stay in the campus.",
+        "Sri Sathya Sai Trust, Karnataka ensures that all the sevadal get all meals of the day as prasadam.",
+        "Sevadal have special bhajans in Swami's room on Saturday afternoon at 4 PM.",
+        "On 29th of March in the year 1968, Sri Sathya Sai Baba defined what is Sathya Sai seva (selfless service) and who is a sevadal (volunteer): “Every seva done with sympathy and skill to anyone in distress anywhere in this world is Sathya Sai seva.",
+        "The sevadal must be eager to serve and trained to serve, for service from those who take My name must be intelligent and sincere.”",
+        "Sri Sathya Sai Baba in a discourse delivered on 21st November 1988 said: “Avail yourself of every possible occasion to render service to the society.",
+        "It need not be limited to individuals.",
+        "It is important to do national service.",
+        "Whenever you find that you can render help to anyone in need, offer it.",
+        "Do not make distinctions between rich or poor or the deserving and the undeserving.",
+        "Offer service according to the needs of the situation.",
+        "Today the needs of the poor in the rural areas are quite great.",
+        "In this situation you must go out into villages, organise service activities and encourage the rural population to participate in them.",
+        "The village folk should be told the importance of health and hygiene and how to keep their homes and villages clean and healthy.”",
+        "While addressing former students of His university in Prasanthi Nilayam, Sri Sathya Sai Baba on 6th September 2009 declared \"service is your birthright\".",
+        "Service in Prasanthi Nilayam is an unparalleled opportunity.",
+        "Highlighting this, Baba in a discourse to the residents of Prasanthi Nilayam on 7th July 1985 said: \"By undertaking service activity in Prashanthi Nilayam one would have an opportunity to serve God directly.",
+        "Any work done here is an offering to Swami Himself.",
+        "Work has to be taken up in this spirit.",
+        "Whatever work is done here, should be done out of a feeling of love.",
+        "You can take up whatever work is appropriate, in keeping with your aptitudes and capacity.\"",
+        "Ariel View of Hospital Dome Area Diwali View",
+      ] },
     ]
   },
 
@@ -795,7 +988,28 @@ const PAGES = {
           'To express interest, please contact the Human Resources Department by email at hrblr@sssihms.org.in, or reach us through the help desk so your skills can be matched to where they are most needed.'
         ], link:{ label:'Express Your Interest', page:'help-desk' } },
       { type:'intro', eyebrow:'Together in Service', title:'A Place for Every Skill', alt:true, narrow:true,
-        body:['Doctors, nurses, technologists and administrators have all found a way to serve here. Whatever your expertise, there is a way to give it in love.'] }
+        body:['Doctors, nurses, technologists and administrators have all found a way to serve here. Whatever your expertise, there is a way to give it in love.'] },
+          { type:'intro', eyebrow:"From the Record", title:"Volunteering in Detail", body:[
+        "Doctors with expertise in specialities available at Sri Sathya Sai Institute of Higher Medical Sciences and Sri Sathya Sai General Hospital, Whitefield, Bengaluru may fill the below form or contact our Human Resources Department by email at hrblr@sssihms.org.in",
+        "On 29th of March in the year 1968, Sri Sathya Sai Baba defined what is Sathya Sai seva (selfless service) and who is a sevadal (volunteer): “Every seva done with sympathy and skill to anyone in distress anywhere in this world is Sathya Sai seva.",
+        "The sevadal must be eager to serve and trained to serve, for service from those who take My name must be intelligent and sincere.”",
+        "Sri Sathya Sai Baba in a discourse delivered on 21st November 1988 said: “Avail yourself of every possible occasion to render service to the society.",
+        "It need not be limited to individuals.",
+        "It is important to do national service.",
+        "Whenever you find that you can render help to anyone in need, offer it.",
+        "Do not make distinctions between rich or poor or the deserving and the undeserving.",
+        "Offer service according to the needs of the situation.",
+        "Today the needs of the poor in the rural areas are quite great.",
+        "In this situation you must go out into villages, organise service activities and encourage the rural population to participate in them.",
+        "The village folk should be told the importance of health and hygiene and how to keep their homes and villages clean and healthy.”",
+        "While addressing former students of His university in Prasanthi Nilayam, Sri Sathya Sai Baba on 6th September 2009 declared \"service is your birthright\".",
+        "Service in Prasanthi Nilayam is an unparalleled opportunity.",
+        "Highlighting this, Baba in a discourse to the residents of Prasanthi Nilayam on 7th July 1985 said: \"By undertaking service activity in Prashanthi Nilayam one would have an opportunity to serve God directly.",
+        "Any work done here is an offering to Swami Himself.",
+        "Work has to be taken up in this spirit.",
+        "Whatever work is done here, should be done out of a feeling of love.",
+        "You can take up whatever work is appropriate, in keeping with your aptitudes and capacity.\"",
+      ] },
     ]
   },
 
@@ -921,7 +1135,26 @@ const PAGES = {
         'Teamwork across departments',
         'Dedication to continuous learning',
         'Integrity in all things'
-      ] }
+      ] },
+          { type:'intro', eyebrow:"Careers", title:"Working at SSSIHMS", body:[
+        "If your profile meets any of our requirements mentioned below, send your resume clearly mentioning the position for which application is being given, along with copies of all relevant certificates and a photograph.",
+        "Senior Consultant - DM/DNB Neurology with 12 years or more of experience post DM/DNB.",
+        "The consolidated pay offered is Rs.1,60,000/-",
+        "Additional Senior Consultant - DM/DNB Neurology with 8 years or more of experience post DM/DNB.",
+        "The consolidated pay offered is Rs.1,41,000/-",
+        "Consultant - DM/DNB Neurology with 4 years or more of experience post DM/DNB.",
+        "Junior Consultant - DM/DNB Neurology fresher or less than 4 years experience post DM/DNB.",
+        "We are looking for Nurses with experience of working in Operation Theater.",
+        "The candidate can be either B.Sc or GNM.",
+        "Salary as per the Institute rules",
+        "Consultant - M.Ch/DNB CTVS with 4 years or more of experience post M.Ch/DNB CTVS.",
+        "Junior Consultant - M.Ch/DNB CTVS fresher or less than 4 years experience post M.Ch/DNB CTVS.",
+        "Sr.Resident - MD/DNB Pediatrics- fresher or less than 3 years experience post MD/DNB.",
+        "The consolidated pay offered is Rs.85,000/-.",
+        "Kindly take time to fill the application form https://forms.gle/fQu8sRzcix4x4DMx5",
+        "On receipt of your resume, Staff from the HR department will revert back to you with additional details.",
+        "You can also contact us at whatsapp number 080-28004641 or hrblr@sssihms.org.in",
+      ] },
     ]
   },
 

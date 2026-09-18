@@ -233,8 +233,21 @@ PAGES['nesu-events'] = {
       { badge:'Weekly', title:'Case Conferences', desc:'Joint neurology–neurosurgery–radiology case conferences and teaching rounds for consultants and DNB trainees.' },
       { badge:'Visiting', title:'International Teaching Visits', desc:'Operative workshops and lectures during visits by international faculty.' },
       { badge:'Blog', title:'Neurosurgery Blog', desc:'Department news, case highlights and announcements on the live site.', link:{ label:'Open Blog', href:'/neurosurgery-blog/' } }
-    ] }
-  ]
+    ] },
+        { type:'intro', eyebrow:"From the Record", title:"Events in Detail", body:[
+        "Venue: Dhanvantari Hall, Ground floor, Sri Sathya Sai Institute of Higher Medical Sciences, Whitefield, Bengaluru.",
+        "Residents and Practicing clinicians in the specialties of:",
+        "This CME is NOT virtual and all delegates are to attend in-person.",
+        "No Registration fee for the CME.",
+        "500 is being charged for meeting essential / incidental expenses and overheads.",
+        "We are applying for KMC credits for this CME.",
+        "Please ensure you enter the details in the form correctly since the same will be printed on the participation certificate issued at the end of the CME.",
+        "This page will be updated as and when we have further information.",
+        "Accommodation, if required, to be arranged by delegates.",
+        "2 KMC Credits have been awarded for the CME and will be given to those who have registered by the due date (25-Apr-2022).",
+        "Delegates who are still interested and would like to participate without KMC credits can register by Wednesday, 04-May-2022.",
+      ] },
+    ]
 };
 
 PAGES['nesu-academics'] = {
@@ -260,8 +273,27 @@ PAGES['neurology-services'] = {
       { title:'Neuromuscular Diseases', desc:'Investigated by ENMG and muscle biopsy, with ongoing medical management.' },
       { title:'Spinal Cord Diseases', desc:'Medical management, with surgical cases referred to the sister department of Neurosurgery.' },
       { title:'Tumours of the Nervous System', desc:'Diagnosis in Neurology; once confirmed, definitive care is undertaken by Neurosurgery.' }
-    ] }
-  ]
+    ] },
+        { type:'features', eyebrow:"Services", title:"Neurology Services", items:[
+        "Neurological conditions evaluated and treated routinely at SSSIHMS include the following:",
+        "Face, Head and Neck pain: These patients are generally managed on OPD basis.",
+        "Epilepsy and related conditions: These patients are investigated as required and treatment instituted.",
+        "Some patients depending upon their condition are admitted as part of their management.",
+        "Fits, black outs, jerks and faints",
+        "Cerebrovascular diseases : Acute cases are admitted and managed with anti-coagulants and physiotherapy.",
+        "Chronic cases are evaluated as required.",
+        "Infections of the CNS.: These patients are managed following diagnosis of the infections based on Lumbar puncture and other investigations with admission and institution of appropriate anti-microbial therapy.",
+        "Parkinson’s Disease and movement and ataxic disorders : These patients are seen on an OPD basis and treatment is instituted and optimized as required.",
+        "ALS and Other Motor Neuron Diseases : ENMG and conduction studies are used to reach a definitive diagnosis in these patients.",
+        "Trigeminal Neuralgia, Bell’s Palsy, and Other Cranial Nerve Disorders: Are investigated and treated appropriately.",
+        "Spinal Cord Diseases: When surgical intervention is required then the patients are reffered to the sister dept of neurosurgery.",
+        "Peripheral Neuropathies including Guillain-Barre´ Syndrome: ENMG, NCV and Nerve biopsies are conducted for diagnosis.",
+        "Neuromuscular diseases: These are investigated by ENMG and Muscle biopsy.",
+        "Tumors of the Nervous System: These once diagnosed are dealt by the Neurosurgery department.",
+        "Psychiatric disorders and Mental health problems: Psychiatric problems when secondary to neurological disorders if diagnosed are treated in-house by a Consultant Psychiatrist.",
+        "Swami blessing Neuro Patient Swami blessing a patient Swami blessing a small child Swami Blessing a child after Neurosurgery",
+      ] },
+    ]
 };
 
 PAGES['neurology-infrastructure'] = {
@@ -330,8 +362,18 @@ PAGES['anes-events'] = {
       { badge:'CME', title:'Departmental CMEs', desc:'Continuing education in cardiac and neuro-anaesthesia for residents, technicians and nursing staff.' },
       { badge:'Weekly', title:'Teaching Rounds', desc:'Journal clubs, morbidity reviews and case-based teaching with core and visiting faculty.' },
       { badge:'Visiting', title:'Overseas Faculty Visits', desc:'Teaching visits by the department\'s 12 overseas visiting consultants.' }
-    ] }
-  ]
+    ] },
+        { type:'intro', eyebrow:"From the Record", title:"Events in Detail", body:[
+        "The Department of Anaesthesiology is privileged to host and conduct various academic and clinical events focused on continuous learning and knowledge exchange in the fields of Anaesthesia and Critical Care.",
+        "We humbly invite you to participate in these initiatives.",
+        "Registration: To register your participation, please click to fill the online form.",
+        "The Department is grateful to have successfully hosted the following educational programs:",
+        "Held in association with the Indian Association of Cardiovascular Thoracic Anaesthesiologists.",
+        "An update focusing on recent advances and best practices in critical care.",
+        "Regional conference that brought together experts and trainees.",
+        "Registration was conducted via the form available at: http://goo.gl/forms/6b5qnv9usg",
+      ] },
+    ]
 };
 
 PAGES['anes-academics'] = {
@@ -403,8 +445,8 @@ PAGES['history-gh'] = {
       { v:'1976', l:'Year of Establishment' },
       { v:'51,595', l:'Multi-Specialty Surgeries Since 1976' },
       { v:'8+', l:'Clinical Specialties' }
-    ] }
-  ]
+    ] },
+    ]
 };
 
 // ── SUPPORT SERVICES ─────────────────────────────────────────────────────────
@@ -419,8 +461,8 @@ PAGES['lab-infrastructure'] = {
       { title:'Histopathology', desc:'Microtome and cryotome with special stains and immunohistochemistry antibodies.' },
       { title:'Blood Bank', desc:'In-house blood bank serving the cardiac and neuro specialties as well as the general hospital.' },
       { title:'Laboratory Information System', desc:'Full LIS with equipment interfacing and barcoding, under continuous quality-assurance programmes.' }
-    ] }
-  ]
+    ] },
+    ]
 };
 
 })();

@@ -309,8 +309,20 @@ PAGES['treatment'] = {
       { icon:'◆', title:'General Medicine', desc:'Routine General Medicine OPD consultation and treatment is done.' },
       { icon:'◆', title:'General Surgery', desc:'The following laparoscopic and open surgeries on a regular basis: hernia, hydrocele, appendix, intestinal perforation, wound debridement.' }
     ] },
-    CONTACT
-  ]
+    CONTACT,
+      { type:'intro', eyebrow:"Treatments", title:"Further Detail", body:[
+        "Sometimes additional abnormal path ways form and cause dangerous changes to the normal rhythm of the heart (arrhythmias) EP study is a diagnostic procedure done to find out extra pathways that cause these arrhythmias.",
+        "When the ventricles of the heart especially the left one beats on its own at a fast rate eg: 200bpm as against the normal 120bpm, it is called Ventricular Tachycardia.",
+        "Neurological conditions evaluated and treated routinely at SSSIHMS include the following:",
+        "Spinal Cord Diseases: When surgical intervention is required then the patients are reffered to the sister dept of neurosurgery.",
+        "Peripheral Neuropathies including Guillain-Barre´ Syndrome: ENMG, NCV and Nerve biopsies are conducted for diagnosis.",
+        "Tumors of the Nervous System: These once diagnosed are dealt by the Neurosurgery department.",
+        "However the procedure involved in similar to the one described above.",
+        "The Orthopedic department does following surgeries on regular basis:",
+        "Services in Dental specialty including consultation, diagnosis and treatment for the following:",
+        "The following laparoscopic and open surgeries on regular basis:",
+      ] },
+    ]
 };
 
 // ── FACILITIES ──────────────────────────────────────────────────────────────
@@ -405,7 +417,31 @@ PAGES['facilities'] = {
       'Non-vegetarian food items',
       'Outside food except for children'
     ] },
-    CONTACT
-  ]
+    CONTACT,
+      { type:'intro', eyebrow:"From the Record", title:"Facilities in Detail", body:[
+        "The following Public Transport Bus routes are available:",
+        "From Kempe Gowda Bus Stop towards SSSIHMS",
+        "One may alight at Pattandura Agrahara/ITPL and reach SSSIHMS after a 10-minute walk or by autorickshaw.",
+        "One alighting at Hope Farm may take a bus to ITPL/Pattandura Agrahara and either walk to SSSIHMS or use an autorickshaw.",
+        "Apart from this there are several other eating option available outside the Hospital.",
+        "Food Court in Inorbit Mall has many eateries.",
+        "After Manthra Restaurant, Brookfield, 11:00-4:00 and 6:30-11:00 / Ph no: 9986341029 / 080-41162811 /080-41162611 / Veg non veg.",
+        "Before Big Bazaar, After SSSIHMS / 7.00 a.m to 10 p.m / Veg non veg.",
+        "Beside ITPL / 11.00 a.m to 11.00 p.m",
+        "Before Big Bazaar, After SSSIHMS, 6.00 a.m to 10:30 p.m.",
+        "Aviva Junction / 5.00 am to 10.00 p.m",
+        "Before BigBazar, After SSSIHMS / 12:00 - 10:30 / Veg non veg.",
+        "Before BigBazar, After SSSIHMS / 7a.m to 10:30 p.m.",
+        "Before Big Bazaar, After SSSIHMS / 6.00 a.m to 11:30 p.m.",
+        "Aviva Junction / 7.00 a.m to 10 p.m / Ph no 41693252",
+        "Near Andhra Spice / After Cosmopollitan Mall",
+        "After Manthra Restaurant, Brookfield / 11:30-4:00 and 7:00-10:30 Veg non Veg",
+        "Whitefield / 12:00a.m - 3:00 p.m and 7:00 p.m -10:00 p.m / Ph no: 080-64552602",
+        "In Front of ITPL / 7.00 a.m to 10.00 p.m / Vegetarian",
+        "In Front of ITPL / 6.00 a.m to 10.00 p.m",
+        "Aviva Junction / 6.00 a.m to 10.00 p.m / Ph no: 080-41142129",
+        "Kundalahalli village / 12:30 p.m to 11:00 p.m / Ph No: 080-64542211, 080- 64543311",
+      ] },
+    ]
 };
 })();

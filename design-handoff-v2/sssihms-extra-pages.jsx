@@ -99,8 +99,8 @@ PAGES['gg-waste'] = {
       body:[
         'All waste generated on campus is segregated at source and recycled wherever possible. In December 2024, SSSIHMS Whitefield was recognised as a Changemaker for its sustainable solid waste management practices under Swachh Bharat Mission (SBM) 2.0 by the Centre for Science and Environment (CSE), New Delhi.',
         'The recognition followed the Institute deputing staff to CSE\'s Anil Agrawal Environment Training Institute for training in sustainable solid-waste practices; a case study on SSSIHMS Whitefield features in the CSE report released at the Changemakers\' Conclave in New Delhi.'
-      ] }
-  ]
+      ] },
+    ]
 };
 PAGES['gg-biomedical'] = {
   title:'Biomedical Waste Report', crumb:'Go Green · Biomedical Waste Report', subnav:'gogreen',

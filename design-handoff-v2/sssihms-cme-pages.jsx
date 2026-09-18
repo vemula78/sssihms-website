@@ -22,8 +22,29 @@ PAGES['sacred'] = {
       { badge:'2018', title:'SACRED-18', desc:'Musculoskeletal (MSK) MRI.' },
       { badge:'2017', title:'SACRED-17', desc:'MRI in Practice.' },
       { badge:'2015', title:'SACRED-15', desc:'The 2015 edition — including its poster presentations and pre-conference warm-up material.' }
-    ] }
-  ]
+    ] },
+        { type:'intro', eyebrow:"CME", title:"About SACRED", body:[
+        "Warm greetings from the SACRED team!",
+        "In keeping with our founder’s vision of providing quality healthcare and education free to one and all, the radiology departments of Sri Sathya Sai Institute of Higher Medical Sciences Prashanthi Nilayam and Bangalore have been organizing CME programs since Nov, 2009 on various radiological subspecialities under the aegis of SACRED (Sri Sathya Sai ACademy of Radiology EDucation).",
+        "The objective of these conferences is to improve the quality of training of Radiologists and Radiologic technologists in India.",
+        "Till date, we have conducted 22 such CMEs / Workshops.",
+        "Given below is useful information on reaching the conference venue, Hotel accommodation availability around the venue.",
+        "Your participation will be confirmed within a week of registration.",
+        "Confirmed participants would have received a mail from sacred@sssihms.org.in with a SACRED registration number.",
+        "Please show this mail at GATE-2 of the hospital for entry and quote the registration number at the counter",
+        "Directions to reaching the Venue from Airport, Majestic Railway station and bus stand.",
+        "After reaching the hospital, enter through Gate No.2 opposite SJR Park.",
+        "You will be guided to the venue (Ground floor – Dhanvantari conference hall) from there by our staff.",
+        "In the above layout, the green arrows show the way to Canteen and the Conference hall.",
+        "Breakfast is not included as part of the conference.",
+        "Delegates can purchase coupons from the counter near the public canteen and have their breakfast.",
+        "Accommodation needs to be arranged by the delegates.",
+        "A list of all the hotels around the venue is below:",
+        "In the event you reach the venue earlier, you may come to the hospital anytime after 6:30 AM on the day of the conference.",
+        "In case you have any queries or need help, send them by email to sacred@sssihms.org.in.",
+        "We hope you will have a wonderful educational treat!",
+      ] },
+    ]
 };
 
 // ── SPEED (Cardiology) ───────────────────────────────────────────────────────

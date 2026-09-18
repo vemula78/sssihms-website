@@ -234,7 +234,14 @@ PAGES['gg-waste'] = {
         '“Hospitals are places, where the ailing come to find succor. Through scientific waste management practices, we can ensure an infection-free stay for the patient, and successful outcomes.” — Dr. Renuka Neravi, Microbiologist and Secretary, Waste Management Committee.',
         '“Through this exercise I learnt that waste management skills showcases our discipline towards the environment and that we are indebted to other fellow beings around us to ‘Live and let Live’.” — S.K. Rangarajan, Technical Consultant, CSSD & Laundry & Member, Waste Management Committee.',
         '“Through this exercise, I learnt that taking responsibility for one’s waste is the key to developing good waste management practices.” — B. Satish Chandra, Sr. Manager-Central Stores & Member, Waste Management Committee.'
-      ] }
-  ]
+      ] },
+      { type:'intro', eyebrow:"Go Green", title:"Waste Management in Detail", body:[
+        "Link to PDF article Case Study - Dry Waste Segregation - GGHH - Nov 22",
+        "Sri Sathya Sai Institute of Higher Medical Sciences (SSSIHMS), Bangalore, India.",
+        "A total of 8 categories of dry waste bins were set up in the central location as follows:",
+        "After making progress in the disposal of dry, recyclable waste in the Institute, focus is now on the following:",
+        "https://www.sssbpt.info/ssspeaks/volume29/d960718.pdf Link to Bhagwan’s discourse urging not to waste natural resources.",
+      ] },
+    ]
 };
 })();
