@@ -1,114 +1,114 @@
-mock_slug,match_type,wp_id,wp_slug,wp_status,wp_parent,rename_candidate
-about-hospital,exact,2,about-hospital,publish,0,
-academics,exact,63,academics,publish,0,
-anes-achievements,exact,685,anes-achievements,publish,0,
-anes-dnb,exact,679,anes-dnb,publish,89,
-anes-events,exact,687,anes-events,publish,0,
-anes-faculty,exact,140,anes-faculty,publish,89,
-anes-fellowship,exact,681,anes-fellowship,publish,0,
-anes-infrastructure,RENAME?,,,,,anesthesiology-infrastructure
-anesthesiology,REVIEW,,,,,dept landing page - confirm live slug
-anthardhwani,exact,18101,anthardhwani,publish,210,
-appointments-admission,exact,735,appointments-admission,publish,0,
-bhagawan,exact,609,bhagawan,publish,2,
-blog,REVIEW,,,,,live has per-dept blogs only
-blood-donation,RENAME?,,,,,blood-donation-information
-bsc-anesthesia-technology,exact,683,bsc-anesthesia-technology,publish,0,
-bsc-cardiac-care-technology,exact,660,bsc-cardiac-care-technology,publish,0,
-bsc-mit,exact,546,bsc-mit,publish,202,
-bsc-mlt,exact,1256,bsc-mlt,publish,412,
-bsc-perfusion,exact,588,bsc-perfusion,publish,0,
-cardiac-anesthesia,exact,132,cardiac-anesthesia,publish,89,
-cardiac-surgery,exact,85,cardiac-surgery,publish,0,
-cardiac-surgery-statistics,NEW,,,,,
-cardiology,exact,81,cardiology,publish,0,
-cardiology-achievements,RENAME?,,,,,achievements-cardiology
-cardiology-events,RENAME?,,,,,events-cardiology-2
-cardiology-faculty,NEW,,,,,
-cardiology-infrastructure,NEW,,,,,
-cardiology-statistics,NEW,,,,,
-careers,exact,65,careers,publish,0,
-conferences,REVIEW,,,,,many event pages live
-counseling,exact,210,counseling,publish,0,
-ctvs-faculty,NEW,,,,,
-ctvs-infrastructure,NEW,,,,,
-dental,exact,53304,dental,publish,0,
-divine-poetry,exact,54756,divine-poetry,publish,0,
-dnb,exact,257,dnb,publish,63,
-dnb-cardiac-surgery,exact,538,dnb-cardiac-surgery,publish,0,
-drnb-cardiology,exact,656,drnb-cardiology,publish,0,
-ent,exact,53284,ent,publish,0,
-ent-statistics,NEW,,,,,
-facilities,exact,734,facilities,publish,0,
-fellowship,AMBIGUOUS,550,fellowship,private,202,also id 255 publish parent 63
-fellowship,AMBIGUOUS,255,fellowship,publish,63,also id 550 private parent 202
-fellowship-cardiology,exact,658,fellowship-cardiology,publish,81,
-general-medicine,exact,53280,general-medicine,publish,0,
-general-surgery,exact,53276,general-surgery,publish,0,
-general-surgery-statistics,NEW,,,,,
-genesis,exact,587,genesis,publish,2,
-getinvolved,exact,52837,getinvolved,publish,0,
-gg-biomedical,RENAME?,,,,,biomedical-waste-management
-gg-power,RENAME?,,,,,power-conservation
-gg-rainwater,RENAME?,,,,,rain-water-harvesting
-gg-solar,RENAME?,,,,,solar-power-plant
-gg-trees,RENAME?,,,,,tree-transplantation
-gg-waste,RENAME?,,,,,wastemgmt or biomedical-waste-management
-gg-water,RENAME?,,,,,water-usage
-gogreen,exact,52084,gogreen,publish,0,
-guiding-philosophy,exact,617,guiding-philosophy,publish,0,
-help-desk,exact,52858,help-desk,publish,0,
-history-gh,exact,53322,history-gh,publish,0,
-hmis,exact,212,hmis,publish,0,
-index,HOMEPAGE,54830,,draft,,maps to site front page not a slug
-lab-blood-bank,exact,412,lab-blood-bank,publish,0,
-lab-infrastructure,exact,1247,lab-infrastructure,publish,412,
-manohriday,exact,625,manohriday,publish,2,
-msecho,exact,54169,msecho,publish,0,
-multi-specialty-statistics,NEW,,,,,
-nesu-achievements,NEW,,,,,
-nesu-dnb,exact,562,nesu-dnb,publish,87,
-nesu-events,exact,671,nesu-events,publish,0,
-nesu-faculty,exact,126,nesu-faculty,publish,87,
-nesu-infrastructure,NEW,,,,,
-nesu-services,exact,559,nesu-services,publish,87,
-neurology,REVIEW,,,,,dept landing page - confirm live slug
-neurology-infrastructure,exact,1104,neurology-infrastructure,private,0,
-neurology-services,exact,1101,neurology-services,private,83,
-neurosurgery,exact,87,neurosurgery,publish,0,
-neurosurgery-statistics,NEW,,,,,
-nursing-and-allied-health,exact,259,nursing-and-allied-health,publish,63,
-obgyn,exact,53292,obgyn,publish,0,
-obs-gynae-statistics,NEW,,,,,
-ophthalmology,exact,53300,ophthalmology,publish,0,
-ophthalmology-statistics,NEW,,,,,
-orthopaedics-statistics,NEW,,,,,
-orthopedics,exact,53288,orthopedics,publish,0,
-paediatrics-statistics,NEW,,,,,
-patient-speak,exact,1218,patient-speak,publish,2,
-patients,REVIEW,,,,,section landing page - confirm live slug
-pediatrics,exact,53296,pediatrics,publish,53243,
-physiotherapy,exact,206,physiotherapy,publish,0,
-radiology,REVIEW,,,,,dept landing page - confirm live slug
-radiology-faculty,exact,220,radiology-faculty,publish,202,
-radiology-infrastructure,NEW,,,,,
-sacred,exact,547,sacred,publish,202,
-sai_padhyam,exact,53609,sai_padhyam,publish,0,
-score,REVIEW,,,,,live has iacts-score-2019 event pages
-services,exact,61,services,publish,0,
-sevadal,exact,52845,sevadal,publish,0,
-songs,RENAME?,,,,,songs-baba already mapped separately - check
-songs-baba,exact,52921,songs-baba,publish,0,
-specialties,exact,59,specialties,publish,0,
-speed,REVIEW,,,,,live has speed-2026-* event pages
-sssgh,exact,53243,sssgh,publish,0,
-statistics,exact,53091,statistics,private,0,
-statistics-combined,NEW,,,,,
-statistics-gh,exact,53326,statistics-gh,publish,0,
-telemedicine,exact,214,telemedicine,publish,0,
-treatment,exact,733,treatment,publish,0,
-trust,NEW,,,,,
-urology-statistics,NEW,,,,,
-vahinis,NEW,,,,,
-visitor-speak,exact,1223,visitor-speak,publish,2,
-volunteer,RENAME?,,,,,volunteer-expertise
+mock_slug,match_type,wp_id,wp_slug,wp_status,wp_parent,rename_candidate,in_scope
+about-hospital,exact,2,about-hospital,publish,0,,yes
+academics,exact,63,academics,publish,0,,yes
+anes-achievements,exact,685,anes-achievements,publish,0,,yes
+anes-dnb,exact,679,anes-dnb,publish,89,,yes
+anes-events,exact,687,anes-events,publish,0,,yes
+anes-faculty,exact,140,anes-faculty,publish,89,,yes
+anes-fellowship,exact,681,anes-fellowship,publish,0,,yes
+anes-infrastructure,rename-keep-live-url,677,anesthesiology-infrastructure,publish,,live URL kept,yes
+anesthesiology,REVIEW,,,,,dept landing page - confirm live slug,decide
+anthardhwani,exact,18101,anthardhwani,publish,210,,yes
+appointments-admission,exact,735,appointments-admission,publish,0,,yes
+bhagawan,exact,609,bhagawan,publish,2,,yes
+blog,REVIEW,,,,,live has per-dept blogs only,decide
+blood-donation,rename-keep-live-url,52021,blood-donation-information,publish,,live URL kept,no-not-in-menu
+bsc-anesthesia-technology,exact,683,bsc-anesthesia-technology,publish,0,,yes
+bsc-cardiac-care-technology,exact,660,bsc-cardiac-care-technology,publish,0,,yes
+bsc-mit,exact,546,bsc-mit,publish,202,,yes
+bsc-mlt,exact,1256,bsc-mlt,publish,412,,yes
+bsc-perfusion,exact,588,bsc-perfusion,publish,0,,yes
+cardiac-anesthesia,exact,132,cardiac-anesthesia,publish,89,,yes
+cardiac-surgery,exact,85,cardiac-surgery,publish,0,,yes
+cardiac-surgery-statistics,NEW,,,,,,new-page-needed
+cardiology,exact,81,cardiology,publish,0,,yes
+cardiology-achievements,rename-keep-live-url,663,achievements-cardiology,private,,live URL kept,no-not-in-menu
+cardiology-events,rename-keep-live-url,713,events-cardiology-2,publish,,live URL kept,yes
+cardiology-faculty,NEW,,,,,,new-page-needed
+cardiology-infrastructure,NEW,,,,,,new-page-needed
+cardiology-statistics,NEW,,,,,,new-page-needed
+careers,exact,65,careers,publish,0,,yes
+conferences,REVIEW,,,,,many event pages live,decide
+counseling,exact,210,counseling,publish,0,,yes
+ctvs-faculty,NEW,,,,,,new-page-needed
+ctvs-infrastructure,NEW,,,,,,new-page-needed
+dental,exact,53304,dental,publish,0,,yes
+divine-poetry,exact,54756,divine-poetry,publish,0,,no-not-in-menu
+dnb,exact,257,dnb,publish,63,,yes
+dnb-cardiac-surgery,exact,538,dnb-cardiac-surgery,publish,0,,yes
+drnb-cardiology,exact,656,drnb-cardiology,publish,0,,yes
+ent,exact,53284,ent,publish,0,,yes
+ent-statistics,NEW,,,,,,new-page-needed
+facilities,exact,734,facilities,publish,0,,yes
+fellowship,AMBIGUOUS,550,fellowship,private,202,also id 255 publish parent 63,decide
+fellowship,AMBIGUOUS,255,fellowship,publish,63,also id 550 private parent 202,decide
+fellowship-cardiology,exact,658,fellowship-cardiology,publish,81,,yes
+general-medicine,exact,53280,general-medicine,publish,0,,yes
+general-surgery,exact,53276,general-surgery,publish,0,,yes
+general-surgery-statistics,NEW,,,,,,new-page-needed
+genesis,exact,587,genesis,publish,2,,yes
+getinvolved,exact,52837,getinvolved,publish,0,,yes
+gg-biomedical,rename-keep-live-url,54788,biomedical-waste-management,publish,,live URL kept,no-not-in-menu
+gg-power,rename-keep-live-url,52973,power-conservation,publish,,live URL kept,yes
+gg-rainwater,rename-keep-live-url,52712,rain-water-harvesting,publish,,live URL kept,yes
+gg-solar,rename-keep-live-url,52658,solar-power-plant,publish,,live URL kept,yes
+gg-trees,rename-keep-live-url,52721,tree-transplantation,publish,,live URL kept,yes
+gg-waste,rename-keep-live-url,52680,wastemgmt,publish,,live URL kept,yes
+gg-water,rename-keep-live-url,52966,water-usage,publish,,live URL kept,yes
+gogreen,exact,52084,gogreen,publish,0,,yes
+guiding-philosophy,exact,617,guiding-philosophy,publish,0,,yes
+help-desk,exact,52858,help-desk,publish,0,,yes
+history-gh,exact,53322,history-gh,publish,0,,yes
+hmis,exact,212,hmis,publish,0,,yes
+index,HOMEPAGE,54830,,draft,,maps to site front page not a slug,yes
+lab-blood-bank,exact,412,lab-blood-bank,publish,0,,yes
+lab-infrastructure,exact,1247,lab-infrastructure,publish,412,,yes
+manohriday,exact,625,manohriday,publish,2,,yes
+msecho,exact,54169,msecho,publish,0,,yes
+multi-specialty-statistics,NEW,,,,,,new-page-needed
+nesu-achievements,NEW,,,,,,new-page-needed
+nesu-dnb,exact,562,nesu-dnb,publish,87,,yes
+nesu-events,exact,671,nesu-events,publish,0,,yes
+nesu-faculty,exact,126,nesu-faculty,publish,87,,yes
+nesu-infrastructure,NEW,,,,,,new-page-needed
+nesu-services,exact,559,nesu-services,publish,87,,yes
+neurology,REVIEW,,,,,dept landing page - confirm live slug,decide
+neurology-infrastructure,exact,1104,neurology-infrastructure,private,0,,yes
+neurology-services,exact,1101,neurology-services,private,83,,yes
+neurosurgery,exact,87,neurosurgery,publish,0,,yes
+neurosurgery-statistics,NEW,,,,,,new-page-needed
+nursing-and-allied-health,exact,259,nursing-and-allied-health,publish,63,,yes
+obgyn,exact,53292,obgyn,publish,0,,yes
+obs-gynae-statistics,NEW,,,,,,new-page-needed
+ophthalmology,exact,53300,ophthalmology,publish,0,,yes
+ophthalmology-statistics,NEW,,,,,,new-page-needed
+orthopaedics-statistics,NEW,,,,,,new-page-needed
+orthopedics,exact,53288,orthopedics,publish,0,,yes
+paediatrics-statistics,NEW,,,,,,new-page-needed
+patient-speak,exact,1218,patient-speak,publish,2,,yes
+patients,REVIEW,,,,,section landing page - confirm live slug,decide
+pediatrics,exact,53296,pediatrics,publish,53243,,yes
+physiotherapy,exact,206,physiotherapy,publish,0,,yes
+radiology,REVIEW,,,,,dept landing page - confirm live slug,decide
+radiology-faculty,exact,220,radiology-faculty,publish,202,,yes
+radiology-infrastructure,NEW,,,,,,new-page-needed
+sacred,exact,547,sacred,publish,202,,yes
+sai_padhyam,exact,53609,sai_padhyam,publish,0,,yes
+score,REVIEW,,,,,live has iacts-score-2019 event pages,decide
+services,exact,61,services,publish,0,,yes
+sevadal,exact,52845,sevadal,publish,0,,yes
+songs,rename-keep-live-url,52921,songs-baba,publish,,live URL kept,yes
+songs-baba,exact,52921,songs-baba,publish,0,,yes
+specialties,exact,59,specialties,publish,0,,yes
+speed,REVIEW,,,,,live has speed-2026-* event pages,decide
+sssgh,exact,53243,sssgh,publish,0,,yes
+statistics,exact,53091,statistics,private,0,,yes
+statistics-combined,NEW,,,,,,new-page-needed
+statistics-gh,exact,53326,statistics-gh,publish,0,,yes
+telemedicine,exact,214,telemedicine,publish,0,,yes
+treatment,exact,733,treatment,publish,0,,yes
+trust,NEW,,,,,,new-page-needed
+urology-statistics,NEW,,,,,,new-page-needed
+vahinis,NEW,,,,,,new-page-needed
+visitor-speak,exact,1223,visitor-speak,publish,2,,yes
+volunteer,rename-keep-live-url,52990,volunteer-expertise,publish,,live URL kept,yes
