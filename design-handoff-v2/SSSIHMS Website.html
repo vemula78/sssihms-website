@@ -457,7 +457,30 @@
 .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:8px 0}
 .data-table th{text-align:left;font-weight:600;padding:10px 12px;border-bottom:2px solid rgba(0,0,0,.18);vertical-align:bottom}
 .data-table td{padding:10px 12px;border-bottom:1px solid rgba(0,0,0,.09);vertical-align:top;line-height:1.45}
-  </style>
+  
+/* Achievements — the departmental academic record: hundreds of dated entries,
+   grouped and collapsed so the page stays navigable. */
+.ach-groups { display: flex; flex-direction: column; gap: 10px; }
+.ach-group { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; }
+.ach-group > summary { cursor: pointer; padding: 15px 20px; display: flex; align-items: baseline; gap: 12px; list-style: none; }
+.ach-group > summary::-webkit-details-marker { display: none; }
+.ach-group > summary::before { content: '+'; font-family: var(--f-body); font-weight: 700; color: var(--primary); width: 14px; }
+.ach-group[open] > summary::before { content: '\2013'; }
+.ach-g-title { font-family: var(--f-head); font-size: 20px; font-weight: 600; color: var(--text); }
+.ach-count { font-family: var(--f-body); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--pd); background: var(--pl); padding: 3px 9px; border-radius: 2px; }
+.ach-list { margin: 0; padding: 0 20px 6px 20px; list-style: none; }
+.ach-list li { display: flex; gap: 14px; padding: 9px 0; border-top: 1px solid var(--border); font-size: 15px; line-height: 1.6; }
+.ach-year { flex: 0 0 46px; font-family: var(--f-body); font-size: 13px; font-weight: 700; color: var(--primary); padding-top: 2px; }
+.ach-text { color: var(--text); }
+.ach-sub { padding: 4px 0 8px; }
+.ach-sub-title { margin: 12px 20px 0; font-family: var(--f-body); font-size: 13px; font-weight: 700;
+  letter-spacing: .09em; text-transform: uppercase; color: var(--tm); }
+@media (max-width: 640px) {
+  .ach-list li { flex-direction: column; gap: 2px; }
+  .ach-year { flex: none; }
+}
+</style>
 </head>
 <body>
 <template id="__bundler_thumbnail" data-bg-color="#2c1a0e">

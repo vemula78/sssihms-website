@@ -73,6 +73,7 @@ export function buildSSRContext(resources) {
     'sssihms-live-fellowship.jsx',
     'sssihms-live-sssgh.jsx',
     'sssihms-publications.jsx',
+    'sssihms-achievements.jsx',
     'sssihms-gogreen.jsx',
     'sssihms-vahinis.jsx',
   ]) runFile(f);

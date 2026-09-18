@@ -319,6 +319,43 @@ function Split({ s, navigate }) {
   );
 }
 
+function Achievements({ s }) {
+  const list = (entries, ordered) => (
+    <ol className="ach-list">
+      {entries.map((e, i) => (
+        <li key={i}>
+          {e.year ? <span className="ach-year">{e.year}</span> : <span className="ach-year ach-year-none" />}
+          <span className="ach-text">{e.text}</span>
+        </li>
+      ))}
+    </ol>
+  );
+  return (
+    <section className={`section${s.alt ? ' section-alt' : ''}`}>
+      <div className="wrap">
+        <SectionHead eyebrow={s.eyebrow} title={s.title} sub={s.sub} />
+        <div className="ach-groups">
+          {s.groups.map((g, i) => (
+            <details key={i} className="ach-group" open={s.openFirst && i === 0}>
+              <summary>
+                <span className="ach-g-title">{g.title}</span>
+                {g.count ? <span className="ach-count">{g.count}</span> : null}
+              </summary>
+              {g.entries && g.entries.length ? list(g.entries) : null}
+              {(g.subgroups || []).map((sg, j) => (
+                <div key={j} className="ach-sub">
+                  <h4 className="ach-sub-title">{sg.title}</h4>
+                  {list(sg.entries)}
+                </div>
+              ))}
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Testimonials({ s }) {
   return (
     <section className={`section${s.alt ? ' section-alt' : ''}`}>
@@ -482,6 +519,7 @@ function Section({ s, navigate }) {
     case 'quote':        return <Quote s={s} />;
     case 'split':        return <Split s={s} navigate={navigate} />;
     case 'testimonials': return <Testimonials s={s} />;
+    case 'achievements': return <Achievements s={s} />;
     case 'faculty':      return <Faculty s={s} />;
     case 'cta':          return <CTA s={s} navigate={navigate} />;
     case 'banner':       return <Banner s={s} />;
