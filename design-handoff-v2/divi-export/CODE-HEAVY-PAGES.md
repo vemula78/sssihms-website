@@ -46,20 +46,32 @@ payload files from a different origin turns that into a cross-origin call and th
 WordPress's media library rejects `.html` uploads by default, so these need a real path on the
 web server plus a deploy step. That path is the open decision — see below.
 
-## Decisions needed
+## Settled (18-Sep-2026)
 
-1. **Where do the 15 static files live on the server, and how do they get there?**
-   A directory under the WP root served directly is simplest; it needs the path agreed and a
-   deploy command. Everything else waits on this.
-2. **Chart.js from CDN, or self-hosted?** Currently `cdn.jsdelivr.net`, pinned to 4.4.2. Pinned
-   is good. Self-hosting removes the external dependency; a one-file copy next to the stats
-   pages. Recommended, consistent with the no-CDN-unless-online house rule.
-3. **`divine-poetry` (54756) is not linked from any menu.** It is in the Bhagawan set but
-   currently orphaned. Add it to the Bhagawan menu, or confirm it should stay unlisted.
-4. **`songs` and `songs-baba` both map to page 52921.** Two mock pages, one live page — pick.
-5. **`padya-sudha` at 6.9 MB** renders as one enormous DOM. It will work but will feel heavy on
-   a phone. Pagination or lazy-rendering is a real improvement and a real rewrite — flagging,
-   not fixing, unless asked.
+1. **Hosting — done.** Files live at `/srv/www/wordpress/static/`, served at
+   `https://whitefield.sssihms.org/static/`. That is the whitefield DocumentRoot, and the
+   WordPress rewrite is guarded by `!-f`/`!-d`, so a real directory is served directly with
+   **no Apache config change and no restart**. Deploy with `./scripts/deploy-static.sh`
+   (dry run) / `--apply`. Atomic swap, idempotent, verifies over HTTPS afterwards.
+   The server runs **Apache, not nginx** — an earlier note here said nginx and was wrong.
+2. **Chart.js — self-hosted.** Vendored to `src/stats-pages/vendor/chart.umd.min.js` (4.4.2,
+   sha256 `08dfa473…`); all 11 CDN references rewritten. The deploy script refuses to ship if
+   a `cdn.jsdelivr.net` reference reappears.
+3. **`divine-poetry` — added** to the Baba menu (item 54903, position 9).
+4. **`songs` vs `songs-baba` — different pages.** `songs` is the "Songs & Poems" landing with
+   no iframe and maps to live `/poems/` (53061, CONFIRM pending); `songs-baba` is
+   "Sri Sathya Sai Compositions" and maps to 52921.
+5. **gzip is on** (mod_deflate covers `text/html`). Measured on the largest file:
+   6733 KiB → 1751 KiB over the wire, ~3.8×.
+
+## Still open
+
+- **`padya-sudha` at 6.9 MB** renders as one enormous DOM, 1.75 MB even gzipped. It will work
+  but will feel heavy on a phone. Pagination or lazy-rendering is a real improvement and a
+  real rewrite — flagging, not fixing, unless asked.
+- **Deploying from macOS needs `COPYFILE_DISABLE=1`** or bsdtar emits AppleDouble `._*`
+  sidecars into the web root. The first deploy shipped 19 of them; the script now sets the
+  variable, asserts zero `._*` remain, and asserts the remote file count matches what was sent.
 
 ## Why not rebuild the payloads as Divi content
 
