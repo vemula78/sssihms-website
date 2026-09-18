@@ -31,7 +31,7 @@ PAGES['history-gh'] = {
       'The success and sustainability of the hospital are a tribute to the dedicated efforts of the Sri Sathya Sai Central Trust, which meticulously oversees its operations, and to a vast network of volunteers, donors and well-wishers from around the globe, all inspired by Bhagawan’s mission.'
     ] },
     { type:'intro', eyebrow:'The Early Days', title:'A Clinic Given in Love',
-      image:'assets/sssgh/inauguration-sssgh-whitefield.png', imageLabel:'Inauguration of the Sri Sathya Sai General Hospital, Whitefield',
+      image:'assets/sssgh/inauguration-sssgh-whitefield.jpg', imageLabel:'Inauguration of the Sri Sathya Sai General Hospital, Whitefield',
       body:[
         'In 1969, Sri N. G. Ganapuley started a small clinic in Whitefield — the Health and Educational Society — which distributed medicines to the villagers free of cost. The clinic was donated to Bhagawan Sri Sathya Sai Baba, and thus the Sri Sathya Sai General Hospital was born in 1976.',
         'At its inauguration, Bhagawan set out its charter: a hospital amidst the villages, where expert advice and treatment would be rendered in a loving atmosphere of reverence and devotion — with no charge ever levied for any service.'
@@ -46,8 +46,8 @@ PAGES['history-gh'] = {
       'Then what will happen to this hospital? This hospital is also very important. This was like a tiny banyan seed grown into a gigantic tree. It will continue to grow more and more.'
     ], alt:true },
     { type:'gallery', eyebrow:'Archive', title:'The Early Years', cols:3, items:[
-      { src:'assets/sssgh/inauguration-1976.png', caption:'Inauguration of the hospital, 1976' },
-      { src:'assets/sssgh/inauguration-28-8-1976.png', caption:'Inauguration, 28 August 1976' },
+      { src:'assets/sssgh/inauguration-1976.jpg', caption:'Inauguration of the hospital, 1976' },
+      { src:'assets/sssgh/inauguration-28-8-1976.jpg', caption:'Inauguration, 28 August 1976' },
       { src:'assets/sssgh/inauguration-02.jpg', caption:'At the inauguration' },
       { src:'assets/sssgh/inauguration-03.jpg', caption:'At the inauguration' },
       { src:'assets/sssgh/inauguration-04.jpg', caption:'Inauguration day, SSSGH Whitefield' },
