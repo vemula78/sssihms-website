@@ -536,7 +536,7 @@ const NEWS = [
 ];
 
 const NAV = [
-  { label:'About Hospital', page:'about-hospital', items:[['Hospital Overview','about-hospital'],['Guiding Philosophy','guiding-philosophy'],['Genesis','genesis'],['Manohriday–Newsletter','manohriday'],['Statistics','statistics'],['Patient Speak','patient-speak'],['Visitor Speak','visitor-speak'],['Manohriday Newsletter','manohriday'],['About the Trust','trust']] },
+  { label:'About Hospital', page:'about-hospital', items:[['Hospital Overview','about-hospital'],['Guiding Philosophy','guiding-philosophy'],['Genesis','genesis'],['Manohriday–Newsletter','manohriday'],['Statistics','statistics'],['Patient Speak','patient-speak'],['Visitor Speak','visitor-speak'],['About the Trust','trust']] },
   { label:'Departments', page:'specialties', items:[
     ['Cardiology','cardiology',[['Faculty','cardiology-faculty'],['Infrastructure','cardiology-infrastructure'],['Achievements','cardiology-achievements'],['Events','cardiology-events'],['DrNB Cardiology','drnb-cardiology'],['Fellowship','fellowship-cardiology'],['MSc Echocardiography','msecho'],['BSc Cardiac Care Tech','bsc-cardiac-care-technology'],['Statistics','cardiology-statistics']]],
     ['Cardiac Surgery','cardiac-surgery',[['Faculty','ctvs-faculty'],['Infrastructure','ctvs-infrastructure'],['DNB Cardiac Surgery','dnb-cardiac-surgery'],['BSc Perfusion Tech','bsc-perfusion'],['Statistics','cardiac-surgery-statistics']]],
@@ -551,7 +551,8 @@ const NAV = [
   { label:'Academics', page:'academics', items:[['DNB Programmes','dnb'],['Fellowship Courses','fellowship'],['Nursing & Allied Health','nursing-and-allied-health'],['CME & Conference Archive','conferences'],['Career Opportunities','careers']] },
   { label:'Get Involved', page:'getinvolved', items:[['Sevadal – Volunteer','sevadal'],['Donations','getinvolved'],['Volunteer Expertise','volunteer'],['Help Desk','help-desk']] },
   { label:'Go Green', page:'gogreen', items:[['Go Green Overview','gogreen'],['Rain Water Harvesting','gg-rainwater'],['Solar Power Plant','gg-solar'],['Trees on Campus','gg-trees'],['Biomedical Waste Report','gg-biomedical'],['Power Conservation','gg-power'],['Water Use Maximization','gg-water'],['Waste Management','gg-waste']] },
-  { label:'Bhagawan', page:'bhagawan', items:[['Life & Mission','bhagawan'],['Teachings & Discourses','bhagawan'],['The Vahini Series','vahinis'],['Songs & Poems','songs',[['Divine Poetry','divine-poetry'],['Sai Compositions','songs-baba'],['Sri Sathya Sai Padhya Sudha','sai_padhyam']]],['Sai Projects','bhagawan']] },
+  { label:'Opportunities', page:'careers', items:[['Career Opportunities','careers']] },
+  { label:'Bhagawan', page:'bhagawan', items:[['Life & Mission','bhagawan'],['Teachings & Discourses','https://www.srisathyasai.org/pages/sai-his-messages-speaks.html'],['The Vahini Series','vahinis'],['Songs & Poems','songs',[['Divine Poetry','divine-poetry'],['Sai Compositions','songs-baba'],['Sri Sathya Sai Padhya Sudha','sai_padhyam']]],['Sai Projects','https://www.srisathyasai.org/pages/sai-projects.html']] },
 ];
 
 // ── COMPONENTS ───────────────────────────────────────────────────────────────
@@ -575,6 +576,12 @@ function TopBar({ navigate }) {
 function NavBar({ page, navigate }) {
   const [open, setOpen] = useState(false);
   const go = (p) => { setOpen(false); navigate(p); };
+
+  // A nav target is normally a page key, but a few entries point outside the site
+  // (srisathyasai.org), so those render as real links instead of app navigation.
+  const NavLeaf = ({ k, cls, children }) => /^https?:/.test(k)
+    ? <a className={cls} href={k} target="_blank" rel="noopener noreferrer">{children}</a>
+    : <button className={cls} onClick={() => navigate(k)}>{children}</button>;
   return (
     <nav className="navbar">
       <div className="nav-inner" style={{opacity:1}}>
@@ -594,12 +601,12 @@ function NavBar({ page, navigate }) {
               <div className="dropdown">
                 {item.items.map(([sub, key, children]) => children ? (
                   <div key={sub} className="dd-item">
-                    <button onClick={() => navigate(key)}>{sub}<span className="dd-arrow">›</span></button>
+                    <NavLeaf k={key}>{sub}<span className="dd-arrow">›</span></NavLeaf>
                     <div className="dd-flyout">
-                      {children.map(([l2, k2]) => <button key={l2} onClick={() => navigate(k2)}>{l2}</button>)}
+                      {children.map(([l2, k2]) => <NavLeaf key={l2} k={k2}>{l2}</NavLeaf>)}
                     </div>
                   </div>
-                ) : <button key={sub} onClick={() => navigate(key)}>{sub}</button>)}
+                ) : <NavLeaf key={sub} k={key}>{sub}</NavLeaf>)}
               </div>
             </li>
           ))}
