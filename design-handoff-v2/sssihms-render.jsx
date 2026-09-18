@@ -330,26 +330,33 @@ function Achievements({ s }) {
       ))}
     </ol>
   );
+
+  // A group may hold entries, flat sub-headings, or nested groups one level deep
+  // (Conferences Organised holds a group per conference, each with its own programme).
+  const group = (g, key, open, depth) => (
+    <details key={key} className={depth ? 'ach-group ach-group-nested' : 'ach-group'} open={open}>
+      <summary>
+        <span className="ach-g-title">{g.title}</span>
+        {g.count ? <span className="ach-count">{g.count}</span> : null}
+      </summary>
+      {g.entries && g.entries.length ? list(g.entries) : null}
+      {(g.subgroups || []).map((sg, j) => (
+        <div key={'s' + j} className="ach-sub">
+          <h4 className="ach-sub-title">{sg.title}</h4>
+          {list(sg.entries)}
+        </div>
+      ))}
+      {(g.groups || []).length ? (
+        <div className="ach-nest">{g.groups.map((ng, j) => group(ng, 'g' + j, false, depth + 1))}</div>
+      ) : null}
+    </details>
+  );
   return (
     <section className={`section${s.alt ? ' section-alt' : ''}`}>
       <div className="wrap">
         <SectionHead eyebrow={s.eyebrow} title={s.title} sub={s.sub} />
         <div className="ach-groups">
-          {s.groups.map((g, i) => (
-            <details key={i} className="ach-group" open={s.openFirst && i === 0}>
-              <summary>
-                <span className="ach-g-title">{g.title}</span>
-                {g.count ? <span className="ach-count">{g.count}</span> : null}
-              </summary>
-              {g.entries && g.entries.length ? list(g.entries) : null}
-              {(g.subgroups || []).map((sg, j) => (
-                <div key={j} className="ach-sub">
-                  <h4 className="ach-sub-title">{sg.title}</h4>
-                  {list(sg.entries)}
-                </div>
-              ))}
-            </details>
-          ))}
+          {s.groups.map((g, i) => group(g, i, s.openFirst && i === 0, 0))}
         </div>
       </div>
     </section>

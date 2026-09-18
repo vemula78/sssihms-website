@@ -423,3 +423,8 @@ h1,h2,h3,h4 { font-family: var(--f-head); line-height: 1.2; }
   .ach-list li { flex-direction: column; gap: 2px; }
   .ach-year { flex: none; }
 }
+
+.ach-nest { display: flex; flex-direction: column; gap: 8px; padding: 6px 16px 14px; }
+.ach-group-nested { background: var(--bg); }
+.ach-group-nested > summary { padding: 11px 16px; }
+.ach-group-nested .ach-g-title { font-size: 17px; }
