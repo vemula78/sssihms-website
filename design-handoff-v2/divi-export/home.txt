@@ -54,7 +54,7 @@ ALL MEDICAL CARE PROVIDED FREE OF COST
 <p>Sri Sathya Sai Institute of Higher Medical Sciences provides world-class tertiary care to all patients, regardless of caste, creed, religion or financial status.</p>
 [/et_pb_text]
 [et_pb_text _builder_version="4.24.0" text_orientation="center"]
-<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:6px;"><a href="/appointments-admission" style="background:#c8813a;color:#fff;font-weight:600;font-size:14px;padding:11px 26px;border-radius:6px;display:inline-block;">Book Appointment</a><a href="/about-hospital" style="border:2px solid #c8813a;color:#c8813a;font-weight:600;font-size:14px;padding:9px 24px;border-radius:6px;display:inline-block;">Our Mission</a></div>
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:6px;"><a href="/appointments-admission" style="font-family:'Nunito Sans',system-ui,sans-serif;background:#c8813a;color:#fff;font-weight:600;font-size:14px;padding:11px 26px;border-radius:6px;display:inline-block;">Book Appointment</a><a href="/about-hospital" style="font-family:'Nunito Sans',system-ui,sans-serif;border:2px solid #c8813a;color:#c8813a;font-weight:600;font-size:14px;padding:11px 26px;border-radius:6px;display:inline-block;">Our Mission</a></div>
 [/et_pb_text]
 [/et_pb_column]
 [et_pb_column type="1_4" _builder_version="4.24.0"]
