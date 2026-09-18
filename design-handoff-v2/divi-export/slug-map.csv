@@ -33,7 +33,7 @@ counseling,exact,210,counseling,publish,0,,yes
 ctvs-faculty,NEW,,,,,,new-page-needed
 ctvs-infrastructure,NEW,,,,,,new-page-needed
 dental,exact,53304,dental,publish,0,,yes
-divine-poetry,exact,54756,divine-poetry,publish,0,,no-not-in-menu
+divine-poetry,exact,54756,divine-poetry,publish,0,added to Baba menu 18-Sep-2026 (item 54903),yes
 dnb,exact,257,dnb,publish,63,,yes
 dnb-cardiac-surgery,exact,538,dnb-cardiac-surgery,publish,0,,yes
 drnb-cardiology,exact,656,drnb-cardiology,publish,0,,yes
@@ -97,7 +97,7 @@ sai_padhyam,exact,53609,sai_padhyam,publish,0,,yes
 score,REVIEW,,,,,live has iacts-score-2019 event pages,decide
 services,exact,61,services,publish,0,,yes
 sevadal,exact,52845,sevadal,publish,0,,yes
-songs,rename-keep-live-url,52921,songs-baba,publish,,live URL kept,yes
+songs,rename-keep-live-url,53061,poems,publish,,"CONFIRM: mock ""Songs & Poems"" landing -> live /poems/",yes
 songs-baba,exact,52921,songs-baba,publish,0,,yes
 specialties,exact,59,specialties,publish,0,,yes
 speed,REVIEW,,,,,live has speed-2026-* event pages,decide
