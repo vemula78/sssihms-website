@@ -2,7 +2,7 @@
 [et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px"]
 [et_pb_column type="4_4" _builder_version="4.24.0"]
 
-[et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_text_color="#7a6a55" text_font_size="13px"]
+[et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_text_color="#7a6a55" text_font_size="17px"]
 Home &nbsp;›&nbsp; <span style="color:#c8813a">{{CRUMB}}</span>
 [/et_pb_text]
 
@@ -24,7 +24,7 @@ Home &nbsp;›&nbsp; <span style="color:#c8813a">{{CRUMB}}</span>
 [/et_pb_row_inner]
 
 {{#IF SUBTITLE}}
-[et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_text_color="#2a1f14" text_font_size="16px" text_line_height="1.7" max_width="640px" custom_margin="12px||||false|false"]
+[et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_text_color="#2a1f14" text_font_size="17.5px" text_line_height="1.7" max_width="640px" custom_margin="12px||||false|false"]
 {{SUBTITLE}}
 [/et_pb_text]
 {{/IF}}

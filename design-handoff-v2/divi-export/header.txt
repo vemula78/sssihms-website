@@ -40,7 +40,7 @@ own responsive drawer, used instead) and the logo's onError fallback to a text w
 [et_pb_section fb_built="1" admin_label="Top Bar" _builder_version="4.24.0" background_color="#2c1a0e" custom_padding="8px||8px||true|false" border_width_bottom="1px" border_color_bottom="rgba(255,255,255,0.12)"]
 [et_pb_row _builder_version="4.24.0" width="100%" max_width="1180px" custom_padding="0|0|0|0|false|false"]
 [et_pb_column type="4_4" _builder_version="4.24.0"]
-[et_pb_text _builder_version="4.24.0" text_font="Nunito Sans|500||||||" text_font_size="12.5px" text_text_color="#f0d5b0"]
+[et_pb_text _builder_version="4.24.0" text_font="Nunito Sans|500||||||" text_font_size="13.5px" text_text_color="#f0d5b0"]
 <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;"><span>Help Desk: 080-471004600 &nbsp;<span style="opacity:.4">|</span>&nbsp; <a href="/help-desk" style="color:#f0d5b0;opacity:.85;">Telemedicine</a> &nbsp;<span style="opacity:.4">|</span>&nbsp; <a href="/blog" style="color:#f0d5b0;opacity:.85;">Blog</a></span><span style="text-transform:uppercase;letter-spacing:1px;opacity:.65;font-size:10.5px;font-weight:600;">A Unit of Sri Sathya Sai Central Trust</span></div>
 [/et_pb_text]
 [/et_pb_column]

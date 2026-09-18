@@ -5,7 +5,7 @@
 {{#IF TITLE}}
 [et_pb_text _builder_version="4.24.0" text_orientation="center" max_width="680px" module_alignment="center"
   header_2_font="EB Garamond|600|||||||" header_2_text_color="#2a1f14"]
-{{#IF EYEBROW}}<span style="color:#c8813a;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;">{{EYEBROW}}</span>{{/IF}}
+{{#IF EYEBROW}}<span style="color:#c8813a;font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;">{{EYEBROW}}</span>{{/IF}}
 <h2>{{TITLE}}</h2>
 [/et_pb_text]
 {{/IF}}

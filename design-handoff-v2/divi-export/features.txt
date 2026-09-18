@@ -4,14 +4,14 @@
 [et_pb_column type="4_4" _builder_version="4.24.0"]
 {{#IF TITLE}}
 [et_pb_text _builder_version="4.24.0" text_orientation="{{CENTER_OR_LEFT}}"
-  header_2_font="EB Garamond|600|||||||" header_2_text_color="#2a1f14" header_2_font_size="42px" header_2_line_height="1.2em" text_font="Nunito Sans||||||||" text_font_size="16px" text_text_color="#7a6a55" text_line_height="1.75"]
-{{#IF EYEBROW}}<span style="color:#c8813a;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;">{{EYEBROW}}</span>{{/IF}}
+  header_2_font="EB Garamond|600|||||||" header_2_text_color="#2a1f14" header_2_font_size="42px" header_2_line_height="1.2em" text_font="Nunito Sans||||||||" text_font_size="17.5px" text_text_color="#7a6a55" text_line_height="1.75"]
+{{#IF EYEBROW}}<span style="color:#c8813a;font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;">{{EYEBROW}}</span>{{/IF}}
 <h2>{{TITLE}}</h2>
 {{#IF SUB}}<p style="color:#7a6a55;">{{SUB}}</p>{{/IF}}
 [/et_pb_text]
 {{/IF}}
 
-[et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_text_color="#2a1f14" text_font_size="15px" text_line_height="1.55"]
+[et_pb_text _builder_version="4.24.0" text_font="Nunito Sans||||||||" text_text_color="#2a1f14" text_font_size="17px" text_line_height="1.55"]
 <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:2px 28px;">
 {{#EACH ITEM}}
 <div style="display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px solid #e0d5c0;">

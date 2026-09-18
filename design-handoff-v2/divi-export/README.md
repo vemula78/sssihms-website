@@ -64,19 +64,37 @@ Related: a Text module's `text_font` / `text_font_size` / `text_text_color` styl
 body copy. A heading module that also carries a `.section-sub` paragraph needs these set too,
 or that paragraph falls back to 14px Open Sans #666 while the heading looks right.
 
-**How this was caught, and how to check it:** eyeballing screenshots never revealed it, because
-Divi's fallback looks like a deliberate (if flat) design rather than an error. Fingerprint both
-sites instead — read `getComputedStyle` for h2/h3/p in each section on the mock and on the Divi
-page, and diff. Anything rendering "Open Sans / 14px / rgb(102,102,102)" is unstyled, not
-styled-differently. Target values from the mock at 1500px:
+**SOURCE OF TRUTH: `design-handoff-v2/SSSIHMS Website.html`, not wfd.sssihms.org.**
+Confirmed 18-Sep-2026. Two prototypes exist with *different body type scales*. The deployed
+mock at wfd.sssihms.org (`src/css/site.css`) uses a smaller scale; the JSX prototype raises
+body copy to a **17px floor**. Every heading size is identical between the two — only body and
+UI sizes differ. Build Divi against the JSX prototype.
+
+**How to check it:** eyeballing screenshots never reveals a mis-set size, because Divi's
+fallback looks like a deliberate (if flat) design rather than an error. Fingerprint instead —
+read `getComputedStyle` for h2/h3/p in each section and diff against the table below. Anything
+rendering "Open Sans / 14px / rgb(102,102,102)" is unstyled, not styled-differently.
+
 | element | value |
 |---|---|
-| section h2 | 42px EB Garamond #2a1f14 |
-| section sub p | 16px Nunito Sans #7a6a55, line-height 1.75 |
-| eyebrow | 11px Nunito Sans 700 #c8813a |
-| news card h3 / p | 20px EB Garamond / 13px Nunito Sans |
-| CTA band h2 / p | 36px white / 15px white |
+| section h2 | 42px EB Garamond #2a1f14, line-height 1.2 |
+| section sub (`.section-sub`) | **17.5px** Nunito Sans #7a6a55, lh 1.75 |
+| body prose (`.prose-p`, card bodies) | **17px** — this is the floor, never go below |
+| eyebrow | **14px** 700 #c8813a, letter-spacing .14em |
+| news card h3 / desc | 19px / **17px** |
+| news date / tag | 13px / 12px |
+| stat value / label | 46px / **15.5px** |
+| button `.btn` / `.btn-inv` | **15px** / 13px |
+| pill `.free-pill` | **13px** |
+| free strip item `.fi` | **14.5px** |
+| vision-mission body `.vm-card p` | 14.5px (unchanged) |
+| quote text / attribution | clamp(19,2.4vw,26) / **14.5px** |
+| top bar | 13.5px |
 | section padding | 72px top and bottom (64px for the CTA band) |
+
+Rules from the design system: body copy floor is 17px for prose, 14px for UI chrome; do not
+invent sizes between existing steps; uppercase text always carries letter-spacing .07–.15em
+with weight 600–700.
 
 **Divi sets every heading's line-height to 1.0.** Unless you pass `header_2_line_height` etc., a
 42px h2 sits in a 42px box against the mock's 50.4px, and two-line headings nearly touch. Always
