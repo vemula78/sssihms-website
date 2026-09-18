@@ -14,6 +14,9 @@ on a grid become Code modules, because Divi's own column handling reflows them.
 """
 import argparse, json, re, sys, pathlib
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from divi_labels import relabel
+
 GRID = re.compile(r'class="[^"]*(auto-grid|faculty-grid|gallery-grid|stat-grid|table-wrap|subnav)', re.I)
 
 TEXT_WRAP = ('[et_pb_text _builder_version="4.27.0" module_class="sssi-mod" '
@@ -105,7 +108,9 @@ def main():
 
     mods = ''.join((CODE_WRAP if GRID.search(s) else TEXT_WRAP) % s for s in secs)
     tail = '[/et_pb_column][/et_pb_row][/et_pb_section]'
-    new = prefix + mods + tail
+    # Name each module after its own heading, so Divi's layers panel is
+    # navigable instead of reading "Text, Text, Text" all the way down.
+    new, _labels = relabel(prefix + mods + tail)
 
     kinds = ['code' if GRID.search(s) else 'text' for s in secs]
     print(f'{a.slug}: {len(secs)} sections ({kinds.count("text")} text, {kinds.count("code")} code)'

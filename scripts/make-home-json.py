@@ -16,6 +16,8 @@ emitted as an ordinary content section.
 import argparse, json, pathlib, re, sys
 
 HERE = pathlib.Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+from divi_labels import relabel
 
 # The home page lays nearly every section out on its own named CSS grid
 # (spec-grid, stats-grid, acad-grid, inv-grid, pat-grid, news-grid) rather than the
@@ -91,7 +93,7 @@ def main():
                     .replace('src="poetry-pages/', 'src="/static/poetry-pages/') for s in secs]
 
     mods = ''.join((CODE_WRAP if GRID.search(s) else TEXT_WRAP) % s for s in secs)
-    body = prefix + mods + '[/et_pb_column][/et_pb_row][/et_pb_section]'
+    body, _labels = relabel(prefix + mods + '[/et_pb_column][/et_pb_row][/et_pb_section]')
 
     kinds = ['code' if GRID.search(s) else 'text' for s in secs]
     print(f'home: {len(secs)} sections ({kinds.count("text")} text, {kinds.count("code")} code)  -> {len(body):,}b')
