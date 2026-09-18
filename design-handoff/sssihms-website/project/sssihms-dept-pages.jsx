@@ -139,9 +139,7 @@ PAGES['ctvs-faculty'] = {
     { type:'faculty', eyebrow:'Core Faculty', title:'Consultants', cols:3, items:[
       { name:'Dr. Chittaranjan S J', role:'Sr. Consultant & Head of Department' },
       { name:'Dr. Giridhar Kamalapurkar', role:'Sr. Consultant' },
-      { name:'Dr. Gautham Shetty', role:'Consultant' },
-      { name:'Dr. Vikram Halder', role:'Junior Consultant' },
-      { name:'Dr. Arun K R', role:'Junior Consultant' }
+      { name:'Dr. Gautham Shetty', role:'Consultant' }
     ] }
   ]
 };
@@ -184,9 +182,6 @@ PAGES['nesu-faculty'] = {
     { type:'faculty', eyebrow:'Core Faculty', title:'Consultants', cols:3, items:[
       { name:'Dr. Saritha Aryan', role:'MCh — Senior Consultant & I/C HOD' },
       { name:'Dr. Sumit Thakar', role:'MCh — Senior Consultant' },
-      { name:'Dr. Tejas', role:'MCh — Visiting Consultant' },
-      { name:'Dr. Ajay Kumar Jhajharia', role:'MCh — Jr. Consultant' },
-      { name:'Dr. Avinash Lakha', role:'MCh — Jr. Consultant' },
       { name:'Dr. Sanjay H M', role:'MCh — Jr. Consultant' },
       { name:'Dr. Sauradeep Sarkar', role:'MCh — Jr. Consultant' }
     ] },

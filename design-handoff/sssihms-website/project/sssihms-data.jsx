@@ -259,9 +259,7 @@ const PAGES = {
       { type:'faculty', eyebrow:'Our Team', title:'Faculty', cols:3, items:[
         { name:'Dr. Chittaranjan S J', role:'Sr. Consultant & HOD' },
         { name:'Dr. Giridhar Kamalapurkar', role:'Sr. Consultant' },
-        { name:'Dr. Gautham Shetty', role:'Consultant' },
-        { name:'Dr. Vikram Halder', role:'Junior Consultant' },
-        { name:'Dr. Arun K R', role:'Junior Consultant' }
+        { name:'Dr. Gautham Shetty', role:'Consultant' }
       ] },
       { type:'features', eyebrow:'Open-Heart Surgery', title:'Common Open-Heart Procedures', items:[
         'Coronary artery bypass — mostly off-pump (OPCAB), without a heart-lung machine',
@@ -334,9 +332,6 @@ const PAGES = {
         sub:'Visiting faculty include Dr. Anil Nanda (USA) and Dr. Ravi Goyal (USA).', cols:4, items:[
         { name:'Dr. Saritha Aryan', role:'Sr. Consultant & I/C HOD' },
         { name:'Dr. Sumit Thakar', role:'Sr. Consultant' },
-        { name:'Dr. Tejas', role:'Visiting Consultant' },
-        { name:'Dr. Ajay Kumar Jhajharia', role:'Jr. Consultant' },
-        { name:'Dr. Avinash Lakha', role:'Jr. Consultant' },
         { name:'Dr. Sanjay H. M.', role:'Jr. Consultant' },
         { name:'Dr. Sauradeep Sarkar', role:'Jr. Consultant' }
       ] },

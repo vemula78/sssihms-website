@@ -1,0 +1,1883 @@
+{
+  "manifest": {
+    "about-hospital": {
+      "about-hospital": {
+        "page_url": "https://whitefield.sssihms.org/about-hospital/",
+        "images": [
+          {
+            "file": "Diwali-hospital-picture-e1430890195276.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Diwali-hospital-picture-e1430890195276.jpg",
+            "status": "downloaded",
+            "bytes": 1594720
+          },
+          {
+            "file": "aerial3.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/04/aerial3.jpg",
+            "status": "downloaded",
+            "bytes": 1339695
+          },
+          {
+            "file": "02_Final_Hospita-.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/02_Final_Hospita-.jpg",
+            "status": "downloaded",
+            "bytes": 1850451
+          },
+          {
+            "file": "Diwali-hospital-picture-e1430890195276.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Diwali-hospital-picture-e1430890195276.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Website-full-length-image.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Website-full-length-image.png",
+            "status": "downloaded",
+            "bytes": 1032513
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded",
+            "bytes": 218189
+          }
+        ]
+      },
+      "guiding-philosophy": {
+        "page_url": "https://whitefield.sssihms.org/guiding-philosophy/",
+        "images": [
+          {
+            "file": "sssihms-highlighted-night.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/sssihms-highlighted-night.png",
+            "status": "downloaded",
+            "bytes": 742794
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded",
+            "bytes": 218189
+          }
+        ]
+      },
+      "genesis": {
+        "page_url": "https://whitefield.sssihms.org/about-hospital/genesis/",
+        "images": [
+          {
+            "file": "ROAD-LAYING.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/ROAD-LAYING.jpg",
+            "status": "downloaded",
+            "bytes": 936108
+          },
+          {
+            "file": "before-hospital.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/before-hospital.jpg",
+            "status": "downloaded",
+            "bytes": 4066500
+          },
+          {
+            "file": "BLESSING-MACHINARY.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/BLESSING-MACHINARY.jpg",
+            "status": "downloaded",
+            "bytes": 1188102
+          },
+          {
+            "file": "ROAD-LAYING.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/ROAD-LAYING.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "before-hospital.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/before-hospital.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded",
+            "bytes": 218189
+          }
+        ]
+      }
+    },
+    "department-main": {
+      "cardiology": {
+        "page_url": "https://whitefield.sssihms.org/cardiology/",
+        "images": [
+          {
+            "file": "Biplane-Cathlab.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Biplane-Cathlab.jpg",
+            "status": "downloaded",
+            "bytes": 853069
+          },
+          {
+            "file": "DSC06970.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/DSC06970.jpg",
+            "status": "downloaded",
+            "bytes": 3309568
+          },
+          {
+            "file": "CCU-BED-WITH-EQUPMENTS-GOOD.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/CCU-BED-WITH-EQUPMENTS-GOOD.jpg",
+            "status": "downloaded",
+            "bytes": 3633738
+          },
+          {
+            "file": "E95-Echo-2-scaled.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/E95-Echo-2-scaled.jpg",
+            "status": "downloaded",
+            "bytes": 544525
+          },
+          {
+            "file": "E95-Echo-2.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/E95-Echo-2.jpg",
+            "status": "downloaded",
+            "bytes": 2065633
+          },
+          {
+            "file": "Ensite-Precision-3D-Mapping-System-2-scaled.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Ensite-Precision-3D-Mapping-System-2-scaled.jpg",
+            "status": "downloaded",
+            "bytes": 381195
+          },
+          {
+            "file": "Ensite-Precision-3D-Mapping-System-2.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Ensite-Precision-3D-Mapping-System-2.jpg",
+            "status": "downloaded",
+            "bytes": 1455092
+          },
+          {
+            "file": "ROTABLATOR.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/ROTABLATOR.jpg",
+            "status": "downloaded",
+            "bytes": 3620595
+          },
+          {
+            "file": "S70-Echo-2-scaled.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/S70-Echo-2-scaled.jpg",
+            "status": "downloaded",
+            "bytes": 564895
+          },
+          {
+            "file": "S70-Echo-2.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/S70-Echo-2.jpg",
+            "status": "downloaded",
+            "bytes": 2018440
+          },
+          {
+            "file": "IVUS-scaled.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2023/03/IVUS-scaled.jpg",
+            "status": "downloaded",
+            "bytes": 314722
+          },
+          {
+            "file": "IVUS.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2023/03/IVUS.jpg",
+            "status": "downloaded",
+            "bytes": 2506345
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded",
+            "bytes": 218189
+          }
+        ]
+      },
+      "neurosurgery": {
+        "page_url": "https://whitefield.sssihms.org/neurosurgery/",
+        "images": [
+          {
+            "file": "Photo-161.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Photo-161.jpg",
+            "status": "downloaded",
+            "bytes": 240523
+          },
+          {
+            "file": "Photo-17-e1430994430309.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Photo-17-e1430994430309.jpg",
+            "status": "downloaded",
+            "bytes": 479913
+          },
+          {
+            "file": "Photo-2.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Photo-2.jpg",
+            "status": "downloaded",
+            "bytes": 252190
+          },
+          {
+            "file": "Photo-25.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Photo-25.jpg",
+            "status": "downloaded",
+            "bytes": 228457
+          },
+          {
+            "file": "Photo-161.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Photo-161.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Photo-17-e1430994430309.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Photo-17-e1430994430309.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Photo-2.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Photo-2.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Photo-25.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Photo-25.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded",
+            "bytes": 218189
+          }
+        ]
+      },
+      "anesthesiology": {
+        "page_url": "https://whitefield.sssihms.org/anesthesiology1/",
+        "images": [
+          {
+            "file": "Photo-161.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Photo-161.jpg",
+            "status": "downloaded",
+            "bytes": 240523
+          },
+          {
+            "file": "Photo-17-e1430994430309.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Photo-17-e1430994430309.jpg",
+            "status": "downloaded",
+            "bytes": 479913
+          },
+          {
+            "file": "Photo-2.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Photo-2.jpg",
+            "status": "downloaded",
+            "bytes": 252190
+          },
+          {
+            "file": "Photo-25.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Photo-25.jpg",
+            "status": "downloaded",
+            "bytes": 228457
+          },
+          {
+            "file": "Photo-161.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Photo-161.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Photo-17-e1430994430309.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Photo-17-e1430994430309.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Photo-2.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Photo-2.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Photo-25.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Photo-25.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded",
+            "bytes": 218189
+          }
+        ]
+      },
+      "radiology": {
+        "page_url": "https://whitefield.sssihms.org/radiology1/",
+        "images": [
+          {
+            "file": "Biplane-Cathlab.jpg",
+            "url": "http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Biplane-Cathlab.jpg",
+            "status": "downloaded",
+            "bytes": 853069
+          },
+          {
+            "file": "GE-CT-Scanner.jpg",
+            "url": "http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/GE-CT-Scanner.jpg",
+            "status": "downloaded",
+            "bytes": 557622
+          },
+          {
+            "file": "MRI.jpg",
+            "url": "http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/MRI.jpg",
+            "status": "downloaded",
+            "bytes": 1343488
+          },
+          {
+            "file": "SSMT_913-Web.jpg",
+            "url": "http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/06/SSMT_913-Web.jpg",
+            "status": "downloaded",
+            "bytes": 143027
+          },
+          {
+            "file": "Swami-Blessing-Radiology.jpg",
+            "url": "http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/06/Swami-Blessing-Radiology.jpg",
+            "status": "downloaded",
+            "bytes": 1691132
+          },
+          {
+            "file": "Biplane-Cathlab.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Biplane-Cathlab.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "GE-CT-Scanner.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/GE-CT-Scanner.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "MRI.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/MRI.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "SSMT_913-Web.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/06/SSMT_913-Web.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Swami-Blessing-Radiology.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/06/Swami-Blessing-Radiology.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded",
+            "bytes": 218189
+          }
+        ]
+      },
+      "ent": {
+        "page_url": "https://whitefield.sssihms.org/ent/",
+        "images": [
+          {
+            "file": "Reema-ENT.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/12/Reema-ENT.jpg",
+            "status": "downloaded",
+            "bytes": 132257
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded",
+            "bytes": 218189
+          }
+        ]
+      },
+      "general-medicine": {
+        "page_url": "https://whitefield.sssihms.org/general-medicine/",
+        "images": [
+          {
+            "file": "Dr.-Ramkumar-GM.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/12/Dr.-Ramkumar-GM.jpg",
+            "status": "downloaded",
+            "bytes": 1173538
+          },
+          {
+            "file": "Dr.-Swapna-GM.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/12/Dr.-Swapna-GM.jpg",
+            "status": "downloaded",
+            "bytes": 1008518
+          },
+          {
+            "file": "GM-2.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/12/GM-2.jpg",
+            "status": "downloaded",
+            "bytes": 802243
+          },
+          {
+            "file": "Murugan-GM.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/12/Murugan-GM.jpg",
+            "status": "downloaded",
+            "bytes": 1344353
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded",
+            "bytes": 218189
+          }
+        ]
+      },
+      "pediatrics": {
+        "page_url": "https://whitefield.sssihms.org/sssgh/pediatrics/",
+        "images": [
+          {
+            "file": "Baba-with-baby-2.jpeg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/12/Baba-with-baby-2.jpeg",
+            "status": "downloaded",
+            "bytes": 7711
+          },
+          {
+            "file": "Baba-with-baby-3.jpeg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/12/Baba-with-baby-3.jpeg",
+            "status": "downloaded",
+            "bytes": 7222
+          },
+          {
+            "file": "Baba-with-baby-4.jpeg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/12/Baba-with-baby-4.jpeg",
+            "status": "downloaded",
+            "bytes": 7041
+          },
+          {
+            "file": "Baba-with-baby-5.jpeg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/12/Baba-with-baby-5.jpeg",
+            "status": "downloaded",
+            "bytes": 11267
+          },
+          {
+            "file": "Baba-with-baby-6.jpeg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/12/Baba-with-baby-6.jpeg",
+            "status": "downloaded",
+            "bytes": 7470
+          },
+          {
+            "file": "Baba-with-baby-7.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/12/Baba-with-baby-7.jpg",
+            "status": "downloaded",
+            "bytes": 16057
+          },
+          {
+            "file": "Baba-with-baby1.jpeg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/12/Baba-with-baby1.jpeg",
+            "status": "downloaded",
+            "bytes": 12207
+          },
+          {
+            "file": "Dr.-Kamakshi-with-Swami.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/12/Dr.-Kamakshi-with-Swami.png",
+            "status": "downloaded",
+            "bytes": 280597
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded",
+            "bytes": 218189
+          }
+        ]
+      },
+      "general-surgery": {
+        "page_url": "https://whitefield.sssihms.org/general-surgery/",
+        "images": [
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded",
+            "bytes": 218189
+          }
+        ]
+      },
+      "dental": {
+        "page_url": "https://whitefield.sssihms.org/dental/",
+        "images": [
+          {
+            "file": "Mythili-dental.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/12/Mythili-dental.jpg",
+            "status": "downloaded",
+            "bytes": 1100380
+          },
+          {
+            "file": "vijaendra-denta1l.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/12/vijaendra-denta1l.jpg",
+            "status": "downloaded",
+            "bytes": 1002489
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded",
+            "bytes": 218189
+          }
+        ]
+      },
+      "cardiac-surgery": {
+        "page_url": "https://whitefield.sssihms.org/cardiac-surgery/",
+        "images": [
+          {
+            "file": "DSC08273.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/DSC08273.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "ctvs.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/04/ctvs.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "DSC08263.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/DSC08263.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "DSC08273.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/DSC08273.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "first-patient-in-ICU-and-Swami.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/first-patient-in-ICU-and-Swami.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Swami-with-CTVS-team.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Swami-with-CTVS-team.png",
+            "status": "downloaded"
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded"
+          }
+        ]
+      },
+      "sssgh": {
+        "page_url": "https://whitefield.sssihms.org/sssgh/",
+        "images": [
+          {
+            "file": "Swami-with-stethoscope.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Swami-with-stethoscope.jpg",
+            "status": "http-404"
+          },
+          {
+            "file": "1.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/1.png",
+            "status": "downloaded"
+          },
+          {
+            "file": "Anesthesiology.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Anesthesiology.png",
+            "status": "downloaded"
+          },
+          {
+            "file": "CTVS.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/CTVS.png",
+            "status": "downloaded"
+          },
+          {
+            "file": "Cardiology.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Cardiology.png",
+            "status": "downloaded"
+          },
+          {
+            "file": "DNB.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/DNB.png",
+            "status": "downloaded"
+          },
+          {
+            "file": "Neurology.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Neurology.png",
+            "status": "downloaded"
+          },
+          {
+            "file": "Neurosurgery.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Neurosurgery.png",
+            "status": "downloaded"
+          },
+          {
+            "file": "Nursing.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Nursing.png",
+            "status": "downloaded"
+          },
+          {
+            "file": "Papers.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Papers.png",
+            "status": "downloaded"
+          },
+          {
+            "file": "Radiology.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Radiology.png",
+            "status": "downloaded"
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded"
+          }
+        ]
+      },
+      "ophthalmology": {
+        "page_url": "https://whitefield.sssihms.org/ophthalmology/",
+        "images": [
+          {
+            "file": "Shakuntala-opth.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/12/Shakuntala-opth.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "kavitha-opthal.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/12/kavitha-opthal.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded"
+          }
+        ]
+      },
+      "obgyn": {
+        "page_url": "https://whitefield.sssihms.org/obgyn/",
+        "images": [
+          {
+            "file": "Swami.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Swami.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "first-patient-in-ICU-and-Swami.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/first-patient-in-ICU-and-Swami.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Swami-blessing-e1449808501147.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/12/Swami-blessing-e1449808501147.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Swami-e1449820327847.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/12/Swami-e1449820327847.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Lingodbham.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2017/02/Lingodbham.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "index-e1527230340300.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2018/02/index-e1527230340300.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "110-001.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2018/05/110-001.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Sharmila-obg.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/12/Sharmila-obg.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded"
+          }
+        ]
+      },
+      "orthopedics": {
+        "page_url": "https://whitefield.sssihms.org/orthopedics/",
+        "images": [
+          {
+            "file": "Dr.-Sundaresh-with-Swami.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/12/Dr.-Sundaresh-with-Swami.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Mahesh-ortho.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/12/Mahesh-ortho.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded"
+          }
+        ]
+      },
+      "lab-blood-bank": {
+        "page_url": "https://whitefield.sssihms.org/lab-blood-bank/",
+        "images": [
+          {
+            "file": "Photo-25.jpg",
+            "url": "http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Photo-25.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "swami-with-patients-.jpg",
+            "url": "http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/swami-with-patients-.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Photo-25.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Photo-25.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "swami-with-patients-.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/swami-with-patients-.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded"
+          }
+        ]
+      },
+      "physiotherapy": {
+        "page_url": "https://whitefield.sssihms.org/physiotherapy/",
+        "images": [
+          {
+            "file": "aerial3.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/04/aerial3.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "dome-tp1.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/04/dome-tp1.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Diwali-hospital-picture-e1430890195276.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Diwali-hospital-picture-e1430890195276.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "lighting-lamp-close-up.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/lighting-lamp-close-up.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Swami-Blessing-physiotheraphy-equipment.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/06/Swami-Blessing-physiotheraphy-equipment.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "aerial3.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/04/aerial3.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "dome-tp1.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/04/dome-tp1.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Diwali-hospital-picture-e1430890195276.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Diwali-hospital-picture-e1430890195276.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Swami-Blessing-physiotheraphy-equipment.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/06/Swami-Blessing-physiotheraphy-equipment.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded"
+          }
+        ]
+      }
+    },
+    "faculty": {
+      "cardiology-faculty": {
+        "page_url": "https://whitefield.sssihms.org/cardiology/faculty/",
+        "images": [
+          {
+            "file": "Dr.-Srikanth-Sola.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2019/02/Dr.-Srikanth-Sola.jpg",
+            "status": "downloaded",
+            "bytes": 31243
+          },
+          {
+            "file": "Dr.-P-K-Dash.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Dr.-P-K-Dash.jpg",
+            "status": "downloaded",
+            "bytes": 67793
+          },
+          {
+            "file": "Dr.-Reeta-with-patients.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Dr.-Reeta-with-patients.jpg",
+            "status": "downloaded",
+            "bytes": 1802871
+          },
+          {
+            "file": "IMG_5808.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/IMG_5808.jpg",
+            "status": "downloaded",
+            "bytes": 622679
+          },
+          {
+            "file": "Prayag-Kini-with-patient.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Prayag-Kini-with-patient.jpg",
+            "status": "downloaded",
+            "bytes": 1700000
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded",
+            "bytes": 218189
+          }
+        ]
+      },
+      "neurosurgery-faculty": {
+        "page_url": "https://whitefield.sssihms.org/neurosurgery/nesu-faculty/",
+        "images": [
+          {
+            "file": "Dr.-Saritha.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/04/Dr.-Saritha.jpg",
+            "status": "downloaded",
+            "bytes": 8226543
+          },
+          {
+            "file": "Dr.-Sumit.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Dr.-Sumit.jpg",
+            "status": "downloaded",
+            "bytes": 6873588
+          },
+          {
+            "file": "Dr.-Tejus-copy.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Dr.-Tejus-copy.jpg",
+            "status": "downloaded",
+            "bytes": 1031088
+          },
+          {
+            "file": "Neurosurgery-team-for-website.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Neurosurgery-team-for-website.png",
+            "status": "downloaded",
+            "bytes": 1286979
+          },
+          {
+            "file": "Dr.-Ajay-1-profile.jpeg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2023/08/Dr.-Ajay-1-profile.jpeg",
+            "status": "downloaded",
+            "bytes": 144351
+          },
+          {
+            "file": "Dr.-Avinash.jpeg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2023/08/Dr.-Avinash.jpeg",
+            "status": "downloaded",
+            "bytes": 119952
+          },
+          {
+            "file": "Dr.-Sanjay-DP.jpeg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2023/08/Dr.-Sanjay-DP.jpeg",
+            "status": "downloaded",
+            "bytes": 84118
+          },
+          {
+            "file": "Dr.-Sourabh-DP.jpeg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2023/08/Dr.-Sourabh-DP.jpeg",
+            "status": "downloaded",
+            "bytes": 136444
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded",
+            "bytes": 218189
+          }
+        ]
+      },
+      "radiology-faculty": {
+        "page_url": "https://whitefield.sssihms.org/radiology1/radiology-faculty/",
+        "images": [
+          {
+            "file": "Biplane-Cathlab.jpg",
+            "url": "http://52.148.87.145.in.md-in-25.webhostbox.net/wfd/wp-content/uploads/2015/05/Biplane-Cathlab.jpg",
+            "status": "error",
+            "error": "HTTPSConnectionPool(host='52.148.87.145.in.md-in-25.webhostbox.net', port=443): Max retries exceeded with url: /wfd/wp-content/uploads/2015/05/Biplane-Cathlab.jpg (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for '52.148.87.145.in.md-in-25.webhostbox.net'. (_ssl.c:1082)\")))"
+          },
+          {
+            "file": "GE-CT-Scanner.jpg",
+            "url": "http://52.148.87.145.in.md-in-25.webhostbox.net/wfd/wp-content/uploads/2015/05/GE-CT-Scanner.jpg",
+            "status": "error",
+            "error": "HTTPSConnectionPool(host='52.148.87.145.in.md-in-25.webhostbox.net', port=443): Max retries exceeded with url: /wfd/wp-content/uploads/2015/05/GE-CT-Scanner.jpg (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for '52.148.87.145.in.md-in-25.webhostbox.net'. (_ssl.c:1082)\")))"
+          },
+          {
+            "file": "MRI.jpg",
+            "url": "http://52.148.87.145.in.md-in-25.webhostbox.net/wfd/wp-content/uploads/2015/05/MRI.jpg",
+            "status": "error",
+            "error": "HTTPSConnectionPool(host='52.148.87.145.in.md-in-25.webhostbox.net', port=443): Max retries exceeded with url: /wfd/wp-content/uploads/2015/05/MRI.jpg (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for '52.148.87.145.in.md-in-25.webhostbox.net'. (_ssl.c:1082)\")))"
+          },
+          {
+            "file": "SSMT_913-Web.jpg",
+            "url": "http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/06/SSMT_913-Web.jpg",
+            "status": "downloaded",
+            "bytes": 143027
+          },
+          {
+            "file": "Swami-Blessing-Radiology.jpg",
+            "url": "http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/06/Swami-Blessing-Radiology.jpg",
+            "status": "downloaded",
+            "bytes": 1691132
+          },
+          {
+            "file": "Biplane-Cathlab.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Biplane-Cathlab.jpg",
+            "status": "downloaded",
+            "bytes": 853069
+          },
+          {
+            "file": "GE-CT-Scanner.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/GE-CT-Scanner.jpg",
+            "status": "downloaded",
+            "bytes": 557622
+          },
+          {
+            "file": "MRI.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/MRI.jpg",
+            "status": "downloaded",
+            "bytes": 1343488
+          },
+          {
+            "file": "SSMT_913-Web.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/06/SSMT_913-Web.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Swami-Blessing-Radiology.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/06/Swami-Blessing-Radiology.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Dr.-Sanjaya-Profile-photo-1.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2018/02/Dr.-Sanjaya-Profile-photo-1.jpg",
+            "status": "downloaded",
+            "bytes": 26564
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded",
+            "bytes": 218189
+          }
+        ]
+      },
+      "cardiac-surgery-faculty": {
+        "page_url": "https://whitefield.sssihms.org/cardiac-surgery/faculty/",
+        "images": [
+          {
+            "file": "Dr-GS-1.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2024/05/Dr-GS-1.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Dr-SJC.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2024/05/Dr-SJC.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Dr-Giridhar-Kamalapurkar.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2025/09/Dr-Giridhar-Kamalapurkar.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Dr-Arun-K-R-1.jpeg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/03/Dr-Arun-K-R-1.jpeg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Dr_Vikram_Halder-removebg-preview.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/03/Dr_Vikram_Halder-removebg-preview.png",
+            "status": "downloaded"
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded"
+          }
+        ]
+      },
+      "anesthesiology-faculty": {
+        "page_url": "https://whitefield.sssihms.org/anesthesiology1/anes-faculty/",
+        "images": [
+          {
+            "file": "Photo-161.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Photo-161.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Photo-17-e1430994430309.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Photo-17-e1430994430309.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Photo-2.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Photo-2.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Photo-25.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Photo-25.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Photo-161.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Photo-161.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Photo-17-e1430994430309.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Photo-17-e1430994430309.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Photo-2.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Photo-2.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Photo-25.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Photo-25.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Dr.-Anuradha.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2023/03/Dr.-Anuradha.png",
+            "status": "downloaded"
+          },
+          {
+            "file": "Dr.-Geetha.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2023/03/Dr.-Geetha.png",
+            "status": "downloaded"
+          },
+          {
+            "file": "Dr.-Vrushali.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2023/03/Dr.-Vrushali.png",
+            "status": "downloaded"
+          },
+          {
+            "file": "Dr-Anitha.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2024/05/Dr-Anitha.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded"
+          }
+        ]
+      }
+    },
+    "infrastructure": {
+      "cardiology-infrastructure": {
+        "page_url": "https://whitefield.sssihms.org/cardiology/infrastructure/",
+        "images": [
+          {
+            "file": "Biplane-Cathlab.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Biplane-Cathlab.jpg",
+            "status": "downloaded",
+            "bytes": 853069
+          },
+          {
+            "file": "DSC06970.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/DSC06970.jpg",
+            "status": "downloaded",
+            "bytes": 3309568
+          },
+          {
+            "file": "CCU-BED-WITH-EQUPMENTS-GOOD.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/CCU-BED-WITH-EQUPMENTS-GOOD.jpg",
+            "status": "downloaded",
+            "bytes": 3633738
+          },
+          {
+            "file": "E95-Echo-2-scaled.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/E95-Echo-2-scaled.jpg",
+            "status": "downloaded",
+            "bytes": 544525
+          },
+          {
+            "file": "E95-Echo-2.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/E95-Echo-2.jpg",
+            "status": "downloaded",
+            "bytes": 2065633
+          },
+          {
+            "file": "GE-TMT-MACHINE.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/GE-TMT-MACHINE.jpg",
+            "status": "downloaded",
+            "bytes": 3531216
+          },
+          {
+            "file": "HOLTER-recorder.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/HOLTER-recorder.jpg",
+            "status": "downloaded",
+            "bytes": 4814393
+          },
+          {
+            "file": "HP-100-ECG-scaled.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/HP-100-ECG-scaled.jpg",
+            "status": "downloaded",
+            "bytes": 295311
+          },
+          {
+            "file": "HP-100-ECG.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/HP-100-ECG.jpg",
+            "status": "downloaded",
+            "bytes": 2699930
+          },
+          {
+            "file": "IE33-machine-1.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/IE33-machine-1.jpg",
+            "status": "downloaded",
+            "bytes": 2592658
+          },
+          {
+            "file": "ROTABLATOR.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/ROTABLATOR.jpg",
+            "status": "downloaded",
+            "bytes": 3620595
+          },
+          {
+            "file": "S70-Echo-2-scaled.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/S70-Echo-2-scaled.jpg",
+            "status": "downloaded",
+            "bytes": 564895
+          },
+          {
+            "file": "S70-Echo-2.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/S70-Echo-2.jpg",
+            "status": "downloaded",
+            "bytes": 2018440
+          },
+          {
+            "file": "IVUS-scaled.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2023/03/IVUS-scaled.jpg",
+            "status": "downloaded",
+            "bytes": 314722
+          },
+          {
+            "file": "IVUS.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2023/03/IVUS.jpg",
+            "status": "downloaded",
+            "bytes": 2506345
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded",
+            "bytes": 218189
+          }
+        ]
+      },
+      "cardiac-surgery-infrastructure": {
+        "page_url": "https://whitefield.sssihms.org/cardiac-surgery/infrastructure/",
+        "images": [
+          {
+            "file": "DSC08263.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/DSC08263.jpg",
+            "status": "downloaded",
+            "bytes": 4292608
+          },
+          {
+            "file": "DSC08273.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/DSC08273.jpg",
+            "status": "downloaded",
+            "bytes": 4096000
+          },
+          {
+            "file": "DSC08263.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/DSC08263.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "DSC08273.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/DSC08273.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded",
+            "bytes": 218189
+          }
+        ]
+      },
+      "neurosurgery-infrastructure": {
+        "page_url": "https://whitefield.sssihms.org/neurosurgery/infrastructure/",
+        "images": [
+          {
+            "file": "DSC04073.jpg",
+            "url": "http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/DSC04073.jpg",
+            "status": "downloaded",
+            "bytes": 1867776
+          },
+          {
+            "file": "DSC04372.jpg",
+            "url": "http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/DSC04372.jpg",
+            "status": "downloaded",
+            "bytes": 2064384
+          },
+          {
+            "file": "SSSIHMS-0975.jpg",
+            "url": "http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/06/SSSIHMS-0975.jpg",
+            "status": "downloaded",
+            "bytes": 1332664
+          },
+          {
+            "file": "DSC04073.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/DSC04073.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "DSC04372.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/DSC04372.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "SSSIHMS-0975.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/06/SSSIHMS-0975.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded",
+            "bytes": 218189
+          }
+        ]
+      },
+      "anesthesiology-infrastructure": {
+        "page_url": "https://whitefield.sssihms.org/anesthesiology-infrastructure/",
+        "images": [
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded",
+            "bytes": 218189
+          }
+        ]
+      },
+      "radiology-infrastructure": {
+        "page_url": "https://whitefield.sssihms.org/radiology1/infrastructure/",
+        "images": [
+          {
+            "file": "Biplane-Cathlab.jpg",
+            "url": "http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Biplane-Cathlab.jpg",
+            "status": "downloaded",
+            "bytes": 853069
+          },
+          {
+            "file": "GE-CT-Scanner.jpg",
+            "url": "http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/GE-CT-Scanner.jpg",
+            "status": "downloaded",
+            "bytes": 557622
+          },
+          {
+            "file": "MRI.jpg",
+            "url": "http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/MRI.jpg",
+            "status": "downloaded",
+            "bytes": 1343488
+          },
+          {
+            "file": "SSMT_913-Web.jpg",
+            "url": "http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/06/SSMT_913-Web.jpg",
+            "status": "downloaded",
+            "bytes": 143027
+          },
+          {
+            "file": "Swami-Blessing-Radiology.jpg",
+            "url": "http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/06/Swami-Blessing-Radiology.jpg",
+            "status": "downloaded",
+            "bytes": 1691132
+          },
+          {
+            "file": "Biplane-Cathlab.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Biplane-Cathlab.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "GE-CT-Scanner.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/GE-CT-Scanner.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "MRI.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/MRI.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "SSMT_913-Web.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/06/SSMT_913-Web.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Swami-Blessing-Radiology.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/06/Swami-Blessing-Radiology.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded",
+            "bytes": 218189
+          }
+        ]
+      },
+      "lab-infrastructure": {
+        "page_url": "https://whitefield.sssihms.org/lab-blood-bank/lab-infrastructure/",
+        "images": [
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded"
+          }
+        ]
+      }
+    },
+    "dnb": {
+      "dnb-cardiac-surgery": {
+        "page_url": "https://whitefield.sssihms.org/dnb-cardiac-surgery/",
+        "images": [
+          {
+            "file": "DSC08263.jpg",
+            "url": "http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/DSC08263.jpg",
+            "status": "downloaded",
+            "bytes": 4292608
+          },
+          {
+            "file": "DSC08273.jpg",
+            "url": "http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/DSC08273.jpg",
+            "status": "downloaded",
+            "bytes": 4096000
+          },
+          {
+            "file": "DSC08263.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/DSC08263.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "DSC08273.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/DSC08273.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded",
+            "bytes": 218189
+          }
+        ]
+      },
+      "dnb-cardiology": {
+        "page_url": "https://whitefield.sssihms.org/drnb-cardiology/",
+        "images": [
+          {
+            "file": "DNB-Gold-Medal-Dr.-Rohit.jpg",
+            "url": "http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/DNB-Gold-Medal-Dr.-Rohit.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "DSC06970.jpg",
+            "url": "http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/DSC06970.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "DNB-Gold-Medal-Dr.-Rohit.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/DNB-Gold-Medal-Dr.-Rohit.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "DSC06970.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/DSC06970.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded"
+          }
+        ]
+      },
+      "dnb-neurosurgery": {
+        "page_url": "https://whitefield.sssihms.org/neurosurgery/nesu-dnb/",
+        "images": [
+          {
+            "file": "DSC04073.jpg",
+            "url": "http://52.148.87.145.in.md-in-25.webhostbox.net/wfd/wp-content/uploads/2015/05/DSC04073.jpg",
+            "status": "error",
+            "error": "HTTPSConnectionPool(host='52.148.87.145.in.md-in-25.webhostbox.net', port=443): Max retries exceeded with url: /wfd/wp-content/uploads/2015/05/DSC04073.jpg (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for '52.148.87.145.in.md-in-25.webhostbox.net'. (_ssl.c:1082)\")))"
+          },
+          {
+            "file": "DSC04350.jpg",
+            "url": "http://52.148.87.145.in.md-in-25.webhostbox.net/wfd/wp-content/uploads/2015/05/DSC04350.jpg",
+            "status": "error",
+            "error": "HTTPSConnectionPool(host='52.148.87.145.in.md-in-25.webhostbox.net', port=443): Max retries exceeded with url: /wfd/wp-content/uploads/2015/05/DSC04350.jpg (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for '52.148.87.145.in.md-in-25.webhostbox.net'. (_ssl.c:1082)\")))"
+          },
+          {
+            "file": "DSC04372.jpg",
+            "url": "http://52.148.87.145.in.md-in-25.webhostbox.net/wfd/wp-content/uploads/2015/05/DSC04372.jpg",
+            "status": "error",
+            "error": "HTTPSConnectionPool(host='52.148.87.145.in.md-in-25.webhostbox.net', port=443): Max retries exceeded with url: /wfd/wp-content/uploads/2015/05/DSC04372.jpg (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for '52.148.87.145.in.md-in-25.webhostbox.net'. (_ssl.c:1082)\")))"
+          },
+          {
+            "file": "SSSIHMS-0975.jpg",
+            "url": "http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/06/SSSIHMS-0975.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "DSC04073.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/DSC04073.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "DSC04350.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/DSC04350.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "DSC04372.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/DSC04372.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "SSSIHMS-0975.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/06/SSSIHMS-0975.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded"
+          }
+        ]
+      },
+      "dnb-anesthesiology": {
+        "page_url": "https://whitefield.sssihms.org/anesthesiology1/anes-dnb/",
+        "images": [
+          {
+            "file": "Photo-161.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Photo-161.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Photo-17-e1430994430309.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Photo-17-e1430994430309.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Photo-2.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Photo-2.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Photo-25.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Photo-25.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Photo-161.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Photo-161.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Photo-17-e1430994430309.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Photo-17-e1430994430309.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Photo-2.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Photo-2.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Photo-25.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Photo-25.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded"
+          }
+        ]
+      },
+      "dnb-academics": {
+        "page_url": "https://whitefield.sssihms.org/academics/dnb/",
+        "images": [
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded"
+          }
+        ]
+      }
+    },
+    "cct-allied-health": {
+      "bsc-cardiac-care-technology": {
+        "page_url": "https://whitefield.sssihms.org/bsc-cardiac-care-technology/",
+        "images": [
+          {
+            "file": "Biplane-Cathlab.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Biplane-Cathlab.jpg",
+            "status": "downloaded",
+            "bytes": 853069
+          },
+          {
+            "file": "DSC06970.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/DSC06970.jpg",
+            "status": "downloaded",
+            "bytes": 3309568
+          },
+          {
+            "file": "CCU-BED-WITH-EQUPMENTS-GOOD.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/CCU-BED-WITH-EQUPMENTS-GOOD.jpg",
+            "status": "downloaded",
+            "bytes": 3633738
+          },
+          {
+            "file": "E95-Echo-2-scaled.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/E95-Echo-2-scaled.jpg",
+            "status": "downloaded",
+            "bytes": 544525
+          },
+          {
+            "file": "E95-Echo-2.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/E95-Echo-2.jpg",
+            "status": "downloaded",
+            "bytes": 2065633
+          },
+          {
+            "file": "Ensite-Precision-3D-Mapping-System-2-scaled.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Ensite-Precision-3D-Mapping-System-2-scaled.jpg",
+            "status": "downloaded",
+            "bytes": 381195
+          },
+          {
+            "file": "Ensite-Precision-3D-Mapping-System-2.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Ensite-Precision-3D-Mapping-System-2.jpg",
+            "status": "downloaded",
+            "bytes": 1455092
+          },
+          {
+            "file": "IVUS-MACHINe-1-scaled.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/IVUS-MACHINe-1-scaled.jpg",
+            "status": "downloaded",
+            "bytes": 294820
+          },
+          {
+            "file": "IVUS-MACHINe-1.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/IVUS-MACHINe-1.jpg",
+            "status": "downloaded",
+            "bytes": 2657794
+          },
+          {
+            "file": "ROTABLATOR.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/ROTABLATOR.jpg",
+            "status": "downloaded",
+            "bytes": 3620595
+          },
+          {
+            "file": "S70-Echo-2-scaled.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/S70-Echo-2-scaled.jpg",
+            "status": "downloaded",
+            "bytes": 564895
+          },
+          {
+            "file": "S70-Echo-2.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/S70-Echo-2.jpg",
+            "status": "downloaded",
+            "bytes": 2018440
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded",
+            "bytes": 218189
+          }
+        ]
+      },
+      "bsc-mit-radiology": {
+        "page_url": "https://whitefield.sssihms.org/radiology1/bsc-mit/",
+        "images": [
+          {
+            "file": "Biplane-Cathlab.jpg",
+            "url": "http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Biplane-Cathlab.jpg",
+            "status": "downloaded",
+            "bytes": 853069
+          },
+          {
+            "file": "GE-CT-Scanner.jpg",
+            "url": "http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/GE-CT-Scanner.jpg",
+            "status": "downloaded",
+            "bytes": 557622
+          },
+          {
+            "file": "MRI.jpg",
+            "url": "http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/MRI.jpg",
+            "status": "downloaded",
+            "bytes": 1343488
+          },
+          {
+            "file": "Biplane-Cathlab.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Biplane-Cathlab.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "GE-CT-Scanner.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/GE-CT-Scanner.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "MRI.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/MRI.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded",
+            "bytes": 218189
+          }
+        ]
+      },
+      "nursing-and-allied-health": {
+        "page_url": "https://whitefield.sssihms.org/academics/nursing-and-allied-health/",
+        "images": [
+          {
+            "file": "NC_Prospectus2026_Cover.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/NC_Prospectus2026_Cover.jpg",
+            "status": "downloaded",
+            "bytes": 154587
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded",
+            "bytes": 218189
+          }
+        ]
+      },
+      "bsc-perfusion": {
+        "page_url": "https://whitefield.sssihms.org/bsc-perfusion/",
+        "images": [
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded"
+          }
+        ]
+      },
+      "bsc-anesthesia-technology": {
+        "page_url": "https://whitefield.sssihms.org/bsc-anesthesia-technology/",
+        "images": [
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded"
+          }
+        ]
+      },
+      "bsc-mlt-lab": {
+        "page_url": "https://whitefield.sssihms.org/lab-blood-bank/bsc-mlt/",
+        "images": [
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded"
+          }
+        ]
+      }
+    },
+    "fellowship": {
+      "cardiology-fellowship": {
+        "page_url": "https://whitefield.sssihms.org/cardiology/fellowship-cardiology/",
+        "images": [
+          {
+            "file": "Biplane-Cathlab.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Biplane-Cathlab.jpg",
+            "status": "downloaded",
+            "bytes": 853069
+          },
+          {
+            "file": "DSC06970.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/DSC06970.jpg",
+            "status": "downloaded",
+            "bytes": 3309568
+          },
+          {
+            "file": "CCU-BED-WITH-EQUPMENTS-GOOD.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/CCU-BED-WITH-EQUPMENTS-GOOD.jpg",
+            "status": "downloaded",
+            "bytes": 3633738
+          },
+          {
+            "file": "E95-Echo-2-scaled.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/E95-Echo-2-scaled.jpg",
+            "status": "downloaded",
+            "bytes": 544525
+          },
+          {
+            "file": "E95-Echo-2.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/E95-Echo-2.jpg",
+            "status": "downloaded",
+            "bytes": 2065633
+          },
+          {
+            "file": "Ensite-Precision-3D-Mapping-System-2-scaled.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Ensite-Precision-3D-Mapping-System-2-scaled.jpg",
+            "status": "downloaded",
+            "bytes": 381195
+          },
+          {
+            "file": "Ensite-Precision-3D-Mapping-System-2.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Ensite-Precision-3D-Mapping-System-2.jpg",
+            "status": "downloaded",
+            "bytes": 1455092
+          },
+          {
+            "file": "IVUS-MACHINe-1-scaled.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/IVUS-MACHINe-1-scaled.jpg",
+            "status": "downloaded",
+            "bytes": 294820
+          },
+          {
+            "file": "IVUS-MACHINe-1.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/IVUS-MACHINe-1.jpg",
+            "status": "downloaded",
+            "bytes": 2657794
+          },
+          {
+            "file": "ROTABLATOR.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/ROTABLATOR.jpg",
+            "status": "downloaded",
+            "bytes": 3620595
+          },
+          {
+            "file": "S70-Echo-2-scaled.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/S70-Echo-2-scaled.jpg",
+            "status": "downloaded",
+            "bytes": 564895
+          },
+          {
+            "file": "S70-Echo-2.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/S70-Echo-2.jpg",
+            "status": "downloaded",
+            "bytes": 2018440
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded",
+            "bytes": 218189
+          }
+        ]
+      },
+      "anesthesiology-fellowship": {
+        "page_url": "https://whitefield.sssihms.org/anes-fellowship/",
+        "images": [
+          {
+            "file": "Photo-161.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Photo-161.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Photo-17-e1430994430309.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Photo-17-e1430994430309.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Photo-2.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Photo-2.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Photo-25.jpg",
+            "url": "https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Photo-25.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "Photo-161.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Photo-161.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Photo-17-e1430994430309.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Photo-17-e1430994430309.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Photo-2.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Photo-2.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Photo-25.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Photo-25.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded"
+          }
+        ]
+      },
+      "academics-fellowship": {
+        "page_url": "https://whitefield.sssihms.org/academics/fellowship/",
+        "images": [
+          {
+            "file": "DSC06970.jpg",
+            "url": "http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/DSC06970.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "DSC08273.jpg",
+            "url": "http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/DSC08273.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "SSSIHMS-1059.jpg",
+            "url": "http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/SSSIHMS-1059.jpg",
+            "status": "downloaded"
+          },
+          {
+            "file": "DSC06970.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/DSC06970.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "DSC08273.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/DSC08273.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "SSSIHMS-1059.jpg",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/SSSIHMS-1059.jpg",
+            "status": "cached"
+          },
+          {
+            "file": "Website-full-length-logo-scaled.png",
+            "url": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png",
+            "status": "downloaded"
+          }
+        ]
+      }
+    }
+  },
+  "errors": [
+    {
+      "page": "https://whitefield.sssihms.org/radiology1/radiology-faculty/",
+      "image": "http://52.148.87.145.in.md-in-25.webhostbox.net/wfd/wp-content/uploads/2015/05/Biplane-Cathlab.jpg",
+      "error": "HTTPSConnectionPool(host='52.148.87.145.in.md-in-25.webhostbox.net', port=443): Max retries exceeded with url: /wfd/wp-content/uploads/2015/05/Biplane-Cathlab.jpg (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for '52.148.87.145.in.md-in-25.webhostbox.net'. (_ssl.c:1082)\")))"
+    },
+    {
+      "page": "https://whitefield.sssihms.org/radiology1/radiology-faculty/",
+      "image": "http://52.148.87.145.in.md-in-25.webhostbox.net/wfd/wp-content/uploads/2015/05/GE-CT-Scanner.jpg",
+      "error": "HTTPSConnectionPool(host='52.148.87.145.in.md-in-25.webhostbox.net', port=443): Max retries exceeded with url: /wfd/wp-content/uploads/2015/05/GE-CT-Scanner.jpg (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for '52.148.87.145.in.md-in-25.webhostbox.net'. (_ssl.c:1082)\")))"
+    },
+    {
+      "page": "https://whitefield.sssihms.org/radiology1/radiology-faculty/",
+      "image": "http://52.148.87.145.in.md-in-25.webhostbox.net/wfd/wp-content/uploads/2015/05/MRI.jpg",
+      "error": "HTTPSConnectionPool(host='52.148.87.145.in.md-in-25.webhostbox.net', port=443): Max retries exceeded with url: /wfd/wp-content/uploads/2015/05/MRI.jpg (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for '52.148.87.145.in.md-in-25.webhostbox.net'. (_ssl.c:1082)\")))"
+    }
+  ]
+}

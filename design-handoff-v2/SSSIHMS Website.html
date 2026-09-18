@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSSIHMS — Sri Sathya Sai Institute of Higher Medical Sciences, Whitefield</title>
+  <link rel="icon" href="https://whitefield.sssihms.org/wp-content/uploads/sites/4/2017/02/cropped-hospital-logo-e1487405066482-270x270.png">
+  <script>
+    (function(){
+      window.__resources = window.__resources || {};
+      var d = {
+        logo:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/05/Website-full-length-logo-scaled.png',
+        building:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/04/Website-full-length-image-1.png',
+        swami:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Swami-with-stethoscope-e1487392181378.jpg',
+        imgCardiology:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Cardiology.png',
+        imgCTVS:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/CTVS.png',
+        imgNeurosurgery:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Neurosurgery.png',
+        imgNeurology:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Neurology.png',
+        imgAnesthesiology:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Anesthesiology.png',
+        imgRadiology:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Radiology.png',
+        imgDNB:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/DNB.png',
+        imgNursing:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2022/11/Nursing.png'
+      };
+      for (var k in d) if(!window.__resources[k]) window.__resources[k]=d[k];
+    })();
+  </script>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel" src="sssihms-data.jsx"></script>
+  <script type="text/babel" src="sssihms-dept-pages.jsx"></script>
+  <script type="text/babel" src="sssihms-extra-pages.jsx"></script>
+  <script type="text/babel" src="sssihms-dept-academics-pages.jsx"></script>
+  <script type="text/babel" src="sssihms-sssgh-pages.jsx"></script>
+  <script type="text/babel" src="sssihms-programme-pages.jsx"></script>
+  <script type="text/babel" src="sssihms-cme-pages.jsx"></script>
+  <script type="text/babel" src="sssihms-live-about.jsx"></script>
+  <script type="text/babel" src="sssihms-live-depts.jsx"></script>
+  <script type="text/babel" src="sssihms-live-faculty.jsx"></script>
+  <script type="text/babel" src="sssihms-services-pages.jsx"></script>
+  <script type="text/babel" src="sssihms-services-physiotherapy.jsx"></script>
+  <script src="image-slot.js"></script>
+  <script type="text/babel" src="sssihms-live-radiology.jsx"></script>
+  <script type="text/babel" src="sssihms-live-fac-infra.jsx"></script>
+  <script type="text/babel" src="sssihms-live-dnb.jsx"></script>
+  <script type="text/babel" src="sssihms-live-allied.jsx"></script>
+  <script type="text/babel" src="sssihms-live-patients.jsx"></script>
+  <script type="text/babel" src="sssihms-live-fellowship.jsx"></script>
+  <script type="text/babel" src="sssihms-live-sssgh.jsx"></script>
+  <script type="text/babel" src="sssihms-publications.jsx"></script>
+  <script type="text/babel" src="sssihms-gogreen.jsx"></script>
+  <script type="text/babel" src="sssihms-vahinis.jsx"></script>
+  <script type="text/babel" src="sssihms-render.jsx"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; border: none; background: none; font: inherit; }
+
+    /* ── THEME A defaults on :root (cascade to entire page) ── */
+    :root {
+      --bg: #f9f5ef; --bg-alt: #f0e8d6; --bg-dark: #2c1a0e; --bg-card: #fefcf8;
+      --primary: #c8813a; --pd: #7a4a2e; --pl: #f0d5b0;
+      --text: #2a1f14; --tm: #7a6a55; --border: #e0d5c0;
+      --nav-bg: #2c1a0e; --nav-text: #f0d5b0;
+      --hero-ov: rgba(44,26,14,0.54);
+      --f-head: 'EB Garamond', Georgia, serif;
+      --f-body: 'Nunito Sans', system-ui, sans-serif;
+      --r: 10px;
+    }
+    .theme-a .eyebrow::before { content: '◆  '; font-size: 8px; }
+    .theme-a .stat-card { border-top: 3px solid var(--primary); }
+    .theme-a .spec-card { border-top: 3px solid var(--primary); }
+    .theme-a .hero-overlay {
+      background: var(--hero-ov),
+        repeating-linear-gradient(45deg, transparent, transparent 60px, rgba(200,129,58,.025) 60px, rgba(200,129,58,.025) 61px);
+    }
+
+    /* ── THEME B: Dignified Modern — overrides :root ── */
+    .theme-b {
+      --bg: #fafaf8; --bg-alt: #eef2f8; --bg-dark: #1e2d4a; --bg-card: #ffffff;
+      --primary: #e8922a; --pd: #1e2d4a; --pl: #fde8c8;
+      --text: #1a2035; --tm: #5a6a85; --border: #dde3ed;
+      --nav-bg: #1e2d4a; --nav-text: #dde8ff;
+      --hero-ov: rgba(30,45,74,0.62);
+      --f-head: 'Libre Baskerville', Georgia, serif;
+      --f-body: 'DM Sans', system-ui, sans-serif;
+      --r: 8px;
+    }
+    .theme-b .stat-card { border-left: 3px solid var(--primary); text-align: left; padding-left: 24px; }
+    .theme-b .spec-card { box-shadow: 0 4px 18px rgba(0,0,0,.07); }
+    .theme-b .hero-overlay { background: linear-gradient(100deg, var(--hero-ov) 55%, rgba(30,45,74,.25) 100%); }
+
+    /* ── BASE ── */
+    html, body { margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--f-body); line-height: 1.65; }
+    /* Theme wrapper covers full viewport with correct theme bg */
+    .theme-a, .theme-b { background: var(--bg); color: var(--text); font-family: var(--f-body); min-height: 100vh; }
+    h1,h2,h3,h4 { font-family: var(--f-head); line-height: 1.2; }
+
+    /* ── LAYOUT ── */
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
+    .section { padding: 72px 0; }
+    .section-alt { background: var(--bg-alt); }
+    .section-dark { background: var(--bg-dark); color: white; }
+
+    /* ── TYPE ── */
+    .eyebrow { font-size: 14px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--primary); margin-bottom: 10px; display: block; font-family: var(--f-body); }
+    .section-title { font-size: clamp(26px,3.5vw,42px); font-weight: 600; margin-bottom: 14px; }
+    .section-sub { font-size: 17.5px; color: var(--tm); max-width: 580px; line-height: 1.75; }
+
+    .free-band { width: 100%; background: var(--primary); color: #fff; font-family: var(--f-body); font-size: clamp(18px,2.2vw,28px); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; text-align: center; padding: 18px 20px; margin-bottom: 34px; }
+    /* ── PILLS ── */
+    .free-pill { display: inline-flex; align-items: center; gap: 6px; background: var(--primary); color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 6px 16px; border-radius: 100px; font-family: var(--f-body); white-space: nowrap; }
+    .free-pill-sm { display: inline-flex; align-items: center; background: var(--pl); color: var(--pd); font-size: 12px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; padding: 3px 9px; border-radius: 100px; white-space: nowrap; font-family: var(--f-body); }
+
+    /* ── BUTTONS ── */
+    .btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--f-body); font-weight: 600; font-size: 15px; padding: 11px 26px; border-radius: 6px; transition: all .2s; cursor: pointer; border: none; }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .btn-outline-w { border: 2px solid rgba(255,255,255,.6); color: white; background: transparent; }
+    .btn-outline-w:hover { background: rgba(255,255,255,.14); }
+    .btn-outline { border: 2px solid var(--primary); color: var(--primary); background: transparent; }
+    .btn-outline:hover { background: var(--primary); color: white; }
+    .btn-white { background: white; color: var(--pd); font-weight: 700; }
+    .btn-white:hover { background: rgba(255,255,255,.88); }
+    .btn-inv { background: rgba(255,255,255,.14); color: white; border: 1px solid rgba(255,255,255,.28); font-size: 13px; padding: 9px 20px; }
+    .btn-inv:hover { background: rgba(255,255,255,.26); }
+
+    /* ── TOP BAR ── */
+    .topbar { background: var(--nav-bg); padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,.12); }
+    .topbar-inner { display: flex; justify-content: space-between; align-items: center; font-size: 13.5px; color: var(--nav-text); font-weight: 500; flex-wrap: wrap; gap: 4px 14px; }
+    .topbar-inner > span { white-space: nowrap; flex-shrink: 0; }
+    @media (max-width: 720px) { .topbar-inner > span:first-child { display: none; } .topbar-inner { justify-content: center; } }
+    .topbar a, .topbar button { color: inherit; opacity: .85; }
+    .topbar a:hover, .topbar button:hover { opacity: 1; color: var(--primary); }
+    .tb-sep { margin: 0 10px; opacity: .35; }
+
+    /* ── NAV ── */
+    .navbar { background: var(--nav-bg); position: sticky; top: 0; z-index: 200; box-shadow: 0 2px 24px rgba(0,0,0,.2); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 8px 28px; max-width: 1200px; margin: 0 auto; min-height: 82px; }
+    .nav-brand-col { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+    .nav-trust-line { font-family: var(--f-body); font-size: 11px; white-space: nowrap; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--nav-text); opacity: .7; }
+    .nav-logo { height: 46px; width: auto; display: block; background: #fff; padding: 5px 12px; border-radius: 6px; }
+    @media (max-width: 960px) { .nav-logo { height: auto; width: auto; max-height: 40px; max-width: 60vw; } }
+    .nav-emblem { color: var(--primary); font-size: 21px; line-height: 1; flex-shrink: 0; }
+    .nav-logo-text { display: flex; flex-direction: column; color: var(--nav-text); font-family: var(--f-head); font-size: 21px; font-weight: 700; line-height: 1.02; letter-spacing: .01em; }
+    .nav-logo-sub { font-family: var(--f-body); font-size: 9.5px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; opacity: .62; margin-top: 3px; }
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+    .nav-item { position: relative; }
+    .nav-btn { color: var(--nav-text); font-size: 14px; font-weight: 600; padding: 8px 11px; border-radius: 5px; display: flex; align-items: center; gap: 4px; transition: background .15s; white-space: nowrap; background: none; border: none; cursor: pointer; font-family: var(--f-body); }
+    .nav-btn:hover, .nav-btn.active { background: rgba(255,255,255,.12); color: white; }
+    .nav-btn svg { opacity: .55; flex-shrink: 0; }
+    .dropdown { position: absolute; top: calc(100% + 6px); left: 0; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 6px; min-width: 220px; box-shadow: 0 8px 32px rgba(0,0,0,.12); opacity: 0; pointer-events: none; transform: translateY(-6px); transition: opacity .15s, transform .15s; z-index: 300; }
+    .nav-item:hover .dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .dropdown a, .dropdown button { display: block; width: 100%; text-align: left; padding: 8px 12px; color: var(--text); font-size: 14px; border-radius: 5px; transition: background .1s; background: none; border: none; cursor: pointer; font-family: var(--f-body); }
+    .dropdown a:hover, .dropdown button:hover { background: var(--bg-alt); color: var(--primary); }
+    .nav-cta { background: var(--primary) !important; color: #fff !important; padding: 8px 18px !important; border-radius: 6px !important; margin-left: 6px; border: none; }
+    .nav-cta:hover { filter: brightness(1.1) !important; }
+    .nav-hamburger { display: none; color: var(--nav-text); padding: 8px; }
+    @media (max-width: 960px) { .nav-links { display: none; } .nav-hamburger { display: flex; } }
+
+    /* ── HERO (image banner, text below) ── */
+    .hero { background: var(--bg); }
+    .hero-banner { width: 100%; height: clamp(260px,40vw,500px); overflow: hidden; background: var(--bg-dark); }
+    .hero-banner img { width: 100%; height: 100%; object-fit: cover; object-position: center 38%; display: block; }
+    .hero-text { max-width: 840px; margin: 0 auto; text-align: center; padding: 0 28px 8px; }
+    .hero-text h1 { font-size: clamp(30px,4.6vw,52px); font-weight: 600; color: var(--text); line-height: 1.14; margin: 18px 0 18px; }
+    .hero-desc { color: var(--tm); font-size: 17px; line-height: 1.75; margin: 0 auto 28px; max-width: 620px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .hero-body { display: grid; grid-template-columns: minmax(220px,1fr) minmax(0,2fr) minmax(220px,1fr); gap: 40px; align-items: center; max-width: 1360px; margin: 0 auto; padding: 46px 32px 40px; }
+    .vm-card { text-align: left; }
+    .vm-label { display: block; font-family: var(--f-head); font-size: clamp(26px,2.6vw,38px); font-weight: 600; line-height: 1.15; color: var(--primary); margin-bottom: 14px; }
+    .vm-card p { color: var(--tm); font-size: 14.5px; line-height: 1.8; margin: 0; text-wrap: pretty; }
+    @media (max-width: 1000px) { .hero-body { grid-template-columns: 1fr; gap: 30px; padding: 34px 24px 32px; } .vm-card { text-align: center; max-width: 620px; margin: 0 auto; } }
+    @media (max-width: 640px) { .hero-text { padding: 0 22px 6px; } }
+
+    /* ── INNER-PAGE SECTION SYSTEM ── */
+    .prose-p { font-size: 17px; color: var(--tm); line-height: 1.8; margin-bottom: 14px; }
+    .banner-icon { width: 56px; height: 56px; border-radius: 12px; background: rgba(255,255,255,.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 9px; }
+    .banner-icon img { width: 100%; height: 100%; object-fit: contain; filter: brightness(0) invert(1); opacity: .92; }
+    .full-banner { width: 100%; height: clamp(220px,32vw,360px); overflow: hidden; background: var(--bg-dark); }
+    .full-banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .auto-grid { display: grid; grid-template-columns: repeat(var(--cols,3), 1fr); gap: 20px; }
+    @media (max-width: 900px) { .auto-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 560px) { .auto-grid { grid-template-columns: 1fr; } }
+
+    .info-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 24px; display: flex; flex-direction: column; transition: transform .2s, box-shadow .2s; }
+    .info-card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,.08); }
+    .theme-a .info-card { border-top: 3px solid var(--primary); }
+    .theme-b .info-card { box-shadow: 0 3px 14px rgba(0,0,0,.05); }
+    .info-card-icon { font-size: 26px; color: var(--primary); line-height: 1; margin-bottom: 12px; font-family: var(--f-head); }
+    .info-card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 8px; }
+    .info-card-head h3 { font-family: var(--f-head); font-size: 20px; color: var(--pd); line-height: 1.25; }
+    .info-card p { font-size: 17px; color: var(--tm); line-height: 1.7; flex: 1; }
+    .info-card .btn { margin-top: 16px; align-self: flex-start; font-size: 14px; padding: 9px 18px; }
+    .info-card-img { margin: -24px -24px 18px; aspect-ratio: 16/9; overflow: hidden; background: var(--bg-alt); border-radius: var(--r) var(--r) 0 0; }
+    .info-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .info-card-meta { font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--tm); margin-bottom: 10px; display: block; }
+    .auto-grid.grid-start { align-items: start; }
+
+    .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    @media (max-width: 768px) { .intro-grid { grid-template-columns: 1fr; gap: 32px; } }
+    .intro-media { border-radius: var(--r); overflow: hidden; min-height: 300px; background: var(--bg-alt); }
+    .intro-media img { width: 100%; height: 100%; max-height: 440px; object-fit: cover; display: block; }
+    .intro-hero { display: flex; flex-direction: column; gap: 8px; }
+    .intro-hero-media { border-radius: var(--r); overflow: hidden; background: var(--bg-alt); }
+    .intro-hero-media img { width: 100%; max-height: 560px; object-fit: cover; display: block; }
+    .intro-hero-media.media-fallback { min-height: 340px; }
+    .intro-hero-cap { font-size: 13px; color: var(--tm); letter-spacing: .02em; }
+    .intro-hero-text { margin-top: 24px; max-width: 900px; }
+    .faq-list { display: grid; gap: 22px; max-width: 860px; }
+    .faq-item { border-top: 1px solid var(--border); padding-top: 18px; }
+    .faq-q { font-family: var(--serif); font-size: 20px; font-weight: 600; color: var(--t); margin-bottom: 8px; }
+    .faq-a { color: var(--tm); line-height: 1.7; }
+    .media-fallback { position: relative; min-height: 300px; background-image: repeating-linear-gradient(45deg, var(--bg-alt), var(--bg-alt) 14px, var(--border) 14px, var(--border) 15px); display: flex; align-items: center; justify-content: center; }
+    .media-fallback::after { content: attr(data-label); font-family: ui-monospace, 'SFMono-Regular', monospace; font-size: 12px; color: var(--tm); background: var(--bg); padding: 5px 12px; border-radius: 4px; }
+
+    .feature-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 2px 28px; }
+    @media (max-width: 640px) { .feature-grid { grid-template-columns: 1fr; } }
+    .feature-item { display: flex; gap: 12px; align-items: flex-start; font-size: 16.5px; color: var(--text); line-height: 1.55; padding: 13px 0; border-bottom: 1px solid var(--border); }
+    .feature-tick { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--pl); color: var(--pd); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; margin-top: 1px; }
+
+    .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+    @media (max-width: 768px) { .split-grid { grid-template-columns: 1fr; gap: 32px; } }
+    .split-title { font-family: var(--f-head); font-size: clamp(22px,2.6vw,30px); font-weight: 600; margin-bottom: 12px; line-height: 1.2; }
+
+    .testimonial-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 26px; }
+    .theme-a .testimonial-card { border-left: 3px solid var(--primary); }
+    .t-quote { font-family: var(--f-head); font-size: 52px; line-height: .5; color: var(--primary); opacity: .4; display: block; height: 26px; }
+    .t-text { font-size: 16.5px; color: var(--text); line-height: 1.7; font-style: italic; margin-bottom: 18px; }
+    .t-attr { display: flex; flex-direction: column; gap: 2px; }
+    .t-attr strong { font-size: 15px; color: var(--pd); }
+    .t-attr span { font-size: 13.5px; color: var(--tm); }
+    .t-photo { width: 72px; height: 72px; border-radius: 50%; overflow: hidden; margin: 0 0 16px; border: 1px solid var(--border); background: var(--bg-alt); }
+    .t-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; display: block; }
+
+    .faculty-card { display: flex; gap: 14px; align-items: center; align-self: start; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 16px; }
+    .faculty-avatar { width: 46px; height: 46px; border-radius: 50%; background: var(--pl); color: var(--pd); display: flex; align-items: center; justify-content: center; font-weight: 700; font-family: var(--f-head); flex-shrink: 0; }
+    .faculty-photo { width: 64px; height: 64px; border-radius: 50%; overflow: hidden; flex: 0 0 64px; background: var(--bg-alt); }
+    .faculty-card:has(.faculty-photo) { flex-direction: column; align-items: stretch; gap: 0; padding: 0; overflow: hidden; }
+    .faculty-card:has(.faculty-photo) .faculty-photo { width: 100%; height: 280px; flex: none; border-radius: 0; }
+    .faculty-card:has(.faculty-photo) .faculty-photo img { object-position: center top; }
+    .faculty-card:has(.faculty-photo) > div:last-child { padding: 16px 18px 18px; }
+    .faculty-card:has(.faculty-photo) .faculty-name { font-size: 17px; }
+    .faculty-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .faculty-photo image-slot { display: block; width: 100%; height: 100%; }
+    .faculty-detail { font-size: 13.5px; color: var(--tm); margin-top: 4px; line-height: 1.55; }
+    .prose-figure { margin: 0; border-radius: var(--r); overflow: hidden; background: var(--bg-alt); border: 1px solid var(--border); }
+    .prose-figure img { width: 100%; display: block; object-fit: cover; max-height: 460px; }
+    .prose-figure-wide .prose-figure img { max-height: none; object-fit: contain; height: auto; }
+    .prose-figure figcaption, .photo-cell figcaption { font-size: 13.5px; color: var(--tm); padding: 10px 14px; background: var(--bg-card); }
+    .photo-grid { display: grid; grid-template-columns: repeat(var(--cols, 3), 1fr); gap: 20px; }
+    @media (max-width: 900px) { .photo-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .photo-grid { grid-template-columns: 1fr; } }
+    .photo-cell { margin: 0; border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; background: var(--bg-card); }
+    .photo-cell img { width: 100%; height: 240px; object-fit: contain; background: var(--bg-alt); display: block; }
+    .pg-2 .photo-cell img { height: 400px; object-fit: contain; background: var(--bg-alt); padding: 8px; }
+    .qa-item { margin-top: 22px; padding-left: 16px; border-left: 2px solid var(--pl); }
+    .qa-q { font-weight: 700; color: var(--text); font-size: 17px; margin: 0 0 8px; line-height: 1.6; }
+    .faculty-name { font-size: 15.5px; font-weight: 700; color: var(--text); }
+    .faculty-role { font-size: 13.5px; color: var(--tm); }
+
+    /* ── FREE STRIP ── */
+    .free-strip { background: var(--primary); color: white; padding: 16px 0; }
+    .free-strip-inner { display: flex; align-items: center; justify-content: center; gap: 0; flex-wrap: wrap; }
+    .fi { display: flex; align-items: center; gap: 7px; font-size: 14.5px; font-weight: 600; padding: 4px 20px; letter-spacing: .02em; border-right: 1px solid rgba(255,255,255,.25); }
+    .fi:last-child { border-right: none; }
+    @media (max-width: 640px) { .fi { border-right: none; border-bottom: 1px solid rgba(255,255,255,.15); width: 100%; justify-content: center; } }
+
+    /* ── STATS ── */
+    .stats-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .stat-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 28px 22px; text-align: center; }
+    .stat-val { font-family: var(--f-head); font-size: 46px; font-weight: 700; color: var(--primary); line-height: 1; margin-bottom: 7px; }
+    .stat-lbl { font-size: 15.5px; color: var(--tm); font-weight: 600; letter-spacing: .02em; line-height: 1.45; }
+    @media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2,1fr); } }
+
+    /* ── SPECIALTIES ── */
+    .spec-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .spec-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; transition: transform .2s, box-shadow .2s; cursor: pointer; }
+    .spec-card:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(0,0,0,.1); }
+    .spec-img { width: 100%; height: 140px; object-fit: contain; padding: 16px 18px; background: var(--bg-alt); }
+    .spec-body { padding: 18px; }
+    .spec-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 8px; }
+    .spec-name { font-family: var(--f-head); font-size: 21px; color: var(--pd); line-height: 1.2; }
+    .spec-desc { font-size: 17px; color: var(--tm); line-height: 1.65; }
+    .spec-link { display: inline-flex; align-items: center; gap: 4px; margin-top: 12px; font-size: 14px; font-weight: 700; color: var(--primary); font-family: var(--f-body); letter-spacing: .02em; }
+    @media (max-width: 900px) { .spec-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 580px) { .spec-grid { grid-template-columns: 1fr; } }
+
+    /* ── PHILOSOPHY ── */
+    .phil-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .quote-mark { font-family: var(--f-head); font-size: 100px; line-height: .8; color: var(--primary); opacity: .45; margin-bottom: 4px; display: block; }
+    .quote-text { font-family: var(--f-head); font-size: clamp(19px,2.4vw,26px); font-style: italic; line-height: 1.65; color: rgba(255,255,255,.93); margin-bottom: 22px; }
+    .quote-attr { font-size: 14.5px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--primary); opacity: .9; font-family: var(--f-body); }
+    .phil-img { width: 100%; height: 420px; object-fit: cover; object-position: top center; border-radius: var(--r); }
+    .quote-split { display: grid; grid-template-columns: 300px 1fr; gap: 54px; align-items: center; max-width: 1000px; margin: 0 auto; }
+    .quote-split .quote-mark { margin-top: 6px; }
+    .quote-photo { margin: 0; }
+    .quote-photo img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top center; border-radius: var(--r); display: block; box-shadow: 0 18px 44px rgba(0,0,0,.32); }
+    @media (max-width: 820px) { .quote-split { grid-template-columns: 1fr; gap: 30px; text-align: center; } .quote-photo { max-width: 260px; margin: 0 auto; } }
+    @media (max-width: 768px) { .phil-inner { grid-template-columns: 1fr; gap: 32px; } .phil-img { height: 260px; } }
+
+    /* ── BHAGAWAN ── */
+    .bhag-inner { display: grid; grid-template-columns: 280px 1fr; gap: 52px; align-items: start; }
+    .bhag-portrait { border-radius: var(--r); overflow: hidden; height: 380px; background: var(--bg-alt); }
+    .bhag-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+    .bhag-content h2 { margin-bottom: 16px; }
+    .bhag-content p { font-size: 17px; color: var(--tm); line-height: 1.8; margin-bottom: 14px; }
+    @media (max-width: 768px) { .bhag-inner { grid-template-columns: 1fr; } .bhag-portrait { height: 300px; } }
+
+    /* ── ACADEMICS ── */
+    .acad-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+    .acad-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 24px; display: flex; gap: 18px; align-items: flex-start; }
+    .acad-icon { min-width: 48px; height: 48px; background: var(--pl); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-family: var(--f-head); color: var(--pd); flex-shrink: 0; }
+    .acad-body h3 { font-family: var(--f-head); font-size: 21px; margin-bottom: 8px; line-height: 1.25; }
+    .acad-body p { font-size: 17px; color: var(--tm); line-height: 1.65; }
+    @media (max-width: 768px) { .acad-grid { grid-template-columns: 1fr; } }
+
+    /* ── PATIENTS ── */
+    .pat-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .pat-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 28px 22px; text-align: center; }
+    .pat-icon { font-size: 32px; margin-bottom: 14px; line-height: 1; }
+    .pat-card h3 { font-family: var(--f-head); font-size: 21px; margin-bottom: 10px; }
+    .pat-card p { font-size: 17px; color: var(--tm); line-height: 1.65; }
+    .pat-card .btn { margin-top: 18px; font-size: 14px; }
+    @media (max-width: 768px) { .pat-grid { grid-template-columns: 1fr; } }
+
+    /* ── GET INVOLVED ── */
+    .inv-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .inv-card { background: var(--pd); border-radius: var(--r); padding: 36px 26px; text-align: center; color: white; }
+    .inv-icon { font-size: 40px; margin-bottom: 14px; line-height: 1; opacity: .7; font-family: var(--f-head); }
+    .inv-card h3 { font-family: var(--f-head); font-size: 24px; color: white; margin-bottom: 10px; }
+    .inv-card p { font-size: 17px; opacity: .8; line-height: 1.65; margin-bottom: 20px; }
+    @media (max-width: 768px) { .inv-grid { grid-template-columns: 1fr; } }
+
+    /* ── NEWS ── */
+    .news-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .news-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 24px; display: flex; flex-direction: column; }
+    .news-tag { display: inline-block; background: var(--pl); color: var(--pd); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 3px 9px; border-radius: 4px; margin-bottom: 10px; font-family: var(--f-body); align-self: flex-start; }
+    .news-title { font-family: var(--f-head); font-size: 19px; line-height: 1.3; margin-bottom: 8px; }
+    .news-desc { font-size: 17px; color: var(--tm); line-height: 1.65; flex: 1; }
+    .news-date { font-size: 13px; color: var(--tm); margin-top: 14px; opacity: .65; font-weight: 600; font-family: var(--f-body); letter-spacing: .04em; }
+    @media (max-width: 768px) { .news-grid { grid-template-columns: 1fr; } }
+
+    /* ── ADMISSIONS CTA ── */
+    .admit-section { background: linear-gradient(130deg, var(--primary) 0%, var(--pd) 100%); color: white; padding: 64px 0; }
+    .admit-inner { display: flex; gap: 40px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+    .admit-inner h2 { font-family: var(--f-head); font-size: clamp(22px,3vw,36px); color: white; margin-bottom: 10px; }
+    .admit-inner p { opacity: .88; font-size: 17px; line-height: 1.65; max-width: 600px; }
+    .admit-cta { flex-shrink: 0; }
+
+    /* ── FOOTER ── */
+    .footer { background: var(--bg-dark); color: rgba(255,255,255,.7); padding: 60px 0 28px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 44px; }
+    .footer-logo { height: 50px; background: #fff; padding: 6px 12px; border-radius: 6px; margin-bottom: 16px; display: block; }
+    .footer-tagline { font-size: 14.5px; opacity: .58; line-height: 1.75; }
+    .footer-free-badge { display: inline-block; margin-top: 16px; background: var(--primary); color: white; font-size: 11px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; padding: 5px 14px; border-radius: 4px; font-family: var(--f-body); opacity: 1 !important; }
+    .footer-col h4 { font-family: var(--f-head); font-size: 15.5px; font-weight: 700; color: var(--primary); margin-bottom: 14px; letter-spacing: .02em; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a, .footer-col button { font-size: 14.5px; opacity: .6; transition: opacity .15s, color .15s; display: inline; background: none; border: none; cursor: pointer; font-family: var(--f-body); color: inherit; padding: 0; }
+    .footer-col a:hover, .footer-col button:hover { opacity: 1; color: var(--primary); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.08); padding-top: 22px; display: flex; justify-content: space-between; align-items: center; font-size: 11.5px; opacity: .42; flex-wrap: wrap; gap: 8px; }
+    @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; text-align: center; } }
+
+    /* ── DEPARTMENT SUB-NAV ── */
+    .subnav { background: var(--bg-card); border-bottom: 1px solid var(--border); box-shadow: 0 2px 10px rgba(0,0,0,.04); }
+    .subnav-inner { display: flex; gap: 2px; overflow-x: auto; }
+    .subnav-link { font-family: var(--f-body); font-size: 14.5px; font-weight: 600; color: var(--tm); padding: 14px 14px 12px; border-bottom: 2px solid transparent; white-space: nowrap; }
+    .subnav-link:hover { color: var(--primary); }
+    .subnav-link.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+    /* ── NESTED DROPDOWN FLYOUT ── */
+    .dd-item { position: relative; }
+    .dd-item > button { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+    .dd-arrow { opacity: .45; font-size: 14px; line-height: 1; }
+    .dd-flyout { position: absolute; top: -6px; left: calc(100% + 2px); background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 6px; min-width: 200px; box-shadow: 0 8px 32px rgba(0,0,0,.12); opacity: 0; pointer-events: none; transform: translateX(-4px); transition: opacity .15s, transform .15s; z-index: 310; }
+    .dd-flyout::before { content: ''; position: absolute; top: 0; bottom: 0; left: -8px; width: 10px; }
+    .dd-item:hover > .dd-flyout, .dd-item:focus-within > .dd-flyout { opacity: 1; pointer-events: all; transform: translateX(0); }
+    /* flyouts near the right edge open leftwards */
+    .nav-item:nth-last-child(-n+3) .dd-flyout { left: auto; right: calc(100% + 2px); }
+    .nav-item:nth-last-child(-n+3) .dd-flyout::before { left: auto; right: -8px; }
+
+    /* ── STATS DASHBOARDS ── */
+    .dash-switch { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+    .dash-pill { font-family: var(--f-body); font-size: 12.5px; font-weight: 600; padding: 7px 15px; border-radius: 100px; border: 1px solid var(--border); background: var(--bg-card); color: var(--tm); transition: all .15s; }
+    .dash-pill:hover { border-color: var(--primary); color: var(--primary); }
+    .dash-pill.active { background: var(--primary); border-color: var(--primary); color: #fff; }
+    .dash-frame { border-radius: var(--r); overflow: hidden; border: 1px solid var(--border); box-shadow: 0 10px 32px rgba(0,0,0,.12); background: #0D2137; }
+
+    /* ── PAGE BANNER (inner pages) ── */
+    .page-banner { background: var(--bg-dark); color: white; padding: 56px 0; }
+    .page-banner h1 { font-family: var(--f-head); font-size: clamp(26px,4vw,46px); font-weight: 600; color: white; }
+    .breadcrumb { display: flex; align-items: center; font-size: 12.5px; opacity: .55; margin-bottom: 14px; font-family: var(--f-body); }
+
+    /* ── MISC ── */
+    html { scroll-behavior: smooth; }
+    .section-hd { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 36px; gap: 20px; flex-wrap: wrap; }
+    .section-hd-left { max-width: 600px; }
+    @media (prefers-reduced-motion: no-preference) {
+      .spec-card { animation: fadeUp .45s ease both; }
+      .stat-card { animation: fadeUp .4s ease both; }
+    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ── DROPDOWN HOVER BRIDGE (keeps menu open across the gap so items are clickable) ── */
+    .dropdown::before { content: ''; position: absolute; top: -10px; left: 0; right: 0; height: 12px; }
+    .nav-item:focus-within .dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+
+    /* ── MOBILE MENU ── */
+    .nav-brand { cursor: pointer; display: flex; align-items: center; gap: 8px; }
+    .mobile-menu { display: none; }
+    @media (max-width: 960px) {
+      .mobile-menu.open { display: block; background: var(--nav-bg); border-top: 1px solid rgba(255,255,255,.08); max-height: calc(100vh - 66px); overflow-y: auto; padding: 8px 0 20px; box-shadow: 0 16px 30px rgba(0,0,0,.3); }
+    }
+    .mm-group { border-bottom: 1px solid rgba(255,255,255,.07); }
+    .mm-head { display: block; width: 100%; text-align: left; color: #fff; font-weight: 700; font-size: 14px; padding: 13px 28px 7px; font-family: var(--f-body); }
+    .mm-subs { display: flex; flex-direction: column; padding-bottom: 8px; }
+    .mm-subs button { text-align: left; color: var(--nav-text); opacity: .72; font-size: 13.5px; padding: 8px 28px 8px 42px; font-family: var(--f-body); }
+    .mm-subs button:active, .mm-subs button:hover, .mm-head:hover { color: var(--primary); opacity: 1; }
+    .mm-cta { margin: 16px 28px 4px; width: calc(100% - 56px); justify-content: center; }
+    .nav-hamburger.open svg rect:nth-child(1) { transform: translateY(7px) rotate(45deg); transform-origin: center; }
+    .nav-hamburger.open svg rect:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open svg rect:nth-child(3) { transform: translateY(-7px) rotate(-45deg); transform-origin: center; }
+    .nav-hamburger svg rect { transition: transform .2s, opacity .2s; }
+.cover-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:32px}
+.cover-cell{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:inherit}
+.cover-shot{display:block;background:#f2efe9;border:1px solid rgba(0,0,0,.09);box-shadow:0 2px 10px rgba(0,0,0,.08);transition:box-shadow .2s,transform .2s;aspect-ratio:212/300;overflow:hidden}
+.cover-cell:hover .cover-shot{box-shadow:0 8px 24px rgba(0,0,0,.16);transform:translateY(-3px)}
+.cover-shot img{width:100%;height:100%;object-fit:cover;display:block}
+.cover-shot-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:18px;background:linear-gradient(160deg,#efe9dd,#e4dccc)}
+.cover-shot-empty span{font-family:var(--f-head,Georgia,serif);font-size:1.05rem;line-height:1.3;color:#5b4a33}
+.cover-shot-empty em{font-style:normal;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#8b7a63}
+.cover-label{font-size:.9rem;line-height:1.35;font-weight:600}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--r,6px);background:#fff}
+.data-tbl{border-collapse:collapse;width:100%;font-size:.95rem}
+.data-tbl th,.data-tbl td{padding:13px 18px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+.data-tbl thead th{background:var(--bg-alt);font-family:var(--f-head,Georgia,serif);font-weight:600;font-size:.95rem;white-space:nowrap}
+.data-tbl tbody th{font-weight:600;color:var(--text)}
+.data-tbl tbody td{color:var(--tm,inherit);font-variant-numeric:tabular-nums;white-space:nowrap}
+.data-tbl tbody tr:last-child th,.data-tbl tbody tr:last-child td{border-bottom:none}
+.prose-p ul{margin:14px 0 18px;padding-left:22px;display:grid;gap:9px}
+.prose-rich{margin:0 0 18px}
+.prose-rich ul{margin:0 0 4px;padding-left:22px;display:grid;gap:10px}
+.prose-rich ul ul{margin:10px 0 0}
+.prose-rich li{line-height:1.7;color:var(--tm,inherit)}
+.prose-rich h3{font-family:var(--f-head,Georgia,serif);font-size:1.15rem;margin:26px 0 10px}
+.prose-p li{line-height:1.65}
+.cover-note{font-size:.8rem;opacity:.65}
+.data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:8px 0}
+.data-table th{text-align:left;font-weight:600;padding:10px 12px;border-bottom:2px solid rgba(0,0,0,.18);vertical-align:bottom}
+.data-table td{padding:10px 12px;border-bottom:1px solid rgba(0,0,0,.09);vertical-align:top;line-height:1.45}
+  </style>
+</head>
+<body>
+<template id="__bundler_thumbnail" data-bg-color="#2c1a0e">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#2c1a0e"/>
+    <circle cx="600" cy="360" r="150" fill="none" stroke="#c8813a" stroke-width="14"/>
+    <rect x="576" y="280" width="48" height="160" rx="10" fill="#c8813a"/>
+    <rect x="520" y="336" width="160" height="48" rx="10" fill="#c8813a"/>
+    <text x="600" y="600" text-anchor="middle" fill="#f0d5b0" font-family="Georgia, serif" font-size="64" font-weight="600">SSSIHMS</text>
+    <text x="600" y="660" text-anchor="middle" fill="#c8813a" font-family="sans-serif" font-size="26" letter-spacing="3">100% FREE MEDICAL CARE</text>
+  </svg>
+</template>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect } = React;
+
+// ── DATA ─────────────────────────────────────────────────────────────────────
+
+const SPECIALTIES = [
+  { name:'Cardiology', key:'cardiology', img:window.__resources.imgCardiology, desc:'Complete cardiac services — OPD, inpatient and critical care. Leading institution for adult and paediatric cardiac interventions nationwide.' },
+  { name:'Cardiac Surgery', key:'cardiac-surgery', img:window.__resources.imgCTVS, desc:'Full range of invasive and minimally invasive cardiothoracic and vascular surgical services for adults and children.' },
+  { name:'Neurosurgery', key:'neurosurgery', img:window.__resources.imgNeurosurgery, desc:'Among the finest neuroscience centres in India. Complex cases from across the country and abroad, referred from every state of India.' },
+  { name:'Neurology', key:'neurology', img:window.__resources.imgNeurology, desc:'Well-equipped centre providing the latest facilities for a broad range of neurological conditions and ailments.' },
+  { name:'Anesthesiology', key:'anesthesiology', img:window.__resources.imgAnesthesiology, desc:'Serving 12 modular operation theatres, 6 ICUs, 3 catheterisation labs, emergency department and CT/MRI suite — round the clock.' },
+  { name:'Radiology', key:'radiology', img:window.__resources.imgRadiology, desc:'Expert diagnostic and interventional imaging — X-ray, ultrasound, CT, MRI, DSA — using state-of-the-art technology.' },
+];
+
+const STATS = [
+  { v:'3,000+', l:'Cardiac & Neuro Surgeries per Year' },
+  { v:'1,700+', l:'Multi-Specialty Surgeries per Year' },
+  { v:'12', l:'Modular Operation Theatres' },
+  { v:'6', l:'Intensive Care Units' },
+  { v:'25+', l:'Years of Compassionate Service' },
+  { v:'100%', l:'Care Given Free of Cost' },
+];
+
+const ACADEMICS = [
+  { icon:'◆', title:'DNB PG Programmes', badge:null, desc:'Post-graduate training in Cardiothoracic Surgery, Cardiology, Neurosurgery and Anesthesiology, accredited by the National Board of Examinations, New Delhi.' },
+  { icon:'◆', title:'B.Sc Nursing — Admissions Open', badge:'2026–27', desc:'4-year degree programme, 40 seats. Affiliated to RGUHS, Bengaluru. Exclusively for women, fully residential. No tuition fees. Deadline: 19th June 2026.' },
+  { icon:'◆', title:'Allied Health Sciences', badge:null, desc:'BSc programmes in Cardiac Care Technology, Perfusion Technology, Anesthesia Technology, Medical Imaging Technology and Medical Lab Technology.' },
+  { icon:'◆', title:'Fellowship Courses', badge:null, desc:'Fellowship in Interventional Cardiology, Paediatric Cardiac Surgery, Cardiac Anesthesia and Radiology — for experienced professionals seeking advanced specialisation.' },
+];
+
+const NEWS = [
+  { tag:'Admissions', title:'B.Sc Nursing Applications Now Open — 2026–27', date:'June 2026', desc:'Online applications for the 4-year B.Sc Nursing program are open. Deadline: 19th June 2026. No tuition fees charged. Residential programme.' },
+  { tag:'Notice', title:'Allied Health Science Admissions Paused for 2026–27', date:'May 2026', desc:'AHS programme admissions are temporarily paused for this academic year. Candidates are advised to visit the website regularly for updates.' },
+  { tag:'Newsletter', title:'Manohriday Newsletter — Latest Edition', date:'April 2026', desc:'The new Manohriday newsletter is available, featuring hospital updates, patient stories and highlights from our departments.' },
+];
+
+const NAV = [
+  { label:'About Hospital', page:'about-hospital', items:[['Hospital Overview','about-hospital'],['Guiding Philosophy','guiding-philosophy'],['Genesis','genesis'],['Manohriday–Newsletter','manohriday'],['Statistics','statistics'],['Patient Speak','patient-speak'],['Visitor Speak','visitor-speak'],['Manohriday Newsletter','manohriday'],['About the Trust','trust']] },
+  { label:'Departments', page:'specialties', items:[
+    ['Cardiology','cardiology',[['Faculty','cardiology-faculty'],['Infrastructure','cardiology-infrastructure'],['Achievements','cardiology-achievements'],['Events','cardiology-events'],['DrNB Cardiology','drnb-cardiology'],['Fellowship','fellowship-cardiology'],['MSc Echocardiography','msecho'],['BSc Cardiac Care Tech','bsc-cardiac-care-technology'],['Statistics','cardiology-statistics']]],
+    ['Cardiac Surgery','cardiac-surgery',[['Faculty','ctvs-faculty'],['Infrastructure','ctvs-infrastructure'],['DNB Cardiac Surgery','dnb-cardiac-surgery'],['BSc Perfusion Tech','bsc-perfusion'],['Statistics','cardiac-surgery-statistics']]],
+    ['Neurosurgery','neurosurgery',[['Services','nesu-services'],['Faculty','nesu-faculty'],['Infrastructure','nesu-infrastructure'],['DNB Neurosurgery','nesu-dnb'],['Achievements','nesu-achievements'],['Events','nesu-events'],['Statistics','neurosurgery-statistics']]],
+    ['Neurology','neurology',[['Services','neurology-services'],['Infrastructure','neurology-infrastructure']]],
+    ['Anesthesiology','anesthesiology',[['DNB Anaesthesiology','anes-dnb'],['Faculty','anes-faculty'],['Infrastructure','anes-infrastructure'],['Achievements','anes-achievements'],['Events','anes-events'],['Cardiac Anesthesia','cardiac-anesthesia'],['Fellowship','anes-fellowship'],['BSc Anesthesia Tech','bsc-anesthesia-technology']]],
+    ['Radiology','radiology',[['Faculty','radiology-faculty'],['Infrastructure','radiology-infrastructure'],['BSc Medical Imaging Tech','bsc-mit'],['SACRED CME','sacred']]],
+    ['General Hospital (SSSGH)','sssgh',[['History','history-gh'],['Statistics','statistics-gh'],['Ophthalmology','ophthalmology'],['Obstetrics & Gynaecology','obgyn'],['Orthopedics','orthopedics'],['ENT','ent'],['General Medicine','general-medicine'],['Pediatrics','pediatrics'],['General Surgery','general-surgery'],['Dental','dental']]],
+    ['Services','services',[['Radiology','radiology'],['Lab & Blood Bank','lab-blood-bank',[['Lab Infrastructure','lab-infrastructure'],['Blood Donation','blood-donation'],['BSc MLT','bsc-mlt']]],['Physiotherapy','physiotherapy'],['Telemedicine','telemedicine'],['Counselling','counseling'],['HMIS','hmis']]]
+  ] },
+  { label:'For Patients', page:'patients', items:[['Conditions & Treatments','treatment'],['Appointments & Admission','appointments-admission'],['Help Desk / Telemedicine','help-desk'],['Facilities','facilities']] },
+  { label:'Academics', page:'academics', items:[['DNB Programmes','dnb'],['Fellowship Courses','fellowship'],['Nursing & Allied Health','nursing-and-allied-health'],['CME & Conference Archive','conferences'],['Career Opportunities','careers']] },
+  { label:'Get Involved', page:'getinvolved', items:[['Sevadal – Volunteer','sevadal'],['Donations','getinvolved'],['Volunteer Expertise','volunteer'],['Help Desk','help-desk']] },
+  { label:'Go Green', page:'gogreen', items:[['Go Green Overview','gogreen'],['Rain Water Harvesting','gg-rainwater'],['Solar Power Plant','gg-solar'],['Trees on Campus','gg-trees'],['Biomedical Waste Report','gg-biomedical'],['Power Conservation','gg-power'],['Water Use Maximization','gg-water'],['Waste Management','gg-waste']] },
+  { label:'Bhagawan', page:'bhagawan', items:[['Life & Mission','bhagawan'],['Teachings & Discourses','bhagawan'],['The Vahini Series','vahinis'],['Songs & Poems','songs',[['Divine Poetry','divine-poetry'],['Sai Compositions','songs-baba'],['Sri Sathya Sai Padhya Sudha','sai_padhyam']]],['Sai Projects','bhagawan']] },
+];
+
+// ── COMPONENTS ───────────────────────────────────────────────────────────────
+
+function TopBar({ navigate }) {
+  return (
+    <div className="topbar">
+      <div className="wrap topbar-inner">
+        <span>
+          <span>Help Desk: 080-471004600</span>
+          <span className="tb-sep">|</span>
+          <button onClick={() => navigate('help-desk')}>Telemedicine</button>
+          <span className="tb-sep">|</span>
+          <button onClick={() => navigate('blog')}>Blog</button>
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function NavBar({ page, navigate }) {
+  const [open, setOpen] = useState(false);
+  const go = (p) => { setOpen(false); navigate(p); };
+  return (
+    <nav className="navbar">
+      <div className="nav-inner" style={{opacity:1}}>
+        <a className="nav-brand nav-brand-col" onClick={() => go('home')}>
+          <img className="nav-logo" src={window.__resources.logo} alt="SSSIHMS — Sri Sathya Sai Institute of Higher Medical Sciences"
+               onError={e => { e.target.style.display='none'; e.target.nextElementSibling.style.display='flex'; }} />
+          <span className="nav-logo-text" style={{display:'none'}}><span className="nav-emblem" style={{marginRight:8}}>◆</span>SSSIHMS<span className="nav-logo-sub">Whitefield · Bengaluru</span></span>
+          <span className="nav-trust-line">A Unit of Sri Sathya Sai Central Trust</span>
+        </a>
+        <ul className="nav-links">
+          {NAV.map(item => (
+            <li key={item.label} className="nav-item">
+              <button className={`nav-btn${page===item.page?' active':''}`} onClick={() => navigate(item.page)}>
+                {item.label}
+                <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </button>
+              <div className="dropdown">
+                {item.items.map(([sub, key, children]) => children ? (
+                  <div key={sub} className="dd-item">
+                    <button onClick={() => navigate(key)}>{sub}<span className="dd-arrow">›</span></button>
+                    <div className="dd-flyout">
+                      {children.map(([l2, k2]) => <button key={l2} onClick={() => navigate(k2)}>{l2}</button>)}
+                    </div>
+                  </div>
+                ) : <button key={sub} onClick={() => navigate(key)}>{sub}</button>)}
+              </div>
+            </li>
+          ))}
+          <li>
+            <button className="nav-btn nav-cta" onClick={() => navigate('appointments-admission')}>Get Care →</button>
+          </li>
+        </ul>
+        <button className={`nav-hamburger${open?' open':''}`} aria-label="Toggle menu" aria-expanded={open} onClick={() => setOpen(o => !o)}>
+          <svg width="22" height="16" viewBox="0 0 22 16" fill="none"><rect width="22" height="2" rx="1" fill="currentColor"/><rect y="7" width="22" height="2" rx="1" fill="currentColor"/><rect y="14" width="22" height="2" rx="1" fill="currentColor"/></svg>
+        </button>
+      </div>
+      <div className={`mobile-menu${open?' open':''}`}>
+        {NAV.map(item => (
+          <div key={item.label} className="mm-group">
+            <button className="mm-head" onClick={() => go(item.page)}>{item.label}</button>
+            <div className="mm-subs">
+              {item.items.map(([sub, key, children]) => (
+                <React.Fragment key={sub}>
+                  <button onClick={() => go(key)}>{sub}</button>
+                  {(children || []).map(([l2, k2]) => <button key={l2} style={{paddingLeft:58, opacity:.55}} onClick={() => go(k2)}>{l2}</button>)}
+                </React.Fragment>
+              ))}
+            </div>
+          </div>
+        ))}
+        <button className="btn btn-primary mm-cta" onClick={() => go('appointments-admission')}>Get Care →</button>
+      </div>
+    </nav>
+  );
+}
+
+function Hero({ navigate }) {
+  return (
+    <section className="hero">
+      <div className="hero-banner">
+        <img src={window.__resources.building} alt="SSSIHMS Hospital — front view" onError={e => { e.target.parentElement.style.display='none'; }} />
+      </div>
+      <div className="free-band">All Medical Care Provided Free of Cost</div>
+      <div className="hero-body">
+        <aside className="vm-card">
+          <span className="vm-label">Vision</span>
+          <p>To create a world where healthcare is accessible, compassionate, and holistic, fostering physical, mental, and spiritual well-being for all individuals. Guided by the principles of love, service, and selflessness as taught by Bhagawan Sri Sathya Sai Baba, we envision a society where every person receives the care they need, to lead a healthy and fulfilling life.</p>
+        </aside>
+        <div className="hero-text">
+          <h1>Healing Through Love &amp; Selfless Service</h1>
+          <p className="hero-desc">Sri Sathya Sai Institute of Higher Medical Sciences provides world-class tertiary care to all patients, regardless of caste, creed, religion or financial status.</p>
+          <div className="hero-actions">
+            <button className="btn btn-primary" onClick={() => navigate('appointments-admission')}>Book Appointment</button>
+            <button className="btn btn-outline" onClick={() => navigate('about-hospital')}>Our Mission</button>
+          </div>
+        </div>
+        <aside className="vm-card">
+          <span className="vm-label">Mission</span>
+          <p>To provide compassionate, holistic, and accessible healthcare that nurtures physical, mental, and spiritual well-being. Our mission is to promote preventive measures, educate communities on healthy living, and offer free medical services to all, ensuring that healthcare is a right, not a privilege. We are dedicated to serving humanity with love, service, and selflessness, inspired by the teachings of Bhagawan Sri Sathya Sai Baba.</p>
+        </aside>
+      </div>
+    </section>
+  );
+}
+
+function FreeStrip() {
+  return (
+    <div className="free-strip">
+      <div className="wrap free-strip-inner">
+        {[['♥','No Charges. Ever.'],['◆','All Religions Welcome'],['◆','All Castes Welcome'],['◆','All Financial Statuses'],['◆','Emergency to Critical Care']].map(([sym,text]) => (
+          <div key={text} className="fi"><span style={{opacity:.75}}>{sym}</span>{text}</div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function StatsSection() {
+  return (
+    <section className="section">
+      <div className="wrap">
+        <div style={{textAlign:'center', marginBottom:40}}>
+          <span className="eyebrow">Our Impact</span>
+          <h2 className="section-title">Service in Numbers</h2>
+          <p className="section-sub" style={{margin:'0 auto'}}>Decades of compassionate healthcare — touching millions of lives across India and beyond.</p>
+        </div>
+        <div className="stats-grid">
+          {STATS.map((s,i) => (
+            <div key={s.v} className="stat-card" style={{animationDelay:`${i*0.07}s`}}>
+              <div className="stat-val">{s.v}</div>
+              <div className="stat-lbl">{s.l}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SpecialtiesSection({ navigate }) {
+  return (
+    <section className="section section-alt">
+      <div className="wrap">
+        <div className="section-hd">
+          <div className="section-hd-left">
+            <span className="eyebrow">Clinical Specialties</span>
+            <h2 className="section-title">World-Class Care. Zero Cost.</h2>
+            <p className="section-sub">Advanced tertiary and super-specialty care across all major disciplines, for every patient who walks through our doors.</p>
+          </div>
+          <button className="btn btn-outline" onClick={() => navigate('specialties')}>All Departments →</button>
+        </div>
+        <div className="spec-grid">
+          {SPECIALTIES.map((s,i) => (
+            <div key={s.name} className="spec-card" style={{animationDelay:`${i*0.06}s`}} onClick={() => navigate(s.key)}>
+              <img className="spec-img" src={s.img} alt={s.name} style={{background:'var(--bg-alt)'}} onError={e => { e.target.style.background='var(--border)'; e.target.removeAttribute('src'); e.target.alt=''; }} />
+              <div className="spec-body">
+                <div className="spec-head">
+                  <h3 className="spec-name">{s.name}</h3>
+                </div>
+                <p className="spec-desc">{s.desc}</p>
+                <span className="spec-link">Learn more →</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PhilosophySection() {
+  return (
+    <section className="section section-dark">
+      <div className="wrap">
+        <div className="phil-inner">
+          <div>
+            <span className="eyebrow" style={{color:'var(--primary)'}}>The Foundation</span>
+            <span className="quote-mark">"</span>
+            <p className="quote-text">Doctors should serve the poor with a spirit of sacrifice. There is no greater service than this. Medicine should not be commercialised. It is meant to promote a heart-to-heart and love-to-love relationship between doctor and patient. A true doctor is one who realises this truth and conducts himself accordingly.</p>
+            <div className="quote-attr">— Bhagawan Sri Sathya Sai Baba, 2003</div>
+          </div>
+          <div>
+            <img className="phil-img" src={window.__resources.swami} alt="Bhagawan Sri Sathya Sai Baba" onError={e => { e.target.style.display='none'; }} />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function BhagawanSection({ navigate }) {
+  return (
+    <section className="section">
+      <div className="wrap bhag-inner">
+        <div className="bhag-portrait">
+          <img src={window.__resources.swami} alt="Bhagawan Sri Sathya Sai Baba" onError={e => { e.target.style.display='none'; }} />
+        </div>
+        <div className="bhag-content">
+          <span className="eyebrow">The Guiding Light</span>
+          <h2 className="section-title">Bhagawan Sri Sathya Sai Baba</h2>
+          <p>SSSIHMS stands as a living testament to the compassionate vision of Bhagawan Sri Sathya Sai Baba — that every human being deserves the highest quality medical care, regardless of their ability to pay.</p>
+          <p>Founded under the auspices of the Sri Sathya Sai Central Trust, this hospital embodies His teaching that service to man is service to God. The institution has served millions of patients from across India and the world, without asking anything in return.</p>
+          <p>His life and teachings continue to inspire the dedicated doctors, nurses and volunteers who serve here every single day.</p>
+          <button className="btn btn-outline" style={{marginTop:8}} onClick={() => navigate('bhagawan')}>Life &amp; Teachings →</button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AcademicsSection({ navigate }) {
+  return (
+    <section className="section section-alt">
+      <div className="wrap">
+        <div className="section-hd">
+          <div className="section-hd-left">
+            <span className="eyebrow">Education &amp; Training</span>
+            <h2 className="section-title">Building Future Healers</h2>
+            <p className="section-sub">Post-graduate and undergraduate programmes rooted in the spirit of selfless service — with no tuition fees.</p>
+          </div>
+          <button className="btn btn-outline" onClick={() => navigate('academics')}>All Programmes →</button>
+        </div>
+        <div className="acad-grid">
+          {ACADEMICS.map(a => (
+            <div key={a.title} className="acad-card">
+              <div className="acad-icon">{a.icon}</div>
+              <div className="acad-body">
+                <h3>{a.title}{a.badge && <span className="free-pill-sm" style={{marginLeft:8, verticalAlign:'middle'}}>{a.badge}</span>}</h3>
+                <p>{a.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PatientSection({ navigate }) {
+  return (
+    <section className="section">
+      <div className="wrap">
+        <div style={{textAlign:'center', marginBottom:16}}>
+          <span className="eyebrow">For Patients</span>
+          <h2 className="section-title">We Are Here for You</h2>
+          <p className="section-sub" style={{margin:'0 auto 24px'}}>Every service at SSSIHMS — from consultation to complex surgery — is provided without any charge to the patient.</p>
+        </div>
+        <div className="pat-grid" style={{marginTop:36}}>
+          {[{icon:'◆', title:'Book Appointment', desc:'Walk in to our OPD or schedule in advance. Our team registers and guides you at every step.'},
+            {icon:'◆', title:'Telemedicine / Help Desk', desc:'Access medical guidance remotely via our telemedicine portal. Especially valuable for patients unable to travel to Bengaluru.'},
+            {icon:'◆', title:'Emergency Care — 24/7', desc:'Our Emergency Department is open round the clock, every day of the year. Critical care, ICU and emergency services are available at all hours.'}
+          ].map(c => (
+            <div key={c.title} className="pat-card">
+              <div className="pat-icon" style={{fontFamily:'var(--f-head)', fontSize:36, opacity:.5}}>{c.icon}</div>
+              <h3>{c.title}</h3>
+              <p>{c.desc}</p>
+              <button className="btn btn-outline pat-card-btn" style={{marginTop:18, fontSize:13}} onClick={() => navigate('patients')}>Learn More →</button>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AdmissionsSection({ navigate }) {
+  return (
+    <section className="admit-section">
+      <div className="wrap admit-inner">
+        <div>
+          <span className="free-pill" style={{marginBottom:16, display:'inline-block'}}>Admissions Open 2026–27</span>
+          <h2>B.Sc Nursing Programme</h2>
+          <p style={{marginTop:10}}>Applications are open for the 4-year B.Sc Nursing programme. Last date: <strong>19th June 2026</strong>. No tuition fees. Fully residential, exclusively for women. Affiliated to Rajiv Gandhi University of Health Sciences.</p>
+        </div>
+        <div className="admit-cta">
+          <a href="https://tinyurl.com/sssihmsnc" target="_blank" className="btn btn-white" style={{display:'inline-flex'}}>Apply Now →</a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function InvolvedSection({ navigate }) {
+  return (
+    <section className="section section-alt">
+      <div className="wrap">
+        <div style={{textAlign:'center', marginBottom:36}}>
+          <span className="eyebrow">Get Involved</span>
+          <h2 className="section-title">Join the Mission of Love</h2>
+          <p className="section-sub" style={{margin:'0 auto'}}>Be part of this extraordinary mission — serve with love, contribute with care, transform lives with purpose.</p>
+        </div>
+        <div className="inv-grid">
+          {[{sym:'◆', title:'Sevadal — Volunteer', desc:'Join our dedicated volunteer programme and serve patients and families with love and compassion, embodying the spirit of selfless service.'},
+            {sym:'◆', title:'Support the Mission', desc:'Your contribution helps sustain this healthcare mission. Every gift ensures world-class care remains accessible regardless of financial status.'},
+            {sym:'◆', title:'Volunteer Expertise', desc:'Medical professionals can offer their expertise to support the hospital\'s mission — on a short or long-term basis.'}
+          ].map(c => (
+            <div key={c.title} className="inv-card">
+              <div className="inv-icon">{c.sym}</div>
+              <h3>{c.title}</h3>
+              <p>{c.desc}</p>
+              <button className="btn btn-inv" onClick={() => navigate('getinvolved')}>Learn More</button>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function NewsSection({ navigate }) {
+  return (
+    <section className="section">
+      <div className="wrap">
+        <div className="section-hd">
+          <div>
+            <span className="eyebrow">News &amp; Updates</span>
+            <h2 className="section-title">Latest from SSSIHMS</h2>
+          </div>
+          <button className="btn btn-outline" onClick={() => navigate('blog')}>View All News →</button>
+        </div>
+        <div className="news-grid">
+          {NEWS.map(n => (
+            <div key={n.title} className="news-card">
+              <span className="news-tag">{n.tag}</span>
+              <h3 className="news-title">{n.title}</h3>
+              <p className="news-desc">{n.desc}</p>
+              <div className="news-date">{n.date}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Footer({ navigate }) {
+  return (
+    <footer className="footer">
+      <div className="wrap">
+        <div className="footer-grid">
+          <div>
+            <img className="footer-logo" src={window.__resources.logo} alt="SSSIHMS" onError={e => { e.target.style.display='none'; }} />
+            <p className="footer-tagline">Sri Sathya Sai Institute of Higher Medical Sciences, Whitefield, Bengaluru. Providing world-class medical care in the spirit of love and service — since 2001.</p>
+          </div>
+          <div className="footer-col">
+            <h4>Hospital</h4>
+            <ul>
+              {[['About Hospital','about-hospital'],['Guiding Philosophy','guiding-philosophy'],['Genesis','genesis'],['Manohriday–Newsletter','manohriday'],['Patient Speak','patient-speak'],['Visitor Speak','visitor-speak']].map(([l,p]) => <li key={l}><button onClick={() => navigate(p)}>{l}</button></li>)}
+            </ul>
+          </div>
+          <div className="footer-col">
+            <h4>Departments</h4>
+            <ul>
+              {[['Cardiology','cardiology'],['Cardiac Surgery','cardiac-surgery'],['Neurosurgery','neurosurgery'],['Neurology','neurology'],['Anesthesiology','anesthesiology'],['Radiology','radiology']].map(([l,p]) => <li key={l}><button onClick={() => navigate(p)}>{l}</button></li>)}
+            </ul>
+          </div>
+          <div className="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              {[['Appointments', 'appointments-admission'],['Academics','academics'],['Get Involved','getinvolved'],['Bhagawan Sri Sathya Sai Baba','bhagawan'],['Career Opportunities','careers'],['Go Green','gogreen']].map(([l,p]) => <li key={l}><button onClick={() => navigate(p)}>{l}</button></li>)}
+            </ul>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <span>© 2026 Sri Sathya Sai Institute of Higher Medical Sciences. All rights reserved.</span>
+          <span>A service of Sri Sathya Sai Central Trust</span>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function HomePage({ navigate }) {
+  return (
+    <>
+      <Hero navigate={navigate} />
+      <FreeStrip />
+      <StatsSection />
+      <SpecialtiesSection navigate={navigate} />
+      <PhilosophySection />
+      <BhagawanSection navigate={navigate} />
+      <AcademicsSection navigate={navigate} />
+      <PatientSection navigate={navigate} />
+      <AdmissionsSection navigate={navigate} />
+      <InvolvedSection navigate={navigate} />
+      <NewsSection navigate={navigate} />
+    </>
+  );
+}
+
+// ── APP ───────────────────────────────────────────────────────────────────────
+
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "variation": "Sacred Warmth"
+}/*EDITMODE-END*/;
+
+function App() {
+  const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
+  const [page, setPage] = useState(() => ((window.location.hash || '#home').slice(1)) || 'home');
+
+  useEffect(() => {
+    const onHash = () => { setPage(((window.location.hash || '#home').slice(1)) || 'home'); window.scrollTo({ top: 0, behavior: 'auto' }); };
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
+  }, []);
+
+  const navigate = (p) => {
+    if (((window.location.hash || '#home').slice(1) || 'home') === p) { setPage(p); window.scrollTo({ top: 0, behavior: 'auto' }); }
+    window.location.hash = p;
+  };
+
+  const themeClass = tweaks.variation === 'Sacred Warmth' ? 'theme-a' : 'theme-b';
+
+  const renderPage = () => {
+    if (page === 'home') return <HomePage navigate={navigate} />;
+    return window.ContentPage ? <window.ContentPage pageKey={page} navigate={navigate} /> : null;
+  };
+
+  return (
+    <div className={themeClass}>
+      <TopBar navigate={navigate} />
+      <NavBar page={page} navigate={navigate} />
+      {renderPage()}
+      <Footer navigate={navigate} />
+      <TweaksPanel title="Design Direction">
+        <TweakSection label="Visual Theme" />
+        <TweakSelect id="variation" label="Variation"
+          options={['Sacred Warmth','Dignified Modern']}
+          value={tweaks.variation}
+          onChange={v => setTweak('variation', v)} />
+      </TweaksPanel>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
