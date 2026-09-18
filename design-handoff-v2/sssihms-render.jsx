@@ -26,7 +26,7 @@ function PageBanner({ title, subtitle, crumb, icon }) {
           <div className="breadcrumb">
             <span>Home</span>
             <span style={{opacity:.5, margin:'0 6px'}}>›</span>
-            <span style={{color:'var(--primary)'}}>{crumb}</span>
+            <span style={{color:'#fff', fontWeight:700}}>{crumb}</span>
           </div>
         )}
         <div style={{display:'flex', alignItems:'center', gap:18}}>
@@ -37,7 +37,7 @@ function PageBanner({ title, subtitle, crumb, icon }) {
           )}
           <h1 dangerouslySetInnerHTML={{__html:title}}></h1>
         </div>
-        {subtitle && <p style={{marginTop:12, opacity:.8, fontSize:16, maxWidth:640, lineHeight:1.7}}>{subtitle}</p>}
+        {subtitle && <p style={{marginTop:10, opacity:1, color:'#fff', fontWeight:500, fontSize:16, maxWidth:640, lineHeight:1.7}}>{subtitle}</p>}
       </div>
     </section>
   );
@@ -505,7 +505,7 @@ function ContentPage({ pageKey, navigate }) {
   return (
     <div>
       {data.bareBanner ? (
-        <div className="page-banner" style={{padding:'14px 0'}}><div className="wrap"><div className="breadcrumb" style={{margin:0}}><span>Home</span><span style={{opacity:.5, margin:'0 6px'}}>›</span><span style={{color:'var(--primary)'}}>{data.crumb}</span></div></div></div>
+        <div className="page-banner" style={{padding:'14px 0'}}><div className="wrap"><div className="breadcrumb" style={{margin:0}}><span>Home</span><span style={{opacity:.5, margin:'0 6px'}}>›</span><span style={{color:'#fff', fontWeight:700}}>{data.crumb}</span></div></div></div>
       ) : (
         <PageBanner title={data.title} subtitle={data.subtitle} crumb={data.crumb} icon={data.icon} />
       )}

@@ -64,7 +64,7 @@
     /* ── THEME A defaults on :root (cascade to entire page) ── */
     :root {
       --bg: #f9f5ef; --bg-alt: #f0e8d6; --bg-dark: #2c1a0e; --bg-card: #fefcf8;
-      --primary: #c8813a; --pd: #7a4a2e; --pl: #f0d5b0;
+      --primary: #c8813a; --primary-deep: #a4581f; --pd: #7a4a2e; --pl: #f0d5b0;
       --text: #2a1f14; --tm: #7a6a55; --border: #e0d5c0;
       --nav-bg: #2c1a0e; --nav-text: #f0d5b0;
       --hero-ov: rgba(44,26,14,0.54);
@@ -83,7 +83,7 @@
     /* ── THEME B: Dignified Modern — overrides :root ── */
     .theme-b {
       --bg: #fafaf8; --bg-alt: #eef2f8; --bg-dark: #1e2d4a; --bg-card: #ffffff;
-      --primary: #e8922a; --pd: #1e2d4a; --pl: #fde8c8;
+      --primary: #e8922a; --primary-deep: #b06c14; --pd: #1e2d4a; --pl: #fde8c8;
       --text: #1a2035; --tm: #5a6a85; --border: #dde3ed;
       --nav-bg: #1e2d4a; --nav-text: #dde8ff;
       --hero-ov: rgba(30,45,74,0.62);
@@ -396,8 +396,8 @@
     .dash-frame { border-radius: var(--r); overflow: hidden; border: 1px solid var(--border); box-shadow: 0 10px 32px rgba(0,0,0,.12); background: #0D2137; }
 
     /* ── PAGE BANNER (inner pages) ── */
-    .page-banner { background: var(--bg-dark); color: white; padding: 56px 0; }
-    .page-banner h1 { font-family: var(--f-head); font-size: clamp(26px,4vw,46px); font-weight: 600; color: white; }
+    .page-banner { background: var(--primary-deep); color: #fff; padding: 34px 0; }
+    .page-banner h1 { font-family: var(--f-head); font-size: clamp(26px,4vw,46px); font-weight: 700; color: #fff; }
     .breadcrumb { display: flex; align-items: center; font-size: 12.5px; opacity: .55; margin-bottom: 14px; font-family: var(--f-body); }
 
     /* ── MISC ── */

@@ -10,7 +10,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 
 :root {
   --bg: #f9f5ef; --bg-alt: #f0e8d6; --bg-dark: #2c1a0e; --bg-card: #fefcf8;
-  --primary: #c8813a; --pd: #7a4a2e; --pl: #f0d5b0;
+  --primary: #c8813a; --primary-deep: #a4581f; --pd: #7a4a2e; --pl: #f0d5b0;
   --text: #2a1f14; --tm: #7a6a55; --border: #e0d5c0;
   --nav-bg: #2c1a0e; --nav-text: #f0d5b0;
   --hero-ov: rgba(44,26,14,0.54);
@@ -281,9 +281,9 @@ h1,h2,h3,h4 { font-family: var(--f-head); line-height: 1.2; }
 .dash-frame { border-radius: var(--r); overflow: hidden; border: 1px solid var(--border); box-shadow: 0 10px 32px rgba(0,0,0,.12); background: #0D2137; }
 
 /* ── PAGE BANNER (inner pages) ── */
-.page-banner { background: var(--bg-dark); color: white; padding: 56px 0; }
-.page-banner h1 { font-family: var(--f-head); font-size: clamp(26px,4vw,46px); font-weight: 600; color: white; }
-.breadcrumb { display: flex; align-items: center; font-size: 12.5px; opacity: .55; margin-bottom: 14px; font-family: var(--f-body); }
+.page-banner { background: var(--primary-deep); color: #fff; padding: 34px 0; }
+.page-banner h1 { font-family: var(--f-head); font-size: clamp(26px,4vw,46px); font-weight: 700; color: #fff; }
+.breadcrumb { display: flex; align-items: center; font-size: 12.5px; opacity: .85; margin-bottom: 14px; font-family: var(--f-body); }
 .breadcrumb a:hover { color: var(--primary); opacity: 1; }
 
 /* ── MISC ── */
