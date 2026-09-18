@@ -70,6 +70,12 @@ def main():
     if not secs:
         sys.exit(f'{a.slug}: no content sections in the built page')
 
+    # The built site iframes its dashboards at a relative "stats-pages/<slug>.html".
+    # Inside a WordPress page that resolves under the page's own URL and 404s, so point
+    # at the deployed copy, which is same-origin and keeps the postMessage height sync.
+    secs = [s.replace('src="stats-pages/', 'src="/static/stats-pages/')
+             .replace('src="poetry-pages/', 'src="/static/poetry-pages/') for s in secs]
+
     mods = ''.join((CODE_WRAP if GRID.search(s) else TEXT_WRAP) % s for s in secs)
     tail = '[/et_pb_column][/et_pb_row][/et_pb_section]'
     new = prefix + mods + tail

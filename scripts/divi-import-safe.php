@@ -115,6 +115,13 @@ $aliases = array(
 	'nursing-and-allied-health'=> 259,  // /academics/nursing-and-allied-health/
 	'bhagawan'                 => 609,
 	'pediatrics'               => 53296, // /sssgh/pediatrics/
+
+	// Renames, not new pages: the pack's slug differs from the live one, so without
+	// these the importer would create a second copy alongside a page already in the menu.
+	// 'patients': #1316 looked like the live page but is a custom nav_menu_item pointing
+	// at /conditions-treatment/; there is no page at /for-patients/ (404). Created new.
+	'blog'                     => 1458,  // /sssihms-blog/
+	'statistics-combined'      => 53091, // /statistics/  (private)
 	// 'gg-biomedical' deliberately absent: biomedical-waste-management (54788) is the
 	// BMW plugin's own page. Do not overwrite a working app with content.
 );
