@@ -78,6 +78,19 @@ styled-differently. Target values from the mock at 1500px:
 | CTA band h2 / p | 36px white / 15px white |
 | section padding | 72px top and bottom (64px for the CTA band) |
 
+**The same trap via inheritance:** raw `<a>`/`<div>` markup inside a Text module inherits Divi's
+Open Sans unless it sets `font-family` itself. The hero buttons set weight, size and colour but
+not family, and rendered in Open Sans for weeks without looking broken. Any inline-styled element
+that should use EB Garamond or Nunito Sans must name the family explicitly.
+
+**Editing a builder-enabled page: use the REST API, not the classic textarea.** On a page with
+`et_pb_use_builder=on`, typing into `#content` and clicking Save Draft does *not* stick — Divi
+re-serialises `post_content` from its own builder state on submit and silently discards the edit
+(confirmed 18-Sep-2026 on page 54830: 37,340 → 37,402 chars, none of them the change made). What
+works is `POST /wp-json/wp/v2/pages/<id>` with `{content, status}` and the `wpApiSettings.nonce`
+header, run from an admin page; read the current value back with `?context=edit` first and count
+your match targets before replacing, so a bulk regex cannot hit more than intended.
+
 **Also:** the WordPress page cache can serve a stale render right after a save. If a change
 looks like it did not apply, re-request with a cache-busting query param before debugging it.
 
