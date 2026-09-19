@@ -310,7 +310,7 @@ PAGES['counseling'] = {
         '"Counselling the SAI Way" — Spirituality Awareness Integration in Counselling" — addresses the spiritual dimension of patients using as a therapeutic framework the well-established Person Centred Approach of Carl Rogers and the emerging Spirituality in Human Existential Well Being counselling methodology of Mia Leijssen.',
         'Interwoven closely into this framework is Sri Sathya Sai Baba’s humane secular philosophy based on the primacy of the five cardinal and innate human values — <em>Sathya, Dharma, Shanti, Prema, Ahimsa</em> — and advocating prayer to the God of your Choice, which constitute the bedrock of SAI Counselling founded on the supremacy of Love and the omnipresence of God.'
       ] },
-    { type:'quote', image:'assets/baba/baba-04.jpg', eyebrow:'The Foundation',
+    { type:'quote', image:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/baba-04.jpg', eyebrow:'The Foundation',
       text:'There is only one caste, the caste of humanity. There is only one religion, the religion of love. There is only one language, the language of the heart. There is only one God, He is omnipresent.',
       attr:'Sathya Sai Baba, 1985' },
     { type:'prose', eyebrow:'SAI Counselling in Practice', title:'Inner Transformation as the Path to Healing',
@@ -345,7 +345,7 @@ PAGES['hmis'] = {
   subtitle:'The HMIS Department at SSSIHMS has one of the best IT implementations in India among hospitals.',
   sections:[
     { type:'intro', eyebrow:'Introduction', title:'Technology in the Service of Patients',
-      image:'assets/sssgh/hmis-blessing.jpg', imageLabel:'Swami blessing HMIS Department staff',
+      image:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/hmis-blessing.jpg', imageLabel:'Swami blessing HMIS Department staff',
       body:[
         'IT in a hospital involves collation, segregation, storage and retrieval of data pertaining to all aspects of the hospital. SSSIHMS has one of the best IT implementations in India among hospitals. In addition to the latest in Medical Technology to provide the best medical treatment, SSSIHMS is also technologically advanced to enhance its capabilities to serve patients better. Technology is effectively used to facilitate the operations of the hospital, to improve the utilization of infrastructure in a cost effective manner.'
       ] },
@@ -369,7 +369,7 @@ PAGES['hmis'] = {
         'On the finance side, NAV provides the general ledger, accounts payable and receivable, fixed assets and budgeting, with financial reporting drawn from the same records that the stores and purchase departments work in. Sales, purchasing and inventory sit together, so stock availability and commitments are visible in real time, and automated workflows reduce manual entry and reconciliation.'
       ] },
     { type:'gallery', eyebrow:'Gallery', title:'The Department and the Campus', items:[
-      { src:'assets/sssgh/hmis-blessing.jpg', caption:'Swami blessing HMIS Department staff' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/hmis-blessing.jpg', caption:'Swami blessing HMIS Department staff' },
       { src:CDN + '2015/06/SSMT_913-Web.jpg', caption:'RIS & PACS usage in Radiology Viewing Room' },
       { src:CDN + '2015/04/rad-tn-041.jpg', caption:'Advanced Barco Monitors for Radiology reporting' },
       { src:CDN + '2015/04/aerial3.jpg', caption:'Ariel View of Hospital' },

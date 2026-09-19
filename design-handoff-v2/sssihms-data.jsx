@@ -37,7 +37,7 @@ const PAGES = {
         { v:'25+', l:'Years of Compassionate Service' },
         { v:'100%', l:'Free Medical Care for All' }
       ], alt:true },
-      { type:'quote', image:'assets/baba/baba-06.jpg', eyebrow:'Guiding Philosophy',
+      { type:'quote', image:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/baba-06.jpg', eyebrow:'Guiding Philosophy',
         text:'Doctors should serve the poor with a spirit of sacrifice. There is no greater service than this. Medicine should not be commercialised. It is meant to promote a heart-to-heart and love-to-love relationship between doctor and patient.',
         attr:'Bhagawan Sri Sathya Sai Baba, 2003' },
       { type:'split', cols:[
@@ -55,7 +55,7 @@ const PAGES = {
     title:'Guiding Philosophy', crumb:'Guiding Philosophy',
     subtitle:'The spirit that shapes every decision, every treatment, and every interaction at SSSIHMS.',
     sections:[
-      { type:'quote', image:'assets/baba/baba-07.jpg', eyebrow:'The Foundation',
+      { type:'quote', image:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/baba-07.jpg', eyebrow:'The Foundation',
         text:'Doctors should serve the poor with a spirit of sacrifice. There is no greater service than this. As man is the embodiment of God, it is his primary duty to help the destitute and the forlorn. Medicine should not be commercialised. It is meant to promote a heart-to-heart and love-to-love relationship between doctor and patient. A true doctor is one who realises this truth and conducts himself accordingly.',
         attr:'Bhagawan Sri Sathya Sai Baba, 2003' },
       { type:'intro', eyebrow:'Healthcare as Worship', title:'Medicine in the Spirit of Love',
@@ -84,7 +84,7 @@ const PAGES = {
           'From its inauguration, the hospital was conceived as a place where super-specialty tertiary care — cardiac surgery, neurosurgery, cardiology, neurology and more — would be delivered entirely free of charge.',
           'What began as an audacious act of faith has matured into an institution that performs thousands of complex surgeries every year, trains the next generation of doctors and nurses, and continues to turn no one away.'
         ] },
-      { type:'quote', image:'assets/baba/baba-08.jpg',
+      { type:'quote', image:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/baba-08.jpg',
         text:'Let different faiths exist, let them flourish, let the glory of God be sung in all languages and a variety of tunes. Respect the differences between the faiths and recognise them as valid as long as they do not extinguish the flame of unity.',
         attr:'Bhagawan Sri Sathya Sai Baba' },
       { type:'split', alt:true, cols:[
@@ -875,7 +875,7 @@ const PAGES = {
       { type:'quote', eyebrow:'Divine Message',
         text:'Swami willed that there should be a sufficient number of trained nursing personnel and therefore training facilities for nursing personnel will be established. It is easy for doctors to perform operations. The real difficulty is in taking care of the patients after the operations. It is easy to slice vegetables. But, to prepare a tasty dish out of that is very difficult. This task of \u201ccooking\u201d is done by the nurses. If there is no good nursing, even the operation may be a failure. Therefore in order to train a good group of nursing personnel, training facilities are being provided. All those who are pure-hearted and filled with a spirit of service, may approach the Director for undergoing training to serve in the hospital. They need not incur any expense. The entire training is free. Elsewhere, if people want to undergo such training, they have to pay all kinds of fees. Here nothing will be charged. Everything will be provided free. Only, we want persons with pure hearts to join the course. Today we have quite a large number of people working in our hospital. But, there is more work to be done because of the ever-growing number of patients seeking relief. Hence, we need many more nursing personnel. We are asking for nurses not for Swami\u2019s sake but for the sake of the nation.',
         attr:'Bhagawan Sri Sathya Sai Baba, Poornachandra Auditorium, Guru Pournima message, 14 July 1992' },
-      { type:'quote', image:'assets/baba/baba-09.jpg', eyebrow:'The Founding Vision',
+      { type:'quote', image:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/baba-09.jpg', eyebrow:'The Founding Vision',
         text:'We are asking for nurses not for Swami\u2019s sake but for the sake of the nation. Hands that help are holier than lips that pray.',
         attr:'Bhagawan Sri Sathya Sai Baba, Guru Pournima Discourse' },
       { type:'intro', eyebrow:'College of Nursing', title:'Born of Bhagawan\u2019s Call',
@@ -932,7 +932,7 @@ const PAGES = {
     title:'Sevadal — Volunteer Service', crumb:'Get Involved · Sevadal',
     subtitle:'The volunteers who form the beating heart of SSSIHMS.',
     sections:[
-      { type:'quote', image:'assets/baba/baba-10.jpg', eyebrow:'What Is Seva?',
+      { type:'quote', image:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/baba-10.jpg', eyebrow:'What Is Seva?',
         text:'Every seva done with sympathy and skill to anyone in distress anywhere in this world is Sathya Sai seva.',
         attr:'Bhagawan Sri Sathya Sai Baba, 29th March 1968' },
       { type:'intro', eyebrow:'The Heart of the Hospital', title:'108 Volunteers, Every Week',
@@ -1026,7 +1026,7 @@ const PAGES = {
           'He founded numerous educational and medical institutions across India — all free of charge — reflecting His core teaching that service to humanity is service to God.',
           'Among His greatest gifts is the network of Sri Sathya Sai Hospitals — including SSSIHMS Whitefield — where the finest medical care is given freely to all who come, embodying His vision that the poor and the privileged deserve equal care, given with equal love.'
         ], link:{ label:'Read Life History', href:'https://www.srisathyasai.org/pages/sai-life-history-history.html' } },
-      { type:'quote', image:'assets/baba/baba-11.jpg', eyebrow:'His Words',
+      { type:'quote', image:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/baba-11.jpg', eyebrow:'His Words',
         text:'Doctors should serve the poor with a spirit of sacrifice. There is no greater service than this. As man is the embodiment of God, it is his primary duty to help the destitute and the forlorn. Medicine should not be commercialised.',
         attr:'Bhagawan Sri Sathya Sai Baba, 2003' },
       { type:'intro', eyebrow:'Who is Sri Sathya Sai Baba?', title:'I am God. And you too are God.', body:[
@@ -1238,7 +1238,7 @@ const PAGES = {
       },
       {
         "type": "quote",
-        "image": "assets/baba/baba-12.jpg",
+        "image": "https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/baba-12.jpg",
         "text": "Disease has no distinction; it may afflict anybody, be it a pauper or a millionaire... the treatment will be rendered totally free of cost to the rich and poor alike... This Institution will serve the poor forever.",
         "author": "Bhagawan Sri Sathya Sai Baba"
       },

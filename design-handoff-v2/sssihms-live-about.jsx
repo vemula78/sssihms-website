@@ -35,7 +35,7 @@ PAGES['about-hospital'] = {
       { v:'25+', l:'Years of Compassionate Service' },
       { v:'100%', l:'Free Medical Care for All' }
     ], alt:true },
-    { type:'quote', image:'assets/baba/baba-03.jpg', eyebrow:'Guiding Philosophy',
+    { type:'quote', image:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/baba-03.jpg', eyebrow:'Guiding Philosophy',
       text:'Doctors should serve the poor with a spirit of sacrifice. There is no greater service than this. Medicine should not be commercialised. It is meant to promote a heart-to-heart and love-to-love relationship between doctor and patient.',
       attr:'Bhagawan Sri Sathya Sai Baba, 2003' },
     { type:'prose', eyebrow:'The Building', title:'A Temple of Healing, Not a Hospital',
@@ -130,13 +130,13 @@ PAGES['guiding-philosophy'] = {
         '<strong>The aim should be to heal the patient in body, mind and spirit, not merely to cure disease.</strong>',
         'The Preamble to the Constitution of the World Health Organisation (WHO) defines Health as "a state of complete physical, mental and social well-being and not merely the absence of disease or infirmity". Hence, values-based living is emphasised, and prevention of disease and ill-health.'
       ] },
-    { type:'quote', image:'assets/baba/baba-05.jpg',
+    { type:'quote', image:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/baba-05.jpg',
       text:'Hands that help are holier than lips that pray.',
       attr:'Bhagawan Sri Sathya Sai Baba' },
     { type:'gallery', eyebrow:'The Founder', title:'Bhagawan Sri Sathya Sai Baba', cols:3, items:[
-      { src:'assets/baba/baba-01.jpg' },
-      { src:'assets/baba/baba-12.jpg' },
-      { src:'assets/baba/baba-08.jpg' }
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/baba-01.jpg' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/baba-12.jpg' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/baba-08.jpg' }
     ] },
     { type:'cards', eyebrow:'Archive', title:'Historical Recordings', alt:true, cols:2, items:[
       { title:'Inaugural Address by Bhagawan Sri Sathya Sai Baba', desc:'19th January 2001', link:{ label:'Watch', href:'https://www.youtube.com/watch?v=IVmP5JGPk3M' } },

@@ -1185,7 +1185,7 @@ PAGES['cardiology-achievements'] = {
         'The faculty\u2019s published work is indexed on the public research databases. Dr. Banajit Barooah\u2019s publications are listed on <a href="https://www.researchgate.net/profile/Banajit-Barooah" target="_blank" rel="noopener">ResearchGate</a>; the <em>Indian Heart Journal</em> indexes of <a href="https://www.sciencedirect.com/search?pub=Indian%20Heart%20Journal&cid=282492&qs=Reeta%20varyani&show=100" target="_blank" rel="noopener">Dr. Reeta Varyani</a> and <a href="https://www.sciencedirect.com/search?qs=kini&pub=Indian%20Heart%20Journal&cid=282492&show=100" target="_blank" rel="noopener">Dr. Prayaag Kini</a> are on ScienceDirect.'
       ] },
 
-    { type:'quote', image:'assets/baba/baba-02.jpg', text:'Doctors should serve the poor with a spirit of sacrifice. There is no greater service than this.', attr:'Bhagawan Sri Sathya Sai Baba' }
+    { type:'quote', image:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/baba-02.jpg', text:'Doctors should serve the poor with a spirit of sacrifice. There is no greater service than this.', attr:'Bhagawan Sri Sathya Sai Baba' }
   ]
 };
 

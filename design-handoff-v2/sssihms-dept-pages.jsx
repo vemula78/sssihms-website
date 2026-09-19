@@ -104,7 +104,7 @@ PAGES['cardiology-achievements'] = {
       { title:'Research & Publications', desc:'Faculty actively participate in research projects and clinical studies, publishing regularly in reputed national and international journals.' },
       { title:'National Standing', desc:'Among the leading national institutions performing a wide variety of adult and paediatric cardiac interventions — all free of cost.' }
     ] },
-    { type:'quote', image:'assets/baba/baba-02.jpg', text:'Doctors should serve the poor with a spirit of sacrifice. There is no greater service than this.', attr:'Bhagawan Sri Sathya Sai Baba' }
+    { type:'quote', image:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/baba-02.jpg', text:'Doctors should serve the poor with a spirit of sacrifice. There is no greater service than this.', attr:'Bhagawan Sri Sathya Sai Baba' }
   ]
 };
 

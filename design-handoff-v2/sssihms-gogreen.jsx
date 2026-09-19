@@ -225,7 +225,7 @@ PAGES['gg-waste'] = {
       '<a href="https://ewasteindia.com/" target="_blank" rel="noopener">ewasteindia.com</a>',
       '<a href="https://www.globalwmcindia.com/" target="_blank" rel="noopener">globalwmcindia.com</a>'
     ] },
-    { type:'quote', image:'assets/baba/baba-05.jpg', eyebrow:'Quotes',
+    { type:'quote', image:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/baba-05.jpg', eyebrow:'Quotes',
       text:'The Universe is the "University" for Man. Man should treat nature with reverence.',
       attr:'Bhagawan Sri Sathya Sai Baba, Founder Trustee, Sri Sathya Sai Central Trust' },
     { type:'prose', eyebrow:'Quotes', title:'From the Institute', alt:true,

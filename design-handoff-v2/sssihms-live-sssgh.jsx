@@ -65,7 +65,7 @@ PAGES['pediatrics'] = {
       { src:U + '2022/12/Baba-with-baby-5.jpeg', caption:'' },
       { src:U + '2022/12/Baba-with-baby-6.jpeg', caption:'' },
       { src:U + '2022/12/Baba-with-baby-7.jpg', caption:'' },
-      { src:'assets/sssgh/swami-with-newborns.jpg', caption:'Bhagawan with newborns and their mothers' }
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/swami-with-newborns.jpg', caption:'Bhagawan with newborns and their mothers' }
     ] }
   ]
 };
@@ -109,8 +109,8 @@ PAGES['ophthalmology'] = {
       { name:'Dr. Balkiran', role:'Honorary Faculty' }
     ] },
     { type:'gallery', eyebrow:'Archive', title:'The Operation Theatre', cols:2, alt:true, items:[
-      { src:'assets/sssgh/oph-ot.jpg', caption:'Bhagawan at the ophthalmology operation theatre' },
-      { src:'assets/sssgh/ot-entrance.jpg', caption:'At the operation theatre entrance' }
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/oph-ot.jpg', caption:'Bhagawan at the ophthalmology operation theatre' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/ot-entrance.jpg', caption:'At the operation theatre entrance' }
     ] }
   ]
 };
@@ -195,7 +195,7 @@ PAGES['general-medicine'] = {
       { name:'Dr. Nirmala', role:'Medical Officer', photo:U + '2022/12/GM-2.jpg' }
     ] },
     { type:'gallery', eyebrow:'Archive', title:'From the Department Archive', cols:1, items:[
-      { src:'assets/sssgh/with-dr-ramkumar.jpg', caption:'Bhagawan with Dr. Ramkumar' }
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/with-dr-ramkumar.jpg', caption:'Bhagawan with Dr. Ramkumar' }
     ] }
   ]
 };
@@ -224,8 +224,8 @@ PAGES['dental'] = {
       { name:'Dr. Mythili', role:'Dental Surgeon', photo:U + '2022/12/Mythili-dental.jpg' }
     ] },
     { type:'gallery', eyebrow:'Archive', title:'Inauguration of the Dental Clinic', cols:2, alt:true, items:[
-      { src:'assets/sssgh/dental-inauguration-1.jpg', caption:'Bhagawan inaugurating the dental clinic' },
-      { src:'assets/sssgh/dental-inauguration-2.jpg', caption:'At the dental clinic inauguration' }
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/dental-inauguration-1.jpg', caption:'Bhagawan inaugurating the dental clinic' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/dental-inauguration-2.jpg', caption:'At the dental clinic inauguration' }
     ] }
   ]
 };

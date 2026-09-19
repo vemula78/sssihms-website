@@ -20,7 +20,7 @@ PAGES['history-gh'] = {
   title:'History — General Hospital', crumb:'Departments · SSSGH · History', subnav:'sssgh',
   subtitle:'From a village clinic in 1969 to five decades of free general medical care.',
   sections:[
-    { type:'quote', image:'assets/baba/baba-06.jpg',
+    { type:'quote', image:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/baba-06.jpg',
       text:'Health is an essential requisite of man. The man afflicted with ill-health is powerless to execute event eth least burdensome assignment. The scriptures proclaim that health is the very root of all endeavours in the four fields of human achievement — Dharma, Artha, Kama, Moksha. Without health man cannot brave temptations, earn a decent living, fulfil his basic needs or succeed in spiritual path.',
       attr:'Sathya Sai Speaks, Volume 13' },
     { type:'prose', eyebrow:'Introduction', title:'A Beacon of Selfless Service Since 1976', body:[
@@ -31,12 +31,12 @@ PAGES['history-gh'] = {
       'The success and sustainability of the hospital are a tribute to the dedicated efforts of the Sri Sathya Sai Central Trust, which meticulously oversees its operations, and to a vast network of volunteers, donors and well-wishers from around the globe, all inspired by Bhagawan’s mission.'
     ] },
     { type:'intro', eyebrow:'The Early Days', title:'A Clinic Given in Love',
-      image:'assets/sssgh/inauguration-sssgh-whitefield.jpg', imageLabel:'Inauguration of the Sri Sathya Sai General Hospital, Whitefield',
+      image:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/inauguration-sssgh-whitefield.jpg', imageLabel:'Inauguration of the Sri Sathya Sai General Hospital, Whitefield',
       body:[
         'In 1969, Sri N. G. Ganapuley started a small clinic in Whitefield — the Health and Educational Society — which distributed medicines to the villagers free of cost. The clinic was donated to Bhagawan Sri Sathya Sai Baba, and thus the Sri Sathya Sai General Hospital was born in 1976.',
         'At its inauguration, Bhagawan set out its charter: a hospital amidst the villages, where expert advice and treatment would be rendered in a loving atmosphere of reverence and devotion — with no charge ever levied for any service.'
       ] },
-    { type:'quote', image:'assets/baba/baba-01.jpg', eyebrow:'At the Inauguration',
+    { type:'quote', image:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/baba-01.jpg', eyebrow:'At the Inauguration',
       text:'People of this village and villages that are in the surrounding area, will resort to this hospital for medical relief and advise. Unfortunately hospitals that treat patients with love and care, with dedication and devotion are a rarity. These are hospitals with costly equipment and expert doctors, huge buildings and spick-and-span interiors, but they indulge more in profiteering that affording relief. Their services are for those who can pay large sums of money. Villagers are not welcome there, who in turn do not feel at ease to approach them. Therefore this hospital is being started amidst the villages so that expert advice and treatment can be rendered, to them in a loving atmosphere of reverence and devotion. No charge will be levied here for any service.',
       attr:'Bhagawan Sri Sathya Sai Baba, at the inauguration of SSSGH' },
     { type:'prose', eyebrow:'Discourse, 10 June 2001', title:'“This Was Like a Tiny Banyan Seed”', body:[
@@ -46,20 +46,20 @@ PAGES['history-gh'] = {
       'Then what will happen to this hospital? This hospital is also very important. This was like a tiny banyan seed grown into a gigantic tree. It will continue to grow more and more.'
     ], alt:true },
     { type:'gallery', eyebrow:'Archive', title:'The Early Years', cols:3, items:[
-      { src:'assets/sssgh/inauguration-1976.jpg', caption:'Inauguration of the hospital, 1976' },
-      { src:'assets/sssgh/inauguration-28-8-1976.jpg', caption:'Inauguration, 28 August 1976' },
-      { src:'assets/sssgh/inauguration-02.jpg', caption:'At the inauguration' },
-      { src:'assets/sssgh/inauguration-03.jpg', caption:'At the inauguration' },
-      { src:'assets/sssgh/inauguration-04.jpg', caption:'Inauguration day, SSSGH Whitefield' },
-      { src:'assets/sssgh/dressing-dispensing.jpg', caption:'At the dressing and dispensing room' },
-      { src:'assets/sssgh/ward-visit.jpg', caption:'Bhagawan in the ward' },
-      { src:'assets/sssgh/staff-aarthi.jpg', caption:'Staff offering aarthi' },
-      { src:'assets/sssgh/swami-with-staff.jpg', caption:'Bhagawan with the hospital staff' },
-      { src:'assets/sssgh/swami-walking-staff-1.jpg', caption:'Walking through the hospital with the staff' },
-      { src:'assets/sssgh/swami-walking-staff-2.jpg', caption:'Walking through the hospital' },
-      { src:'assets/sssgh/staff-group-photo.jpg', caption:'Group photograph with the hospital family' },
-      { src:'assets/sssgh/archive-01.jpg', caption:'From the hospital archive' },
-      { src:'assets/sssgh/padanamaskar.jpg', caption:'From the hospital archive' }
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/inauguration-1976.jpg', caption:'Inauguration of the hospital, 1976' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/inauguration-28-8-1976.jpg', caption:'Inauguration, 28 August 1976' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/inauguration-02.jpg', caption:'At the inauguration' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/inauguration-03.jpg', caption:'At the inauguration' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/inauguration-04.jpg', caption:'Inauguration day, SSSGH Whitefield' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/dressing-dispensing.jpg', caption:'At the dressing and dispensing room' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/ward-visit.jpg', caption:'Bhagawan in the ward' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/staff-aarthi.jpg', caption:'Staff offering aarthi' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/swami-with-staff.jpg', caption:'Bhagawan with the hospital staff' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/swami-walking-staff-1.jpg', caption:'Walking through the hospital with the staff' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/swami-walking-staff-2.jpg', caption:'Walking through the hospital' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/staff-group-photo.jpg', caption:'Group photograph with the hospital family' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/archive-01.jpg', caption:'From the hospital archive' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/padanamaskar.jpg', caption:'From the hospital archive' }
     ] },
     { type:'prose', eyebrow:'7 July 2016', title:'One Campus, One Mission', body:[
       'Fulfilling a vision Bhagawan expressed as early as 2001, the General Hospital shifted its operations onto the SSSIHMS Whitefield campus in July 2016. It continues to function as an independent entity, while patients gain easier access to high-end diagnostics and synergy with the super-specialty cardiac and neuro teams.'
@@ -96,22 +96,22 @@ PAGES['history-gh'] = {
       'Support services — laboratory, radiology and physiotherapy'
     ] },
     { type:'gallery', eyebrow:'Archive', title:'Milestones Along the Way', cols:3, alt:true, items:[
-      { src:'assets/sssgh/opd-inauguration-1.jpg', caption:'Inauguration of the outpatient department' },
-      { src:'assets/sssgh/opd-inauguration-2.jpg', caption:'Inauguration of the outpatient department' },
-      { src:'assets/sssgh/opd-inauguration-3.jpg', caption:'OPD inauguration, SSSGH Whitefield' },
-      { src:'assets/sssgh/opd-inauguration-4.jpg', caption:'OPD inauguration, SSSGH Whitefield' },
-      { src:'assets/sssgh/quarters-inauguration.jpg', caption:'Inauguration of the staff quarters' },
-      { src:'assets/sssgh/quarters-lamp-lighting.jpg', caption:'Lighting the lamp at the staff quarters' },
-      { src:'assets/sssgh/inaugurating-machine.jpg', caption:'Bhagawan inaugurating new equipment' },
-      { src:'assets/sssgh/swami-dr-savitri.jpg', caption:'Bhagawan with Dr. Savitri' },
-      { src:'assets/sssgh/swami-dr-hm.jpg', caption:'Bhagawan with Dr. H. M.' },
-      { src:'assets/sssgh/swami-dr-shankar.jpg', caption:'Bhagawan with Dr. Shankar B' },
-      { src:'assets/sssgh/ganesha-1.jpg', caption:'Consecration of the Ganesha shrine' },
-      { src:'assets/sssgh/ganesha-2.jpg', caption:'Consecration of the Ganesha shrine' },
-      { src:'assets/sssgh/ganesha-3.jpg', caption:'Consecration of the Ganesha shrine' },
-      { src:'assets/sssgh/parthi-yatra-2002.jpg', caption:'Parthi Yatra, 2002' },
-      { src:'assets/sssgh/parthi-yatra-2002-group.jpg', caption:'Parthi Yatra, 2002 — group photograph' },
-      { src:'assets/sssgh/parthi-yatra-group.jpg', caption:'Parthi Yatra — group photograph' }
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/opd-inauguration-1.jpg', caption:'Inauguration of the outpatient department' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/opd-inauguration-2.jpg', caption:'Inauguration of the outpatient department' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/opd-inauguration-3.jpg', caption:'OPD inauguration, SSSGH Whitefield' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/opd-inauguration-4.jpg', caption:'OPD inauguration, SSSGH Whitefield' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/quarters-inauguration.jpg', caption:'Inauguration of the staff quarters' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/quarters-lamp-lighting.jpg', caption:'Lighting the lamp at the staff quarters' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/inaugurating-machine.jpg', caption:'Bhagawan inaugurating new equipment' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/swami-dr-savitri.jpg', caption:'Bhagawan with Dr. Savitri' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/swami-dr-hm.jpg', caption:'Bhagawan with Dr. H. M.' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/swami-dr-shankar.jpg', caption:'Bhagawan with Dr. Shankar B' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/ganesha-1.jpg', caption:'Consecration of the Ganesha shrine' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/ganesha-2.jpg', caption:'Consecration of the Ganesha shrine' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/ganesha-3.jpg', caption:'Consecration of the Ganesha shrine' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/parthi-yatra-2002.jpg', caption:'Parthi Yatra, 2002' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/parthi-yatra-2002-group.jpg', caption:'Parthi Yatra, 2002 — group photograph' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/parthi-yatra-group.jpg', caption:'Parthi Yatra — group photograph' }
     ] },
     FREE,
       { type:'intro', eyebrow:"History", title:"The Story in Full", body:[
