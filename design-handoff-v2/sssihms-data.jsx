@@ -33,7 +33,7 @@ const PAGES = {
         { v:'1,43,500+', l:'Cardiac & Neuro Procedures Since 2001' },
         { v:'51,500+', l:'Multi-Specialty Surgeries Since 1976' },
         { v:'12', l:'Modular Operation Theatres' },
-        { v:'6', l:'Intensive Care Units' },
+        { v:'3', l:'Intensive Care Units' },
         { v:'25+', l:'Years of Compassionate Service' },
         { v:'100%', l:'Free Medical Care for All' }
       ], alt:true },
@@ -92,7 +92,7 @@ const PAGES = {
           'The Institute opened its doors with a singular promise: world-class medicine, free of cost, given in an atmosphere of love. That promise has never been broken.'
         ] },
         { eyebrow:'Now', title:'A Promise Kept', body:[
-          'Today SSSIHMS stands among the leading centres in the country for cardiac and neuro sciences, with 12 modular operation theatres, 6 ICUs and three catheterisation labs — all serving patients at no charge.'
+          'Today SSSIHMS stands among the leading centres in the country for cardiac and neuro sciences, with 12 modular operation theatres, 3 ICUs and three catheterisation labs — all serving patients at no charge.'
         ] }
       ] }
     ]
@@ -239,7 +239,7 @@ const PAGES = {
           // Neurology is temporarily closed (18-Sep-2026) and its pages are private, so the
           // card keeps its description but no longer links anywhere — the link 404'd for visitors.
           { icon:'◇', title:'Neurology', desc:'A well-equipped centre with the latest facilities for the full breadth of neurological conditions.' },
-          { icon:'✦', title:'Anesthesiology', desc:'Serving 12 modular OTs, 6 ICUs, 3 cath labs, emergency department and CT/MRI suite — round the clock.', link:{ label:'Anesthesiology', page:'anesthesiology' } },
+          { icon:'✦', title:'Anesthesiology', desc:'Serving 12 modular OTs, 3 ICUs, 3 cath labs, emergency department and CT/MRI suite — round the clock.', link:{ label:'Anesthesiology', page:'anesthesiology' } },
           { icon:'⬡', title:'Radiology', desc:'Expert diagnostic and interventional imaging — X-ray, ultrasound, CT, MRI, DSA — using state-of-the-art technology.', link:{ label:'Radiology', page:'radiology' } }
         ] },
       { type:'intro', eyebrow:'Sri Sathya Sai General Hospital', title:'Multi-Specialty General Hospital', alt:true,
@@ -497,7 +497,7 @@ const PAGES = {
         ], pill:'24×7 Anesthesia & Critical Care' },
       { type:'stats', eyebrow:'Coverage', title:'Round-the-Clock Support', alt:true, items:[
         { v:'12', l:'Modular Operation Theatres (8 + 4)' },
-        { v:'6', l:'Intensive Care Units' },
+        { v:'3', l:'Intensive Care Units' },
         { v:'3', l:'Catheterisation Labs' },
         { v:'6,200+', l:'Surgeries Supported / Year' }
       ] },
@@ -778,7 +778,7 @@ const PAGES = {
     sections:[
       { type:'cards', eyebrow:'Infrastructure', title:'Our Facilities', items:[
         { icon:'✦', title:'12 Modular Operation Theatres', desc:'8 + 4 modular theatres equipped for cardiac, neuro and multi-specialty surgery.' },
-        { icon:'✦', title:'6 Intensive Care Units', desc:'Dedicated cardiac, neuro and general intensive care, staffed round the clock.' },
+        { icon:'✦', title:'3 Intensive Care Units', desc:'Dedicated cardiac, neuro and general intensive care, staffed round the clock.' },
         { icon:'✦', title:'3 Catheterisation Labs', desc:'Two cardiac cath labs and one bi-plane neuro cath lab.' },
         { icon:'✦', title:'Advanced Imaging', desc:'CT, MRI, DSA, ultrasound and digital X-ray in a dedicated radiology suite.' },
         { icon:'✦', title:'Emergency Department', desc:'24×7 casualty and emergency services for all patients.' },

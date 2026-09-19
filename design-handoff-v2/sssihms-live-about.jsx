@@ -31,7 +31,7 @@ PAGES['about-hospital'] = {
       { v:'1,43,500+', l:'Cardiac & Neuro Procedures Since 2001' },
       { v:'51,500+', l:'Multi-Specialty Surgeries Since 1976' },
       { v:'12', l:'Modular Operation Theatres' },
-      { v:'6', l:'Intensive Care Units' },
+      { v:'3', l:'Intensive Care Units' },
       { v:'25+', l:'Years of Compassionate Service' },
       { v:'100%', l:'Free Medical Care for All' }
     ], alt:true },

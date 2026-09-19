@@ -512,7 +512,7 @@ const SPECIALTIES = [
   // so the card keeps its description but carries no key — with no key it renders as a
   // plain div instead of a link, rather than sending visitors to a 404.
   { name:'Neurology', img:window.__resources.imgNeurology, desc:'Well-equipped centre providing the latest facilities for a broad range of neurological conditions and ailments.' },
-  { name:'Anesthesiology', key:'anesthesiology', img:window.__resources.imgAnesthesiology, desc:'Serving 12 modular operation theatres, 6 ICUs, 3 catheterisation labs, emergency department and CT/MRI suite — round the clock.' },
+  { name:'Anesthesiology', key:'anesthesiology', img:window.__resources.imgAnesthesiology, desc:'Serving 12 modular operation theatres, 3 ICUs, 3 catheterisation labs, emergency department and CT/MRI suite — round the clock.' },
   { name:'Radiology', key:'radiology', img:window.__resources.imgRadiology, desc:'Expert diagnostic and interventional imaging — X-ray, ultrasound, CT, MRI, DSA — using state-of-the-art technology.' },
 ];
 
@@ -520,7 +520,7 @@ const STATS = [
   { v:'3,000+', l:'Cardiac & Neuro Surgeries per Year' },
   { v:'1,700+', l:'Multi-Specialty Surgeries per Year' },
   { v:'12', l:'Modular Operation Theatres' },
-  { v:'6', l:'Intensive Care Units' },
+  { v:'3', l:'Intensive Care Units' },
   { v:'25+', l:'Years of Compassionate Service' },
   { v:'100%', l:'Care Given Free of Cost' },
 ];
@@ -815,7 +815,7 @@ function PatientSection({ navigate }) {
           <p className="section-sub" style={{margin:'0 auto 24px'}}>Every service at SSSIHMS — from consultation to complex surgery — is provided without any charge to the patient.</p>
         </div>
         <div className="pat-grid" style={{marginTop:36}}>
-          {[{icon:'◆', title:'Book Appointment', desc:'Walk in to our OPD or schedule in advance. Our team registers and guides you at every step.'},
+          {[{icon:'◆', title:'Book Appointment', desc:'All OP consultations are by prior appointment. Please call the helpdesk to book an appointment. Our team guides you at every step.'},
             {icon:'◆', title:'Telemedicine / Help Desk', desc:'Access medical guidance remotely via our telemedicine portal. Especially valuable for patients unable to travel to Bengaluru.'},
             {icon:'◆', title:'Emergency Care — 24/7', desc:'Our Emergency Department is open round the clock, every day of the year. Critical care, ICU and emergency services are available at all hours.'}
           ].map(c => (

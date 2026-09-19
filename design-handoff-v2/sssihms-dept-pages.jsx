@@ -79,7 +79,7 @@ PAGES['cardiology-infrastructure'] = {
     { type:'cards', eyebrow:'Facilities', title:'Diagnostics & Intervention', cols:3, items:[
       { title:'Catheterisation Labs', desc:'Two dedicated cardiac cath labs supporting more than 71,000 procedures and sessions since 2001, alongside the Institute\'s bi-plane neuro cath lab.' },
       { title:'Non-Invasive Cardiology', desc:'Echocardiography, treadmill stress testing, Holter monitoring and ECG services supporting an outpatient volume of over 11.2 lakh visits.' },
-      { title:'Critical Care', desc:'Dedicated cardiac intensive care within the Institute\'s 6 ICUs, with round-the-clock emergency support.' },
+      { title:'Critical Care', desc:'Dedicated cardiac intensive care within the Institute\'s 3 ICUs, with round-the-clock emergency support.' },
       { title:'Operation Theatres', desc:'Access to 12 modular operation theatres shared with cardiac surgery for the full range of adult and paediatric interventions.' },
       { title:'Imaging', desc:'On-campus GE HD 750 128-slice CT and Siemens MAGNETOM Aera 1.5T MRI for advanced cardiac imaging.' },
       { title:'Telemedicine', desc:'Cardiology consultations to nodal centres at Barrackpore (West Bengal) and Bhubaneswar (Odisha) through the Sri Sathya Sai Tele-health Network.' }
@@ -219,7 +219,7 @@ PAGES['ctvs-infrastructure'] = {
   sections:[
     { type:'cards', eyebrow:'Facilities', title:'Surgical Infrastructure', cols:3, items:[
       { title:'Modular Operation Theatres', desc:'Cardiac operation theatres within the Institute\'s 12 modular OT complex, supporting over 30,800 cardiac surgeries since 2001.' },
-      { title:'Cardiac ICUs', desc:'Dedicated post-operative cardiac intensive care with round-the-clock consultant cover, part of the hospital\'s 6 ICUs.' },
+      { title:'Cardiac ICUs', desc:'Dedicated post-operative cardiac intensive care with round-the-clock consultant cover, part of the hospital\'s 3 ICUs.' },
       { title:'Perfusion Services', desc:'In-house perfusion team and heart-lung machines for adult and paediatric cardiopulmonary bypass — roughly a third of the surgical volume is paediatric.' }
     ] },
     { type:'stats', eyebrow:'Scale', title:'CTVS in Numbers', alt:true, items:[
@@ -402,7 +402,7 @@ PAGES['anes-infrastructure'] = {
   sections:[
     { type:'cards', eyebrow:'Facilities', title:'Where We Work', cols:3, items:[
       { title:'12 Modular Operation Theatres', desc:'Anaesthesia services for cardiac, neuro and multi-specialty surgery across all 12 modular OTs.' },
-      { title:'6 Intensive Care Units', desc:'Critical-care cover for cardiac, neuro and general ICUs — day and night, year round.' },
+      { title:'3 Intensive Care Units', desc:'Critical-care cover for cardiac, neuro and general ICUs — day and night, year round.' },
       { title:'3 Catheterisation Labs', desc:'Sedation and anaesthesia support for two cardiac cath labs and the bi-plane neuro cath lab.' },
       { title:'Emergency Department', desc:'Airway and resuscitation cover for the 24/7 emergency department.' },
       { title:'CT / MRI Suite', desc:'Anaesthesia for imaging in children and critically ill patients.' },
