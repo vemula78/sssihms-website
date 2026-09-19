@@ -29,9 +29,9 @@ PAGES['cardiology'] = {
       body:[
         'The department distinguishes itself through state-of-the-art diagnostic and interventional procedures, ensuring a high degree of clinical excellence. A broad spectrum of clinical conditions presents valuable academic exposure to practitioners and trainees. Advanced tests and procedures facilitate accurate diagnosis and inform strategic treatment planning, with particular emphasis on individual attention and customized evaluation for every patient.'
       ] },
-    { type:'prose', eyebrow:'Outpatient Services and Interventions', title:'50,000 Patients a Year, 2,800 Interventions',
+    { type:'prose', eyebrow:'Outpatient Services and Interventions', title:'29,158 Consultations, 2,738 Cathlab Procedures',
       body:[
-        'The Outpatient Department (OPD) serves over 50,000 patients annually, offering consultations and diagnostics. The Cardiac Catheterization Lab conducts approximately 2,800 interventional procedures each year.'
+        'The Outpatient Department offers consultations and diagnostics across adult and paediatric cardiology. In 2025&ndash;26 the department recorded <strong>29,158 cardiac outpatient consultations</strong> and <strong>2,738 cathlab procedures</strong>, the latter including 1,101 diagnostic coronary angiograms, 638 coronary interventions, 313 congenital device closures and 199 electrophysiology studies or ablations.'
       ] },
     { type:'features', eyebrow:'Cathlab based Procedures', title:'Procedures Performed', alt:true, items:[
       'Mitral Valvuloplasty',
@@ -57,7 +57,7 @@ PAGES['cardiology'] = {
     { type:'prose', eyebrow:'Infrastructure', title:'Cardiology OPD', alt:true,
       image:CARD.e95, imageCaption:'GE Vivid E95 Echo Machine',
       body:[
-        'The Cardiology OPD is equipped with two GE Vivid Ultra E95 machines and one Philips EPIC CVx v11 machines with advanced AI Capablities. It also has two GE Marquette Treadmill Stress Systems with Cardiosoft, two Philips Biphasic Defibrillators, a H3 + 7-day Holter Recording and Analysis system, and a Montara Eli 280c digital ECG. All the equipment complies with DICOM standards.'
+        'The Cardiology OPD is equipped with two GE Vivid Ultra E95 machines, a Philips EPIC CVx v11 and a Siemens ACUSON Origin, all with advanced AI capabilities. It also has two GE Marquette Treadmill Stress Systems with Cardiosoft, two Philips Biphasic Defibrillators, a H3 + 7-day Holter Recording and Analysis system, and a Montara Eli 280c digital ECG. All the equipment complies with DICOM standards.'
       ] },
     { type:'prose', eyebrow:'Infrastructure', title:'Cathlab Facilities',
       image:CARD.rota, imageCaption:'Rotablator', reverse:true,
@@ -68,7 +68,7 @@ PAGES['cardiology'] = {
     { type:'prose', eyebrow:'Infrastructure', title:'Cardiac Care Unit', alt:true,
       image:CARD.ccu, imageCaption:'CCU bed with equipment',
       body:[
-        'The Cardiac Care Unit (CCU) comprises 36 beds and is outfitted with state-of-the-art patient monitors, echocardiography and ECG machines, ventilators, intra-aortic balloon pumps, and defibrillators. Portable X-ray imagers and Witt haemodynamic recorders are available for comprehensive pressure monitoring. The CCU is further supported by infusion pumps, ensuring precise management of patient medications and therapies.'
+        'The Cardiac Care Unit (CCU) comprises 36 beds and is outfitted with state-of-the-art patient monitors, echocardiography and ECG machines, ventilators, intra-aortic balloon pumps, and defibrillators. Its monitors were replaced in 2025&ndash;26 with GE B155 units on central monitoring, linked to the GE Centricity patient-monitoring system, and three Mediana D100-H defibrillators were added. Portable X-ray imagers and Witt haemodynamic recorders are available for comprehensive pressure monitoring. The CCU is further supported by infusion pumps, ensuring precise management of patient medications and therapies.'
       ] },
     { type:'gallery', eyebrow:'Equipment', title:'Diagnostic and Interventional Equipment', items:[
       { src:CARD.s70, caption:'GE Vivid S70 portable Echo Machine' },
@@ -90,10 +90,10 @@ PAGES['cardiology'] = {
         '<strong>Peer-Reviewed Journals:</strong> <em>Heart Rhythm O2</em> (2022): Collaborative publication with global experts. <em>BMC Health Services Research</em> (2024): Study on travel costs and point-of-care ultrasound. <em>American Heart Journal</em> (2025): Design of the multicenter Dig-RHD trial. <em>Current Opinion in Cardiology</em> (2025): Imaging in cardiac amyloidosis.',
         '<strong>Innovative Research:</strong> Development of <strong>ML-guided predictive models</strong> for congenital heart disease and mitral stenosis. First-in-literature studies on <strong>RV-to-PA coupling</strong> and <strong>C3PW ML method</strong> for PTMC outcomes.'
       ] },
-    { type:'prose', eyebrow:'Research Activities', title:'National Trials and Institutional Studies',
+    { type:'intro', eyebrow:'Research Activities', title:'National Trials and Institutional Studies', narrow:true,
       body:[
-        'The Cardiology Research division actively participates in numerous national clinical trials, collaborating with principal investigators from public-funded institutions such as AIIMS. The department also leads major studies from within the institution, including COLSAI (Colchicine in CAD), SAIMITRA (MRI in mitral regurgitation), and PROMESA (Drug eluting stent for iliac and SFA disease).'
-      ] }
+        'The Cardiology Research division participates in national clinical trials alongside principal investigators from public-funded institutions, and leads studies from within the Institute. Current work includes the ICMR-supported Dig-RHD trial of digoxin in rheumatic heart disease, for which the Institute is a randomising site and whose results were published in <em>JAMA</em> in June 2026; COLHEF, the ICMR multicentre trial of colchicine in heart failure; STRong Heart, a George Institute study of remote monitoring for patients on oral anticoagulation; and three studies of the PulzCAD wearable ECG in coronary disease and heart failure. Device and stent studies with Meril Life Sciences and GE Healthcare are also under way.'
+      ], link:{ label:'Full Research & Publications Record', page:'cardiology-achievements' } }
   ]
 };
 })();

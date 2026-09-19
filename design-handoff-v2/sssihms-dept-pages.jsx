@@ -109,13 +109,71 @@ PAGES['cardiology-achievements'] = {
 
 PAGES['cardiology-events'] = {
   title:'Events — Cardiology', crumb:'Departments · Cardiology · Events', subnav:'cardiology',
-  subtitle:'Teaching courses, workshops and CMEs hosted by the department.',
+  subtitle:'Teaching courses, workshops, CMEs and the visiting-faculty camps that bring specialist skills to patients who could not otherwise reach them.',
   sections:[
     { type:'cards', eyebrow:'Programmes', title:'Courses & Workshops', cols:3, items:[
-      { badge:'Annual', title:'SPEED — Sathya Sai Preparatory Course', desc:'The Sathya Sai Preparatory course for Exam-going DM/DNB students (SPEED) prepares cardiology trainees across the country for their exit examinations.' },
-      { badge:'Workshop', title:'Heart Rhythm Update', desc:'An electrophysiology workshop organised with the Pace4life Foundation, UK, held in the Dhanvantari Hall of the hospital.' },
-      { badge:'Weekly', title:'Academic Meetings', desc:'Regular journal clubs, case discussions and teaching rounds with core, honorary and international visiting faculty.' }
-    ] }
+      { badge:'Annual', title:'SPEED — Sathya Sai Preparatory Course', desc:'The Sathya Sai Preparatory course for Exam-going DM/DNB students (SPEED) prepares cardiology trainees across the country for their exit examinations. The 2025 edition, held on 8–9 November, was the tenth and drew 157 delegates.' },
+      { badge:'Annual', title:'CRYSTAL', desc:'A day-long refresher course for final-year Cardiac Care Technology students and MSc Echocardiography postgraduates, run under the theme “For the Students, By the Students”. CRYSTAL 2026 brought together 139 participants from SSSIHMS and three partner institutions.' },
+      { badge:'Workshop', title:'Heart Rhythm Update — Pace for Life', desc:'An electrophysiology conference organised with the Pace4life Foundation, UK, held in the Dhanvantari Hall of the hospital on 19 October 2024.' },
+      { badge:'Structural', title:'SPACE', desc:'The structural heart conference, held in 2019 and 2022, including a session on point-of-care ultrasound in heart failure with Dr. Bruce Kimura.' },
+      { badge:'Allied Health', title:'FACTS', desc:'A day-long teaching programme for RGUHS BSc Cardiac Care Technology students. FACTS2, organised with KAHPA on 12 March 2025, included a live transmission from the cathlab to Dhanvantari Hall and was attended by 220 candidates.' },
+      { badge:'Online', title:'ELEKTRA', desc:'An electrophysiology teaching programme for EP fellows, technicians and early-career cardiologists, initiated in 2022 under Dr. Komandoor Srivathsan of Mayo Clinic Arizona.' },
+      { badge:'Collaboration', title:'GESSSICA', desc:'A day-long training programme run jointly by GE Healthcare and SSSIHMS, held in 2024 and 2025.' },
+      { badge:'Weekly', title:'Academic Meetings', desc:'Regular journal clubs, case discussions and teaching rounds with core, honorary and international visiting faculty.' },
+      { badge:'Since 2005', title:'Bangalore Chapter CSI Annual Conference', desc:'The department has hosted the annual conference of the Bangalore chapter of the Cardiological Society of India from 2005 to 2025.' }
+    ] },
+
+    { type:'intro', eyebrow:'Specialised Camps', title:'Bringing Visiting Expertise to the Bedside', alt:true, narrow:true,
+      body:[
+        'Senior specialists from India and abroad visit the Institute to proctor complex work that needs particular skills, materials and equipment. Between 7 May 2025 and 10 June 2026 the department held eight such camps across three programme lines — electrophysiology, complex coronary intervention and paediatric structural heart disease — recording 170 procedure sessions in 164 patients. All of this care was given free of charge; the Sri Sathya Sai Central Trust and partner organisations supported the high-cost consumables and devices.'
+      ] },
+
+    { type:'table', eyebrow:'2025–26', title:'Camps Held', 
+      cols:['Date','Programme','Proctor(s)','Sessions','Patients'],
+      rows:[
+        ['07-May-2025','Complex Coronary','Dr. D. S. Chadha','12','12'],
+        ['14-May-2025','Paediatric Structural','Dr. Nageshwar Rao','14','14'],
+        ['24–27-Sep-2025','Electrophysiology','Dr. Sivaraman Yegyaraman, Dr. Ashok Garg, Dr. K. S. Srivathsan','37','36'],
+        ['08-Oct-2025','Complex Coronary','Dr. D. S. Chadha','11','11'],
+        ['20-Dec-2025','Paediatric Structural','Dr. Nageshwar Rao','18','18'],
+        ['03–07-Mar-2026','Electrophysiology','Dr. Ashok Garg','48','45'],
+        ['13-May-2026','Complex Coronary','Dr. D. S. Chadha','9','9'],
+        ['10-Jun-2026','Paediatric Structural','Dr. Nageshwar Rao','21','19'],
+        ['Total','8 camps','','170','164']
+      ],
+      note:'Procedure sessions exceed patient numbers because a patient may undergo more than one procedure in a single camp. The March 2026 electrophysiology workshop additionally included 13 diagnostic coronary angiograms performed alongside the EP work.' },
+
+    { type:'achievements', eyebrow:'Visiting Faculty', title:'Camps, Workshops & Mentorship Visits',
+      sub:'The department’s record of visiting-faculty programmes. Open a group to read it.',
+      groups:[
+        { title:'Camps, Workshops & Training Visits', count:22,
+          entries:[
+            {"text": "Dr. D. S. Chadda, a senior cardiac interventionalist from Manipal Hospital, Bengaluru and former Head of Cardiology at Command Hospital Bengaluru, visited SSSIHMS Whitefield multiple times to mentor the team in complex coronary interventions. His visits supported the management of patients with complex coronary disease requiring advanced skills, materials, and equipment. Sri Sathya Sai Central Trust supported these patients by providing high-cost consumables such as IVL catheters, rotablator consumables, and IVUS catheters."},
+            {"text": "Dr. Ashok Garg and Dr. Sivaraman Yegyaraman, electrophysiologists who have been visiting the Institute twice yearly for more than two decades, visited from 18 April 2024 to 22 April 2024. During their visit, 18 patients with arrhythmias were treated, 13 devices for heart failure were implanted, and the SSSIHMS Whitefield team received updates in electrophysiology. Heart Valve Bank India and Medtronic USA supported the device implantations.", "year": "2024"},
+            {"text": "Dr. Nageshwar Rao, a well-known pediatric cardiologist who has developed a device for closure of holes in the heart, visited the hospital on 8 June 2024 to mentor SSSIHMS cardiologists in complex device implantations. Seventeen children benefited from this workshop. Observing the variety of anatomic malformations, Dr. Nageshwar Rao noted that these cases could be part of an international live conference.", "year": "2024"},
+            {"text": "Dr. Komandoor Srivathsan, Head of Electrophysiology at Mayo Clinic Arizona, joined Dr. Sivaraman Yegyaraman and Dr. Ashok Garg, the Institute’s regular volunteering faculty, from 9 September 2024 to 13 September 2024. During this five-day programme, the team performed 10 heart failure device implantations and 32 radiofrequency ablations for correction of arrhythmias.", "year": "2024"},
+            {"text": "Dr. Girish joined Dr. Mark Davis, with support from AA-PFL Charity, for volunteering services from 14 October 2024 to 19 October 2024. During the visit, they supported 33 complex arrhythmia ablations, 10 CRT device implantations, and a few conduction system pacing procedures. The Institute also organised the conference “Heart Rhythm Update 2024” on 19 October 2024, which was well attended.", "year": "2024"},
+            {"text": "Dr. Sivaraman Yegyaraman and Dr. Ashok Garg visited again from 5 February 2025 to 7 February 2025. During the visit, 18 complex ablations and 13 heart failure device implantations were performed, benefiting more than 30 patients. Consultants and residents also benefited from exposure to the latest updates in electrophysiology.", "year": "2025"},
+            {"text": "Dr. Sivaraman Yegyaraman spent one day at the Institute with the consultants on 15 March 2025 and mentored heart failure device implantations, supported by Boston Scientific USA.", "year": "2025"},
+            {"text": "On 19 January 2026, SSSIHMS Whitefield inaugurated Sai Sparsh, Sri Sathya Sai Preventive Cardiology and Rehabilitation Services for Health and Healing. The activity was organised by SSSIHMS Whitefield and mentored by Dr. Reeta Varyani, Dr. Prayaag Kini, and Dr. Nayanjit Choudary.", "year": "2026"},
+            {"text": "From 3 March 2026 to 7 March 2026, SSSIHMS Whitefield and Medtronic USA conducted an advanced EP, advanced device, and conduction system pacing workshop. Dr. S. Yegyaraman helped organise the support through Medtronic USA, and Dr. Ashok Garg served as mentor. The programme supported implantation of one VR ICD, one DR ICD, one CRT-D, three DR PPMs, and two CRT-P devices.", "year": "2026"},
+            {"text": "On 10 May 2026, SSSIHMS Whitefield organised Crystal 2026, which brought together 139 participants from across the country.", "year": "2026"},
+            {"text": "On 13 May 2026, SSSIHMS Whitefield conducted a complex coronary interventions workshop mentored by Dr. D. S. Chadda. The workshop included the first orbital atherectomy treatment supported by Abbott.", "year": "2026"},
+            {"text": "On 2 January 2025, SSSIHMS Whitefield conducted a complex coronary interventions workshop mentored by Dr. D. S. Chadda. Six cases were performed, including one IVUS-guided case.", "year": "2025"},
+            {"text": "On 1 September 2025, SSSIHMS Whitefield conducted a complex coronary workshop mentored by Dr. D. S. Chadda. Five cases were performed, including one IVL case and one IVUS case.", "year": "2025"},
+            {"text": "From 5 February 2025 to 7 February 2025, SSSIHMS Whitefield and Medtronic USA conducted an advanced EP, advanced device, and conduction system pacing workshop mentored by Dr. S. Yegyaraman and Dr. Ashok Garg. The activities included CRT-P, CRT-D, ICD, conduction system pacing procedures, and electrophysiology diagnoses and ablations.", "year": "2025"},
+            {"text": "On 25 February 2025, SSSIHMS Whitefield hosted training by the Lifetech team on creating perforations in stent grafts.", "year": "2025"},
+            {"text": "From 5 March 2025 to 6 March 2025, GE Healthcare conducted Edison Group training with SSSIHMS faculty. Various anatomical and cardiology topics were taught to GE engineers.", "year": "2025"},
+            {"text": "From 8 March 2025 to 9 March 2025, SSSIHMS and Hrudaya Vignan Trust organised the SPEED conference. Topics covered included Ebstein anomaly, RSOV, HOCM, valve disease, valvular lesions, aortoarteritis, unicuspid aortic valve, CCP, DORV, VSD, and PAH.", "year": "2025"},
+            {"text": "On 12 March 2025, KAHPA and SSSIHMS organised the FACTS2 conference. The programme included live transmission from the cathlab to Dhanvanthri Hall and was attended by 220 candidates.", "year": "2025"},
+            {"text": "On 13 March 2025, SSSIHMS Whitefield conducted a complex coronary interventions workshop mentored by Dr. D. S. Chadda.", "year": "2025"},
+            {"text": "On 15 March 2025, SSSIHMS Whitefield conducted an advanced electrophysiology workshop mentored by Dr. S. Yegyaraman.", "year": "2025"},
+            {"text": "From 16 April 2025 to 17 April 2025, Medtronic conducted EVAR/TEVAR demonstration training with simulation. The programme covered aneurysm planning, measurement, implantation techniques, materials, and simulated deployment.", "year": "2025"},
+            {"text": "From 24 September 2025 to 27 September 2025, SSSIHMS Whitefield conducted an advanced device workshop and conduction system pacing programme mentored by Dr. Yegyaraman, Dr. Ashok Garg, and Dr. Srivathsan. The activities included ICD, BVPI, conduction system pacing, PGR, and EP procedures.", "year": "2025"},
+          ],
+        },
+      ]
+    }
   ]
 };
 
