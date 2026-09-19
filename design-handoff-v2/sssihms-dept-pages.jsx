@@ -12,7 +12,7 @@ const DEPT_SUBNAV = {
   ],
   'cardiac-surgery': [
     ['Overview','cardiac-surgery'], ['Faculty','ctvs-faculty'], ['Infrastructure','ctvs-infrastructure'],
-    ['Academics','ctvs-academics'], ['Statistics','cardiac-surgery-statistics']
+    ['Achievements','ctvs-achievements'], ['Academics','ctvs-academics'], ['Statistics','cardiac-surgery-statistics']
   ],
   neurosurgery: [
     ['Overview','neurosurgery'], ['Faculty','nesu-faculty'], ['Infrastructure','nesu-infrastructure'],

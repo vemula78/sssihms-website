@@ -134,6 +134,11 @@ $aliases = array(
 	// page — the redesign belongs in the draft, #54830, which then becomes the front page.
 	'home'                     => 54830, // "Home — Divi Draft (Sacred Warmth redesign)"
 
+	// /achievements-ctvs/ existed only as an empty 2015 placeholder; the page is built
+	// from published departmental material rather than restored. Alias, not create, so
+	// the existing URL and its history are kept.
+	'ctvs-achievements'        => 590,   // /achievements-ctvs/
+
 	'fellowship'               => 255,   // /academics/fellowship/ — confirmed 18-Sep-2026;
 	                                     // #550 (private, under /radiology1/) is a different page.
 	// 'gg-biomedical' deliberately absent: biomedical-waste-management (54788) is the

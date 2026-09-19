@@ -16,7 +16,8 @@ SUBNAV.cardiology = [
 ];
 SUBNAV['cardiac-surgery'] = [
   ['Overview','cardiac-surgery'], ['Faculty','ctvs-faculty'], ['Infrastructure','ctvs-infrastructure'],
-  ['DNB','dnb-cardiac-surgery'], ['BSc Perfusion','bsc-perfusion'], ['Statistics','cardiac-surgery-statistics']
+  ['DNB','dnb-cardiac-surgery'], ['BSc Perfusion','bsc-perfusion'], ['Achievements','ctvs-achievements'],
+  ['Statistics','cardiac-surgery-statistics']
 ];
 SUBNAV.neurosurgery = [
   ['Overview','neurosurgery'], ['Services','nesu-services'], ['Faculty','nesu-faculty'],

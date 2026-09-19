@@ -885,4 +885,62 @@ PAGES['nesu-achievements'] = {
       ] }
   ]
 };
+
+/* ── CARDIAC SURGERY ─────────────────────────────────────────────────────────
+ * Unlike the Anaesthesiology and Neurosurgery pages above, this one is NOT a
+ * restoration: /achievements-ctvs/ (#590) has been an empty placeholder since
+ * 2015 — its original revision is a banner slide plus two blank toggles titled
+ * "Recognition" and "Publications", never filled in. There is therefore no
+ * publication list, award list or academic-roles record for CTVS anywhere on
+ * the site to restore, and none is invented here.
+ *
+ * Every statement below is carried from published SSSIHMS pages:
+ *   DNB accreditation, 6-year course, 1 seat  -> /dnb-cardiac-surgery/ (#538)
+ *   BSc Cardiac Perfusion Technology          -> /bsc-perfusion/ (#588)
+ *   IACTS SCORE review course                 -> /score/ (#54957)
+ *   OPCAB, valve repair, congenital range     -> /services-cardiac-surgery/ (#523)
+ *   30,837 surgeries since 2001, ~1/3 paediatric -> the CTVS statistics record
+ *
+ * Deliberately absent: the "outcomes surpass national averages" line from the
+ * department overview. It is unsourced prose, and an Achievements page is the
+ * one place an unverifiable superlative reads as a claim.
+ */
+PAGES['ctvs-achievements'] = {
+  title:'Achievements — Cardiac Surgery', crumb:'Departments · Cardiac Surgery · Achievements', subnav:'cardiac-surgery',
+  subtitle:'Twenty-five years of open-heart surgery, an accredited residency, and the only free perfusion programme in the country.',
+  sections:[
+    { type:'cards', eyebrow:'Recognition', title:'Standing & Contributions', cols:3, items:[
+      { title:'A Quarter-Century of Open-Heart Surgery', desc:'30,837 cardiothoracic and vascular procedures since 2001 — adult and paediatric, open and closed heart, every one performed free of charge.' },
+      { title:'Accredited Residency Since 2002', desc:'Among the earlier CTVS programmes accredited by the National Board of Examinations, offering a 6-year direct post-MBBS residency at no cost to the resident.' },
+      { title:'The Only Free Perfusion Degree in India', desc:'The BSc Cardiac Perfusion Technology programme is the only one of its kind in the nation offered free of cost, training the perfusionists who run the heart-lung machine.' }
+    ] },
+
+    { type:'stats', eyebrow:'Scale', title:'The Record in Numbers', alt:true, items:[
+      { v:'30,837', l:'Cardiac Surgeries Since 2001' },
+      { v:'~1/3', l:'Paediatric Share of the Case-Mix' },
+      { v:'2002', l:'NBE Accreditation of the DNB Programme' }
+    ] },
+
+    { type:'features', eyebrow:'Clinical Excellence', title:'Surgical Range and Technique', items:[
+      'A majority of coronary artery bypass procedures are performed off-pump (OPCAB), without the heart-lung machine.',
+      'Valves are repaired rather than replaced wherever repair is feasible; replacement uses mechanical or tissue prostheses as indicated.',
+      'Aortic aneurysms are treated according to location, including aortic root replacement with valve conduits or grafts and re-implantation of the coronary buttons.',
+      'The congenital programme covers the full range from palliation to complete repair — ALCAPA re-implantation, AV canal repair, AP window closure, ASD and VSD closure, coarctation repair, Blalock–Taussig shunt and bi-directional Glenn.',
+      'Around a third of the surgical volume is paediatric, supported by an in-house perfusion team and dedicated paediatric bypass circuits.'
+    ] },
+
+    { type:'cards', eyebrow:'Teaching', title:'Training the Next Generation', cols:3, alt:true, items:[
+      { title:'DNB Cardiothoracic Surgery', desc:'A 6-year super-specialty residency (1 seat), 2 years in general surgery and allied specialties followed by 3 in cardiovascular and thoracic surgery, with the final year in a centre of excellence. Free, with stipends as per NBE guidelines.', link:{ label:'DNB Programme', page:'dnb-cardiac-surgery' } },
+      { title:'Fellowship in Paediatric Cardiac Surgery', desc:'Advanced fellowship training for qualified cardiac surgeons within the high-volume paediatric programme.', link:{ label:'Fellowships', page:'fellowship' } },
+      { title:'BSc Cardiac Perfusion Technology', desc:'A three-year allied-health degree in extracorporeal circulation — heart-lung machine, IABP and other life-support systems.', link:{ label:'Programme Details', page:'bsc-perfusion' } }
+    ] },
+
+    { type:'intro', eyebrow:'Conferences Hosted', title:'IACTS SCORE at SSSIHMS', narrow:true,
+      body:[
+        'The department hosts SCORE, the review course of the Indian Association of Cardiovascular and Thoracic Surgeons, bringing trainees and faculty from across the country to Whitefield.',
+        'The 2019 edition is recorded in the Institute’s CME archive; later editions are added there as they are held.'
+      ], link:{ label:'SCORE Archive', page:'score' } }
+  ]
+};
+
 })();

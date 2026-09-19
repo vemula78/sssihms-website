@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
-"""Build the pack's home layout from the prototype's dist/index.html.
+"""Build a pack layout for a page that has no pack file yet.
 
-Every other page was exported to ~/Downloads/divi-export/pages/<slug>.json by the
-original design pass, but the home page never was — in the prototype it is
-index.html, not home.html, so the exporter's slug loop skipped it.
+regen-page-json.py rebuilds an EXISTING pack page and preserves its stylesheet and
+banner modules byte for byte. That is no use for a page the original design pass
+never exported, which has no file to preserve anything from:
 
-This produces home.json in the same shape the rest of the pack uses: the shared
-stylesheet Code module copied verbatim from an existing pack page, then one module
-per <section>. The home page has a hero rather than a page-banner, so unlike
-regen-page-json.py there is no second (banner) module to preserve — the hero is
-emitted as an ordinary content section.
+  - home, because in the prototype it is index.html, not home.html, so the
+    exporter's slug loop skipped it;
+  - any page added to the prototype since, such as ctvs-achievements.
 
-    python3 scripts/make-home-json.py [--dry-run]
+This writes <slug>.json in the shape the rest of the pack uses: the shared
+stylesheet Code module copied from an existing pack page, then one module per
+<section> — banner or hero included, since there is nothing to preserve.
+
+    python3 scripts/new-page-json.py <slug> [--source FILE] [--dry-run]
 """
 import argparse, json, pathlib, re, sys
 
@@ -24,10 +26,16 @@ from divi_labels import relabel
 # shared auto-grid the inner pages use, so match any "*-grid" class. Divi's Text
 # module reflows grid children into its own columns; Code modules keep the markup.
 GRID = re.compile(r'class="[^"]*([a-z]+-grid|auto-grid|faculty-grid|gallery-grid|stat-grid|'
-                  r'table-wrap|subnav|hero|admit-section)', re.I)
+                  r'table-wrap|subnav|hero|admit-section|page-banner)', re.I)
 TEXT_WRAP = ('[et_pb_text _builder_version="4.27.0" module_class="sssi-mod" '
              'text_font="DM Sans||||||||" hover_enabled="0" sticky_enabled="0"]%s[/et_pb_text]')
 CODE_WRAP = '[et_pb_code _builder_version="4.27.0" module_class="sssi-mod"]%s[/et_pb_code]'
+
+
+# The department sub-nav is a <div> SIBLING that follows the banner <section>, not a
+# section of its own, so a plain section walk drops it and the new page loses its
+# sub-navigation entirely. Whatever trails a section is carried with it.
+TRAILING = re.compile(r'\s*<div class="subnav">.*?</div>\s*</div>', re.S)
 
 
 def sections(html):
@@ -43,12 +51,17 @@ def sections(html):
                 return out
             depth += 1 if n.group(0).startswith('<section') else -1
             j = n.end()
+        trail = TRAILING.match(html, j)
+        if trail:
+            j = trail.end()
         out.append(html[m.start():j])
         i = j
 
 
 def main():
     ap = argparse.ArgumentParser()
+    ap.add_argument('slug', help="pack slug to create, e.g. 'home' or 'ctvs-achievements'")
+    ap.add_argument('--source', help='built HTML to read (default: <slug>.html, or index.html for home)')
     ap.add_argument('--pack', default=str(pathlib.Path.home() / 'Downloads/divi-export/pages'))
     ap.add_argument('--dist', default=str(HERE.parent / 'dist'))
     ap.add_argument('--seed', default='about-hospital', help='pack page to copy the stylesheet from')
@@ -64,10 +77,13 @@ def main():
     # Everything before the stylesheet module is the section/row wrapper the pack uses.
     prefix = seed_body[:head.end()]
 
-    html = re.sub(r'<(script|style)\b.*?</\1>', '', (pathlib.Path(a.dist) / 'index.html').read_text(), flags=re.S)
+    src = pathlib.Path(a.dist) / (a.source or ('index.html' if a.slug == 'home' else f'{a.slug}.html'))
+    if not src.exists():
+        sys.exit(f'missing built page: {src}')
+    html = re.sub(r'<(script|style)\b.*?</\1>', '', src.read_text(), flags=re.S)
     secs = sections(html)
     if not secs:
-        sys.exit('no sections in dist/index.html')
+        sys.exit(f'no sections in {src}')
 
     link_map = json.loads((HERE / 'link-map.json').read_text())
 
@@ -96,14 +112,17 @@ def main():
     body, _labels = relabel(prefix + mods + '[/et_pb_column][/et_pb_row][/et_pb_section]')
 
     kinds = ['code' if GRID.search(s) else 'text' for s in secs]
-    print(f'home: {len(secs)} sections ({kinds.count("text")} text, {kinds.count("code")} code)  -> {len(body):,}b')
+    print(f'{a.slug}: {len(secs)} sections ({kinds.count("text")} text, {kinds.count("code")} code)  -> {len(body):,}b')
 
     if a.dry_run:
         return
     doc = dict(seed)
     doc['data'] = {next(iter(seed['data'])): body}
-    (pack / 'home.json').write_text(json.dumps(doc, ensure_ascii=False))
-    print(f'wrote {pack / "home.json"}')
+    out = pack / f'{a.slug}.json'
+    if out.exists():
+        sys.exit(f'{out} already exists — use scripts/regen-page-json.py to rebuild it')
+    out.write_text(json.dumps(doc, ensure_ascii=False))
+    print(f'wrote {out}')
 
 
 if __name__ == '__main__':
