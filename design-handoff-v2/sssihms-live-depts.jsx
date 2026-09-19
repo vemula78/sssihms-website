@@ -71,6 +71,10 @@ PAGES['cardiology'] = {
       body:[
         'The Cardiac Care Unit (CCU) comprises 36 beds and is outfitted with state-of-the-art patient monitors, echocardiography and ECG machines, ventilators, intra-aortic balloon pumps, and defibrillators. Its monitors were replaced in 2025&ndash;26 with GE B155 units on central monitoring, linked to the GE Centricity patient-monitoring system, and three Mediana D100-H defibrillators were added. Portable X-ray imagers and Witt haemodynamic recorders are available for comprehensive pressure monitoring. The CCU is further supported by infusion pumps, ensuring precise management of patient medications and therapies.'
       ] },
+    { type:'gallery', eyebrow:'In the Unit', title:'Bhagawan in the Cardiac Care Unit', alt:true, items:[
+      { src:MD + 'cardio-swami-ccu-a.jpg', caption:'Bhagawan blessing a patient in the Cardiac Care Unit' },
+      { src:MD + 'cardio-swami-ccu-b.jpg', caption:'Bhagawan in the Cardiac Care Unit' }
+    ] },
     { type:'gallery', eyebrow:'Equipment', title:'Diagnostic and Interventional Equipment', items:[
       { src:CARD.s70, caption:'GE Vivid S70 portable Echo Machine' },
       { src:CARD.ensite, caption:'Ensite Precision 3D Mapping System' },
