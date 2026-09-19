@@ -3,6 +3,7 @@
 (function(){
 const PAGES = window.PAGES;
 const U = 'https://whitefield.sssihms.org/wp-content/uploads/sites/4/';
+const MD = U + '2026/09/';
 
 const CARD = {
   biplane: U + '2015/05/Biplane-Cathlab.jpg',
@@ -90,6 +91,12 @@ PAGES['cardiology'] = {
         '<strong>Peer-Reviewed Journals:</strong> <em>Heart Rhythm O2</em> (2022): Collaborative publication with global experts. <em>BMC Health Services Research</em> (2024): Study on travel costs and point-of-care ultrasound. <em>American Heart Journal</em> (2025): Design of the multicenter Dig-RHD trial. <em>Current Opinion in Cardiology</em> (2025): Imaging in cardiac amyloidosis.',
         '<strong>Innovative Research:</strong> Development of <strong>ML-guided predictive models</strong> for congenital heart disease and mitral stenosis. First-in-literature studies on <strong>RV-to-PA coupling</strong> and <strong>C3PW ML method</strong> for PTMC outcomes.'
       ] },
+    { type:'gallery', eyebrow:'2001', title:'Bhagawan Blesses the Cathlab', alt:true, items:[
+      { src:MD + 'cardio-swami-cathlab-2001-a.jpg', caption:'Bhagawan blessing the cathlab, 2001' },
+      { src:MD + 'cardio-swami-cathlab-2001-b.jpg', caption:'The cathlab on the day it was blessed' },
+      { src:MD + 'cardio-department-staff.jpg', caption:'The Cardiology department' }
+    ] },
+
     { type:'intro', eyebrow:'Research Activities', title:'National Trials and Institutional Studies', narrow:true,
       body:[
         'The Cardiology Research division participates in national clinical trials alongside principal investigators from public-funded institutions, and leads studies from within the Institute. Current work includes the ICMR-supported Dig-RHD trial of digoxin in rheumatic heart disease, for which the Institute is a randomising site and whose results were published in <em>JAMA</em> in June 2026; COLHEF, the ICMR multicentre trial of colchicine in heart failure; STRong Heart, a George Institute study of remote monitoring for patients on oral anticoagulation; and three studies of the PulzCAD wearable ECG in coronary disease and heart failure. Device and stent studies with Meril Life Sciences and GE Healthcare are also under way.'

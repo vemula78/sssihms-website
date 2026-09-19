@@ -2,6 +2,7 @@
 // achievements, events, services, academics) mirroring whitefield.sssihms.org
 // sub-menus. Mutates window.PAGES and defines window.DEPT_SUBNAV.
 (function(){
+const MC = 'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/';
 const PAGES = window.PAGES;
 
 // ── Department sub-navigation (tabs shown under the page banner) ────────────
@@ -121,6 +122,16 @@ PAGES['cardiology-events'] = {
       { badge:'Collaboration', title:'GESSSICA', desc:'A day-long training programme run jointly by GE Healthcare and SSSIHMS, held in 2024 and 2025.' },
       { badge:'Weekly', title:'Academic Meetings', desc:'Regular journal clubs, case discussions and teaching rounds with core, honorary and international visiting faculty.' },
       { badge:'Since 2005', title:'Bangalore Chapter CSI Annual Conference', desc:'The department has hosted the annual conference of the Bangalore chapter of the Cardiological Society of India from 2005 to 2025.' }
+    ] },
+
+    { type:'gallery', eyebrow:'In the Hall', title:'Conferences & Teaching Programmes', alt:true, items:[
+      { src:MC + 'cardio-conf-speed-a.jpg', caption:'SPEED \u2014 the preparatory course for exam-going DM/DNB students' },
+      { src:MC + 'cardio-conf-speed-b.jpg', caption:'SPEED session in progress' },
+      { src:MC + 'cardio-conf-speed-c.jpg', caption:'Case-based discussion at SPEED' },
+      { src:MC + 'cardio-conf-hall-a.jpg', caption:'A full Dhanvantari Hall' },
+      { src:MC + 'cardio-conf-ep-conclave.jpg', caption:'EP Conclave' },
+      { src:MC + 'cardio-conf-hru-a.jpg', caption:'Heart Rhythm Update \u2014 Pace for Life' },
+      { src:MC + 'cardio-conf-hru-b.jpg', caption:'Heart Rhythm Update, October 2024' }
     ] },
 
     { type:'intro', eyebrow:'Specialised Camps', title:'Bringing Visiting Expertise to the Bedside', alt:true, narrow:true,

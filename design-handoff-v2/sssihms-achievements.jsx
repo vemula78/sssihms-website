@@ -5,6 +5,7 @@
 // pulls each one's year out into a chip, and collapses each group so the page
 // stays navigable instead of running to 9,000 words of flat list.
 (function(){
+const M = 'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/';
 const PAGES = window.PAGES;
 
 PAGES['anes-achievements'] = {
@@ -1160,6 +1161,24 @@ PAGES['cardiology-achievements'] = {
         },
       ]
     },
+
+    { type:'gallery', eyebrow:'DrNB Gold Medalists', title:'Five Gold Medals', alt:true, items:[
+      { src:M + 'cardio-goldmedal-2005-keshav-murthy.jpg', caption:'Dr. Keshav Murthy \u2014 DNB Cardiology Gold Medalist, 2005' },
+      { src:M + 'cardio-goldmedal-2006-deepak-krishnamurthy.jpg', caption:'Dr. Deepak Krishnamurthy \u2014 2006' },
+      { src:M + 'cardio-goldmedal-2012-rohit-dixit.jpg', caption:'Dr. Rohit Dixit \u2014 2012' },
+      { src:M + 'cardio-goldmedal-2017-booma-s.jpg', caption:'Dr. Booma S \u2014 2017' },
+      { src:M + 'cardio-goldmedal-2018-ravi-kachhela.jpg', caption:'Dr. Ravi Kachhela \u2014 2018' }
+    ] },
+
+    { type:'gallery', eyebrow:'On the Podium', title:'Recent Recognition', items:[
+      { src:M + 'cardio-acc-2025-a.jpg', caption:'Dr. Reeta Varyani speaking at ACC.25, Chicago' },
+      { src:M + 'cardio-acc-2025-b.jpg', caption:'American College of Cardiology 2025 Scientific Session' },
+      { src:M + 'cardio-csi-2024-a.jpg', caption:'Dr. Prayaag Kini \u2014 Best Original Abstract, CSI 2024' },
+      { src:M + 'cardio-csi-2024-b.jpg', caption:'Cardiological Society of India, 2024' },
+      { src:M + 'cardio-hfai-2025.jpg', caption:'Best Original Research Abstract \u2014 HFAI 2025' },
+      { src:M + 'cardio-india-live-2025-a.jpg', caption:'Best Original Abstract \u2014 INDIA LIVE 2025' },
+      { src:M + 'cardio-india-live-2025-b.jpg', caption:'INDIA LIVE 2025' }
+    ] },
 
     { type:'intro', eyebrow:'Read the Work', title:'Publications Online', narrow:true,
       body:[

@@ -1,6 +1,7 @@
 // sssihms-live-faculty.jsx — Full live-site content for faculty and infrastructure pages.
 // Source: whitefield.sssihms.org. Text reproduced in full; images are the live site's own files.
 (function(){
+const M = 'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2026/09/';
 const PAGES = window.PAGES;
 const R = window.__resources || {};
 const U = 'https://whitefield.sssihms.org/wp-content/uploads/sites/4/';
@@ -22,41 +23,43 @@ PAGES['cardiology-faculty'] = {
     { type:'faculty', eyebrow:'Visiting Faculty', title:'Visiting Faculty', cols:2, items:[
       { name:'Dr. Abhiram Prasad', role:'MD FACC MRCP', detail:'Consultant Interventional Cardiologist, Mayo Clinic, Rochester, Minnesota, USA' },
       { name:'Dr. Arvin Narula', role:'MD FACC', detail:'Sharp Memorial Hospital, Structural & Interventional Cardiologist, San Diego, CA' },
-      { name:'Dr. Ashok Garg', role:'MD, DM FACC FHRS', detail:'Clinical Cardiac Electrophysiologist, Midwestern University, Arizona, USA' },
+      { name:'Dr. Ashok Garg', role:'MD, DM FACC FHRS', detail:'Clinical Cardiac Electrophysiologist, Midwestern University, Arizona, USA', photo:M + 'cardio-visiting-ashok-garg.jpg' },
       { name:'Dr. Brahmajee Kartik Nallamothu', role:'MD, MPH, FACC, FAHA', detail:'University of Michigan Health System' },
       { name:'Dr. Collin G Cowley', role:'MD', detail:'Pediatric Cardiologist, Salt Lake City, UTAH' },
       { name:'Dr. David Nykanen', role:'MD', detail:'Pediatric Cardiologist, Orlando, Florida' },
       { name:'Dr. Eric J. Nordsieck', role:'MD', detail:'Cardiac Electrophysiologist, McKenzie-Willamette Medical Center, Springfield Oregon' },
-      { name:'Dr. Gregory Kent Feld', role:'MD FACC FHRS', detail:'Cardiac Electrophysiologist, UCSD, USA' },
+      { name:'Dr. Gregory Kent Feld', role:'MD FACC FHRS', detail:'Cardiac Electrophysiologist, UCSD, USA', photo:M + 'cardio-visiting-gregory-feld.jpg' },
       { name:'Dr. Hari P. Chaliki', role:'MD, MS', detail:'Non Invasive Cardiologist, Department of Cardiovascular Diseases, Mayo Clinic, Arizona' },
       { name:'Dr. Jeanny K. Park', role:'MD', detail:'Pediatric Cardiac Electrophysiologist, University of California, Davis Health' },
       { name:'Dr. Jon P Donnelly', role:'MD', detail:'Pediatric Cardiologist, Maine Medical Center' },
-      { name:'Dr. Komandoor S. Srivathsan', role:'MD', detail:'Cardiac Electrophysiologist, Mayo Clinic, Arizona' },
+      { name:'Dr. Komandoor S. Srivathsan', role:'MD', detail:'Cardiac Electrophysiologist, Mayo Clinic, Arizona', photo:M + 'cardio-visiting-komandoor-srivathsan.jpg' },
       { name:'Dr. Kelly Jane Airey', role:'MD, FHRS, FACC', detail:'Electrophysiologist and Cardiologist, Cardiovascular Medicine, P.C. Davenport, Iowa' },
-      { name:'Dr. Keshav R Nayak', role:'MD', detail:'Interventional Cardiologist, Scripps Memorial Hospital La Jolla, San Diego, California' },
+      { name:'Dr. Keshav R Nayak', role:'MD', detail:'Interventional Cardiologist, Scripps Memorial Hospital La Jolla, San Diego, California', photo:M + 'cardio-visiting-keshav-nayak.jpg' },
       { name:'Dr. Krishna M. Rao', role:'MD, DM, FACC', detail:'Professor of Medicine/Cardiology, Advanced Echocardiography and CT Coronary Angiography. University of Rochester, NY, USA' },
       { name:'Dr. Madhu Reddy', role:'MD FACC, FHRS', detail:'Cardiac Electrophysiology, University of Kansas Health System' },
       { name:'Dr. Mehul P Patel', role:'MD', detail:'Structural & Adult congenital specialist, Sutherland Cardiology Clinic, Memphis' },
       { name:'Dr. Mevan Wijetunga', role:'MD MBA', detail:'Cardiac Electrophysiologist, Altru Health System, North Dakota, USA' },
-      { name:'Dr. Moeen Abedin', role:'MD', detail:'Cardiac Electrophysiologist, El Paso, Texas, USA' },
+      { name:'Dr. Moeen Abedin', role:'MD', detail:'Cardiac Electrophysiologist, El Paso, Texas, USA', photo:M + 'cardio-visiting-moeen-abedin.jpg' },
       { name:'Dr. Nischala Nannapaneni', role:'MD', detail:'Cardiac Electrophysiologist, Mountain Point Medical Center, Salt Lake City, UT, USA' },
-      { name:'Dr. Roger Freedman', role:'Professor of Electrophysiology', detail:'University of Utah' },
+      { name:'Dr. Roger Freedman', role:'Professor of Electrophysiology', detail:'University of Utah', photo:M + 'cardio-visiting-roger-freedman.jpg' },
       { name:'Dr. Sai Leela Dhanekula', role:'Cardiac Electrophysiologist', detail:'Osf Cardiovascular Institute, Rockford, IL, USA' },
-      { name:'Dr. Sanjay K Shah', role:'MD FACC', detail:'Interventional Cardiologist, Good Samaritan Hospital-San Jose, California' },
+      { name:'Dr. Sanjay K Shah', role:'MD FACC', detail:'Interventional Cardiologist, Good Samaritan Hospital-San Jose, California', photo:M + 'cardio-visiting-sanjay-shah.jpg' },
       { name:'Dr. Sanket S. Shah', role:'MD MHS FACC', detail:'Non Invasive Cardiologist, Children’s Mercy Hospital, Kansas City, USA' },
       { name:'Dr. Satish Goel', role:'MD', detail:'Electrophysiologist, Citrus Cardiology, Florida, USA' },
       { name:'Dr. Scott Wall', role:'MD', detail:'Cardiac Electrophysiologist, University of Utah, USA' },
-      { name:'Dr. Shravan Nosib', role:'Interventional Cardiologist', detail:'Saskatoon, Saskatchewan' },
-      { name:'Dr. Sivaraman Yegya-Raman', role:'MD, FACC FHRS', detail:'Cardiac Electrophysiologist, South Jersey Heart Group, New Jersey, USA' },
+      { name:'Dr. Shravan Nosib', role:'Interventional Cardiologist', detail:'Saskatoon, Saskatchewan', photo:M + 'cardio-visiting-shravan-nosib.jpg' },
+      { name:'Dr. Sivaraman Yegya-Raman', role:'MD, FACC FHRS', detail:'Cardiac Electrophysiologist, South Jersey Heart Group, New Jersey, USA', photo:M + 'cardio-visiting-yegya-raman.jpg' },
       { name:'Dr. Sudhekar Mitra Nayak', role:'Interventional Cardiologist', detail:'Good Samaritan Hospital, Los Angeles, California' },
       { name:'Dr. Sunil Agarwal', role:'Interventional Cardiologist', detail:'Liverpool Heart And Chest Hospital, London' },
       { name:'Dr. Svjetlana Tisma-Dupanovic', role:'Pediatric Electrophysiologist', detail:'University of Kansas Hospital, USA' },
       { name:'Dr. Udaya Shankar Swarna', role:'MD', detail:'Electrophysiologist, Abilene, Texas, USA' },
-      { name:'Dr. Ulrika Birgersdotter-Green', role:'MD', detail:'Director — Pacemaker and ICD Services, UCSD' },
-      { name:'Dr. Uma N Srivatsa', role:'MBBS, MAS, MS', detail:'Fellowship director, Cardiac Electrophysiology, University of California, Davis' },
-      { name:'Dr. Vijay Krishnamoorthy', role:'MD', detail:'Interventional Cardiologist, Associate Professor, University of Rochester, USA' },
-      { name:'Dr. (Air Cmde) Davinder Singh Chadha', role:'Interventional Cardiologist Consultant', detail:'Bengaluru' },
-      { name:'Dr Ulhas M Pandurangi', role:'Chief Cardiac Electrophysiology', detail:'Arryhthmia Heart Failure Academy, The Madras Medical Mission, Chennai, India' }
+      { name:'Dr. Ulrika Birgersdotter-Green', role:'MD', detail:'Director — Pacemaker and ICD Services, UCSD', photo:M + 'cardio-visiting-ulrika-birgersdotter-green.jpg' },
+      { name:'Dr. Uma N Srivatsa', role:'MBBS, MAS, MS', detail:'Fellowship director, Cardiac Electrophysiology, University of California, Davis', photo:M + 'cardio-visiting-uma-srivatsa.jpg' },
+      { name:'Dr. Vijay Krishnamoorthy', role:'MD', detail:'Interventional Cardiologist, Associate Professor, University of Rochester, USA', photo:M + 'cardio-visiting-vijay-krishnamoorthy.jpg' },
+      { name:'Dr. (Air Cmde) Davinder Singh Chadha', role:'Interventional Cardiologist Consultant', detail:'Bengaluru', photo:M + 'cardio-visiting-ds-chadha.jpg' },
+      { name:'Dr Ulhas M Pandurangi', role:'Chief Cardiac Electrophysiology', detail:'Arryhthmia Heart Failure Academy, The Madras Medical Mission, Chennai, India', photo:M + 'cardio-visiting-ulhas-pandurangi.jpg' },
+      { name:'Dr. Mark Davies', role:'Consultant Cardiac Electrophysiologist', detail:'Oxford University Hospitals NHS Trust and Milton Keynes University Hospital NHS Trust, UK', photo:M + 'cardio-visiting-mark-davies.jpg' },
+      { name:'Dr. Nageshwar Rao', role:'Pediatric Interventional Cardiologist', detail:'Rainbow Children’s Hospital — complex congenital device closures', photo:M + 'cardio-visiting-nageshwar-rao.jpg' }
     ] }
   ]
 };
@@ -78,6 +81,12 @@ PAGES['cardiology-infrastructure'] = {
       { src:U + '2022/11/HOLTER-recorder.jpg', caption:'H3 + 7 day Holter' },
       { src:U + '2022/11/HP-100-ECG.jpg', caption:'HP 100 ECG' }
     ] },
+    { type:'gallery', eyebrow:'Echocardiography', title:'The Echo Fleet', items:[
+      { src:M + 'cardio-equip-ge-vivid-e95-ultra.jpg', caption:'GE Vivid E95 Ultra' },
+      { src:M + 'cardio-equip-philips-epic-cvx-v11.jpg', caption:'Philips EPIC CVx v11' },
+      { src:M + 'cardio-equip-siemens-acuson-origin.jpg', caption:'Siemens ACUSON Origin' },
+      { src:M + 'cardio-equip-ge-vivid-s70.jpg', caption:'GE Vivid S70 portable' }
+    ] },
     { type:'prose', eyebrow:'Inpatient Services', title:'Cathlabs and the Cardiac Care Unit',
       image:U + '2015/05/Biplane-Cathlab.jpg', imageCaption:'Siemens Artis ZEE BIPLANE CATHLAB', reverse:true,
       body:[
@@ -89,7 +98,12 @@ PAGES['cardiology-infrastructure'] = {
       { src:U + '2023/03/IVUS.jpg', caption:'IVUS — Intravascular Ultrasound' },
       { src:U + '2022/11/ROTABLATOR.jpg', caption:'Rotablator' },
       { src:U + '2022/11/Ensite-Precision-3D-Mapping-System-2.jpg', caption:'Ensite Precision 3D Mapping System' },
-      { src:U + '2022/11/CCU-BED-WITH-EQUPMENTS-GOOD.jpg', caption:'CCU BED WITH EQUPMENTS' }
+      { src:U + '2022/11/CCU-BED-WITH-EQUPMENTS-GOOD.jpg', caption:'CCU BED WITH EQUPMENTS' },
+      { src:M + 'cardio-equip-siemens-biplane-cathlab.jpg', caption:'Siemens Biplane Cathlab' },
+      { src:M + 'cardio-equip-ep-workmate-claris.jpg', caption:'EP WorkMate Claris recording system' },
+      { src:M + 'cardio-equip-ccu-patient-monitor.jpg', caption:'Patient monitor in the CCU' },
+      { src:M + 'cardio-equip-hemodynamic-system.jpg', caption:'Haemodynamic recording system' },
+      { src:M + 'cardio-equip-ge-mac5-ecg.jpg', caption:'GE MAC 5 digital ECG' }
     ] },
     { type:'prose', eyebrow:'Hospital Information Systems', title:'e-HIS, PACS and Echo View Sai',
       body:[
