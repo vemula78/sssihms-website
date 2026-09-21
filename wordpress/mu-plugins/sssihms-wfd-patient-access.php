@@ -238,3 +238,97 @@ function sssihms_wfd_hospital_schema() {
 		'</script>', "\n";
 }
 add_action( 'wp_head', 'sssihms_wfd_hospital_schema', 20 );
+
+/**
+ * Accessibility pass (WCAG 2.1 AA).
+ *
+ * Contrast was measured against the palette in the shared page stylesheet:
+ *   --primary #c8813a on paper = 3.00:1  — fails AA for text under 18.66px bold
+ *   --primary-deep #a4581f on paper = 4.84:1 — passes
+ * Elements on the dark panels keep --primary: there the lighter tone is the
+ * one that passes (5.28:1 on #2c1a0e) and darkening would fail it.
+ * So small text that used --primary is moved to --primary-deep. Large display
+ * type (stat values, quote marks) stays on --primary: at 24px+ it only needs 3:1
+ * and the lighter tone is part of the approved look.
+ */
+function sssihms_wfd_a11y_css() {
+	if ( ! sssihms_wfd_is_target() ) {
+		return;
+	}
+	?>
+<style id="sssihms-a11y">
+/* 1. Contrast — small saffron text on light backgrounds */
+/* 1a. Saffron text on light backgrounds. #c8813a is 2.90:1 on paper and fails
+      at every text size; #96591a gives 5.17 on paper, 4.60 on --bg-alt, 5.48 on cards. */
+.eyebrow,.spec-link,.btn-outline,.vm-label,.pat-card-btn{color:#96591a!important}
+/* 1b. The dark panels are the opposite case: there the LIGHTER tone is the one
+      that passes (5.28:1 on #2c1a0e), so it is restored inside them. */
+.section-dark .eyebrow,.section-dark .btn-outline,.section-dark .spec-link,
+.section-dark .quote-attr,.quote-attr{color:#c8813a!important}
+/* 1c. White on solid saffron was 3.15:1. #a4581f lifts it to 5.26:1. */
+.btn-primary,.free-pill,#sssi-s+button,.sssihms-callbar{background:#a4581f!important}
+/* 1d. The pale pill takes ink, not saffron — saffron cannot reach 4.5 on #f0d5b0. */
+.free-pill-sm{color:#2a1f14!important}
+/* 1e. Muted body text was 4.28:1 on the alt background. */
+.section-sub,.stat-lbl{color:#6e604c!important}
+/* 1f. The admissions band is a saffron gradient. White body text over its light
+      end was 3.15:1; starting the gradient at #a4581f lifts it to 5.26:1. */
+.admit-section{background-image:linear-gradient(130deg,#a4581f 0%,#7a4a2e 100%)!important}
+/* 2. Visible keyboard focus. Divi suppresses outlines in several places. */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,
+textarea:focus-visible,summary:focus-visible,[tabindex]:focus-visible{
+ outline:3px solid #a4581f!important;outline-offset:2px!important;
+ border-radius:3px;box-shadow:0 0 0 3px rgba(255,255,255,.85)!important}
+.et_pb_section a:focus-visible,#main-header a:focus-visible,#main-footer a:focus-visible{
+ outline:3px solid #f0d5b0!important;box-shadow:0 0 0 3px rgba(44,26,14,.9)!important}
+/* 3. Skip link — first tab stop on every page */
+.sssihms-skip{position:absolute;left:-9999px;top:0;z-index:100000;
+ background:#2c1a0e;color:#fff;padding:12px 20px;font:700 15px/1.3 "Nunito Sans",sans-serif;
+ text-decoration:none;border-radius:0 0 6px 0}
+.sssihms-skip:focus{left:0}
+/* 4. Touch targets — 44px minimum on phones (WCAG 2.5.5) */
+@media (max-width:980px){
+ #main-header a,#et-top-navigation a,.et_mobile_menu a,#main-footer a{
+  min-height:44px;display:inline-flex;align-items:center}
+ .sssihms-callbar a{min-height:48px}
+}
+/* 5. Respect reduced-motion preferences */
+@media (prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
+  transition-duration:.001ms!important;scroll-behavior:auto!important}
+}
+/* 6. Placeholder contrast in the header search */
+#sssi-s::placeholder{color:rgba(255,255,255,.75);opacity:1}
+</style>
+	<?php
+}
+add_action( 'wp_footer', 'sssihms_wfd_a11y_css', 1 );
+
+/** The skip link itself, as the first focusable thing in the document. */
+function sssihms_wfd_skip_link() {
+	if ( ! sssihms_wfd_is_target() ) {
+		return;
+	}
+	echo '<a class="sssihms-skip" href="#main-content">Skip to main content</a>';
+}
+add_action( 'wp_body_open', 'sssihms_wfd_skip_link', 1 );
+
+/** Give the skip link something to land on. */
+function sssihms_wfd_main_anchor( $classes ) {
+	return $classes;
+}
+function sssihms_wfd_main_id() {
+	if ( ! sssihms_wfd_is_target() ) {
+		return;
+	}
+	?>
+<script>
+(function(){
+ var m=document.getElementById('et-main-area')||document.querySelector('main,#main-content');
+ if(m&&!document.getElementById('main-content')){m.id=m.id||'';m.setAttribute('id','main-content');}
+ if(m){m.setAttribute('tabindex','-1');}
+})();
+</script>
+	<?php
+}
+add_action( 'wp_footer', 'sssihms_wfd_main_id', 5 );

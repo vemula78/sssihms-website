@@ -134,3 +134,62 @@ accommodation exists for attendants, what it costs, how it is requested, and whe
 eat.
 
 All three pages are built entirely from `et_pb_code` modules, so `wpautop` cannot reach them.
+
+## 21-Sep-2026 — Phase 3
+
+| # | What | Where | State |
+|---|---|---|---|
+| 14 | Site search in the header top bar, with an sr-only label | header **54939** | live |
+| 15 | Essential Information for Patients in Kannada, Hindi, Telugu and Bengali | pages **55667–55670** | live |
+| 16 | Transparency — registrations plus all 15 Trust annual reports, 2010-11 to 2024-25 | page **55664** | live |
+| 17 | Our Impact — page shell naming the figures still needed | page **55676** | **draft** |
+| 18 | WCAG 2.1 AA pass — contrast, focus, skip link, touch targets, reduced motion | mu-plugin + footer **54940** | live |
+
+### Languages
+
+Rather than translating eight long pages into four languages badly, each language gets
+**one** page carrying what a patient must actually know: care is free, nobody should ever
+be paid, OP is by appointment with the number and hours, what to bring, where to report,
+that emergency needs no call and no appointment, admission timing, revisit rule and
+visiting hours. Every heading and paragraph carries a `lang` attribute, and each page links
+to the other three and to the English pages.
+
+Reachable from the header top bar on every page, and from the For Patients menu.
+
+A script-contamination check runs over the source strings (the same failure mode as the
+discourse transcripts — Devanagari characters landing inside Telugu). It caught one real
+case, `सारांశం` for `సారాంశం`, before publishing. U+0964/U+0965 danda are whitelisted as
+shared Indic punctuation.
+
+These were published without native-speaker review, at the user's explicit instruction
+after that risk was raised. A review by Kannada, Hindi, Telugu and Bengali speakers at the
+hospital is still worth doing.
+
+### Accessibility
+
+Contrast was measured with a checker that composites alpha layers and reads gradient stops,
+not by eye. The first pass found 19 genuine failures; all are fixed, and a re-run across
+nine pages (home, For Patients, Appointments, Donate, Emergency, Transparency, Kannada,
+Bengali, Help Desk) reports **zero**.
+
+The interesting part was that the fix is not one colour. `--primary` `#c8813a` fails on
+light backgrounds (2.90:1 on paper) but *passes* on the dark panels (5.28:1), so darkening
+it globally broke `.quote-attr` and the `.section-dark` eyebrows. The rules are therefore
+context-scoped: `#96591a` on light, `#c8813a` retained inside `.section-dark`, `#a4581f`
+behind white text, ink on the pale pill, and the admissions gradient restarted at `#a4581f`
+because white body text over its light end was 3.15:1.
+
+Also added: a skip link as the first focusable element on every page, `:focus-visible`
+outlines (Divi suppresses them in several places), 44px minimum touch targets under 980px,
+and `prefers-reduced-motion` support. The a11y CSS loads on `wp_footer` because the shared
+page stylesheet is emitted inside the page body and would otherwise win on source order.
+
+### Still outstanding
+
+- **Our Impact** (55676) needs per-procedure costs, state-wise and country-wise patient
+  counts, and whichever outcome figures the hospital will publish. The page names each ask
+  and states the rules for supplying them — aggregate only, with period, source and
+  denominator, and nothing estimated.
+- **Coming From Outside Bengaluru** (55656) still needs the attendant accommodation detail.
+- Search results pages show the author and a full-page text dump as the excerpt. Functional
+  but ugly; worth a template pass.
