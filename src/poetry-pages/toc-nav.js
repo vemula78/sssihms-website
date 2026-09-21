@@ -14,6 +14,48 @@
 (function () {
 	'use strict';
 
+	/**
+	 * These pages carry no links at all, so a reader who arrives from the menu has no
+	 * way back into the site — the same trap the Vahini readers had. Prepend a slim
+	 * bar matching the reader chrome.
+	 */
+	function backBar() {
+		// The observer can fire while the document is still parsing, when there is no
+		// body to insert into yet.
+		if ( ! document.body || document.querySelector( '.ssp-topbar' ) ) {
+			return;
+		}
+		var titles = {
+			'divine-poetry': 'Divine Poetry',
+			'sai-compositions': 'Sri Sathya Sai Compositions',
+			'padya-sudha': 'Sri Sathya Sai Padya Sudha'
+		};
+		var slug = ( location.pathname.split( '/' ).pop() || '' ).replace( /\.html$/, '' );
+		var here = titles[ slug ] || document.title.replace( /\s*—.*$/, '' );
+
+		var css = document.createElement( 'style' );
+		css.textContent =
+			'.ssp-topbar{position:sticky;top:0;z-index:99999;background:#2c1a0e;color:#f0d5b0;' +
+			'font:600 13px/1.2 "Nunito Sans",system-ui,sans-serif;display:flex;align-items:center;' +
+			'gap:14px;flex-wrap:wrap;padding:10px 16px;box-shadow:0 1px 8px rgba(0,0,0,.25)}' +
+			'.ssp-topbar a{color:#f0d5b0;text-decoration:none;display:inline-flex;align-items:center;min-height:32px}' +
+			'.ssp-topbar a:hover{text-decoration:underline}' +
+			'.ssp-topbar a:focus-visible{outline:3px solid #e8a95f;outline-offset:2px;border-radius:3px}' +
+			'.ssp-topbar .ssp-here{margin-left:auto;opacity:.72;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:11px}' +
+			'@media print{.ssp-topbar{display:none}}';
+		document.head.appendChild( css );
+
+		var bar = document.createElement( 'nav' );
+		bar.className = 'ssp-topbar';
+		bar.setAttribute( 'aria-label', 'Site navigation' );
+		bar.innerHTML =
+			'<a href="/">\u2190 SSSIHMS</a>' +
+			'<a href="/about-hospital/bhagawan/">Bhagawan</a>' +
+			'<a href="/poems/">Songs &amp; Poems</a>' +
+			'<span class="ssp-here">' + here.replace( /[<>&]/g, '' ) + '</span>';
+		document.body.insertBefore( bar, document.body.firstChild );
+	}
+
 	function wire() {
 		var links = document.querySelectorAll( 'a.dp-toc-link' );
 		if ( ! links.length ) {
@@ -101,7 +143,16 @@
 	// index dead. Watch the DOM instead, and keep watching: the bundle can also
 	// re-render, which would drop the hrefs again.
 	function run() {
-		wire();
+		try {
+			backBar();
+		} catch ( e ) {
+			/* the bar is a convenience; never let it block the contents list */
+		}
+		try {
+			wire();
+		} catch ( e2 ) {
+			/* ignore */
+		}
 	}
 
 	if ( document.readyState !== 'loading' ) {

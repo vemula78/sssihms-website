@@ -540,3 +540,62 @@ body.search #left-area{width:100%!important;padding-right:0!important}
 	<?php
 }
 add_action( 'wp_footer', 'sssihms_wfd_search_css', 2 );
+
+/**
+ * Whole-card click targets.
+ *
+ * People click the card heading, not the small "Open →" beneath it. Rather than
+ * wrapping each card in an <a> — which makes a screen reader announce the heading,
+ * the description and the button as one long link — this stretches the card's
+ * single existing link across the card with an overlay. One link per card, the
+ * heading stays a heading, and keyboard focus still lands on the link.
+ *
+ * Opt-in: only cards marked .card-clickable with one .card-link inside.
+ */
+function sssihms_wfd_card_css() {
+	if ( ! sssihms_wfd_is_target() ) {
+		return;
+	}
+	?>
+<style id="sssihms-cards">
+.info-card.card-clickable{position:relative;transition:transform .16s ease,box-shadow .16s ease}
+.info-card.card-clickable .card-link::after{content:"";position:absolute;inset:0;z-index:1;border-radius:inherit}
+.info-card.card-clickable:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(44,26,14,.13)}
+.info-card.card-clickable:hover h3{text-decoration:underline;text-underline-offset:3px}
+/* the pointer should say "clickable" anywhere on the card */
+.info-card.card-clickable,.info-card.card-clickable h3,.info-card.card-clickable p{cursor:pointer}
+/* keyboard focus must outline the card, not just the small button inside it */
+.info-card.card-clickable:focus-within{outline:3px solid #a4581f;outline-offset:3px;border-radius:10px}
+.info-card.card-clickable .card-link:focus-visible{outline:none;box-shadow:none}
+/* anything else in the card must stay above the overlay to remain clickable */
+.info-card.card-clickable a:not(.card-link){position:relative;z-index:2}
+@media (prefers-reduced-motion:reduce){
+ .info-card.card-clickable,.info-card.card-clickable:hover{transition:none;transform:none}
+}
+</style>
+	<?php
+}
+add_action( 'wp_footer', 'sssihms_wfd_card_css', 3 );
+
+/**
+ * The three poetry slugs were Divi pages holding nothing but a banner and a link
+ * onward to the real collection at /static/poetry-pages/. The menu now points
+ * straight at the content, so these send anyone arriving from an old link,
+ * bookmark or search result to the same place instead of a dead-end shell.
+ */
+function sssihms_wfd_poetry_redirects() {
+	if ( ! sssihms_wfd_is_target() || is_admin() ) {
+		return;
+	}
+	$map = array(
+		'divine-poetry' => '/static/poetry-pages/divine-poetry.html',
+		'songs-baba'    => '/static/poetry-pages/sai-compositions.html',
+		'sai_padhyam'   => '/static/poetry-pages/padya-sudha.html',
+	);
+	$path = trim( parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ), '/' );
+	if ( isset( $map[ $path ] ) ) {
+		wp_redirect( home_url( $map[ $path ] ), 301 );
+		exit;
+	}
+}
+add_action( 'template_redirect', 'sssihms_wfd_poetry_redirects', 5 );

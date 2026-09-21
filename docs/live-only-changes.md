@@ -356,3 +356,40 @@ bug it was written to fix, on the one page where it matters most.
 
 Replaced with a `MutationObserver`, which also handles the bundle re-rendering and dropping
 the hrefs again. Padya Sudha now reports 717 of 717 wired immediately.
+
+## 21-Sep-2026 — The three poetry menu links led to dead-end shells
+
+`/divine-poetry/`, `/songs-baba/` and `/sai_padhyam/` all returned 200, so a link crawl
+called them healthy. They were dead ends: a banner and a link onward, nothing more. Earlier
+today those shells were given an "Open the collection" card, which made them *usable* but
+still an extra, pointless hop from the menu.
+
+The three menu items now point **straight at the content**, and the three slugs 301 to the
+same place so old links, bookmarks and search results land on the collection rather than a
+shell.
+
+### Why not an iframe
+
+The established pattern for these payloads is a Divi page embedding the static file — the
+statistics pages do exactly that (`<div class="dash-frame"><iframe src="/static/stats-pages/…">`),
+and the poetry pages already `postMessage` an `ssdash-height` for a parent to size them by,
+which is clearly what was intended.
+
+It was the wrong fit here. These are long documents with a sticky contents sidebar, and
+Padya Sudha holds 717 poems: an iframe either double-scrolls or grows to a height that
+breaks the sticky positioning. So they are linked directly, as the Vahini readers are.
+
+### Which reintroduced the Vahini problem, so it is fixed the same way
+
+Linking straight to a static page means arriving somewhere with no site chrome, and these
+pages had **no links at all** — the exact stranding this morning's Vahini fix addressed.
+`toc-nav.js` now also prepends a slim sticky bar with **← SSSIHMS**, **Bhagawan** and
+**Songs & Poems**, plus the current collection's name.
+
+Two bugs of my own on the way, both now guarded:
+
+- the bar silently never appeared, because the `MutationObserver` fires while the document
+  is still parsing, when `document.body` is null — `insertBefore` threw and, being the
+  first call in `run()`, took the contents-list wiring down with it on that pass;
+- so `run()` now wraps each half in its own `try`, and the bar checks for a body first.
+  The bar is a convenience and must never be able to break the index.
