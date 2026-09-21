@@ -245,12 +245,22 @@ silently skips the injection every time.
 provided only for attendants of admitted in-patients; the page states that outpatients have
 no on-campus accommodation and should arrange their own stay or return the same day.
 
-A **Meals** section was added: food for admitted patients is free, alongside consultation,
-investigations, medicines, surgery and intensive care, and there is a canteen on campus for
-outpatients and those with them.
+**Attendant accommodation** is dormitory accommodation in the **Sai Salarpuria block** at
+**₹20 per day**. On the day of admission the attendant pays the charge at the
+administration area and then goes to the block. The page gives this as two numbered steps.
 
-Not stated, because it was not supplied: whether there is any charge for attendant
-accommodation, how it is requested beyond the ward sister issuing the pass, and whether the
-free meals extend to an admitted patient's attendant. The page says "food for admitted
-patients" and no more — attendants are a large share of the people on campus, so that one
-is worth pinning down.
+**Meals** are split three ways, because they work differently for each: food for the
+admitted patient is free, along with consultation, investigations, medicines, surgery and
+intensive care; **attendants eat at the canteen**; and the canteen also serves outpatients.
+
+### The one place on this site where something is not free
+
+The ₹20 dormitory charge is the only charge named anywhere on the site, so it is stated
+precisely and immediately qualified — "for the attendant's dormitory bed only. The
+patient's treatment, medicines, surgery, intensive care and food remain entirely free."
+
+A sentence written here a few hours earlier, "There is nothing to pay, and no billing
+counter to pay it at", was true of the patient but wrong once the attendant charge was
+known. It has been narrowed to the patient. Anything that generalises "everything is free"
+beyond medical care and the patient's own food is now inaccurate, and the claim is worth
+checking before it is repeated on another page.
