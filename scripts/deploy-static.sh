@@ -39,6 +39,32 @@ for d in "${PAYLOADS[@]/#/dist/}"; do
   [[ -d "$d" ]] || { echo "FATAL: $d missing after build" >&2; exit 1; }
 done
 
+# The Vahini reader and library are authored against the local prototype, so their
+# "back to the site" links point at ../SSSIHMS Website.html, which does not exist on the
+# server. Rewrite them to live URLs at deploy time, leaving the source working locally.
+echo "==> Rewriting prototype links for the live site"
+rewrote=0
+while IFS= read -r f; do
+  [[ -n "$f" ]] || continue
+  perl -0pi -e '
+    s{\.\./SSSIHMS(?:%20|\s)Website\.html\#vahinis}{/vahinis/}g;
+    s{\.\./SSSIHMS(?:%20|\s)Website\.html\#bhagawan}{/about-hospital/bhagawan/}g;
+  ' "$f"
+  rewrote=$((rewrote+1))
+done < <(grep -rl "SSSIHMS%20Website.html\|SSSIHMS Website.html" "${PAYLOADS[@]/#/dist/}" 2>/dev/null || true)
+echo "    rewrote $rewrote file(s)"
+
+# Guard: nothing may ship still pointing at the prototype file. It 404s in production and
+# silently strands a reader with no way back to the site.
+if grep -rl "SSSIHMS%20Website.html\|SSSIHMS Website.html" "${PAYLOADS[@]/#/dist/}" >/dev/null 2>&1; then
+  echo "FATAL: these files still reference the prototype SSSIHMS Website.html:" >&2
+  grep -rl "SSSIHMS%20Website.html\|SSSIHMS Website.html" "${PAYLOADS[@]/#/dist/}" >&2
+  exit 1
+fi
+
+# Guard: macOS .DS_Store files leak directory listings and must not be served.
+find "${PAYLOADS[@]/#/dist/}" -name '.DS_Store' -delete
+
 # Guard: the stats pages must not reach production still pointing at the CDN.
 if grep -rl "cdn.jsdelivr.net" dist/stats-pages >/dev/null 2>&1; then
   echo "FATAL: dist/stats-pages still references cdn.jsdelivr.net; Chart.js must be self-hosted" >&2

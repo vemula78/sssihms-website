@@ -264,3 +264,43 @@ counter to pay it at", was true of the patient but wrong once the attendant char
 known. It has been narrowed to the patient. Anything that generalises "everything is free"
 beyond medical care and the patient's own food is now inaccurate, and the claim is worth
 checking before it is repeated on another page.
+
+## 21-Sep-2026 — Bhagawan menu: Songs & Poems, and the Vahini readers
+
+### Songs & Poems rendered nothing
+
+`/poems/` and its three children — Divine Poetry, Sai Compositions, Padya Sudha — were
+banner-only shells. Each held the 37 KB shared stylesheet plus a page banner and nothing
+else, about 1.5 KB of real content.
+
+The content was never missing. It had been deployed all along as static payloads at
+`/static/poetry-pages/` (divine-poetry 1.2 MB, sai-compositions 1.8 MB, padya-sudha
+6.9 MB) — the Divi pages simply never linked to them, and the `/poems/` hub pointed at the
+empty shells instead. Fixed by repointing the hub at the static files and giving each shell
+an "Open the collection" card, with the file size shown, since Padya Sudha is 6.9 MB and
+that matters on mobile data.
+
+### The Vahini readers worked; their navigation did not
+
+The 16 readers render correctly — *Prema Vahini* alone is 190,000 characters with chapter
+navigation, and the dc-component runtime and `support.js` are all present and working. The
+fault was narrower: the two header links, **← SSSIHMS** and **Bhagawan**, pointed at
+`../SSSIHMS%20Website.html#vahinis` and `#bhagawan` — the local prototype file, which
+404s on the server. A reader who opened a book had no way back into the site.
+
+Only two files carried it, `Reader.dc.html` (shared by all 16 books) and `Library.dc.html`,
+two occurrences each. Rewritten to `/vahinis/` and `/about-hospital/bhagawan/`.
+
+`/static/` sends no `Cache-Control`, so browsers revalidate against `Last-Modified` and
+ETag; returning visitors pick the fix up on their next revalidation.
+
+### The deploy script now prevents the regression
+
+`scripts/deploy-static.sh` rewrites those prototype links in `dist/` at deploy time, so the
+source keeps working in local preview, and then **fails the deploy** if any reference to
+`SSSIHMS Website.html` survives — the same shape as the existing guard against shipping
+stats pages still pointed at the CDN. Without this the next deploy would have quietly
+restored both 404s.
+
+It also deletes `.DS_Store` before shipping. One was already live under `/static/vahinis/`
+and has been removed; they leak directory contents and should never be served.
