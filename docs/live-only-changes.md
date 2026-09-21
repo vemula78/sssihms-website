@@ -245,6 +245,12 @@ silently skips the injection every time.
 provided only for attendants of admitted in-patients; the page states that outpatients have
 no on-campus accommodation and should arrange their own stay or return the same day.
 
+A **Meals** section was added: food for admitted patients is free, alongside consultation,
+investigations, medicines, surgery and intensive care, and there is a canteen on campus for
+outpatients and those with them.
+
 Not stated, because it was not supplied: whether there is any charge for attendant
-accommodation, how it is requested beyond the ward sister issuing the pass, and where
-families eat on campus.
+accommodation, how it is requested beyond the ward sister issuing the pass, and whether the
+free meals extend to an admitted patient's attendant. The page says "food for admitted
+patients" and no more — attendants are a large share of the people on campus, so that one
+is worth pinning down.
