@@ -117,17 +117,36 @@ that regenerates on the next build).
 The schema values are all taken from the hospital's own published pages; the geo coordinates
 are the ones already in the Contact Us map pin.
 
-### The three drafts are deliberately not published
+### The three drafts
 
-Each carries a dashed **TO CONFIRM BEFORE PUBLISHING** block naming exactly what is missing,
-because the missing values are facts nobody supplied and none of them may be invented:
+| Page | ID | State |
+|---|---|---|
+| Support the Mission | 55654 | **complete** — awaiting a decision to publish |
+| Emergency Care | 55655 | **complete** — awaiting a decision to publish |
+| Coming From Outside Bengaluru | 55656 | still has one gap |
 
-- **Support the Mission** — what specific amounts fund, and the Trust's 80G registration,
-  registration number, FCRA status and a CSR/major-gift contact.
-- **Emergency Care** — the 24/7 emergency number. The Help Desk line runs 10 AM to 4 PM on
-  weekdays only, so it must never be offered as an emergency contact. **This page in
-  particular must not be published until that number is in place.**
-- **Coming From Outside Bengaluru** — what accommodation exists for attendants, what it
-  costs, how it is requested, and where families eat.
+**Support the Mission** carries the Sri Sathya Sai Central Trust's published donation
+details: Section 10(23C)(iv) registration, 80G exemption, FCRA recognition, CSR number
+CSR00040940; the SBI and Canara Bank accounts for Indian donors; SBI Collect; both UPI IDs;
+cheque/DD instructions; the FCRA-designated SBI New Delhi account for overseas donors with
+the mandatory P1303 purpose code and the NRI passport-nationality rule; and the Trust's
+contacts. Donors are told to state **"Medical Relief"** as the purpose so the gift reaches
+the hospital. A line notes the details are as published by the Trust and should be
+confirmed with it before remitting.
 
-Fill the blocks in, delete the dashed boxes, then publish and add each page to the menu.
+**Emergency Care** states the position as it actually is: the department is open 24 hours
+every day, there is no number to call first and no appointment to make, and every patient
+who reaches Emergency is attended to. It says explicitly that the Help Desk line is
+weekdays 10–4 and is *not* an emergency line, so nobody waits for it to open.
+
+**Coming From Outside Bengaluru** still needs what accommodation exists for attendants,
+what it costs, how it is requested, and where families eat — the question outstation
+families ask most, which the site has never answered.
+
+All three are built entirely from `et_pb_code` modules, so `wpautop` cannot reach them.
+
+### When publishing
+
+The home page's "Emergency Care — 24/7" card currently points at a generic target; repoint
+it at `/emergency/` once that page is live. Add Support the Mission to the Get Involved
+section and the footer, and Emergency to the For Patients menu.
