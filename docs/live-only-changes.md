@@ -100,3 +100,34 @@ rather than recovering a file.
 
 Left alone: 745 revision rows, and `sm_status` (a Google Sitemap Generator status object
 that regenerates on the next build).
+
+## 21-Sep-2026 — Phase 2
+
+| What | Where | Status |
+|---|---|---|
+| `Hospital` JSON-LD on the front page — address, geo, telephone, email, opening hours, `priceRange: Free`, `isAcceptingNewPatients`, specialties, parent Trust | mu-plugin | live |
+| Meta descriptions written for the seven key pages that had none (home, For Patients, Help Desk, Get Involved, Sevadal, Departments, Academics) | Yoast postmeta | live |
+| "How to Reach the Hospital" — distances, BMTC routes, Gate No. 2, embedded map | page **735**, as a **code** module | live |
+| "Patient Stories" — three real published accounts, linked | page **54830** | live |
+| "The People You Would Be Serving" — links Get Involved to the patient stories | page **52837** | live |
+| Support the Mission (donate) | page **55654** | **draft** |
+| Emergency Care | page **55655** | **draft** |
+| Coming From Outside Bengaluru | page **55656** | **draft** |
+
+The schema values are all taken from the hospital's own published pages; the geo coordinates
+are the ones already in the Contact Us map pin.
+
+### The three drafts are deliberately not published
+
+Each carries a dashed **TO CONFIRM BEFORE PUBLISHING** block naming exactly what is missing,
+because the missing values are facts nobody supplied and none of them may be invented:
+
+- **Support the Mission** — what specific amounts fund, and the Trust's 80G registration,
+  registration number, FCRA status and a CSR/major-gift contact.
+- **Emergency Care** — the 24/7 emergency number. The Help Desk line runs 10 AM to 4 PM on
+  weekdays only, so it must never be offered as an emergency contact. **This page in
+  particular must not be published until that number is in place.**
+- **Coming From Outside Bengaluru** — what accommodation exists for attendants, what it
+  costs, how it is requested, and where families eat.
+
+Fill the blocks in, delete the dashed boxes, then publish and add each page to the menu.

@@ -160,3 +160,81 @@ function sssihms_wfd_contact_aliases() {
 	}
 }
 add_action( 'template_redirect', 'sssihms_wfd_contact_aliases' );
+
+/**
+ * Hospital schema. Google builds the map/knowledge card from this — the card
+ * carrying the call button and directions that patients actually tap. Divi and
+ * Yoast emit only WebPage/BreadcrumbList, which cannot carry an address or phone.
+ *
+ * Every value here is taken from the hospital's own published pages.
+ */
+function sssihms_wfd_hospital_schema() {
+	if ( ! sssihms_wfd_is_target() || ! is_front_page() ) {
+		return;
+	}
+
+	$schema = array(
+		'@context'            => 'https://schema.org',
+		'@type'               => 'Hospital',
+		'@id'                 => home_url( '/#hospital' ),
+		'name'                => 'Sri Sathya Sai Institute of Higher Medical Sciences, Whitefield',
+		'alternateName'       => array( 'SSSIHMS Whitefield', 'Sri Sathya Sai Super Speciality Hospital, Whitefield' ),
+		'url'                 => home_url( '/' ),
+		'description'         => 'A charitable tertiary care hospital in Whitefield, Bengaluru, providing cardiology, cardiac surgery, neurosurgery and multi-specialty care entirely free of charge, regardless of caste, creed, religion or means.',
+		'isAcceptingNewPatients' => true,
+		'priceRange'          => 'Free',
+		'address'             => array(
+			'@type'           => 'PostalAddress',
+			'streetAddress'   => 'EPIP Area, Whitefield',
+			'addressLocality' => 'Bengaluru',
+			'addressRegion'   => 'Karnataka',
+			'postalCode'      => '560066',
+			'addressCountry'  => 'IN',
+		),
+		'geo'                 => array(
+			'@type'     => 'GeoCoordinates',
+			'latitude'  => '12.9810778',
+			'longitude' => '77.7292023',
+		),
+		'telephone'           => '+91-80-4710-4600',
+		'email'               => 'helpdeskblr@sssihms.org.in',
+		'contactPoint'        => array(
+			array(
+				'@type'             => 'ContactPoint',
+				'contactType'       => 'Patient Help Desk',
+				'telephone'         => '+91-80-4710-4600',
+				'email'             => 'helpdeskblr@sssihms.org.in',
+				'availableLanguage' => array( 'en', 'kn', 'hi', 'te', 'ta' ),
+			),
+			array(
+				'@type'       => 'ContactPoint',
+				'contactType' => 'General Enquiries',
+				'telephone'   => '+91-80-2800-4600',
+			),
+		),
+		'openingHoursSpecification' => array(
+			array(
+				'@type'     => 'OpeningHoursSpecification',
+				'dayOfWeek' => array( 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' ),
+				'opens'     => '10:00',
+				'closes'    => '16:00',
+				'description' => 'Patient Help Desk, for appointments and enquiries',
+			),
+		),
+		'availableService'    => array(
+			array( '@type' => 'MedicalProcedure', 'name' => 'Cardiac catheterisation and interventional cardiology' ),
+			array( '@type' => 'MedicalProcedure', 'name' => 'Cardiothoracic and vascular surgery' ),
+			array( '@type' => 'MedicalProcedure', 'name' => 'Neurosurgery' ),
+		),
+		'medicalSpecialty'    => array( 'Cardiovascular', 'CardiovascularSurgery', 'Neurologic' ),
+		'parentOrganization'  => array(
+			'@type' => 'Organization',
+			'name'  => 'Sri Sathya Sai Central Trust',
+		),
+	);
+
+	echo '<script type="application/ld+json">',
+		wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ),
+		'</script>', "\n";
+}
+add_action( 'wp_head', 'sssihms_wfd_hospital_schema', 20 );
