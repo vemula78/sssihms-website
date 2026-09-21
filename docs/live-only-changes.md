@@ -46,12 +46,45 @@ labels by appending "(2)" rather than matching the existing module, so the hero 
 Until the regex is widened to cover those classes, or the home page is excluded from the
 pack, **the live home page is the source of truth**.
 
-## Known, unfixed: the `52.148.87.145` migration damage
+## The `52.148.87.145` migration damage
 
-A past migration replaced `sssihms.org` with the server's IP across the database. 44
-published rows still carry it, including working-looking but undeliverable addresses
+A past migration replaced `sssihms.org` with the server's IP throughout the database,
+producing addresses that look plausible but bounce, and asset URLs pointing at a dead
+`webhostbox.net` host.
+
+### Fixed, 21-Sep-2026 — page content
+
+`@52.148.87.145.in` → `@sssihms.org.in` across 24 non-revision rows of `sai_4_posts`
 (`sacred@`, `hrblr@`, `radiologyblr@`, `anaesthesiablr@`, `neurosurgeryblr@`,
-`registrarblr@` at `52.148.87.145.in`) and 105 asset URLs pointing at a dead
-`webhostbox.net` host — one of which is the `custom-background` image requested on every
-page load. Only the patient-enquiry address was corrected on 21-Sep-2026; the rest needs a
-scoped search-and-replace once the correct targets are confirmed.
+`registrarblr@`, `shravankumar.m@`). The match was anchored on `@` so it could not touch
+the asset URLs, which contain the same IP string but no `@`. Two malformed spellings were
+repaired by hand (`...org.inwith` → `...org.in with`, `...org.in/Ph:` → `...org.in / Ph:`).
+
+The Divi **contact form on the Contact Us page (post 71) was delivering to
+`hostmaster@52.148.87.145.in`**, so every enquiry submitted through "Write to Us" was
+being sent to a non-existent mailbox. It now goes to `helpdeskblr@sssihms.org.in`.
+
+Deliberately **not** rewritten, because they are records of what was actually sent rather
+than content: 287 post revisions, 1 `postman_sent_mail` row, and 416 `sai_4_postmeta` rows
+of mail logs (`to_header`, `original_to`, `from_header`, `original_message`). Rewriting a
+log would falsify it. The 12 `_application` rows were left for the same reason.
+
+### Still broken — mail configuration
+
+Six `sai_4_options` rows hold the bad domain inside **PHP-serialized** values, so they
+cannot be fixed with a string replace: the `s:<len>:` byte-length prefix stops matching and
+the option fails to unserialize. They need `wp option patch` or a PHP round-trip, and
+someone who knows which mailboxes actually exist.
+
+| Option | Bad addresses | Consequence |
+|---|---|---|
+| `wp_mail_smtp`, `postman_options` | `hostmaster@` | sender address on **all** site email; may fail SPF/DMARC |
+| `_caldera_forms`, `CF5667d73741237` | `hostmaster@`, `neurosurgeryblr@` | a Caldera form's notifications bounce |
+| `itsec-storage` | `praveen@`, `subramaniyan.m@` | security alerts go nowhere |
+| `auto_core_update_notified` | `hostmaster@` | harmless; a record of one past notification |
+
+### Still broken — asset URLs
+
+557 rows still reference `http://52.148.87.145.in.md-in-25.webhostbox.net/wfd/...`,
+including the `custom-background` image that every page requests on load. The correct
+targets need confirming before these are rewritten.
