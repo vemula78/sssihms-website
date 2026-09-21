@@ -193,3 +193,45 @@ page stylesheet is emitted inside the page body and would otherwise win on sourc
 - **Coming From Outside Bengaluru** (55656) still needs the attendant accommodation detail.
 - Search results pages show the author and a full-page text dump as the excerpt. Functional
   but ugly; worth a template pass.
+
+## 21-Sep-2026 — Search results
+
+The stock Divi/WordPress search had three faults. All are fixed in the mu-plugin.
+
+**No relevance ranking.** WordPress orders search results by date, so "cardiology"
+returned a 2019 CME notice and never the Cardiology department page. A `posts_orderby`
+filter now ranks an exact title match first, then titles containing the term, then
+everything else. Search is also limited to pages and posts, ten per page.
+
+**Excerpts were the whole page flattened to text.** Divi's `truncate_post()` strips tags
+but not shortcodes, so every result read
+"Home›Departments · CardiologyCardiologyOutpatient, inpatient…". Results are now rewritten
+to show the hand-written SEO description where one exists, otherwise a cleaned 32-word
+summary with the breadcrumb trail and the repeated banner title peeled off. Descriptions
+were added for the main department and service pages, which is the real fix — the
+heuristic is only the fallback.
+
+**Author bylines and post dates on every result**, which mean nothing to a patient looking
+for a phone number. Removed, and each result now shows its URL path instead.
+
+Also added: a "Search results — N results for X" heading with a search-again box, and a
+no-results state that points at appointments, emergency, departments, donating and contact,
+and gives the Help Desk number.
+
+### Two things worth knowing for future work here
+
+`$q->is_main_query()` is **unreliable inside the `the_posts` filter** — WordPress assigns
+`$wp_the_query` only after `get_posts()` has run its filters, so the main search query
+reports false. Test the query object's own `is_search()` instead.
+
+Mutating `post_content` on the objects in `$wp_query->posts`, or on the object handed to
+the `the_post` action, **does not change what Divi prints**: `truncate_post()` re-reads the
+post through `get_post()`, which returns the cached `WP_Post` instance, a different object.
+Both approaches were tried and neither worked. The result markup is therefore rewritten in
+an output buffer started on `template_redirect`, which is also the only way to place the
+heading, since `loop_start` never fires when nothing matched and Divi's search template
+offers no hook that covers both cases.
+
+One trap in that buffer: the idempotency guard must look for the `<div class="…">` element,
+not the bare class name, or it matches the class name inside the injected stylesheet and
+silently skips the injection every time.
