@@ -129,9 +129,12 @@ page 55655) are live, and wired in:
   generic For Patients page, and "Support the Mission" to `/donate/`
 - Get Involved — its two off-site links to the Trust's generic page now go to `/donate/`
 
-**Coming From Outside Bengaluru** (page 55656) remains a draft. It still needs what
-accommodation exists for attendants, what it costs, how it is requested, and where families
-eat.
+**Coming From Outside Bengaluru** (`/outstation-patients/`, page 55656) is live. The
+answer on accommodation turned out to be a warning rather than a detail: it is provided
+**only for the attendants of admitted in-patients**, so an outpatient travelling for a
+consultation must arrange their own stay or plan to return the same day. The page says that
+plainly, because someone travelling from West Bengal on the assumption that the hospital
+would house them is the person this page exists for.
 
 All three pages are built entirely from `et_pb_code` modules, so `wpautop` cannot reach them.
 
@@ -235,3 +238,13 @@ offers no hook that covers both cases.
 One trap in that buffer: the idempotency guard must look for the `<div class="…">` element,
 not the bare class name, or it matches the class name inside the injected stylesheet and
 silently skips the injection every time.
+
+## 21-Sep-2026 — Outstation page completed
+
+`/outstation-patients/` is published and in the For Patients menu. Accommodation is
+provided only for attendants of admitted in-patients; the page states that outpatients have
+no on-campus accommodation and should arrange their own stay or return the same day.
+
+Not stated, because it was not supplied: whether there is any charge for attendant
+accommodation, how it is requested beyond the ward sister issuing the pass, and where
+families eat on campus.
