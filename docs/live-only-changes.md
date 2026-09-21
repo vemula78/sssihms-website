@@ -304,3 +304,28 @@ restored both 404s.
 
 It also deletes `.DS_Store` before shipping. One was already live under `/static/vahinis/`
 and has been removed; they leak directory contents and should never be served.
+
+## 21-Sep-2026 — Poetry pages: the contents lists were inert
+
+The three poetry collections opened and read fine, but **no poem could be reached**.
+
+Each page renders a contents list — 132 entries for Divine Poetry, 51 for Sai Compositions,
+**717 for Padya Sudha** — and every poem carries an `id` (`dp-p-1` … `dp-p-718`). But the
+entries were drawn by the bundled prototype component as
+`<a class="dp-toc-link" data-n="7" data-i="6">` with **no `href` and no click handler**.
+`document.querySelectorAll('a[href]')` returned zero on all three pages. The index looked
+complete and did nothing; a reader could only scroll, through 6.9 MB in Padya Sudha's case.
+
+`src/poetry-pages/toc-nav.js` wires them up. It sets a real `href` rather than scrolling
+from JS, so entries stay keyboard focusable, middle-clickable and copyable and the browser
+does the scrolling, and it tracks the current poem with an `IntersectionObserver` so the
+list stays in step with the reader.
+
+Numbering cannot be assumed: Padya Sudha lists 717 poems but its ids run to `dp-p-718`, so
+the script resolves `data-n` to an id first and falls back to `data-i` as a position. All
+717 wire up, none unwired, and the final entry `#dp-p-718` resolves.
+
+The script is in `src/poetry-pages/`, which `build.mjs:83` copies wholesale, and the three
+source HTML files now load it. `deploy-static.sh` fails the deploy if any poetry page ships
+without it, since the failure is silent — the page looks right and the index just does
+nothing.

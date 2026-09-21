@@ -62,6 +62,17 @@ if grep -rl "SSSIHMS%20Website.html\|SSSIHMS Website.html" "${PAYLOADS[@]/#/dist
   exit 1
 fi
 
+# Guard: the poetry pages' contents lists are drawn by the bundled component with no
+# href and no click handler, so toc-nav.js is what makes all 900 entries navigable.
+# Shipping a poetry page without it silently returns an inert index.
+for f in dist/poetry-pages/divine-poetry.html dist/poetry-pages/sai-compositions.html dist/poetry-pages/padya-sudha.html; do
+  [[ -f "$f" ]] || { echo "FATAL: $f missing after build" >&2; exit 1; }
+  grep -q 'toc-nav.js' "$f" || {
+    echo "FATAL: $f does not load toc-nav.js; its table of contents would be inert" >&2; exit 1; }
+done
+[[ -f dist/poetry-pages/toc-nav.js ]] || {
+  echo "FATAL: dist/poetry-pages/toc-nav.js missing" >&2; exit 1; }
+
 # Guard: macOS .DS_Store files leak directory listings and must not be served.
 find "${PAYLOADS[@]/#/dist/}" -name '.DS_Store' -delete
 
