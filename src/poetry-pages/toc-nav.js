@@ -96,14 +96,41 @@
 		return true;
 	}
 
-	// The list is drawn by JS after load, so poll briefly rather than racing it.
-	var tries = 0;
-	( function attempt() {
-		if ( wire() ) {
-			return;
-		}
-		if ( ++tries < 60 ) {
-			setTimeout( attempt, 250 );
-		}
-	} )();
+	// The list is drawn by the bundle after load, and Padya Sudha renders 717 poems,
+	// which can take well over the 15s a bounded poll allowed — it gave up and left the
+	// index dead. Watch the DOM instead, and keep watching: the bundle can also
+	// re-render, which would drop the hrefs again.
+	function run() {
+		wire();
+	}
+
+	if ( document.readyState !== 'loading' ) {
+		run();
+	} else {
+		document.addEventListener( 'DOMContentLoaded', run );
+	}
+	window.addEventListener( 'load', run );
+
+	if ( window.MutationObserver ) {
+		var scheduled = false;
+		var obs = new MutationObserver( function () {
+			if ( scheduled ) {
+				return;
+			}
+			scheduled = true;
+			setTimeout( function () {
+				scheduled = false;
+				run();
+			}, 150 );
+		} );
+		obs.observe( document.documentElement, { childList: true, subtree: true } );
+	} else {
+		var tries = 0;
+		( function attempt() {
+			run();
+			if ( ++tries < 240 ) {
+				setTimeout( attempt, 250 );
+			}
+		} )();
+	}
 })();

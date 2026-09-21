@@ -329,3 +329,30 @@ The script is in `src/poetry-pages/`, which `build.mjs:83` copies wholesale, and
 source HTML files now load it. `deploy-static.sh` fails the deploy if any poetry page ships
 without it, since the failure is silent — the page looks right and the index just does
 nothing.
+
+## 21-Sep-2026 — Clickable cards, and a fix to the TOC script
+
+### Whole-card click targets
+
+On `/poems/` the card headings were not clickable; only the small "Open →" was. The four
+cards are now marked `.card-clickable` with their single anchor marked `.card-link`, and the
+mu-plugin stretches that one link across the card with an `::after` overlay.
+
+Deliberately **not** done by wrapping each card in an `<a>`: that makes a screen reader
+announce the heading, the description and the button as one long link. The overlay keeps one
+link per card, leaves the heading a heading, and keyboard focus still lands on the link —
+with `:focus-within` outlining the whole card so the focus ring is visible. Anything else
+inside a card is lifted above the overlay with `z-index` so it stays clickable.
+
+The styling is opt-in on `.card-clickable`, so the identical `.info-card` grids elsewhere
+(For Patients, Get Involved, home) are untouched until the class is added.
+
+### The TOC script gave up too early
+
+The first version of `toc-nav.js` polled 60 times at 250 ms — a 15-second window. Divine
+Poetry and Sai Compositions wire up well inside that, but **Padya Sudha's 717 poems can
+take longer**, and when they do the script gave up and left the index dead. Exactly the
+bug it was written to fix, on the one page where it matters most.
+
+Replaced with a `MutationObserver`, which also handles the bundle re-rendering and dropping
+the hrefs again. Padya Sudha now reports 717 of 717 wired immediately.
