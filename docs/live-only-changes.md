@@ -117,36 +117,20 @@ that regenerates on the next build).
 The schema values are all taken from the hospital's own published pages; the geo coordinates
 are the ones already in the Contact Us map pin.
 
-### The three drafts
+### Published 21-Sep-2026
 
-| Page | ID | State |
-|---|---|---|
-| Support the Mission | 55654 | **complete** — awaiting a decision to publish |
-| Emergency Care | 55655 | **complete** — awaiting a decision to publish |
-| Coming From Outside Bengaluru | 55656 | still has one gap |
+**Support the Mission** (`/donate/`, page 55654) and **Emergency Care** (`/emergency/`,
+page 55655) are live, and wired in:
 
-**Support the Mission** carries the Sri Sathya Sai Central Trust's published donation
-details: Section 10(23C)(iv) registration, 80G exemption, FCRA recognition, CSR number
-CSR00040940; the SBI and Canara Bank accounts for Indian donors; SBI Collect; both UPI IDs;
-cheque/DD instructions; the FCRA-designated SBI New Delhi account for overseas donors with
-the mandatory P1303 purpose code and the NRI passport-nationality rule; and the Trust's
-contacts. Donors are told to state **"Medical Relief"** as the purpose so the gift reaches
-the hospital. A line notes the details are as published by the Trust and should be
-confirmed with it before remitting.
+- primary menu — Emergency Care leads *For Patients*; the existing *Donations* entry under
+  *Get Involved* was repointed at `/donate/` rather than adding a second near-identical item
+- footer Quick Links — both added
+- home page — the "Emergency Care — 24/7" card now goes to `/emergency/` instead of the
+  generic For Patients page, and "Support the Mission" to `/donate/`
+- Get Involved — its two off-site links to the Trust's generic page now go to `/donate/`
 
-**Emergency Care** states the position as it actually is: the department is open 24 hours
-every day, there is no number to call first and no appointment to make, and every patient
-who reaches Emergency is attended to. It says explicitly that the Help Desk line is
-weekdays 10–4 and is *not* an emergency line, so nobody waits for it to open.
+**Coming From Outside Bengaluru** (page 55656) remains a draft. It still needs what
+accommodation exists for attendants, what it costs, how it is requested, and where families
+eat.
 
-**Coming From Outside Bengaluru** still needs what accommodation exists for attendants,
-what it costs, how it is requested, and where families eat — the question outstation
-families ask most, which the site has never answered.
-
-All three are built entirely from `et_pb_code` modules, so `wpautop` cannot reach them.
-
-### When publishing
-
-The home page's "Emergency Care — 24/7" card currently points at a generic target; repoint
-it at `/emergency/` once that page is live. Add Support the Mission to the Get Involved
-section and the footer, and Emergency to the For Patients menu.
+All three pages are built entirely from `et_pb_code` modules, so `wpautop` cannot reach them.
