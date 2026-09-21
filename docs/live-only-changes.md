@@ -69,22 +69,34 @@ than content: 287 post revisions, 1 `postman_sent_mail` row, and 416 `sai_4_post
 of mail logs (`to_header`, `original_to`, `from_header`, `original_message`). Rewriting a
 log would falsify it. The 12 `_application` rows were left for the same reason.
 
-### Still broken — mail configuration
+### Fixed, 21-Sep-2026 — mail configuration
 
-Six `sai_4_options` rows hold the bad domain inside **PHP-serialized** values, so they
-cannot be fixed with a string replace: the `s:<len>:` byte-length prefix stops matching and
-the option fails to unserialize. They need `wp option patch` or a PHP round-trip, and
-someone who knows which mailboxes actually exist.
+Six `sai_4_options` rows held the bad domain inside **PHP-serialized** values, where a
+string replace corrupts the data: the `s:<len>:` byte-length prefix stops matching and the
+option no longer unserialises. `scripts/fix-option-emails.php` instead unserialises, walks
+the structure, and lets WordPress re-serialize, refusing to write anything that fails a
+round-trip first. Repaired: `wp_mail_smtp` and `postman_options` (sender address on all
+site email), `_caldera_forms` and `CF5667d73741237` (form notification recipients),
+`itsec-storage` (security alert recipients), `auto_core_update_notified`.
 
-| Option | Bad addresses | Consequence |
-|---|---|---|
-| `wp_mail_smtp`, `postman_options` | `hostmaster@` | sender address on **all** site email; may fail SPF/DMARC |
-| `_caldera_forms`, `CF5667d73741237` | `hostmaster@`, `neurosurgeryblr@` | a Caldera form's notifications bounce |
-| `itsec-storage` | `praveen@`, `subramaniyan.m@` | security alerts go nowhere |
-| `auto_core_update_notified` | `hostmaster@` | harmless; a record of one past notification |
+All six verified afterwards as still unserialising to arrays of the expected size.
 
-### Still broken — asset URLs
+### Fixed, 21-Sep-2026 — asset URLs
 
-557 rows still reference `http://52.148.87.145.in.md-in-25.webhostbox.net/wfd/...`,
-including the `custom-background` image that every page requests on load. The correct
-targets need confirming before these are rewritten.
+`http://52.148.87.145.in.md-in-25.webhostbox.net/wfd/wp-content/uploads/` →
+`https://whitefield.sssihms.org/wp-content/uploads/sites/4/`, with a second rule mapping
+the bare `/wfd` prefix (used by `wp-admin` and `wp-login.php` links in the Events Manager
+email templates) onto the site root. Applied to 42 non-revision post rows, four `dbem_*`
+option templates, and `theme_mods_Divi` — which held the `custom-background` image that
+every page requested from the dead host on load.
+
+The target was established empirically, not assumed: uploads for blog 4 live under
+`sites/4/`, and the non-`sites` path returns 404.
+
+74 of the 105 distinct referenced files exist at the new location. The other 31 are listed
+in [missing-upload-assets.md](missing-upload-assets.md) — they 404 now as they 404ed
+before, since the host they pointed at is dead; the rewrite removed a third-party request
+rather than recovering a file.
+
+Left alone: 745 revision rows, and `sm_status` (a Google Sitemap Generator status object
+that regenerates on the next build).
