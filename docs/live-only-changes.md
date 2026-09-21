@@ -393,3 +393,52 @@ Two bugs of my own on the way, both now guarded:
   first call in `run()`, took the contents-list wiring down with it on that pass;
 - so `run()` now wraps each half in its own `try`, and the bar checks for a body first.
   The bar is a convenience and must never be able to break the index.
+
+## 21-Sep-2026 — Vahini series, checked the same way
+
+### The hub had two faults
+
+**15 cards displayed literal `<em>` tags.** The italic markup in every volume's subtitle was
+double-escaped, so visitors read `<em>Stream of Love</em> — Short, urgent chapters…` with
+the angle brackets showing. Unescaped; 16 italics now render properly and 0 literal tags
+remain.
+
+**The cards were not clickable** beyond the small "Read →", the same as the poetry cards.
+All 15 now carry `.card-clickable` / `.card-link`.
+
+### The readers' Contents panel was inert
+
+This is the poetry-index bug again, in a different place. Each reader has a Contents panel
+of chapter buttons — 73 in Prema Vahini, 42 in Bhagavatha Vahini — and every chapter sits
+in the document with an id (`ch-1` … `ch-73`). Clicking a chapter **closed the panel and
+did nothing else**, on a page 92,000px tall. Chapter 73 was reachable only by scrolling to
+it.
+
+`src/vahinis/reader-nav.js` wires the buttons to their chapters. Notes on two things that
+had to be got right:
+
+- **Instant, not smooth.** A `behavior: 'smooth'` jump across Bhagavatha Vahini's 204,000px
+  never practically arrives. A chapter jump has to behave like an ordinary anchor.
+- **The landing drifts.** These books keep growing as images and later chapters lay out, so
+  the target moves *after* the jump — the bigger the book, the further out you land. The
+  script re-seats at intervals up to 7s, and only while the target is more than 4px off.
+  That took Bhagavatha Vahini's worst case from ~204,000px out to a few thousand.
+
+Residual drift on the largest books is a few screens rather than exact. Landing in the
+right region beats not moving at all, but it is not finished work.
+
+### Verified clean
+
+All 15 stubs resolve to an existing data file (74 KB–757 KB) with no orphans, the Library
+lists 16 links with none broken and no unrendered templates, and every reader's header
+links (**← SSSIHMS**, **Bhagawan**, **Reading Library**) return 200.
+
+`deploy-static.sh` fails if a reader ships without `reader-nav.js`.
+
+### A menu item I broke and fixed
+
+Repointing the three poetry menu items at the static collections converted them from
+`post_type` to `custom` links. A `post_type` item inherits its label from the page; a
+`custom` one needs `post_title` set — and item 55212's was empty, so **Divine Poetry
+vanished from the menu** while the other two, which had explicit titles, stayed. Title set,
+and the leftover `_menu_item_object` values tidied from `page` to `custom`.

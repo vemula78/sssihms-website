@@ -73,6 +73,16 @@ done
 [[ -f dist/poetry-pages/toc-nav.js ]] || {
   echo "FATAL: dist/poetry-pages/toc-nav.js missing" >&2; exit 1; }
 
+# Guard: the Vahini readers' Contents panel only closes itself without reader-nav.js,
+# leaving 73 chapters reachable only by scrolling a 92,000px page.
+[[ -f dist/vahinis/reader-nav.js ]] || { echo "FATAL: dist/vahinis/reader-nav.js missing" >&2; exit 1; }
+missing=0
+for f in dist/vahinis/*.dc.html; do
+  case "$(basename "$f")" in Reader.dc.html|Library.dc.html) continue;; esac
+  grep -q 'reader-nav.js' "$f" || { echo "FATAL: $f does not load reader-nav.js" >&2; missing=1; }
+done
+[[ $missing -eq 0 ]] || exit 1
+
 # Guard: macOS .DS_Store files leak directory listings and must not be served.
 find "${PAYLOADS[@]/#/dist/}" -name '.DS_Store' -delete
 
