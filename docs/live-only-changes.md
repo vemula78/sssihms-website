@@ -509,3 +509,17 @@ behind it while the text stayed black.
 | `<meta name="color-scheme" content="only light">` + `:root{color-scheme:only light}` — the site has no dark theme, so forced darkening is opted out of | mu-plugin `sssihms_wfd_color_scheme()` | live |
 
 The mu-plugin was backed up on the server before the edit (`/tmp/mu-backup-*.php`).
+
+## 25-Sep-2026 — Home: patient actions section, "We Are Here for You" moved up
+
+Home **54830**. Responds to the patient-centric heuristic evaluation (patient tasks buried
+10.6 screens down on mobile).
+
+| What | State |
+|---|---|
+| New code module "Patient Actions — Your First Visit" directly after Service in Numbers: "How can we help you today?", four steps — call the Help Desk (+91 80 4710 4600, 10 AM–4 PM Mon–Fri) and take an appointment → receive an SMS with date and time → show the SMS to Security at Gate No. 2 at the appointment time → proceed to the Screening / Reception block. Then buttons: Call Help Desk, Emergency, How to reach us (/contact-us/), What to bring (/appointments-admission/), Coming from outside Bengaluru (/outstation-patients/). | live |
+| "We Are Here for You" moved from after Building Future Healers to directly below the new section | live |
+
+Process per Praveen 25-Sep-2026; Gate No. 2 and the Screening / Reception block are from the live Appointments page (735).
+Mobile position (375 px): "How can we help" 3.4 screens, "We Are Here for You" 10.6 → 5.1 screens.
+Section backgrounds still alternate (section / alt / section / alt).
