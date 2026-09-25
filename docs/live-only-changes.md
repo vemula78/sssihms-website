@@ -557,3 +557,4 @@ the BSWML ₹12/kg arrangement.
 
 All seven Go Green pages were checked against their exported copy before writing, and a
 pre-change revision saved. Verified: no shortcode leakage, no horizontal scroll at 375 px.
+| FMS menu item **55712** moved from About Hospital to **Departments › Services** (last, after HMIS); page breadcrumb changed to Home › Departments › Services › Facility Management Services | menu **116**, page **55711** | live |
