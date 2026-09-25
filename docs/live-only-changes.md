@@ -471,3 +471,11 @@ department flyers (Interventional Cardiology; Cardio Vascular Anaesthesia), 2026
 | Anchor fallback script `#fa-anchor-fix`: Divi's on-load hash scroll did not fire; the script scrolls to the section only if the page is still >200px away 1.5 s after load | Fellowship **255** | live |
 
 **Remove or change the home notice after 19-Oct-2026** — it has no expiry.
+
+## 25-Sep-2026 — Follow-ups
+
+| What | Where | State |
+|---|---|---|
+| ANES-Fellowship: stipend "as per RGUHS guidelines" → **Rs 1,02,000/- per month** (prose + card); "Admission session: July/August" → 2026–27 window 05–19 Oct 2026, classes 02 Nov 2026, link to the RGUHS notification | **681** | live |
+| Eyebrow above the stipend cards: "Fellowship in Pediatric Cardiac Surgery" → "Fellowship Programmes 2026–27" | Fellowship **255** | live |
+| "No Tuition Fees" pill removed from the B.Sc Nursing card — no tuition fee applies to every course, and the section subtitle already says so | home **54830**, Building Future Healers | live |
