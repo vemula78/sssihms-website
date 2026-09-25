@@ -479,3 +479,5 @@ department flyers (Interventional Cardiology; Cardio Vascular Anaesthesia), 2026
 | ANES-Fellowship: stipend "as per RGUHS guidelines" → **Rs 1,02,000/- per month** (prose + card); "Admission session: July/August" → 2026–27 window 05–19 Oct 2026, classes 02 Nov 2026, link to the RGUHS notification | **681** | live |
 | Eyebrow above the stipend cards: "Fellowship in Pediatric Cardiac Surgery" → "Fellowship Programmes 2026–27" | Fellowship **255** | live |
 | "No Tuition Fees" pill removed from the B.Sc Nursing card — no tuition fee applies to every course, and the section subtitle already says so | home **54830**, Building Future Healers | live |
+| Nursing-only "No tuition fees" removed in three more places: Nursing card, B.Sc Nursing Programme section, "Latest from SSSIHMS" news card. Only the all-programmes subtitle mention remains. | home **54830** | live |
+| Interventional Cardiology prose: "Stipend at par with senior residents in this institute" → "a stipend of Rs 1,20,000/- per month" | Fellowship **255** | live |
