@@ -442,3 +442,17 @@ Repointing the three poetry menu items at the static collections converted them 
 `custom` one needs `post_title` set — and item 55212's was empty, so **Divine Poetry
 vanished from the menu** while the other two, which had explicit titles, stayed. Title set,
 and the leftover `_menu_item_object` values tidied from `page` to `custom`.
+
+## 25-Sep-2026 — Old home pages set to noindex
+
+The previous front page and a 2015 leftover were still published and indexable, so search
+engines could show visitors the old home page with pre-21-Sep contact details.
+
+| Page | ID | Change |
+|---|---|---|
+| `/home/` — previous front page (2015–Aug 2026, 268 revisions) | **37** | Yoast `_yoast_wpseo_meta-robots-noindex = 1` |
+| `/home-2/` — "Home 2", actually a 2015 Cardiology header/slider stub | **442** | same |
+
+Both stay **published** so they remain reachable for comparison; both now emit
+`noindex, follow` (verified), and the live front page (54830) still emits `index, follow`.
+Reverting to the old front page remains a one-setting change (`page_on_front` 37).
