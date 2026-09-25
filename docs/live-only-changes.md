@@ -523,3 +523,37 @@ Home **54830**. Responds to the patient-centric heuristic evaluation (patient ta
 Process per Praveen 25-Sep-2026; Gate No. 2 and the Screening / Reception block are from the live Appointments page (735).
 Mobile position (375 px): "How can we help" 3.4 screens, "We Are Here for You" 10.6 → 5.1 screens.
 Section backgrounds still alternate (section / alt / section / alt).
+
+## 25-Sep-2026 — Facility Management Services page; Go Green pages updated
+
+Sources: FMS summary (Admin Office, 24-Sep-2026); Sustainability master report; Solid Waste,
+Water, Tree Plantation and Electrical notes; "Water Management" and "Water Conservation
+Award Nomination" decks; one photo; OWC and STP videos.
+
+**Figure decisions (Praveen, 25-Sep-2026), where sources conflicted:**
+- Aerators: **1,648 aerators + 1,691 taps replaced** (FluxGen), not "1,691 aerators" (FMS email).
+- Recharge: **120 percolation wells** (FMS email), not "3 borewell units + 5 pits → 19 → 50"
+  (nomination). The nomination's 19/50 roadmap is therefore omitted.
+- Water: **FluxGen measured** 17.98% / 17,289 KL (Apr 2025–Apr 2026, baseline 7,396 m³/month);
+  the "300 → 280 KLD" figure is not used.
+- Trees: live figures kept (108 transplanted, 25 Rudraksha); only "1,000+ plants" added.
+
+**Not used, deliberately:** solar "~1,000 units/day" (conflicts with 3,16,831 kWh in 2025 ≈ 868/day);
+"₹9 lakh more per annum" from dry waste (doesn't match the deck's own table); borewell count (7 vs 9);
+the water award as a win (it is a nomination); the master report PDF (internal/archival); the
+pipe-and-filter image (possibly AI-enhanced — awaiting confirmation); staff email addresses;
+the BSWML ₹12/kg arrangement.
+
+| What | Where | State |
+|---|---|---|
+| New page **Facility Management Services** — intro, six impact cards, five service areas, commitment; linked to Go Green | page **55711**, `/facility-management-services/`; menu item **55712** under About Hospital after About the Trust | live |
+| "Sustainability in Numbers" stats + Awards and Recognition; five initiative cards refreshed (solar 280 kW, LED/BLDC/VFD chiller, 120 wells, aerators, H.E.L.P. award) | Go Green **52084** | live |
+| "Solar Power Today" — 280 kW, 3,16,831 kWh in 2025, ~10% of electricity, −9.45% consumption | Solar **52658** | live |
+| "Eco-Friendly Energy" — LED 5,500, BLDC 550, VFD chiller, pump 50→35 kW, 8,000 L solar water heaters; BLDC fan photo (media **55708**, GPS stripped) | Power Conservation **52973** | live |
+| "Water, Measured. Water, Saved." (AquaGen, aerators, before/after table, ₹30/KL caveat) + "All Wastewater Treated and Reused" (300 KLD STP, 150 KLD sullage, KSPCB table); STP video (media **55710**) | Water Use **52966** | live |
+| "120 Percolation Wells" — construction and capacity | Rain Water Harvesting **52712** | live |
+| "Waste Management Today" (wet/BMW/dry/mixed/Bintix/sewage) + 2024 results table, reduction steps, awards; OWC video (media **55709**) | Waste Management **52680** | live |
+| "Prema Taru — Growing a Greener Tomorrow" (1,000+ plants) | Trees **52721** | live |
+
+All seven Go Green pages were checked against their exported copy before writing, and a
+pre-change revision saved. Verified: no shortcode leakage, no horizontal scroll at 375 px.
