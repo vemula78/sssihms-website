@@ -494,3 +494,4 @@ Header Theme Builder layout **54939** (every page):
 | Language links (ಕನ್ನಡ हिन्दी తెలుగు বাংলা) moved to the right end of the top bar, where the Trust line was; `lang` attributes added | live |
 
 Pre-change content is kept as a revision of 54939.
+| Main menu: "Blog" (page 1458, `/sssihms-blog/`) added as the last item under About Hospital — it lost its only site-wide link when the top-bar link was removed | menu **116**, item **55704** | live |
