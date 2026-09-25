@@ -495,3 +495,17 @@ Header Theme Builder layout **54939** (every page):
 
 Pre-change content is kept as a revision of 54939.
 | Main menu: "Blog" (page 1458, `/sssihms-blog/`) added as the last item under About Hospital — it lost its only site-wide link when the top-bar link was removed | menu **116**, item **55704** | live |
+
+## 25-Sep-2026 — Logo went black in mobile dark mode
+
+Users reported the logo showing fully black on phones in dark mode. Cause: the logo PNG is
+76% transparent pixels with black text, and the site declared no colour scheme, so
+Android forced-dark modes (Chrome auto-dark, Samsung Internet) darkened the white box
+behind it while the text stayed black.
+
+| What | Where | State |
+|---|---|---|
+| Logo flattened onto an opaque white background (`Website-full-length-logo-white.png`, media **55705**); original kept | header **54939**, footer **54940** | live |
+| `<meta name="color-scheme" content="only light">` + `:root{color-scheme:only light}` — the site has no dark theme, so forced darkening is opted out of | mu-plugin `sssihms_wfd_color_scheme()` | live |
+
+The mu-plugin was backed up on the server before the edit (`/tmp/mu-backup-*.php`).
