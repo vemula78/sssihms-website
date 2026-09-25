@@ -481,3 +481,16 @@ department flyers (Interventional Cardiology; Cardio Vascular Anaesthesia), 2026
 | "No Tuition Fees" pill removed from the B.Sc Nursing card — no tuition fee applies to every course, and the section subtitle already says so | home **54830**, Building Future Healers | live |
 | Nursing-only "No tuition fees" removed in three more places: Nursing card, B.Sc Nursing Programme section, "Latest from SSSIHMS" news card. Only the all-programmes subtitle mention remains. | home **54830** | live |
 | Interventional Cardiology prose: "Stipend at par with senior residents in this institute" → "a stipend of Rs 1,20,000/- per month" | Fellowship **255** | live |
+
+## 25-Sep-2026 — Header: Trust line into the logo, top bar trimmed
+
+Header Theme Builder layout **54939** (every page):
+
+| What | State |
+|---|---|
+| Logo image module replaced by a code module: same logo image plus "A Unit of Sri Sathya Sai Central Trust" as text inside the white logo box (`.sssi-logo`, `.sssi-logo-trust`, #7a4a2e on white) | live |
+| Separate "A Unit of Sri Sathya Sai Central Trust" text removed from the top bar | live |
+| Telemedicine and Blog links removed from the top bar | live |
+| Language links (ಕನ್ನಡ हिन्दी తెలుగు বাংলা) moved to the right end of the top bar, where the Trust line was; `lang` attributes added | live |
+
+Pre-change content is kept as a revision of 54939.
