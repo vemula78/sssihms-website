@@ -456,3 +456,18 @@ engines could show visitors the old home page with pre-21-Sep contact details.
 Both stay **published** so they remain reachable for comparison; both now emit
 `noindex, follow` (verified), and the live front page (54830) still emits `index, follow`.
 Reverting to the old front page remains a one-setting change (`page_on_front` 37).
+
+## 25-Sep-2026 — Fellowship 2026 admissions notice, RGUHS notification, new stipends
+
+Source: RGUHS notification RGUHS/FELLOW/COE/69316/2026-27 dated 22-Sep-2026, and the two
+department flyers (Interventional Cardiology; Cardio Vascular Anaesthesia), 2026-27.
+
+| What | Where | State |
+|---|---|---|
+| Static notice in the home hero, between the free-care band and Vision/Mission: "FELLOWSHIP 2026 ADMISSIONS … Application window 05 October 2026 – 19 October 2026", linking to `/academics/fellowship/#fellowship-admissions`. Static, not scrolling (WCAG 2.2.2). | home **54830**, hero code module | live |
+| PDFs uploaded: RGUHS notification **55692**, IC flyer **55693**, CVA flyer **55694** (`uploads/sites/4/2026/09/`) | media | live |
+| "Application Status and Contact" (still said Aug-2025, closed) replaced with Fellowship 2026 Admissions: window, RGUHS calendar of events, ₹22,400 RGUHS admission fee, the three downloads, existing contact line. Divi `module_id="fellowship-admissions"`. | Fellowship **255** | live |
+| Stipends: CTV Anaesthesia Rs 85,000 → **Rs 1,02,000/- per month**; Interventional Cardiology Rs 1,00,000 → **Rs 1,20,000/- per month** | Fellowship **255**, "Applications and Stipends" | live |
+| Anchor fallback script `#fa-anchor-fix`: Divi's on-load hash scroll did not fire; the script scrolls to the section only if the page is still >200px away 1.5 s after load | Fellowship **255** | live |
+
+**Remove or change the home notice after 19-Oct-2026** — it has no expiry.
