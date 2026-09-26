@@ -564,3 +564,11 @@ pre-change revision saved. Verified: no shortcode leakage, no horizontal scroll 
 - Page 681 (ANES-Fellowship): link text "RGUHS notification & flyer →" → "RGUHS notification →".
 - Page 54830 (home): notice link text "Details, RGUHS notification & flyers →" → "Details & RGUHS notification →".
 - Media 55693 / 55694 left in the library (not deleted); replace when corrected flyers arrive.
+
+## 2026-09-26 — Biomedical waste menu → BMW Tracker plugin pages
+Requested via the BMW Tracker plugin session. Plugin pages 54787 (`/bmw-tracker/`) and 54788 (`/biomedical-waste-management/`) not edited.
+- Menu 116, item **55204** (Go Green): repointed from page 51982 "Biomedical Waste Report" to page **54788** "Biomedical Waste Management".
+- Menu 116, new item **55716** "BMW Staff Login" → page 54787, child of FMS item 55712 (Departments › Services › Facility Management Services).
+- Page **51982** `/biomedical-waste-report/` set to draft (not deleted).
+- mu-plugin `sssihms-wfd-patient-access.php`: added `sssihms_wfd_bmw_redirect` — 301 `/biomedical-waste-report/` → `/biomedical-waste-management/`. Pre-change backup kept on the server.
+- The seven Go Green pages already linked to `/biomedical-waste-management/`; no content changes needed.
