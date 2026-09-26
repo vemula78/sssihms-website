@@ -558,3 +558,9 @@ the BSWML ₹12/kg arrangement.
 All seven Go Green pages were checked against their exported copy before writing, and a
 pre-change revision saved. Verified: no shortcode leakage, no horizontal scroll at 375 px.
 | FMS menu item **55712** moved from About Hospital to **Departments › Services** (last, after HMIS); page breadcrumb changed to Home › Departments › Services › Facility Management Services | menu **116**, page **55711** | live |
+
+## 2026-09-26 — Fellowship flyers withdrawn (corrections pending)
+- Page 255 (Fellowship): removed the two flyer entries from the Fellowship 2026 Admissions → Downloads list; only the RGUHS notification (55692) remains.
+- Page 681 (ANES-Fellowship): link text "RGUHS notification & flyer →" → "RGUHS notification →".
+- Page 54830 (home): notice link text "Details, RGUHS notification & flyers →" → "Details & RGUHS notification →".
+- Media 55693 / 55694 left in the library (not deleted); replace when corrected flyers arrive.
