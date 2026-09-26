@@ -572,3 +572,11 @@ Requested via the BMW Tracker plugin session. Plugin pages 54787 (`/bmw-tracker/
 - Page **51982** `/biomedical-waste-report/` set to draft (not deleted).
 - mu-plugin `sssihms-wfd-patient-access.php`: added `sssihms_wfd_bmw_redirect` — 301 `/biomedical-waste-report/` → `/biomedical-waste-management/`. Pre-change backup kept on the server.
 - The seven Go Green pages already linked to `/biomedical-waste-management/`; no content changes needed.
+
+## 2026-09-26 — FMS submenu: staff and booking links
+Requested by Praveen (also relayed from the Facility Management WordPress session). No page content changed.
+- Menu 116, under FMS item 55712 (Departments › Services › Facility Management Services), in order:
+  **55719** Dashboard → page 54778 `/maintenance-staff-portal/`; **55720** Guest House Booking → page 55718 `/guest-house-booking/`;
+  **55721** Staff Login → custom `/login/` (Theme My Login route, not a page); **55722** Fleet → custom `/fleet/` (separate Apache app);
+  then the existing **55716** BMW Staff Login.
+- Page cache purged. Server backups kept outside the web root (home directory), per the shared-host rule.
