@@ -580,3 +580,12 @@ Requested by Praveen (also relayed from the Facility Management WordPress sessio
   **55721** Staff Login → custom `/login/` (Theme My Login route, not a page); **55722** Fleet → custom `/fleet/` (separate Apache app);
   then the existing **55716** BMW Staff Login.
 - Page cache purged. Server backups kept outside the web root (home directory), per the shared-host rule.
+
+## 2026-09-27 — College of Nursing page: content from the SSSIHC display deck
+Source: "College of Nursing - SSSIHC Display.pptx". Page **259** `/academics/nursing-and-allied-health/`; revision saved first; four `et_pb_text` modules inserted before "B.Sc Nursing — 2026–27". Existing modules untouched.
+- **Vision & Mission** (deck slide 3, verbatim).
+- **Milestones, 2008–2025** — all 30 entries from the deck's four timeline images (slides 4–7), grouped by year. Confirms 1 Sep 2008 = start of College, 4 Oct 2008 = formal inauguration.
+- **Sri Sathya Sai Education in Human Values** — programme text, AWR 100–700 curriculum, eight SSSEHV teachers (names only), Counselling the SAI Way, Moral Class (slides 13–19).
+- **Classrooms & Laboratories / Life at the College** — lab list + two 6-photo grids.
+- Media **55723–55735** (13 photos, re-encoded ≤1600 px, EXIF/GPS stripped; 12 used, library photo unused). Photos with unclear subject not captioned or not used; teacher portraits not used (name-to-photo mapping unverified).
+- Not changed: "no tuition fees" mentions (home-page removal of 26-Sep did not cover this page); bottom CTA still reads "Admissions Open 2026–27 … apply by 19th June 2026" — awaiting instruction.
