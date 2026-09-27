@@ -626,3 +626,13 @@ Same three pages. Script now `toc-nav.js?v=20260927b`.
 - On a phone the list opens at the current poem and is capped to the space under the bars (`dvh`, `vh` fallback); the page scrolls the heading up under the bars if the list would run off screen. Desktop TOC height also uses `dvh`.
 - Removed the script's own IntersectionObserver highlight; it disagreed with the bundle's scroll handler. The bundle's handler (inside each page's base64 bundle) now measures from the toolbar's bottom edge instead of its height, so it allows for the site bar: `var off=(tb?tb.getBoundingClientRect().bottom:0)+30;` — the only change inside the bundles (base64 round-trip verified byte-identical before editing).
 - Backups on the VM: `/home/azureuser/poetry-pages.bak-20260927b/` (all four files as they were before this change).
+
+## 2026-09-27 — Poetry pages: fixes from the second audit
+Same three pages; `toc-nav.js` only (HTML files changed only in the script tag, now `?v=20260927c`).
+- History: a new entry only when the poem changes (re-tapping the same poem no longer adds Back steps); a refused `pushState` falls back to setting the hash.
+- Back/Forward between poems moves keyboard focus to the poem now showing (`popstate`).
+- Focus on a poem after a jump shows a saffron ring when it came from the keyboard (`:focus-visible`), none after a tap.
+- Focus is moved after the smooth scroll ends (`scrollend`, 1 s fallback) — iOS Safari before 15.5 ignored `preventScroll` and jumped mid-scroll.
+- With the list open on a phone, the highlighted entry is kept in view inside the list as the page scrolls.
+- Removed the list's 120 px minimum height (it overflowed short landscape screens); the open-list page scroll measures the visual viewport.
+- Backups on the VM: `/home/azureuser/poetry-pages.bak-20260927c/`.
