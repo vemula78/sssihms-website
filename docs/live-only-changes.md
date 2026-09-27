@@ -636,3 +636,8 @@ Same three pages; `toc-nav.js` only (HTML files changed only in the script tag, 
 - With the list open on a phone, the highlighted entry is kept in view inside the list as the page scrolls.
 - Removed the list's 120 px minimum height (it overflowed short landscape screens); the open-list page scroll measures the visual viewport.
 - Backups on the VM: `/home/azureuser/poetry-pages.bak-20260927c/`.
+
+## 2026-09-27 — Poetry pages: highlight after a search
+`toc-nav.js` only; script tag now `?v=20260927d`.
+- The bundle's search hides non-matching poems but re-picks the highlighted contents entry only on the next scroll, so a search that did not move the page (e.g. at the top) left a hidden poem lit. After each search input or Clear, `toc-nav.js` fires a synthetic `scroll` so the bundle's own handler re-picks among the poems still showing. No bundle change.
+- Backups on the VM: `/home/azureuser/poetry-pages.bak-20260927d/`.
