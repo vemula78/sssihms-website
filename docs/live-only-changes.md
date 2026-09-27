@@ -617,3 +617,12 @@ Discrepancies found and deliberately not reconciled (awaiting departments): CTVS
 - The site bar injected by `toc-nav.js` (sticky, top 0) was covering the page's own sticky toolbar and hiding the search box after scrolling, at all widths. The toolbar is now pinned below the bar, and poem jump offset / desktop TOC top are computed from the real bar heights.
 - `toc-nav.js` is served with a 1-year Cache-Control, so the three HTML files' script tag became `toc-nav.js?v=20260927` (only change to those files). Bump the version on any future edit to the script.
 - Backups on the VM: `/home/azureuser/toc-nav.js.bak-20260927`, `/home/azureuser/poetry-pages.bak-20260927/`.
+
+## 2026-09-27 — Poetry pages: fixes from an independent code audit
+Same three pages. Script now `toc-nav.js?v=20260927b`.
+- TOC taps are handled by `toc-nav.js` in the capture phase: one scroll that clears both sticky bars (previously the bundle's smooth scroll and the browser's #anchor jump ran together). Focus moves to the poem, the URL hash is updated, Ctrl/Cmd/middle-click still open a new tab, reduced-motion is respected.
+- Toggle, keyboard and link handling are delegated from the document (no per-element wiring to leak or lose on a re-render); the heading carries `aria-controls`; a second copy of the script exits immediately.
+- Sticky offsets re-measure through a ResizeObserver (border box) and once per frame on resize, so a late font load or re-wrapping site bar no longer leaves the toolbar under it.
+- On a phone the list opens at the current poem and is capped to the space under the bars (`dvh`, `vh` fallback); the page scrolls the heading up under the bars if the list would run off screen. Desktop TOC height also uses `dvh`.
+- Removed the script's own IntersectionObserver highlight; it disagreed with the bundle's scroll handler. The bundle's handler (inside each page's base64 bundle) now measures from the toolbar's bottom edge instead of its height, so it allows for the site bar: `var off=(tb?tb.getBoundingClientRect().bottom:0)+30;` — the only change inside the bundles (base64 round-trip verified byte-identical before editing).
+- Backups on the VM: `/home/azureuser/poetry-pages.bak-20260927b/` (all four files as they were before this change).
