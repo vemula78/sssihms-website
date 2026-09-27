@@ -594,3 +594,19 @@ Source: "College of Nursing - SSSIHC Display.pptx". Page **259** `/academics/nur
 - Page **259**: new "Our Students — Batches of the College" grid: I Semester (**55736**), III Semester (**55737**), V Semester (55735, moved from Life at the College), IV Year (**55738**). Labels mapped from slide 12 layout; unlabelled centre photo (appears to be faculty) not used. Teacher portraits not used, per instruction.
 - Admissions closed: page 259 "Apply Online" button removed; bottom banner on pages **259**, **63** (Academics) and **1458** (Blog) → "Admissions 2026–27 Closed", "Applications … closed on 20th June 2026", enquiry numbers, button → tel:+918028004763. Revisions saved.
 - Left as dated notices: Blog 1458 news card "Applications Now Open … Deadline 19th June 2026" (still links the form) and home 54830 "Latest" card (already past tense).
+
+## 2026-09-27 — Department pages: content from the SSSIHC display decks
+Same approach as the Nursing page: new `et_pb_text` modules built from the shared stylesheet classes, inserted without editing existing modules (except where noted); revision saved before every write; section backgrounds kept alternating. Photos re-encoded ≤1600 px with EXIF/GPS stripped. **Not used anywhere:** doctor/teacher portraits, patient or caregiver photos, intra-operative images, case studies (consent not confirmed), and any deck figure that conflicts with a figure already on the site.
+
+| Department | Pages | Added | Media |
+|---|---|---|---|
+| Cardiac Surgery (CTVS) | 116 Faculty, 112 Infrastructure, 590 Achievements | Heads of Department (8); 4 visiting-surgeon legends; theatre/ICU equipment; DNB gold medals, BSc Perfusion ranks, awards; 7 publications + Dafodil valve study; 2021 talks, papers, conferences; outcomes database, COVID masterclass, CPR drive, Healing Little Hearts | — |
+| Neurosurgery | 87, 122 Infrastructure, 669 Achievements | Milestones 2001–2022 + early trajectory; Dr. A. S. Hegde; HODs 2001–present; 4 international faculty; wards/OT/equipment; honours; research highlights (NEJM, Radiology, SSSIHMS-model papers); DNB programme | 3 photos |
+| Lab & Blood Bank | 412, 1247 Infrastructure, 1256 BSc MLT | Milestones 2001–2025 (deck timeline images); blood bank facts + 3 test-volume trend charts (images); doctors by section; research & CMEs; gallery; equipment by section; MLT graduates & visiting faculty. **1247: placeholder "(Class __ and Class __)" removed.** | 13 |
+| OBGYN | 53292 | Chronicles 1976–2025, key expertise, infrastructure photos; legends, HODs, 10 honorary consultants; conferences & presentations, initiatives, conclave photos | 8 |
+| Dental | 53304 | Chronicle 1971–2023; scope, infrastructure, yearly department totals 2016–2024; academics, outreach, plans | 4 |
+| Physiotherapy | 206 | Chronicles & clinical work (4,28,750 patients Jan 2001–Mar 2025); equipment + photos; former heads, internship, presentations, proposed neuro-rehab centre. Existing textbook sections left in place. | 9 |
+| Counselling | 210 | Three-stage process, tools, BRMC beneficiaries Jan–May 2025 (charts); academic model, Dr. Mia Leijssen, Norwich/Mayo/INSEAD/Springer; origins 1976/2001, gratitude, team & training photos | 9 |
+| CSSD | **new draft page 55801** `/cssd/` | Generic CSSD functions, process, QC and safety from the deck's 13 teaching posters; poster gallery. Deck has no department-specific facts — left as **draft**, not in menu. | 13 |
+
+Discrepancies found and deliberately not reconciled (awaiting departments): CTVS total 28,362 (deck, to FY 2024–25) vs 30,837 (site); Neurosurgery 34,761 vs 41,185; OBGYN "established 1976" (site) vs department formed 2012 (deck); OBGYN "50–60 deliveries/month" vs 554 newborns in 2024; spellings Vijendra/Vijayendra, Nikhita/Nikita (site spelling used), Ravi/Ravindra Goyal (neurosurgery main page now shows both).
