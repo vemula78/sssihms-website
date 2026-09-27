@@ -610,3 +610,10 @@ Same approach as the Nursing page: new `et_pb_text` modules built from the share
 | CSSD | **new draft page 55801** `/cssd/` | Generic CSSD functions, process, QC and safety from the deck's 13 teaching posters; poster gallery. Deck has no department-specific facts — left as **draft**, not in menu. | 13 |
 
 Discrepancies found and deliberately not reconciled (awaiting departments): CTVS total 28,362 (deck, to FY 2024–25) vs 30,837 (site); Neurosurgery 34,761 vs 41,185; OBGYN "established 1976" (site) vs department formed 2012 (deck); OBGYN "50–60 deliveries/month" vs 554 newborns in 2024; spellings Vijendra/Vijayendra, Nikhita/Nikita (site spelling used), Ravi/Ravindra Goyal (neurosurgery main page now shows both).
+
+## 2026-09-27 — Poetry pages: contents list on mobile, sticky-bar overlap
+`/static/poetry-pages/` (Divine Poetry, Sai Compositions, Padya Sudha) — static files outside WordPress, shared script `toc-nav.js`.
+- The bundled page stylesheet hides `.dp-toc-list` below 880 px with no way to open it, so phones had no index. `toc-nav.js` now turns the "Contents" heading into a Show/Hide toggle below 880 px (role=button, keyboard operable, aria-expanded); the list opens in a 60vh scroll box and closes when a poem is tapped. Desktop sidebar unchanged.
+- The site bar injected by `toc-nav.js` (sticky, top 0) was covering the page's own sticky toolbar and hiding the search box after scrolling, at all widths. The toolbar is now pinned below the bar, and poem jump offset / desktop TOC top are computed from the real bar heights.
+- `toc-nav.js` is served with a 1-year Cache-Control, so the three HTML files' script tag became `toc-nav.js?v=20260927` (only change to those files). Bump the version on any future edit to the script.
+- Backups on the VM: `/home/azureuser/toc-nav.js.bak-20260927`, `/home/azureuser/poetry-pages.bak-20260927/`.
