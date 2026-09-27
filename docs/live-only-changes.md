@@ -589,3 +589,8 @@ Source: "College of Nursing - SSSIHC Display.pptx". Page **259** `/academics/nur
 - **Classrooms & Laboratories / Life at the College** — lab list + two 6-photo grids.
 - Media **55723–55735** (13 photos, re-encoded ≤1600 px, EXIF/GPS stripped; 12 used, library photo unused). Photos with unclear subject not captioned or not used; teacher portraits not used (name-to-photo mapping unverified).
 - Not changed: "no tuition fees" mentions (home-page removal of 26-Sep did not cover this page); bottom CTA still reads "Admissions Open 2026–27 … apply by 19th June 2026" — awaiting instruction.
+
+## 2026-09-27 — Nursing: student batches added, admissions marked closed
+- Page **259**: new "Our Students — Batches of the College" grid: I Semester (**55736**), III Semester (**55737**), V Semester (55735, moved from Life at the College), IV Year (**55738**). Labels mapped from slide 12 layout; unlabelled centre photo (appears to be faculty) not used. Teacher portraits not used, per instruction.
+- Admissions closed: page 259 "Apply Online" button removed; bottom banner on pages **259**, **63** (Academics) and **1458** (Blog) → "Admissions 2026–27 Closed", "Applications … closed on 20th June 2026", enquiry numbers, button → tel:+918028004763. Revisions saved.
+- Left as dated notices: Blog 1458 news card "Applications Now Open … Deadline 19th June 2026" (still links the form) and home 54830 "Latest" card (already past tense).
