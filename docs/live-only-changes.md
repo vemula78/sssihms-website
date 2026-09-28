@@ -673,3 +673,7 @@ The chandelier section of Genesis (page 587) had no photo — none of its revisi
 ## 2026-09-28 — Manohriday: 2020 cover restored
 The 2020 cover on Manohriday (page 625) had an empty `src`. Set to `2020/01/Manohriday-2020-cover-page-213x300.jpg` (attachment 33805), as in the pre-redesign revision 54635.
 - Backup on the VM: `/home/azureuser/manohriday-bak-20260928/`.
+
+## 2026-09-28 — Cardiology: Cathlab Facilities photo
+The "Cathlab Facilities" section of Cardiology (page 81) showed `2022/11/ROTABLATOR.jpg`. Replaced with `2026/09/cardio-equip-siemens-biplane-cathlab.jpg` (attachment 55535, the empty Siemens biplane lab; not used elsewhere on the page), alt and caption "Siemens Biplane Cathlab". The Rotablator photo no longer appears on the page.
+- Backup on the VM: `/home/azureuser/cardiology-cathlab-bak-20260928/`.
