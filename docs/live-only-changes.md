@@ -700,3 +700,10 @@ At the hospital's request, official profile headshots were sourced from each doc
 - Affiliations updated from current official pages: Nordsieck → Mercy Clinic, St. Louis; Tisma-Dupanovic → Director of EP Services, Nemours Children's Hospital, Orlando; "Sunil Agarwal" → Dr. Suneil Aggarwal, Barts Heart Centre, London (Cromwell Hospital bio: formerly Liverpool, trained in Puttaparthi); Airey → MercyOne North Iowa Heart Center, Mason City (LinkedIn/directories; no official profile found).
 - Not changed: Mehul Patel (left Methodist Le Bonheur; current post unconfirmed), and the uncertain / not-found photos (Dhanekula, Airey, Nayak, Aggarwal; Park, Wijetunga, Tisma-Dupanovic, Swarna).
 - Backup on the VM: `/home/azureuser/cardio-faculty-bak-20260928b/`; source files in `/home/azureuser/visiting-photos-20260928/`.
+
+## 2026-09-28 — Cardiac Surgery Faculty: page stylesheet repaired
+Cardiac Surgery › Faculty (page 116) rendered as raw text with the CSS printed on the page (and 1826 px wide). The 22-Sep-2026 save (revision 55689, consistent with a Divi visual-builder save) had stripped the `<style>`/`</style>` tags from the "Page Stylesheet" code module and HTML-escaped its contents (`>` → `&gt;` ×6, `&` → `&amp;` ×4 in the Google Fonts URL), which also broke the faculty-card text padding and some nav dropdown rules.
+- Fix: re-wrapped the module in `<style>…</style>` and unescaped `&gt;`/`&amp;` inside it only. All content added in that save (Heads of Department, Legends, gallery) kept as is.
+- Checked all 390 pages/posts on the site with a Page Stylesheet module: no other page has the problem.
+- **Avoid opening these pages in the Divi visual builder** — it rewrites the code modules this way.
+- Backup on the VM: `/home/azureuser/ctvs-faculty-bak-20260928/`.
