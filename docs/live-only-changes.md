@@ -688,3 +688,9 @@ On Cardiology › Faculty (page 108) the Honorary and Visiting photo cards used 
 On Cardiology › Infrastructure (page 104) the "e-HIS, PACS and Echo View Sai" section (heading and module label) is now "ATHMA and MedDream PACS", at the hospital's request. Two paragraphs describe ATHMA (replacing e-HIS) and MedDream PACS (replacing Fuji PACS and Echo View Sai), using only facts already on the HMIS page (212), plus a "More about HMIS →" button to `/hmis/`. "Echo" was added to the list of images archived on MedDream, since Echo View Sai is replaced.
 - Not changed: the HMIS page's own "The System in Detail" section still describes the old Dedalus EM system.
 - Backup on the VM: `/home/azureuser/cardio-infra-bak-20260928/`.
+
+## 2026-09-28 — MSc Echocardiography: Programme Details rebuilt
+The "Programme Details" module on MSc Echo (page 54169) was an unformatted dump of the old page: sub-headings dropped, lists flattened into paragraphs, sentence starts lost ("…Echocardiography programme are well-positioned for roles in:", "in Echocardiography at SSSIHMS is…"), four of five career roles missing, and text from sections that were disabled on the old page mixed in.
+- Rebuilt from the last pre-redesign revision (54358, 03-Nov-2025), visible sections only: Programme Overview, Key Highlights (11, bold labels), What We Expect from the Student (6), What the Student Can Expect (8), Career Opportunities (intro + 5), closing paragraph. Scoped `pd-` styles inside the module. Wording is the original.
+- The old "CLICK HERE TO APPLY M.Sc ECHOCARDIOGRAPHY ACADEMIC YEAR 2025-26" line (a 2025 edumerge form; its link had already been lost) was not carried over — the page's "Join the MSc Echocardiography Programme" section covers applications.
+- Backup on the VM: `/home/azureuser/msecho-bak-20260928/`.
