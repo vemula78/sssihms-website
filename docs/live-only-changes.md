@@ -653,5 +653,5 @@ Faces blurred at the hospital's request (the person had been marked out in black
 
 ## 2026-09-28 — Home: multi-specialty surgeries stat 1,700+ → 3,300+
 Home page (54830), "Service in Numbers": "Multi-Specialty Surgeries per Year" changed from 1,700+ to 3,300+ at the hospital's request. Only that one value changed.
-- The same figure (1,700+) still appears on "Support the Mission" (55654) and the draft "Our Impact" (55676); not changed.
+- Same change made on "Support the Mission" (55654, /donate/) and the draft "Our Impact" (55676) — the only other places the figure appeared.
 - Backup on the VM: `/home/azureuser/home-stat-bak-20260928/`.
