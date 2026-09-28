@@ -650,3 +650,8 @@ Faces blurred at the hospital's request (the person had been marked out in black
 - Backups on the VM: `/home/azureuser/history-gh-faceblur-bak-20260928/`, `/home/azureuser/faceblur-bak-20260928/`.
 - The unblurred versions remain in this repo's git history (commits before this one).
 
+
+## 2026-09-28 — Home: multi-specialty surgeries stat 1,700+ → 3,300+
+Home page (54830), "Service in Numbers": "Multi-Specialty Surgeries per Year" changed from 1,700+ to 3,300+ at the hospital's request. Only that one value changed.
+- The same figure (1,700+) still appears on "Support the Mission" (55654) and the draft "Our Impact" (55676); not changed.
+- Backup on the VM: `/home/azureuser/home-stat-bak-20260928/`.
