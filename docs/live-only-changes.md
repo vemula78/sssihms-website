@@ -719,3 +719,12 @@ Removed the "Events in Detail" text module from Anes Events (page 687): a migrat
 ## 2026-09-28 — Radiology SACRED: "About SACRED" removed
 At the hospital's request, removed the "About SACRED" text module from Radiology › SACRED (page 547) — old delegate notes (registration mail, Gate-2 entry, breakfast coupons, hotels) carried over from the old page. "A Decade of Radiology Teaching" and "The SACRED Archive" are unchanged.
 - Backup on the VM: `/home/azureuser/sacred-bak-20260928/`.
+
+## 2026-09-28 — History-GH: "The Story in Full" rebuilt; Ganesha photo rotated
+- "The Story in Full" (page 53322) was a fragment dump. Rebuilt from the last pre-redesign revision (54220, 02-Jun-2025): Introduction (Sathya Sai Speaks vol. 13 quote + 6 paragraphs), Early Days, Excerpts from the Inauguration Discourse, An Excerpt from the Discourse of 10 June 2001 (7 paragraphs), The Move to the SSSIHMS Campus, 2016 (3 paragraphs). Scoped `sf-` styles. Discourse text verbatim; fixed only "event eth least" → "even the least" and "This was clinic was donated" → "This clinic was donated". The old departments list and statistics were not repeated (already in their own sections).
+- `ganesha-3.jpg` (attachment 55584, the face-blurred file) was sideways: rotated 90° clockwise (now 1800×1240), sizes regenerated, page URL now `?v=20260928b`. The copies in `sssihms-assets/sssgh/`, wfd.sssihms.org and this repo's `src/assets/sssgh/` were not rotated.
+- Backup on the VM: `/home/azureuser/history-gh-rotate-bak-20260928/`.
+
+## 2026-09-28 — SSSGH: "The General Hospital in Detail" removed
+The module on /sssgh/ (page 53243) was fragments of the *old* page's content, which was a copy of the SSSIHMS home-page teasers (Cardiology, Neurology, CTVS, Anaesthesia with the old "1700 multi-speciality" figure, Neurosurgery, Radiology, DNB, Nursing, Fellowships) plus a broken 2003 quote — nothing about the General Hospital. Removed; the designed SSSGH sections are unchanged.
+- Backup on the VM: `/home/azureuser/sssgh-bak-20260928/`.
