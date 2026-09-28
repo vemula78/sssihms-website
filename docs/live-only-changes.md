@@ -736,3 +736,10 @@ The module on /sssgh/ (page 53243) was fragments of the *old* page's content, wh
 ## 2026-09-28 — Orthopedics: hero photo crop
 The hero (`Dr.-Sundaresh-with-Swami.jpg`, 2049×1423 in a 1144×560 `cover` frame) was centre-cropped, cutting off the top of Dr. Sundaresh's head. Added inline `object-position:50% 4%` on that img (page 53288) — both heads in frame; phones already showed the whole photo.
 - Backup on the VM: `/home/azureuser/ortho-hero-bak-20260928/`.
+
+## 2026-09-28 — General Medicine: Late Dr. Ramkumar; Dr. Swapna HOD
+At the hospital's request (page 53280): Dr. Ramkumar G has passed away and Dr. Swapna is now HOD.
+- Hero caption "Dr. Ramkumar G, HOD" → "Late Dr. Ramkumar G — a legend who carried the department for several decades" (photo kept; alt updated).
+- His card removed from "The Department Team"; Dr. Swapna (was spelled "Dr. Sapna", Consultant) now "Dr. Swapna", HOD. Archive photo "Bhagawan with Dr. Ramkumar" unchanged.
+- The "Dr Ramkumar, KMC, Manipal" on Anesthesiology Achievements (685) is a different person — unchanged.
+- Backup on the VM: `/home/azureuser/genmed-bak-20260928/`.
