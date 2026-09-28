@@ -655,3 +655,7 @@ Faces blurred at the hospital's request (the person had been marked out in black
 Home page (54830), "Service in Numbers": "Multi-Specialty Surgeries per Year" changed from 1,700+ to 3,300+ at the hospital's request. Only that one value changed.
 - Same change made on "Support the Mission" (55654, /donate/) and the draft "Our Impact" (55676) — the only other places the figure appeared.
 - Backup on the VM: `/home/azureuser/home-stat-bak-20260928/`.
+
+## 2026-09-28 — Home: second Swami photo replaced
+The home page (54830) showed `Swami-with-stethoscope-e1487392181378.jpg` twice — beside the 2003 quote and in "The Guiding Light" portrait. The portrait now uses `2026/09/baba-12.jpg` (attachment 55578: close portrait, orange robe, blessing hand). The quote photo is unchanged.
+- Backup on the VM: `/home/azureuser/home-photo-bak-20260928/`.
