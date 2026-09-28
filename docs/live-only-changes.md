@@ -763,3 +763,11 @@ Menu 116 had Radiology twice — under Departments (55160, with sub-items) and u
 
 ## 2026-09-28 — Physiotherapy: PM lamp-lighting photo removed
 At the hospital's request, removed the gallery figure "Sri Atal Behari Vajpayee, PM Lighting the Lamp" (`cdn.sssihms.org/…/2015/05/lighting-lamp-close-up.jpg`) and its caption from Physiotherapy (page 206). Other gallery photos unchanged. Backup: `/home/azureuser/physio-photo-bak-20260928/`.
+
+## 2026-09-28 — Physiotherapy: Advanced Rehabilitation (06-Dec-2025) added
+From the hospital's write-up "Inauguration of Advanced Rehabilitation Facility" (file dated 2026-12-06; the text says 06 December 2025, used here). Page 206:
+- New module "Advanced Rehabilitation" after "Chronicles & Clinical Work": ₹53.47 lakh suite; six equipment cards (Rehametrics VR, Dyaco 7.0T MED treadmill, Rymo Mobi-L upper/lower-limb robotics, Arjo Maxi Sky 8 m unweighing track, Moto Life cycle-ergometer, recumbent bike); aims; inauguration by Sri R. J. Rathnakar with Padma Shri Dr. V. Mohan, Sri Ramesh Kumar and Dr. Sundaresh D. C.; tour led by Ms. Deepika Rani K.
+- Milestones: "6 Dec 2025 — Advanced rehabilitation suite inaugurated…".
+- Our Team: added "Head of the Department — Ms. Deepika Rani K, Head of Physiotherapy and Rehabilitation"; "Proposed: Neuro Rehabilitation Centre" card replaced by "Neuro Rehabilitation — Now Open".
+- Not used here (other departments): GE MAC 5 ECGs, Appasamy visual field analyzer, PulzCAD demo, SAI SPARSH launch.
+- Backup: `/home/azureuser/physio-rehab-bak-20260928/`.
