@@ -711,3 +711,7 @@ Cardiac Surgery › Faculty (page 116) rendered as raw text with the CSS printed
 ## 2026-09-28 — Neurosurgery Events: "Events in Detail" removed
 At the hospital's request, removed the "Events in Detail" text module from NESU Events (page 671) — stale 2022 CME notes (venue, fee, KMC credits, registration dates) carried over from the old page. The rest of the page is unchanged.
 - Backup on the VM: `/home/azureuser/nesu-events-bak-20260928/`.
+
+## 2026-09-28 — Anaesthesiology Events: "Events in Detail" removed
+Removed the "Events in Detail" text module from Anes Events (page 687): a migration leftover whose event names had been lost (only descriptions remained) and which still carried an old goo.gl registration form link. The "Academic Events" cards are unchanged.
+- Backup on the VM: `/home/azureuser/anes-events-bak-20260928/`.
