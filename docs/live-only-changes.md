@@ -683,3 +683,8 @@ On Cardiology › Faculty (page 108) the Honorary and Visiting photo cards used 
 - Those two grids now carry a `fac-side` class; a scoped `<style>` in the Honorary module lays photo cards out as a 150×188 portrait beside the text (112×140 on phones ≤480 px), matching the initials cards. The shared stylesheet and the Consultants cards are unchanged.
 - Each of the 18 photos has an inline `object-position` computed from its face box (macOS Vision, `sai-photo-band/scripts/detect_faces.swift`) so the face is centred in the frame.
 - Backup on the VM: `/home/azureuser/cardio-faculty-bak-20260928/`.
+
+## 2026-09-28 — Cardiology Infrastructure: ATHMA and MedDream PACS
+On Cardiology › Infrastructure (page 104) the "e-HIS, PACS and Echo View Sai" section (heading and module label) is now "ATHMA and MedDream PACS", at the hospital's request. Two paragraphs describe ATHMA (replacing e-HIS) and MedDream PACS (replacing Fuji PACS and Echo View Sai), using only facts already on the HMIS page (212), plus a "More about HMIS →" button to `/hmis/`. "Echo" was added to the list of images archived on MedDream, since Echo View Sai is replaced.
+- Not changed: the HMIS page's own "The System in Detail" section still describes the old Dedalus EM system.
+- Backup on the VM: `/home/azureuser/cardio-infra-bak-20260928/`.
