@@ -760,3 +760,6 @@ Text modules appended at the bottom of redesigned pages that were dumps of the o
 
 ## 2026-09-28 — Header menu: duplicate Radiology removed
 Menu 116 had Radiology twice — under Departments (55160, with sub-items) and under Services (55177). Deleted item 55177 at the hospital's request. Details saved in `/home/azureuser/menu-bak-20260928/` (item: parent 55176 "Services", position 69, object page 202).
+
+## 2026-09-28 — Physiotherapy: PM lamp-lighting photo removed
+At the hospital's request, removed the gallery figure "Sri Atal Behari Vajpayee, PM Lighting the Lamp" (`cdn.sssihms.org/…/2015/05/lighting-lamp-close-up.jpg`) and its caption from Physiotherapy (page 206). Other gallery photos unchanged. Backup: `/home/azureuser/physio-photo-bak-20260928/`.
