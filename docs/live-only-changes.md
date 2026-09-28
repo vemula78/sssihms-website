@@ -771,3 +771,7 @@ From the hospital's write-up "Inauguration of Advanced Rehabilitation Facility" 
 - Our Team: added "Head of the Department — Ms. Deepika Rani K, Head of Physiotherapy and Rehabilitation"; "Proposed: Neuro Rehabilitation Centre" card replaced by "Neuro Rehabilitation — Now Open".
 - Not used here (other departments): GE MAC 5 ECGs, Appasamy visual field analyzer, PulzCAD demo, SAI SPARSH launch.
 - Backup: `/home/azureuser/physio-rehab-bak-20260928/`.
+
+## 2026-09-28 — AntharDhwani archive restored
+Counseling › AntharDhwani (page 18101) had been overwritten on 25-Sep-2026 16:19–16:21 by a staff account (revisions 55700–55702) with an old-style block showing only Vol I (Jan 2019) — apparently an attempt to add the missing Vol I cover in the classic editor. Restored the 18-Sep redesign (revision 55394: all 15 issues, Vol I Jan 2019 – Vol XV Jan 2026) and fixed two covers: Vol I now `2019/01/AntharDwani-Jan2019-cover-page-222x300.jpg` (was empty), Vol II now `2019/07/AntharDhwani-II-226x300.jpg` (was showing Vol III's cover). Verified 15 covers, none broken, desktop and phone.
+- The 25-Sep version is kept at `/home/azureuser/anthardhwani-bak-20260928/18101.guna-20260925.html`.
