@@ -677,3 +677,9 @@ The 2020 cover on Manohriday (page 625) had an empty `src`. Set to `2020/01/Mano
 ## 2026-09-28 — Cardiology: Cathlab Facilities photo
 The "Cathlab Facilities" section of Cardiology (page 81) showed `2022/11/ROTABLATOR.jpg`. Replaced with `2026/09/cardio-equip-siemens-biplane-cathlab.jpg` (attachment 55535, the empty Siemens biplane lab; not used elsewhere on the page), alt and caption "Siemens Biplane Cathlab". The Rotablator photo no longer appears on the page.
 - Backup on the VM: `/home/azureuser/cardiology-cathlab-bak-20260928/`.
+
+## 2026-09-28 — Cardiology Faculty: photo cards no longer crop faces
+On Cardiology › Faculty (page 108) the Honorary and Visiting photo cards used the shared full-width 280 px photo band inside 2-column cards (560×280, `object-position: center top`). Most photos are portrait headshots, so heads and chins were cut off.
+- Those two grids now carry a `fac-side` class; a scoped `<style>` in the Honorary module lays photo cards out as a 150×188 portrait beside the text (112×140 on phones ≤480 px), matching the initials cards. The shared stylesheet and the Consultants cards are unchanged.
+- Each of the 18 photos has an inline `object-position` computed from its face box (macOS Vision, `sai-photo-band/scripts/detect_faces.swift`) so the face is centred in the frame.
+- Backup on the VM: `/home/azureuser/cardio-faculty-bak-20260928/`.
