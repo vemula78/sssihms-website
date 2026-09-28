@@ -641,3 +641,12 @@ Same three pages; `toc-nav.js` only (HTML files changed only in the script tag, 
 `toc-nav.js` only; script tag now `?v=20260927d`.
 - The bundle's search hides non-matching poems but re-picks the highlighted contents entry only on the next scroll, so a search that did not move the page (e.g. at the top) left a hidden poem lit. After each search input or Clear, `toc-nav.js` fires a synthetic `scroll` so the bundle's own handler re-picks among the poems still showing. No bundle change.
 - Backups on the VM: `/home/azureuser/poetry-pages.bak-20260927d/`.
+
+## 2026-09-28 — Faces blurred in four archive photos (History-GH, Dental)
+Faces blurred at the hospital's request (the person had been marked out in black on screenshots): `opd-inauguration-1.jpg`, `ganesha-1.jpg`, `ganesha-3.jpg` (History page, 53322) and `dental-inauguration-1.jpg` (Dental page, 53304). Pixelate + Gaussian blur with a feathered edge over the marked area; nothing else in the photos changed.
+- Every copy was replaced: the WordPress originals (attachments 55593, 55582, 55584, 55579) with all sizes regenerated from them, `uploads/sssihms-assets/sssgh/`, the higher-resolution copies served by wfd.sssihms.org (`/srv/www/wfd/assets/sssgh/`), and `src/assets/sssgh/` in this repo.
+- Site-wide check: all ~23,500 images under `/srv/www` were compared (same-shape candidates, 32×32 greyscale match) — these four photos exist only in those locations. Related event photos were checked by eye for the Dental person; no other appearance found. Different photos of the same person cannot be found automatically (no face recognition).
+- Images are served with a 1-year cache, so the page image URLs now carry `?v=20260928` (History: 3 URLs, Dental: 1). wfd.sssihms.org sends no long cache header and its HTML was left unchanged.
+- Backups on the VM: `/home/azureuser/history-gh-faceblur-bak-20260928/`, `/home/azureuser/faceblur-bak-20260928/`.
+- The unblurred versions remain in this repo's git history (commits before this one).
+
