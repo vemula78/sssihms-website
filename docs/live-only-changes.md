@@ -715,3 +715,7 @@ At the hospital's request, removed the "Events in Detail" text module from NESU 
 ## 2026-09-28 — Anaesthesiology Events: "Events in Detail" removed
 Removed the "Events in Detail" text module from Anes Events (page 687): a migration leftover whose event names had been lost (only descriptions remained) and which still carried an old goo.gl registration form link. The "Academic Events" cards are unchanged.
 - Backup on the VM: `/home/azureuser/anes-events-bak-20260928/`.
+
+## 2026-09-28 — Radiology SACRED: "About SACRED" removed
+At the hospital's request, removed the "About SACRED" text module from Radiology › SACRED (page 547) — old delegate notes (registration mail, Gate-2 entry, breakfast coupons, hotels) carried over from the old page. "A Decade of Radiology Teaching" and "The SACRED Archive" are unchanged.
+- Backup on the VM: `/home/azureuser/sacred-bak-20260928/`.
