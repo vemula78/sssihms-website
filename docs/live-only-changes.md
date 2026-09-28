@@ -665,3 +665,11 @@ The home page (54830) showed `Swami-with-stethoscope-e1487392181378.jpg` twice �
 - Rebuilt from the last pre-redesign revision (54281, 23-Jul-2025): Vision and Mission labels restored; both groups shown as name + roles cards (2 columns, 1 on phones), styles scoped with an `ah-` prefix inside the module. The stray caption line was removed (those photos are already in the Campus section).
 - Text is as in 54281 except missing spaces fixed ("of Commercial", "Research Foundation", "High Court of") and trailing commas dropped. Membership is as of July 2025 — not re-verified.
 - Backup on the VM: `/home/azureuser/about-hospital-bak-20260928/`.
+
+## 2026-09-28 — Genesis: chandelier photo added
+The chandelier section of Genesis (page 587) had no photo — none of its revisions back to 2015, nor the wfd prototype, ever had one. Added `2017/09/Onam-2017-with-chandelier-681x1024.jpg` (attachment 10087, from the Whitefield post "Onam 2017 at SSSIHMS": the chandelier in the dome above the atrium pookalam) beside the text, using the page's existing `intro-grid` + `prose-figure` pattern. The image has inline `height:auto;max-height:none` so the 460 px `prose-figure` cap doesn't crop the chandelier out of the portrait photo.
+- Backup on the VM: `/home/azureuser/genesis-chandelier-bak-20260928/`.
+
+## 2026-09-28 — Manohriday: 2020 cover restored
+The 2020 cover on Manohriday (page 625) had an empty `src`. Set to `2020/01/Manohriday-2020-cover-page-213x300.jpg` (attachment 33805), as in the pre-redesign revision 54635.
+- Backup on the VM: `/home/azureuser/manohriday-bak-20260928/`.
