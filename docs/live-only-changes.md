@@ -743,3 +743,20 @@ At the hospital's request (page 53280): Dr. Ramkumar G has passed away and Dr. S
 - His card removed from "The Department Team"; Dr. Swapna (was spelled "Dr. Sapna", Consultant) now "Dr. Swapna", HOD. Archive photo "Bhagawan with Dr. Ramkumar" unchanged.
 - The "Dr Ramkumar, KMC, Manipal" on Anesthesiology Achievements (685) is a different person — unchanged.
 - Backup on the VM: `/home/azureuser/genmed-bak-20260928/`.
+
+## 2026-09-28 — Dental: second inauguration photo rotated
+`2026/09/dental-inauguration-2.jpg` (attachment 55580) was sideways; rotated 90° clockwise (1800×1275), sizes regenerated, Dental page (53304) URL now `?v=20260928`. Backup: `/home/azureuser/dental-rotate-bak-20260928/`.
+
+## 2026-09-28 — Stat grids no longer overflow phones (mu-plugin)
+The 2-column mobile `.stats-grid` used `1fr` columns, which cannot shrink below the widest number, so pages with large figures ("1,43,500+", "29.9 Lakh+") scrolled sideways (About Hospital, History-GH, …). Added `sssihms_wfd_stats_css()` to the server-only mu-plugin `sssihms-wfd-patient-access.php` (footer CSS, blog 4 only): `minmax(0,1fr)` columns ≤768 px; smaller value font, gap and padding ≤480 px. (Earlier note blaming the sub-nav bar was wrong — `.subnav-inner` scrolls within itself.) Backup: `/home/azureuser/muplugin-bak-20260928/`.
+
+## 2026-09-28 — Migration "dump" sections: 17 pages fixed
+Text modules appended at the bottom of redesigned pages that were dumps of the old page (headings dropped, lists flattened, sentences cut, unrelated/hidden text mixed in). Each compared with the page's last pre-redesign revision; rebuilt with original headings/lists/quotes (scoped `rb-` styles) where the content is real and not shown elsewhere, removed where stale, unrelated or duplicated. Wording from the old pages only (typo fixes).
+- **Rebuilt:** Genesis (587) ×3 interviews (Nayak; Rajan Sood Q/R; Ravi Shankar Q/R) · Treatment (733) ×4 (Valve & Vessel Procedures; How Each Group Is Managed; Cranial Surgery Procedures; Paediatric Tumours & Developmental Disorders) · Physiotherapy (206) · DNB (257) · Blood Donation Information (52021) · Sevadal (52845) · Help Desk (52858) · Volunteer Expertise (52990, now the Nishkama Karma quotes) · Careers (65; ~2023 vacancies/pay dropped) · Cardiac Surgery (85) · Neurosurgery (87) · Anesthesiology (89).
+- **Removed:** Treatment "Further Detail" · HMIS "The System in Detail" (old Dedalus/Fuji/IMS text) · BSc MIT "Programme Details" · Specialities / Services "… in Detail" (home-page teaser blurbs) · Facilities "Facilities in Detail" (all already shown).
+- Checked live on desktop and 390 px: no CSS-as-text, no horizontal scroll.
+- **For the departments to confirm** (from the old pages, not re-verified): Blood Bank — 3-month (men) / 4-month (women) gap vs the page's "every 90 days", and 080-28004715; Treatment — AVBD sentence ("pulmonary" dropped as apparently wrong), "handful of centres" and acoustic-tumour claims, in-house psychiatrist; Neurosurgery — 158 beds/38 ICU, "first Neuro Navigation in India", Dr. Ravi vs Ravindra Goyal; Anesthesiology — 6 vs 3 ICUs; Help Desk volumes; Careers WhatsApp 080-28004641 (also listed as HR landline); Genesis "Srivatsan/Srivathsan" and "presently CEO, Vidal Health". External Google-Form links on Volunteer/Careers were not carried over.
+- Backups: `/home/azureuser/bulk-20260928/` (`<id>.cur` = before, `new/<id>.new` = after).
+
+## 2026-09-28 — Header menu: duplicate Radiology removed
+Menu 116 had Radiology twice — under Departments (55160, with sub-items) and under Services (55177). Deleted item 55177 at the hospital's request. Details saved in `/home/azureuser/menu-bak-20260928/` (item: parent 55176 "Services", position 69, object page 202).
