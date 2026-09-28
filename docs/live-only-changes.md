@@ -659,3 +659,9 @@ Home page (54830), "Service in Numbers": "Multi-Specialty Surgeries per Year" ch
 ## 2026-09-28 — Home: second Swami photo replaced
 The home page (54830) showed `Swami-with-stethoscope-e1487392181378.jpg` twice — beside the 2003 quote and in "The Guiding Light" portrait. The portrait now uses `2026/09/baba-12.jpg` (attachment 55578: close portrait, orange robe, blessing hand). The quote photo is unchanged.
 - Backup on the VM: `/home/azureuser/home-photo-bak-20260928/`.
+
+## 2026-09-28 — About Hospital: trustees and executive committee restored
+"More About the Hospital" (page 2) had been migrated as loose paragraphs: the name column of the old Board of Trustees and Hospital Executive Committee tables was lost, several role lines were cut at "Dr."/"Sr.", the Vision/Mission labels were dropped, and the old side-image captions ("Ariel View of Hospital Diwali View") came through as a stray line.
+- Rebuilt from the last pre-redesign revision (54281, 23-Jul-2025): Vision and Mission labels restored; both groups shown as name + roles cards (2 columns, 1 on phones), styles scoped with an `ah-` prefix inside the module. The stray caption line was removed (those photos are already in the Campus section).
+- Text is as in 54281 except missing spaces fixed ("of Commercial", "Research Foundation", "High Court of") and trailing commas dropped. Membership is as of July 2025 — not re-verified.
+- Backup on the VM: `/home/azureuser/about-hospital-bak-20260928/`.
