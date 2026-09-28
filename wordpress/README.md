@@ -52,4 +52,31 @@ Only ever delete the whitefield directories — those trees also hold the other 
 
 Edit `sssihms_wfd_numbers()`. Keys are `tel:` targets in E.164; values are every literal
 spelling that appears in page content. The literals are matched longest-first so a partial
+
+### `sssihms-wfd-site-updates.php`
+
+A **Site Updates** screen in wp-admin (whitefield only, for anyone who can edit pages) that
+adds one item to a section already on a page, without the Divi builder:
+
+| Tab | Goes into | Card markup | Position |
+|---|---|---|---|
+| Newsletter issue | any `cover-grid` (AntharDhwani, Manohriday) | `a.cover-cell` — PDF + cover (medium size) | first |
+| Faculty member | any grid of `faculty-card` | photo card (medium_large), or initials if no photo | last |
+| Event | `info-card` grids on pages whose path contains `event` | title, pill, text, optional link | first |
+| Photos | any `photo-grid` | up to six `figure.photo-cell`, caption required (large size) | last |
+
+The "Where" list is found by scanning every published page for a `<div>` whose first child
+is one of those cards, so a new grid built in the same markup appears automatically. The
+card is built from escaped form fields (`[`/`]` become entities so Divi cannot read them as
+shortcodes, text is kept on one line so `et_pb_text` does not wrap it in `<p>`), inserted,
+and saved with `wp_update_post`, which records a normal revision. kses is switched off for
+that one save: blog admins and editors do not have `unfiltered_html` on a multisite, and
+kses would otherwise strip every page's `<style>` block and inline styles. The form
+carries the page's content hash; if the page changed after the form opened, nothing is
+written. After saving it flushes W3 Total Cache for the page and Divi's static CSS.
+The last 50 additions are listed on the screen (option `sssihms_up_log`) with a link to the
+page's revisions for undo.
+
+Photo and faculty-photo uploads require a consent tick. The tool only adds; removing or
+editing an item is still done by editing the page.
 form cannot win over a full one.
