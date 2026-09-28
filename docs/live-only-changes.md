@@ -728,3 +728,11 @@ At the hospital's request, removed the "About SACRED" text module from Radiology
 ## 2026-09-28 — SSSGH: "The General Hospital in Detail" removed
 The module on /sssgh/ (page 53243) was fragments of the *old* page's content, which was a copy of the SSSIHMS home-page teasers (Cardiology, Neurology, CTVS, Anaesthesia with the old "1700 multi-speciality" figure, Neurosurgery, Radiology, DNB, Nursing, Fellowships) plus a broken 2003 quote — nothing about the General Hospital. Removed; the designed SSSGH sections are unchanged.
 - Backup on the VM: `/home/azureuser/sssgh-bak-20260928/`.
+
+## 2026-09-28 — OBGYN: cardiotocography photo rotated
+`2022/12/obg-cardiotocography.jpg` (attachment 55764) was sideways; rotated 90° clockwise (now 1138×924), sizes regenerated, OBGYN page (53292) URL now `?v=20260928`.
+- Backup on the VM: `/home/azureuser/obg-ctg-rotate-bak-20260928/`.
+
+## 2026-09-28 — Orthopedics: hero photo crop
+The hero (`Dr.-Sundaresh-with-Swami.jpg`, 2049×1423 in a 1144×560 `cover` frame) was centre-cropped, cutting off the top of Dr. Sundaresh's head. Added inline `object-position:50% 4%` on that img (page 53288) — both heads in frame; phones already showed the whole photo.
+- Backup on the VM: `/home/azureuser/ortho-hero-bak-20260928/`.
