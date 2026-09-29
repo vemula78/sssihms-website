@@ -787,3 +787,6 @@ Neurology services are paused for lack of staff, so the two Neurology sections o
 
 ## 2026-09-29 — Site Updates: fix saves on pages with the missing template
 135 pages (34 of the tool's 93 sections) still name `page-template-fullwidth.php`, which the current Divi theme does not have. `wp_update_post` saved the content and then returned "Invalid page template" before creating the revision or running the save hooks, so the tool would have shown an error for a change that had in fact been made, with no revision to undo it. Reproduced on a draft carrying that template, then fixed by passing an empty `page_template` so the check is skipped and the template meta is left alone; the same draft then saved with one new revision. `wp post update` from WP-CLI has the same failure on these pages.
+
+## 2026-09-29 — Appointments & Admission: Metro route
+Added a "By Metro" card, first in the How to Reach the Hospital grid on Appointments & Admission (page 735): Namma Metro Purple Line to Sri Sathya Sai Hospital Metro Station (wording from the hospital; no distance or walking time given). Revision 55898; before-copy `/home/azureuser/appt-bak-20260929/735.before.html`.
