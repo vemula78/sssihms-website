@@ -790,3 +790,7 @@ Neurology services are paused for lack of staff, so the two Neurology sections o
 
 ## 2026-09-29 — Appointments & Admission: Metro route
 Added a "By Metro" card, first in the How to Reach the Hospital grid on Appointments & Admission (page 735): Namma Metro Purple Line to Sri Sathya Sai Hospital Metro Station (wording from the hospital; no distance or walking time given). Revision 55898; before-copy `/home/azureuser/appt-bak-20260929/735.before.html`.
+- Same day, expanded (revision 55899): "close to the hospital. From Majestic (Nadaprabhu Kempegowda station), take a train towards Whitefield (Kadugodi) and get off at the stop after Nallurhalli. Use the exit on the hospital side." Sources: Wikipedia's station article (Purple Line, adjacent stations Nallurhalli / Pattandur Agrahara, an exit towards the hospital). No walking distance added — none found in a reliable source.
+
+## 2026-09-29 — Facilities: Metro route
+Facilities (page 734) had no Metro information. Added the same Metro wording as the first point of "Getting to the Hospital". Revision 55900; before-copy `/home/azureuser/fac-bak-20260929/734.before.html`.
