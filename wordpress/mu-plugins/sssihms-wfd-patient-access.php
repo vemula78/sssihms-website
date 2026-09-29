@@ -599,3 +599,76 @@ function sssihms_wfd_poetry_redirects() {
 	}
 }
 add_action( 'template_redirect', 'sssihms_wfd_poetry_redirects', 5 );
+
+/**
+ * Light-only colour scheme. The site has no dark theme; without this, Android
+ * forced-dark modes (Chrome auto-dark, Samsung Internet) darken the white logo
+ * box while the transparent logo's black text stays black. 25-Sep-2026.
+ */
+function sssihms_wfd_color_scheme() {
+	if ( ! sssihms_wfd_is_target() ) {
+		return;
+	}
+	echo '<meta name="color-scheme" content="only light">' . "\n";
+	echo '<style id="sssihms-color-scheme">:root{color-scheme:only light}</style>' . "\n";
+}
+add_action( 'wp_head', 'sssihms_wfd_color_scheme', 1 );
+
+/**
+ * The old monthly "Biomedical Waste Report" page (51982, now draft) is replaced
+ * by the sssihms-bmw-tracker plugin's statutory disclosure page. Old links and
+ * bookmarks go there instead of a 404. 26-Sep-2026.
+ */
+function sssihms_wfd_bmw_redirect() {
+	if ( ! sssihms_wfd_is_target() || is_admin() ) {
+		return;
+	}
+	$path = trim( parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ), '/' );
+	if ( 'biomedical-waste-report' === $path ) {
+		wp_redirect( home_url( '/biomedical-waste-management/' ), 301 );
+		exit;
+	}
+}
+add_action( 'template_redirect', 'sssihms_wfd_bmw_redirect', 5 );
+
+/**
+ * Stat cards ("Service in Numbers" etc.) overflowed phone screens: the 2-column
+ * mobile grid used 1fr, which cannot shrink below the widest number
+ * ("1,43,500+", "29.9 Lakh+" at 46px), so pages scrolled sideways.
+ * minmax(0,1fr) lets the columns shrink; the value font steps down on narrow
+ * screens. Loaded in the footer so it follows each page's own stylesheet. 28-Sep-2026.
+ */
+function sssihms_wfd_stats_css() {
+	if ( ! sssihms_wfd_is_target() ) {
+		return;
+	}
+	?>
+<style id="sssihms-stats">
+@media (max-width:768px){.stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.stats-grid{gap:12px}.stat-card{padding:20px 12px;min-width:0}.stat-val{font-size:clamp(26px,8vw,36px);overflow-wrap:anywhere}.stat-lbl{font-size:14px}}
+</style>
+	<?php
+}
+add_action( 'wp_footer', 'sssihms_wfd_stats_css', 4 );
+
+/**
+ * Stop author lookups revealing login names. /?author=1 redirected to
+ * /author/saiadmin/, handing bots a real admin username (29-Sep-2026: ~20,000
+ * failed logins in 30 days, many against real names). ?author=N requests and
+ * author archives now go to the home page, and author links point there too,
+ * so no page prints a login slug. Logged-in editors are unaffected in wp-admin.
+ */
+function sssihms_wfd_block_author_enum() {
+	if ( ! sssihms_wfd_is_target() || is_admin() ) {
+		return;
+	}
+	if ( isset( $_GET['author'] ) || is_author() ) {
+		wp_safe_redirect( home_url( '/' ), 301 );
+		exit;
+	}
+}
+add_action( 'template_redirect', 'sssihms_wfd_block_author_enum', 1 );
+
+add_filter( 'author_link', function ( $link ) {
+	return sssihms_wfd_is_target() ? home_url( '/' ) : $link;
+} );

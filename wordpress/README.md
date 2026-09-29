@@ -24,6 +24,8 @@ Patient-facing usability fixes for **whitefield.sssihms.org** (blog 4 of the mul
 - **Contact aliases.** 301s `/reach-us/`, `/directions/`, `/how-to-reach/` and `/enquiry/`
   to `/contact-us/`; they used to 404.
 
+Also 301s `?author=N` requests and author archives to the home page, and points author links there, so no page reveals a login name (29-Sep-2026).
+
 Every hook is gated on `get_current_blog_id() === 4`, so the other blogs in the multisite
 (sssihms.org, prasanthigram, ssssst.in) are untouched. Verified after deployment.
 
@@ -86,3 +88,19 @@ and a revision. A section cannot be emptied (at least one item must stay), so a 
 silently disappears from the page. Uploaded files are not deleted from the Media Library.
 Editing an existing item's text is still done by editing the page (or remove and re-add).
 form cannot win over a full one.
+
+### `sssihms-admin-two-factor.php` (network-wide)
+
+Makes Kadence Security's two-factor login **mandatory for super admins and for anyone who is an
+Administrator on any site** of the multisite. Kadence Security Basic has the two-factor module
+but leaves "who must use it" to its Pro add-on via the `itsec_two_factor_requirement_reason`
+filter; this file answers that filter. With a reason set, Kadence forces the set-up screen at
+login (no Skip) and, until an authenticator app is configured, emails a one-time code.
+Deliberately not gated to blog 4: user accounts are shared across the network.
+
+Kadence settings changed alongside it (29-Sep-2026): two-factor module activated with all
+methods (authenticator app, email, backup codes); **XML-RPC disabled** network-wide. XML-RPC
+was taking ~3,000 login attempts a day and bypasses the login-page captcha. Its only real
+user was the Jetpack connection on Whitefield, whose Jetpack Social has no social accounts
+connected — re-enable XML-RPC (Security › Settings › WordPress Tweaks) if Jetpack is needed.
+Settings backup: `/home/azureuser/security-bak-20260929/`.
