@@ -797,3 +797,6 @@ Facilities (page 734) had no Metro information. Added the same Metro wording as 
 
 ## 2026-09-29 — Header menu: Career Opportunities removed from Academics
 Deleted menu item 55193 (Academics › Career Opportunities → /careers/) from the header menu (menu 116). Career Opportunities stays under Opportunities (item 55227), so /careers/ is still reachable. Menu backup before the change: `/home/azureuser/menu116-bak-20260929.json`.
+
+## 2026-09-29 — Rain Water Harvesting: percolation well photos
+Added two photos from the Water Conservation Award nomination deck (slides 2 and 8) under "120 Percolation Wells" on Rain Water Harvesting (page 52712): a finished well (media 55901) and the joint inauguration with community partners and the OBD team (media 55902, the deck's own caption). Both re-encoded at 2000 px with all EXIF removed — the originals carried GPS. Also added one line from the deck: well sites are chosen using GIS, contour and hydrology studies. The 25-Sep figure decision stands: 120 wells kept, the deck's 3 units + 5 pits → 19 → 50 roadmap not used. Photo height is set by a scoped `.gg-pw` rule (440 px desktop, natural height under 700 px). Revision 55905; before-copy `/home/azureuser/rwh-bak-20260929/52712.before.html`.
