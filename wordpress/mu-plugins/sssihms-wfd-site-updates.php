@@ -293,7 +293,11 @@ function sssihms_up_save( $page_id, $new ) {
 	// whole existing card removed.
 	$kses = has_filter( 'content_save_pre', 'wp_filter_post_kses' );
 	kses_remove_filters();
-	$r = wp_update_post( array( 'ID' => $page_id, 'post_content' => wp_slash( $new ) ), true );
+	// 135 pages still name page-template-fullwidth.php, which the current theme lacks.
+	// wp_insert_post would save the content, then bail with "Invalid page template"
+	// before the revision and save hooks run. An empty page_template skips that check
+	// and leaves the template meta as it is.
+	$r = wp_update_post( array( 'ID' => $page_id, 'post_content' => wp_slash( $new ), 'page_template' => '' ), true );
 	if ( $kses ) {
 		kses_init_filters();
 	}
