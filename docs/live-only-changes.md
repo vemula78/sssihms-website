@@ -794,3 +794,6 @@ Added a "By Metro" card, first in the How to Reach the Hospital grid on Appointm
 
 ## 2026-09-29 — Facilities: Metro route
 Facilities (page 734) had no Metro information. Added the same Metro wording as the first point of "Getting to the Hospital". Revision 55900; before-copy `/home/azureuser/fac-bak-20260929/734.before.html`.
+
+## 2026-09-29 — Header menu: Career Opportunities removed from Academics
+Deleted menu item 55193 (Academics › Career Opportunities → /careers/) from the header menu (menu 116). Career Opportunities stays under Opportunities (item 55227), so /careers/ is still reachable. Menu backup before the change: `/home/azureuser/menu116-bak-20260929.json`.
