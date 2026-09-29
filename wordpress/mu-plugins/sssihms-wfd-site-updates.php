@@ -206,11 +206,91 @@ function sssihms_up_apply( $type, $page_id, $n, $hash, $card ) {
 	if ( ! isset( $boxes[ $n ] ) ) {
 		return new WP_Error( 'section', 'That section is no longer on the page.' );
 	}
-	$at  = 'start' === sssihms_up_types()[ $type ]['pos'] ? $boxes[ $n ]['body_start'] : $boxes[ $n ]['close'];
-	$new = substr( $html, 0, $at ) . $card . substr( $html, $at );
+	$at = 'start' === sssihms_up_types()[ $type ]['pos'] ? $boxes[ $n ]['body_start'] : $boxes[ $n ]['close'];
+	return sssihms_up_save( $page_id, substr( $html, 0, $at ) . $card . substr( $html, $at ) );
+}
 
+/**
+ * The cards in container $n, in order: byte range, visible label and first image.
+ * Stops at the first thing between cards that is not a card.
+ */
+function sssihms_up_items( $html, $type, $n ) {
+	$boxes = sssihms_up_containers( $html, $type );
+	if ( ! isset( $boxes[ $n ] ) ) {
+		return null;
+	}
+	$child = sssihms_up_types()[ $type ]['child'];
+	$tag   = substr( strtok( $child, ' ' ), 1 );
+	$pos   = $boxes[ $n ]['body_start'];
+	$stop  = $boxes[ $n ]['close'];
+	$out   = array();
+	while ( $pos < $stop && 0 === substr_compare( $html, $child, $pos, strlen( $child ) ) ) {
+		if ( 'div' === $tag ) {
+			$end = sssihms_up_close_of( $html, $pos );
+			$end = false === $end ? false : $end + 6;
+		} else {
+			$end = strpos( $html, '</' . $tag . '>', $pos );
+			$end = false === $end ? false : $end + strlen( $tag ) + 3;
+		}
+		if ( false === $end || $end > $stop ) {
+			break;
+		}
+		$card  = substr( $html, $pos, $end - $pos );
+		$label = '';
+		if ( preg_match( '~class="(?:cover-label|faculty-name)">(.*?)</|<h3>(.*?)</h3>|<figcaption>(.*?)</figcaption>~s', $card, $m ) ) {
+			$label = html_entity_decode( wp_strip_all_tags( implode( '', array_slice( $m, 1 ) ) ), ENT_QUOTES, 'UTF-8' );
+		}
+		$img = preg_match( '~<img[^>]*\ssrc="([^"]+)"~', $card, $im ) ? html_entity_decode( $im[1] ) : '';
+		if ( '' === $label && $img ) {
+			$label = 'Uncaptioned photo: ' . wp_basename( wp_parse_url( $img, PHP_URL_PATH ) );
+		}
+		$out[] = array(
+			'start' => $pos,
+			'end'   => $end,
+			'label' => $label,
+			'img'   => $img,
+		);
+		$pos = $end;
+		while ( $pos < $stop && ctype_space( $html[ $pos ] ) ) {
+			$pos++;
+		}
+	}
+	return $out;
+}
+
+/** Remove cards $idx (indexes into sssihms_up_items) from container $n. Same checks as apply. */
+function sssihms_up_remove( $type, $page_id, $n, $hash, $idx ) {
+	$page = get_post( $page_id );
+	if ( ! $page || 'page' !== $page->post_type ) {
+		return new WP_Error( 'page', 'That page no longer exists.' );
+	}
+	$html = $page->post_content;
+	if ( ! hash_equals( $hash, md5( $html ) ) ) {
+		return new WP_Error( 'stale', 'Someone changed this page after you opened the list. Nothing was removed — reload and try again.' );
+	}
+	$items = sssihms_up_items( $html, $type, $n );
+	if ( null === $items ) {
+		return new WP_Error( 'section', 'That section is no longer on the page.' );
+	}
+	$idx = array_values( array_unique( array_intersect( array_map( 'intval', $idx ), array_keys( $items ) ) ) );
+	if ( ! $idx ) {
+		return new WP_Error( 'none', 'Tick at least one item to remove.' );
+	}
+	if ( count( $idx ) >= count( $items ) ) {
+		return new WP_Error( 'all', 'At least one item must stay. To remove a whole section, ask the web team.' );
+	}
+	rsort( $idx );
+	foreach ( $idx as $i ) {
+		$html = substr( $html, 0, $items[ $i ]['start'] ) . substr( $html, $items[ $i ]['end'] );
+	}
+	return sssihms_up_save( $page_id, $html );
+}
+
+/** Save new page content as a revision, then purge caches. Returns the revision ID or WP_Error. */
+function sssihms_up_save( $page_id, $new ) {
 	// Editors on a multisite lack unfiltered_html, so kses would strip the page's inline
-	// styles and <style> blocks on save. The only new text is the escaped card above.
+	// styles and <style> blocks on save. The only change is the escaped card added or a
+	// whole existing card removed.
 	$kses = has_filter( 'content_save_pre', 'wp_filter_post_kses' );
 	kses_remove_filters();
 	$r = wp_update_post( array( 'ID' => $page_id, 'post_content' => wp_slash( $new ) ), true );
@@ -335,10 +415,11 @@ function sssihms_up_handle( $type ) {
 	}
 	$what = $f['title'] ?? ( $f['name'] ?? count( $att['photos'] ) . ' photo(s)' );
 	sssihms_up_log( array(
-		'time' => current_time( 'mysql' ),
-		'user' => wp_get_current_user()->user_login,
-		'type' => $type,
-		'what' => $what,
+		'time'   => current_time( 'mysql' ),
+		'user'   => wp_get_current_user()->user_login,
+		'type'   => $type,
+		'action' => 'added',
+		'what'   => $what,
 		'page' => $page_id,
 		'rev'  => $rev,
 	) );
@@ -366,24 +447,127 @@ function sssihms_up_field( $label, $name, $opts = array() ) {
 	echo '</td></tr>';
 }
 
+/** Handles the Remove POST. Returns array( 'ok' => bool, 'msg' => string ). */
+function sssihms_up_handle_remove() {
+	check_admin_referer( 'sssihms_up_remove' );
+	$f = wp_unslash( $_POST );
+	list( $type, $key ) = array_pad( explode( '|', (string) ( $f['sel'] ?? '' ), 2 ), 2, '' );
+	list( $page_id, $n, $hash ) = array_pad( explode( ':', $key ), 3, '' );
+	$page_id = (int) $page_id;
+	if ( ! isset( sssihms_up_types()[ $type ] ) || ! $page_id || ! current_user_can( 'edit_page', $page_id ) ) {
+		return array( 'ok' => false, 'msg' => 'Choose a section first.' );
+	}
+	if ( empty( $f['confirm'] ) ) {
+		return array( 'ok' => false, 'msg' => 'Please tick the confirmation box.' );
+	}
+	$idx   = (array) ( $f['remove'] ?? array() );
+	$items = sssihms_up_items( get_post_field( 'post_content', $page_id ), $type, (int) $n );
+	$names = array();
+	foreach ( $idx as $i ) {
+		if ( isset( $items[ (int) $i ] ) ) {
+			$names[] = $items[ (int) $i ]['label'] ?: 'item ' . ( (int) $i + 1 );
+		}
+	}
+	$rev = sssihms_up_remove( $type, $page_id, (int) $n, $hash, $idx );
+	if ( is_wp_error( $rev ) ) {
+		return array( 'ok' => false, 'msg' => $rev->get_error_message() );
+	}
+	$what = implode( ', ', $names );
+	sssihms_up_log( array(
+		'time'   => current_time( 'mysql' ),
+		'user'   => wp_get_current_user()->user_login,
+		'type'   => $type,
+		'action' => 'removed',
+		'what'   => $what,
+		'page'   => $page_id,
+		'rev'    => $rev,
+	) );
+	return array(
+		'ok'  => true,
+		'msg' => 'Removed “' . esc_html( $what ) . '” from <a href="' . esc_url( get_permalink( $page_id ) ) . '" target="_blank">'
+			. esc_html( get_the_title( $page_id ) ) . '</a>. The files are still in the Media Library.',
+	);
+}
+
+/** The Remove tab: pick a section, then tick the items to take off the page. */
+function sssihms_up_remove_tab( $base ) {
+	$types = sssihms_up_types();
+	$sel   = isset( $_REQUEST['sel'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['sel'] ) ) : '';
+	list( $stype, $key ) = array_pad( explode( '|', $sel, 2 ), 2, '' );
+	$page_id = (int) $key;
+
+	// Step 1: choose the section (a GET form, so the list below always reflects the live page).
+	echo '<form method="get" action="' . esc_url( admin_url( 'admin.php' ) ) . '"><input type="hidden" name="page" value="sssihms-updates"><input type="hidden" name="type" value="remove">';
+	echo '<table class="form-table" role="presentation"><tr><th scope="row"><label for="sel">Section</label></th><td><select id="sel" name="sel" required style="max-width:100%"><option value="">— choose a page section —</option>';
+	foreach ( $types as $t => $cfg ) {
+		echo '<optgroup label="' . esc_attr( $cfg['label'] ) . '">';
+		foreach ( sssihms_up_targets( $t ) as $o ) {
+			if ( ! current_user_can( 'edit_page', (int) $o['key'] ) ) {
+				continue;
+			}
+			// Match on page + section only; the hash in the key changes with every save.
+			$v    = $t . '|' . $o['key'];
+			$same = $stype === $t && implode( ':', array_slice( explode( ':', $key ), 0, 2 ) ) === implode( ':', array_slice( explode( ':', $o['key'] ), 0, 2 ) );
+			echo '<option value="' . esc_attr( $v ) . '"' . selected( $same, true, false ) . '>' . esc_html( $o['label'] ) . '</option>';
+		}
+		echo '</optgroup>';
+	}
+	echo '</select> <button class="button">Show items</button></td></tr></table></form>';
+
+	if ( ! isset( $types[ $stype ] ) || ! $page_id || ! current_user_can( 'edit_page', $page_id ) ) {
+		return;
+	}
+	list( , $n ) = array_pad( explode( ':', $key ), 2, 0 );
+	$html  = get_post_field( 'post_content', $page_id );
+	$items = sssihms_up_items( $html, $stype, (int) $n );
+	if ( ! $items ) {
+		echo '<p>That section is no longer on the page. Choose it again from the list.</p>';
+		return;
+	}
+	$live = $stype . '|' . $page_id . ':' . (int) $n . ':' . md5( $html );
+
+	// Step 2: tick and confirm.
+	echo '<form method="post" action="' . esc_url( add_query_arg( array( 'type' => 'remove', 'sel' => $live ), $base ) ) . '">';
+	wp_nonce_field( 'sssihms_up_remove' );
+	echo '<input type="hidden" name="sel" value="' . esc_attr( $live ) . '">';
+	echo '<h2>Tick the items to remove</h2><table class="widefat striped" style="max-width:900px"><tbody>';
+	foreach ( $items as $i => $it ) {
+		echo '<tr><td style="width:30px"><input type="checkbox" id="rm' . $i . '" name="remove[]" value="' . $i . '"></td><td style="width:70px">'
+			. ( $it['img'] ? '<img src="' . esc_url( $it['img'] ) . '" alt="" style="width:60px;height:60px;object-fit:cover;display:block">' : '' )
+			. '</td><td><label for="rm' . $i . '">' . esc_html( $it['label'] ?: 'Item ' . ( $i + 1 ) ) . '</label></td></tr>';
+	}
+	echo '</tbody></table>';
+	echo '<p><label><input type="checkbox" name="confirm" value="1" required> Remove the ticked items from the live page. (Photos and PDFs stay in the Media Library; the page’s <em>Revisions</em> screen can bring the items back.)</label></p>';
+	submit_button( 'Remove from page', 'delete' );
+	echo '</form>';
+}
+
 function sssihms_up_page() {
 	$types = sssihms_up_types();
-	$type  = isset( $_GET['type'], $types[ $_GET['type'] ] ) ? $_GET['type'] : 'newsletter';
+	$tabs  = array_merge( wp_list_pluck( $types, 'label' ), array( 'remove' => 'Remove item' ) );
+	$type  = isset( $_GET['type'], $tabs[ $_GET['type'] ] ) ? $_GET['type'] : 'newsletter';
 	$base  = admin_url( 'admin.php?page=sssihms-updates' );
 
 	echo '<div class="wrap"><h1>Site Updates</h1>';
-	echo '<p>Add an item to a section that already exists on the website. The page is not otherwise changed, and every addition can be undone from the page’s <em>Revisions</em> screen.</p>';
+	echo '<p>Add or remove an item in a section that already exists on the website. The page is not otherwise changed, and every change can be undone from the page’s <em>Revisions</em> screen.</p>';
 
 	if ( 'POST' === $_SERVER['REQUEST_METHOD'] ) {
-		$r = sssihms_up_handle( $type );
+		$r = 'remove' === $type ? sssihms_up_handle_remove() : sssihms_up_handle( $type );
 		echo '<div class="notice notice-' . ( $r['ok'] ? 'success' : 'error' ) . '"><p>' . wp_kses( $r['msg'], array( 'a' => array( 'href' => true, 'target' => true ) ) ) . '</p></div>';
 	}
 
 	echo '<nav class="nav-tab-wrapper">';
-	foreach ( $types as $k => $t ) {
-		echo '<a class="nav-tab' . ( $k === $type ? ' nav-tab-active' : '' ) . '" href="' . esc_url( add_query_arg( 'type', $k, $base ) ) . '">' . esc_html( $t['label'] ) . '</a>';
+	foreach ( $tabs as $k => $label ) {
+		echo '<a class="nav-tab' . ( $k === $type ? ' nav-tab-active' : '' ) . '" href="' . esc_url( add_query_arg( 'type', $k, $base ) ) . '">' . esc_html( $label ) . '</a>';
 	}
 	echo '</nav>';
+
+	if ( 'remove' === $type ) {
+		sssihms_up_remove_tab( $base );
+		sssihms_up_log_table( $types );
+		echo '</div>';
+		return;
+	}
 
 	$targets = array_filter( sssihms_up_targets( $type ), function ( $t ) {
 		return current_user_can( 'edit_page', (int) $t['key'] );
@@ -430,18 +614,22 @@ function sssihms_up_page() {
 	echo '</table>';
 	submit_button( 'Add to page' );
 	echo '</form>';
+	sssihms_up_log_table( $types );
+	echo '</div>';
+}
 
+function sssihms_up_log_table( $types ) {
 	$log = get_option( 'sssihms_up_log', array() );
 	if ( $log ) {
-		echo '<h2>Recent additions</h2><table class="widefat striped"><thead><tr><th>When</th><th>Who</th><th>What</th><th>Page</th><th>Undo</th></tr></thead><tbody>';
+		echo '<h2>Recent changes</h2><table class="widefat striped"><thead><tr><th>When</th><th>Who</th><th>What</th><th>Page</th><th>Undo</th></tr></thead><tbody>';
 		foreach ( array_slice( $log, 0, 15 ) as $e ) {
-			echo '<tr><td>' . esc_html( $e['time'] ) . '</td><td>' . esc_html( $e['user'] ) . '</td><td>' . esc_html( $types[ $e['type'] ]['label'] . ': ' . $e['what'] )
+			$verb = ( $e['action'] ?? 'added' ) === 'removed' ? 'Removed ' : 'Added ';
+			echo '<tr><td>' . esc_html( $e['time'] ) . '</td><td>' . esc_html( $e['user'] ) . '</td><td>' . esc_html( $verb . strtolower( $types[ $e['type'] ]['label'] ) . ': ' . $e['what'] )
 				. '</td><td><a href="' . esc_url( get_permalink( $e['page'] ) ) . '" target="_blank">' . esc_html( get_the_title( $e['page'] ) ) . '</a></td><td>'
 				. ( $e['rev'] ? '<a href="' . esc_url( admin_url( 'revision.php?revision=' . (int) $e['rev'] ) ) . '">Revisions</a>' : '' ) . '</td></tr>';
 		}
 		echo '</tbody></table>';
 	}
-	echo '</div>';
 }
 
 add_action( 'admin_menu', function () {

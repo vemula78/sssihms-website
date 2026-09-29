@@ -77,6 +77,12 @@ written. After saving it flushes W3 Total Cache for the page and Divi's static C
 The last 50 additions are listed on the screen (option `sssihms_up_log`) with a link to the
 page's revisions for undo.
 
-Photo and faculty-photo uploads require a consent tick. The tool only adds; removing or
-editing an item is still done by editing the page.
+Photo and faculty-photo uploads require a consent tick.
+
+**Remove item** tab: choose a section, tick items (each shown with its thumbnail and label —
+cover title, faculty name, event title, caption, or the file name for an uncaptioned photo),
+confirm, and those cards alone are cut out of the page, with the same content-hash check
+and a revision. A section cannot be emptied (at least one item must stay), so a grid never
+silently disappears from the page. Uploaded files are not deleted from the Media Library.
+Editing an existing item's text is still done by editing the page (or remove and re-add).
 form cannot win over a full one.
