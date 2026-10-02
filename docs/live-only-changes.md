@@ -835,3 +835,6 @@ Neurology wording left unchanged on instruction (functions part-time). Backups: 
 
 ## 2026-10-02 — Home page Neurology card
 At Praveen's request the Neurology card on the home page (post 54830) now reads "Part-time evening clinic" instead of "Temporarily closed". Backup: `/home/azureuser/websitefix-bak-20261002/54830-pre-neurology.html`.
+
+## 2026-10-02 — Help Desk Answers (staff text bot, search only)
+New mu-plugin `sssihms-wfd-helpdesk-answers.php` (in this repo) adds a wp-admin "Help Desk Answers" page on Whitefield. The knowledge-base Markdown files (27, excluding README and the website-issues list) were placed at `/srv/www/kb/whitefield/` outside the web root. These files are kept out of this public repo. 435 passages indexed. No AI service, no data leaves the server, questions are not logged.

@@ -104,3 +104,18 @@ was taking ~3,000 login attempts a day and bypasses the login-page captcha. Its 
 user was the Jetpack connection on Whitefield, whose Jetpack Social has no social accounts
 connected — re-enable XML-RPC (Security › Settings › WordPress Tweaks) if Jetpack is needed.
 Settings backup: `/home/azureuser/security-bak-20260929/`.
+
+### `sssihms-wfd-helpdesk-answers.php`
+
+wp-admin page **Help Desk Answers** on Whitefield (blog 4, any logged-in user) for help-desk staff.
+Search only, no AI: the Markdown knowledge base is split into passages (each "Common questions"
+pair and each section), ranked with BM25 plus a small synonym list, and the top answers are shown
+word for word with their source file and website page. Questions typed in Kannada, Telugu, Hindi or
+Bengali script bring up that language's patient-information section. "To verify" sections are never
+shown, and questions are not stored.
+
+The knowledge base itself is **not in this repo**. It lives outside the web root at
+`/srv/www/kb/whitefield/` (root:www-data, 750/640). To update it, copy the edited `.md` files there.
+The index rebuilds on its own when any file's size or time changes. Build the archive with
+`COPYFILE_DISABLE=1` on a Mac, or macOS `._*` metadata files land beside the `.md` files and are
+indexed as junk.
