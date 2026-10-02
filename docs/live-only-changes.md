@@ -832,3 +832,6 @@ At Praveen's request, 23 text corrections on 14 Whitefield posts, each an exact 
 - Blood donation: interval stated as 3 months for men, 4 months for women throughout.
 - BMW tracker plugin public tile label "beds in service" → "occupied beds" (plugin repo commit cb5bf3b); 333 remains the total bed count elsewhere.
 Neurology wording left unchanged on instruction (functions part-time). Backups: `/home/azureuser/websitefix-bak-20261002/` (pre-change content of each post + the old plugin file).
+
+## 2026-10-02 — Home page Neurology card
+At Praveen's request the Neurology card on the home page (post 54830) now reads "Part-time evening clinic" instead of "Temporarily closed". Backup: `/home/azureuser/websitefix-bak-20261002/54830-pre-neurology.html`.
