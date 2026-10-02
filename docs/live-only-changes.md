@@ -821,3 +821,14 @@ Backups: `/home/azureuser/security-bak-20260929/` (itsec-storage, active modules
 
 ## 2026-09-30 — Maths captcha plugin removed
 At Praveen's request, `wp-advanced-math-captcha` 2.1.9.1 was network-deactivated and its folder moved out of WordPress to `/home/azureuser/removed-plugins-20260930/` (restorable by moving it back and re-activating; its settings row is kept). Reason: it bundled an admin-area advert/installer for another plugin ("image-optimizer-x"), kept no block counters, and did not cover XML-RPC. Login protection now rests on Kadence Security (brute-force lockouts, IP bans), XML-RPC disabled and mandatory two-factor for administrators. Verified on all five sites: home and wp-login 200, no captcha field on the login form. Side effect: the PHP "Undefined array key woocommerce_login…" warnings it printed on every WP-CLI call are gone.
+
+## 2026-10-02 — Website content corrections (from the knowledge-base review)
+At Praveen's request, 23 text corrections on 14 Whitefield posts, each an exact string replacement saved with `sssihms_up_save` (revisions created):
+- B.Sc Nursing 2026–27 shown as closed (home news card, blog page, Academics card); AHS "admissions paused for 2026–27" added to the home and Academics cards.
+- Fellowship page: CTVA description stipend corrected to Rs 1,02,000 (the course box already said so; Rs 1,20,000 is the Interventional Cardiology stipend).
+- Telemedicine Bhubaneswar nodal centre PIN 769 010 → 751 001 (Telemedicine and Appointments pages); "Orissa" → "Odisha".
+- HMIS described as ATHMA / MedDream / Dynamics NAV on Services and About (was Dedalus / Fuji Synapse / in-house inventory); About trustee "Vijay J. Kelkar" → "Vijay L. Kelkar".
+- Typos and wording: "Septemberember" (Bhagawan), AVBD "into the pulmonary valve" → aortic, garbled PTSMA sentence, "Fibrotic" → "Fibreoptic" bronchoscopes, ICD "normal 120 bpm" → "normal resting rate of 60–100 bpm" (Services-Cardiology, Treatment), pericarditis "infection" → "inflammation and thickening" (Treatment, layout 1094).
+- Blood donation: interval stated as 3 months for men, 4 months for women throughout.
+- BMW tracker plugin public tile label "beds in service" → "occupied beds" (plugin repo commit cb5bf3b); 333 remains the total bed count elsewhere.
+Neurology wording left unchanged on instruction (functions part-time). Backups: `/home/azureuser/websitefix-bak-20261002/` (pre-change content of each post + the old plugin file).
