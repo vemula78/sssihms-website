@@ -845,3 +845,4 @@ At Praveen's request:
 - Fellowship page (post 255), admissions section: "Apply online →" button to the Google Form `https://forms.gle/rT41PUBEWy1aTgQo6` below the application window, and a "Flyers" block (both flyers side by side, each opening full size) above Downloads.
 - Home page (post 54830) notice band: "Apply online →" link to the same form, and the existing link renamed "Flyers, details & RGUHS notification →".
 The form returned HTTP 401 to an anonymous request on 05-Oct-2026 (form may be restricted to signed-in domain users). Backups: `/home/azureuser/fellowship-flyers-bak-20261005/`.
+- Same day, at Praveen's request: form link on both pages changed to `https://forms.gle/fCzCRjNHRFbQDKSL6` (it resolves to the same Google Form as the earlier link; still 401 without sign-in).
