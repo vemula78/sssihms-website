@@ -865,3 +865,4 @@ Rule used: an item stays if the register shows at least one case in the three ye
 - Treatments page banner now states the lists cover July 2023 – June 2026.
 Not changed: the old unlinked pages Services – Cardiology (650) and Services Cardiac Surgery (523); the Neurosurgery milestones (history); the disabled Neurology modules.
 Caveat: some register rows are unnamed or unclassified (CTVS 418, NESU about 200, cath 187), so a rare operation could sit among them. Backups: `/home/azureuser/procedures-update-bak-20261005/`.
+- Same day, at Praveen's request: the two old unlinked pages **Services – Cardiology (650)** and **Services Cardiac Surgery (523)** were moved to the WordPress trash (restorable from Pages › Trash). Menu item 599 "Services" in the unassigned "Cardiac Surgery" menu (29, used by old layouts and the CTVS Blog page) pointed at 523; it now points to the Treatments page (733).
