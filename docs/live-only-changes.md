@@ -855,3 +855,4 @@ At Praveen's request, new mu-plugin `sssihms-wfd-fellowship-application.php` (in
 - Text inputs are posted as `fa_<key>`: a field literally named `name` is a WordPress query var and made the page 404 on validation errors.
 - The "Apply online" links on the Fellowship page and the home notice band now point to `/academics/fellowship/apply/` (were the Google Form short links).
 Tested end to end with mail temporarily redirected to praveen@ (two test applications, attachments and acknowledgements arrived; redirect removed afterwards). Mail is sent from the site's configured sender, cardiacconference@sssihms.org.in.
+- Same day: the blank row in the Fellowship page admissions table (post 255) now reads "Entrance exam — 22-Oct-2026 (Thu) Interventional Cardiology; 23-Oct-2026 (Fri) Cardio Vascular Anaesthesia", dates from the official flyers. Backup `bak-255-exam.txt` in the same folder.
