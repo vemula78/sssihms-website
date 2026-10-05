@@ -846,3 +846,12 @@ At Praveen's request:
 - Home page (post 54830) notice band: "Apply online →" link to the same form, and the existing link renamed "Flyers, details & RGUHS notification →".
 The form returned HTTP 401 to an anonymous request on 05-Oct-2026 (form may be restricted to signed-in domain users). Backups: `/home/azureuser/fellowship-flyers-bak-20261005/`.
 - Same day, at Praveen's request: form link on both pages changed to `https://forms.gle/fCzCRjNHRFbQDKSL6` (it resolves to the same Google Form as the earlier link; still 401 without sign-in).
+
+## 2026-10-05 — Fellowship application form on the website (replaces the Google Form)
+At Praveen's request, new mu-plugin `sssihms-wfd-fellowship-application.php` (in this repo) and a new page **Fellowship Application 2026–27** (post 55980, `/academics/fellowship/apply/`, child of the Fellowship page, same stylesheet and banner) holding the shortcode `[sssihms_fellowship_application]`.
+- Same 4 sections and 21 questions as the Google Form "FELLOWSHIP APPLICATION ACADEMIC YEAR 2026-27" (email; courses; photo + personal details; education + CV), plus a declaration/consent checkbox. Text is sent in capitals, as the Google Form asked.
+- Each application is emailed to `academicblr@sssihms.org.in` (HTML table of answers, photo and CV attached, Reply-To the applicant, reference `FA26-MMDD-XXXX`); the applicant gets a plain-text acknowledgement. Nothing is stored on the server — uploads go to a private temp folder and are deleted once the email is handed off. Photo JPG/PNG ≤ 2 MB, CV PDF/DOC/DOCX ≤ 5 MB (content type checked).
+- Spam: hidden honeypot field and at most 5 submissions per hour per connection (hashed key). The form closes itself after 19-Oct-2026 23:59 IST.
+- Text inputs are posted as `fa_<key>`: a field literally named `name` is a WordPress query var and made the page 404 on validation errors.
+- The "Apply online" links on the Fellowship page and the home notice band now point to `/academics/fellowship/apply/` (were the Google Form short links).
+Tested end to end with mail temporarily redirected to praveen@ (two test applications, attachments and acknowledgements arrived; redirect removed afterwards). Mail is sent from the site's configured sender, cardiacconference@sssihms.org.in.
