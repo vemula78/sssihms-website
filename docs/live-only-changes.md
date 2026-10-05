@@ -838,3 +838,10 @@ At Praveen's request the Neurology card on the home page (post 54830) now reads 
 
 ## 2026-10-02 — Help Desk Answers (staff text bot, search only)
 New mu-plugin `sssihms-wfd-helpdesk-answers.php` (in this repo) adds a wp-admin "Help Desk Answers" page on Whitefield. The knowledge-base Markdown files (27, excluding README and the website-issues list) were placed at `/srv/www/kb/whitefield/` outside the web root. These files are kept out of this public repo. 435 passages indexed. No AI service, no data leaves the server, questions are not logged.
+
+## 2026-10-05 — Fellowship 2026–27 flyers and online application form
+At Praveen's request:
+- Two flyers uploaded to the Whitefield media library as JPG (media 55974 Interventional Cardiology, 55975 Cardio Vascular Anaesthesia; the supplied WebP files are not an allowed upload type on this multisite).
+- Fellowship page (post 255), admissions section: "Apply online →" button to the Google Form `https://forms.gle/rT41PUBEWy1aTgQo6` below the application window, and a "Flyers" block (both flyers side by side, each opening full size) above Downloads.
+- Home page (post 54830) notice band: "Apply online →" link to the same form, and the existing link renamed "Flyers, details & RGUHS notification →".
+The form returned HTTP 401 to an anonymous request on 05-Oct-2026 (form may be restricted to signed-in domain users). Backups: `/home/azureuser/fellowship-flyers-bak-20261005/`.
