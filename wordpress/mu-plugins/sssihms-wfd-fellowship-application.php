@@ -447,8 +447,14 @@ function sssihms_fa_drive_push( $post_id ) {
 			'timeout' => 60,
 			'headers' => array( 'Content-Type' => 'application/json' ),
 			'body'    => wp_json_encode( array( 'secret' => $cfg['secret'], 'ref' => $app->post_title, 'row' => get_post_meta( $post_id, '_fa_rows', true ), 'files' => $files ) ),
+			// Apps Script answers with a 302 that must be fetched with GET; WordPress would re-POST.
+			'redirection' => 0,
 		)
 	);
+	$loc = wp_remote_retrieve_header( $r, 'location' );
+	if ( ! is_wp_error( $r ) && 302 === wp_remote_retrieve_response_code( $r ) && $loc ) {
+		$r = wp_remote_get( $loc, array( 'timeout' => 30 ) );
+	}
 	$j = is_wp_error( $r ) ? null : json_decode( wp_remote_retrieve_body( $r ), true );
 	if ( ! empty( $j['ok'] ) && ! empty( $j['folder'] ) ) {
 		update_post_meta( $post_id, '_fa_drive', esc_url_raw( $j['folder'] ) );

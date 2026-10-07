@@ -8,15 +8,33 @@
  *     created in the same folder on the first application.
  *
  * Set up (in the Google account that should own the files):
- *   1. Create the Drive folder; copy its ID from the URL (drive.google.com/drive/folders/<ID>).
- *   2. script.google.com → New project; paste this file; fill in FOLDER_ID and SECRET
- *      (SECRET is shown on wp-admin → Fellowship Applications).
- *   3. Deploy → New deployment → Web app; Execute as: Me; Who has access: Anyone. Authorise.
+ *   1. script.google.com → New project; paste this file and appsscript.json; fill in SECRET
+ *      (shown on wp-admin → Fellowship Applications).
+ *   2. Run setup() once and authorise. It creates the folder "Fellowship applications 2026-27"
+ *      in My Drive with the spreadsheet inside (or set FOLDER_ID to use an existing folder).
+ *   3. Deploy → New deployment → Web app; Execute as: Me; Who has access: Anyone.
  *   4. Paste the web app URL (ends in /exec) into wp-admin → Fellowship Applications → Save.
  * Never commit a filled-in copy of this file: the repository is public.
  */
-const FOLDER_ID = 'PASTE-DRIVE-FOLDER-ID';
+const FOLDER_ID = ''; // Optional: an existing Drive folder ID; empty = setup() creates one.
 const SECRET = 'PASTE-SECRET-FROM-WP-ADMIN';
+const TITLE = 'Fellowship applications 2026-27';
+
+/** Run once from the editor: authorises Drive and Sheets, creates the folder and spreadsheet. */
+function setup() {
+  const root = root_();
+  sheet_(root);
+  Logger.log('Folder: ' + root.getUrl());
+}
+
+function root_() {
+  const props = PropertiesService.getScriptProperties();
+  const id = FOLDER_ID || props.getProperty('FOLDER_ID');
+  if (id) return DriveApp.getFolderById(id);
+  const folder = DriveApp.createFolder(TITLE);
+  props.setProperty('FOLDER_ID', folder.getId());
+  return folder;
+}
 
 function doPost(e) {
   const lock = LockService.getScriptLock();
@@ -24,7 +42,7 @@ function doPost(e) {
   try {
     const p = JSON.parse(e.postData.contents);
     if (p.secret !== SECRET) return reply_({ ok: false, error: 'Wrong secret' });
-    const root = DriveApp.getFolderById(FOLDER_ID);
+    const root = root_();
     const name = p.ref + ' - ' + (p.row['Name of the applicant'] || '');
     const found = root.getFoldersByName(name);
     if (found.hasNext()) return reply_({ ok: true, folder: found.next().getUrl() }); // Already copied.
@@ -32,7 +50,12 @@ function doPost(e) {
     p.files.forEach(function (f) {
       folder.createFile(Utilities.newBlob(Utilities.base64Decode(f.data), f.mime, f.name));
     });
-    const sheet = sheet_(root, Object.keys(p.row));
+    const sheet = sheet_(root);
+    if (sheet.getLastRow() === 0) {
+      sheet.appendRow(Object.keys(p.row).concat(['Drive folder']));
+      sheet.setFrozenRows(1);
+      sheet.getRange(1, 1, 1, sheet.getLastColumn()).setFontWeight('bold');
+    }
     // A leading ' keeps text such as "+91…" or "=…" from being read as a formula.
     const values = Object.keys(p.row).map(function (k) {
       const v = String(p.row[k]);
@@ -47,18 +70,14 @@ function doPost(e) {
   }
 }
 
-function sheet_(root, keys) {
+function sheet_(root) {
   const props = PropertiesService.getScriptProperties();
   const id = props.getProperty('SHEET_ID');
   if (id) return SpreadsheetApp.openById(id).getSheets()[0];
-  const ss = SpreadsheetApp.create('Fellowship applications 2026-27');
+  const ss = SpreadsheetApp.create(TITLE);
   DriveApp.getFileById(ss.getId()).moveTo(root);
-  const sheet = ss.getSheets()[0];
-  sheet.appendRow(keys.concat(['Drive folder']));
-  sheet.setFrozenRows(1);
-  sheet.getRange(1, 1, 1, keys.length + 1).setFontWeight('bold');
   props.setProperty('SHEET_ID', ss.getId());
-  return sheet;
+  return ss.getSheets()[0];
 }
 
 function reply_(obj) {
