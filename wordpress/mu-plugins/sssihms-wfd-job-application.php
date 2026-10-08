@@ -16,6 +16,11 @@
  * they were received (daily WP-Cron job). The Google Drive copies are kept (Praveen's
  * instruction, 08-Oct-2026); Human Resources manages them in Drive.
  *
+ * Vacancies: wp-admin → Job Applications → Vacancies lets HR add, edit and close vacancies with
+ * an optional flyer (JPG/PNG/PDF). Open vacancies are listed on the Careers page by the
+ * shortcode [sssihms_vacancies]; each links to the form with position and category filled in.
+ * A vacancy disappears after its last date. The "HR Recruitment" role sees only these screens.
+ *
  * Uses sssihms_fa_css(), sssihms_fa_drive_cfg() and sssihms_fa_send_download() from
  * sssihms-wfd-fellowship-application.php.
  */
@@ -25,7 +30,7 @@ defined( 'ABSPATH' ) || exit;
 const SSSIHMS_JA_TO     = 'humanresourcesblr@sssihms.org.in';
 const SSSIHMS_JA_STORE  = '/srv/www/job-applications'; // CVs, certificates, photos; not web-served.
 const SSSIHMS_JA_KEEP   = '-6 months';                 // Retention for applications not selected.
-const SSSIHMS_JA_CAP    = 'edit_others_pages';
+const SSSIHMS_JA_CAP    = 'sssihms_hr'; // Administrators, editors and the "HR Recruitment" role.
 
 function sssihms_ja_is_target() {
 	return is_multisite() && get_current_blog_id() === 4;
@@ -355,6 +360,11 @@ function sssihms_ja_render() {
 	}
 
 	$v = $GLOBALS['sssihms_ja_values'];
+	$vac = $v ? null : sssihms_ja_vac_get( absint( $_GET['vacancy'] ?? 0 ) );
+	if ( $vac ) {
+		$v = array( 'position' => $vac['title'], 'cat' => $vac['cat'] );
+		$out .= '<p class="fa-note">Applying for: <strong>' . esc_html( $vac['title'] ) . '</strong>. You can change the position below.</p>';
+	}
 	if ( $GLOBALS['sssihms_ja_errors'] ) {
 		$out .= '<div class="fa-err" role="alert" tabindex="-1" id="ja-errors"><strong>Please correct the following and submit again. Attach your files again too.</strong><ul>';
 		foreach ( $GLOBALS['sssihms_ja_errors'] as $e ) {
@@ -469,6 +479,7 @@ add_action( 'init', 'sssihms_ja_register' );
 function sssihms_ja_register() {
 	if ( sssihms_ja_is_target() ) {
 		register_post_type( 'sssihms_ja_app', array( 'public' => false, 'show_ui' => false, 'label' => 'Job applications' ) );
+		register_post_type( 'sssihms_vacancy', array( 'public' => false, 'show_ui' => false, 'label' => 'Vacancies' ) );
 	}
 }
 
@@ -557,6 +568,8 @@ add_action( 'admin_menu', 'sssihms_ja_admin_menu' );
 function sssihms_ja_admin_menu() {
 	if ( sssihms_ja_is_target() ) {
 		add_menu_page( 'Job Applications', 'Job Applications', SSSIHMS_JA_CAP, 'sssihms-ja', 'sssihms_ja_admin_page', 'dashicons-id-alt', 27 );
+		add_submenu_page( 'sssihms-ja', 'Job Applications', 'Applications', SSSIHMS_JA_CAP, 'sssihms-ja', 'sssihms_ja_admin_page' );
+		add_submenu_page( 'sssihms-ja', 'Vacancies', 'Vacancies', SSSIHMS_JA_CAP, 'sssihms-vac', 'sssihms_ja_vac_page' );
 	}
 }
 
@@ -799,4 +812,273 @@ function sssihms_ja_write_xlsx( $file, $sheets ) {
 	$zip->addFromString( 'xl/workbook.xml', '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook ' . $ns . '><sheets>' . $list . '</sheets><definedNames>' . $names . '</definedNames></workbook>' );
 	$zip->addFromString( 'xl/styles.xml', '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><fonts count="2"><font><sz val="11"/><name val="Calibri"/></font><font><b/><sz val="11"/><name val="Calibri"/></font></fonts><fills count="3"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FFF4EFE6"/></patternFill></fill></fills><borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="2"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="2" borderId="0" xfId="0" applyFont="1" applyFill="1"/></cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>' );
 	$zip->close();
+}
+
+/* ---------- Vacancies: HR adds posts and flyers; listed on the Careers page ---------- */
+
+/** One-time: the HR Recruitment role, and the sssihms_hr capability for administrators and editors. */
+add_action( 'init', 'sssihms_ja_roles' );
+function sssihms_ja_roles() {
+	if ( ! sssihms_ja_is_target() || '1' === get_option( 'sssihms_ja_roles' ) ) {
+		return;
+	}
+	add_role( 'sssihms_hr', 'HR Recruitment', array( 'read' => true, 'upload_files' => true, 'sssihms_hr' => true ) );
+	foreach ( array( 'administrator', 'editor' ) as $r ) {
+		$role = get_role( $r );
+		if ( $role ) {
+			$role->add_cap( 'sssihms_hr' );
+		}
+	}
+	update_option( 'sssihms_ja_roles', '1' );
+}
+
+/** Vacancy fields: key => array( label, type, required ). */
+function sssihms_ja_vac_fields() {
+	return array(
+		'title'     => array( 'Position', 'text', true ),
+		'cat'       => array( 'Category', 'select', true ),
+		'dept'      => array( 'Department', 'text', false ),
+		'posts'     => array( 'Number of posts', 'number', false ),
+		'qual'      => array( 'Qualification', 'textarea', false ),
+		'exp'       => array( 'Experience', 'text', false ),
+		'details'   => array( 'Other details (salary, accommodation, etc.)', 'textarea', false ),
+		'last_date' => array( 'Last date to apply (leave empty: open until filled)', 'date', false ),
+	);
+}
+
+/** An open vacancy as an array (with id, flyer), or null if missing, closed or past its last date. */
+function sssihms_ja_vac_get( $id, $only_open = true ) {
+	$p = $id ? get_post( $id ) : null;
+	if ( ! $p || 'sssihms_vacancy' !== $p->post_type || 'trash' === $p->post_status ) {
+		return null;
+	}
+	$vac = array_merge( (array) get_post_meta( $p->ID, '_vac', true ), array( 'id' => $p->ID, 'title' => $p->post_title, 'flyer' => (int) get_post_meta( $p->ID, '_vac_flyer', true ), 'open' => (bool) get_post_meta( $p->ID, '_vac_open', true ) ) );
+	$live = $vac['open'] && ( empty( $vac['last_date'] ) || $vac['last_date'] >= current_time( 'Y-m-d' ) );
+	return ! $only_open || $live ? $vac : null;
+}
+
+function sssihms_ja_vac_all() {
+	return get_posts( array( 'post_type' => 'sssihms_vacancy', 'post_status' => 'private', 'numberposts' => -1, 'orderby' => 'date', 'order' => 'DESC' ) );
+}
+
+function sssihms_ja_vac_date( $ymd ) {
+	$d = $ymd ? DateTime::createFromFormat( '!Y-m-d', $ymd ) : false;
+	return $d ? $d->format( 'd-M-Y' ) : '';
+}
+
+/** Clear the page cache for the Careers page so changes show at once. */
+function sssihms_ja_vac_flush() {
+	if ( function_exists( 'w3tc_flush_post' ) ) {
+		$careers = get_page_by_path( 'careers' );
+		if ( $careers ) {
+			w3tc_flush_post( $careers->ID );
+		}
+	}
+}
+
+// Vacancies drop off at their last date: clear the Careers page cache just after midnight IST.
+add_action( 'init', 'sssihms_ja_vac_schedule' );
+function sssihms_ja_vac_schedule() {
+	if ( sssihms_ja_is_target() && ! wp_next_scheduled( 'sssihms_ja_vac_flush' ) ) {
+		wp_schedule_event( ( new DateTime( 'tomorrow 00:05', wp_timezone() ) )->getTimestamp(), 'daily', 'sssihms_ja_vac_flush' );
+	}
+}
+add_action( 'sssihms_ja_vac_flush', 'sssihms_ja_vac_flush' );
+
+function sssihms_ja_vac_page() {
+	$cats = sssihms_ja_categories();
+	echo '<div class="wrap">';
+	if ( isset( $_GET['ja_msg'] ) ) {
+		echo '<div class="notice notice-success"><p>' . esc_html( sanitize_text_field( wp_unslash( $_GET['ja_msg'] ) ) ) . '</p></div>';
+	}
+	$edit = isset( $_GET['edit'] ) ? sssihms_ja_vac_get( absint( $_GET['edit'] ), false ) : null;
+	if ( $edit || isset( $_GET['new'] ) ) {
+		$vac = $edit ?: array();
+		echo '<h1>' . ( $edit ? 'Edit vacancy' : 'Add vacancy' ) . '</h1>'
+			. '<form method="post" enctype="multipart/form-data" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '">' . wp_nonce_field( 'sssihms_vac_save', '_wpnonce', true, false )
+			. '<input type="hidden" name="action" value="sssihms_vac_save"><input type="hidden" name="id" value="' . (int) ( $vac['id'] ?? 0 ) . '"><table class="form-table">';
+		foreach ( sssihms_ja_vac_fields() as $k => $f ) {
+			$cur = $vac[ $k ] ?? '';
+			echo '<tr><th><label for="vac-' . $k . '">' . esc_html( $f[0] ) . ( $f[2] ? ' *' : '' ) . '</label></th><td>';
+			if ( 'select' === $f[1] ) {
+				echo '<select id="vac-' . $k . '" name="vac_' . $k . '" required><option value="">— Choose —</option>';
+				foreach ( $cats as $c => $label ) {
+					echo '<option value="' . $c . '"' . selected( $cur, $c, false ) . '>' . esc_html( $label ) . '</option>';
+				}
+				echo '</select>';
+			} elseif ( 'textarea' === $f[1] ) {
+				echo '<textarea id="vac-' . $k . '" name="vac_' . $k . '" rows="3" class="large-text">' . esc_textarea( $cur ) . '</textarea>';
+			} else {
+				echo '<input type="' . $f[1] . '" id="vac-' . $k . '" name="vac_' . $k . '" value="' . esc_attr( $cur ) . '" class="' . ( 'text' === $f[1] ? 'regular-text' : 'small-text' ) . '"' . ( 'number' === $f[1] ? ' min="1"' : '' ) . ( $f[2] ? ' required' : '' ) . '>';
+			}
+			echo '</td></tr>';
+		}
+		echo '<tr><th><label for="vac-flyer">Flyer</label></th><td>';
+		if ( ! empty( $vac['flyer'] ) && get_post( $vac['flyer'] ) ) {
+			echo '<p>Current: <a href="' . esc_url( wp_get_attachment_url( $vac['flyer'] ) ) . '" target="_blank" rel="noopener">' . esc_html( basename( get_attached_file( $vac['flyer'] ) ) ) . '</a> '
+				. '<label><input type="checkbox" name="vac_flyer_remove" value="1"> Remove</label></p><p>Upload a new file to replace it:</p>';
+		}
+		echo '<input type="file" id="vac-flyer" name="flyer" accept=".jpg,.jpeg,.png,.pdf"><p class="description">JPG, PNG or PDF, up to 5 MB. Optional.</p></td></tr>'
+			. '<tr><th>Show on the Careers page</th><td><label><input type="checkbox" name="vac_open" value="1"' . checked( $vac['open'] ?? true, true, false ) . '> Open</label></td></tr>'
+			. '</table><p><button class="button button-primary">Save vacancy</button> <a class="button" href="' . esc_url( admin_url( 'admin.php?page=sssihms-vac' ) ) . '">Cancel</a></p></form></div>';
+		return;
+	}
+
+	echo '<h1 class="wp-heading-inline">Vacancies</h1> <a class="page-title-action" href="' . esc_url( admin_url( 'admin.php?page=sssihms-vac&new=1' ) ) . '">Add vacancy</a><hr class="wp-header-end">'
+		. '<p>Open vacancies appear on the <a href="' . esc_url( home_url( '/careers/' ) ) . '" target="_blank" rel="noopener">Career Opportunities</a> page, newest first, each with an "Apply for this post" button. A vacancy is hidden automatically after its last date; close it to hide it sooner.</p>'
+		. '<table class="widefat striped"><thead><tr><th>Position</th><th>Category</th><th>Department</th><th>Posts</th><th>Last date</th><th>Flyer</th><th>On the website</th><th></th></tr></thead><tbody>';
+	$list = sssihms_ja_vac_all();
+	foreach ( $list as $p ) {
+		$vac   = sssihms_ja_vac_get( $p->ID, false );
+		$live  = (bool) sssihms_ja_vac_get( $p->ID );
+		$state = $live ? 'Shown' : ( $vac['open'] ? 'Hidden — last date passed' : 'Closed' );
+		$tog   = sssihms_ja_admin_url( 'sssihms_vac_state', array( 'id' => $p->ID, 'to' => $vac['open'] ? 'close' : 'open' ) );
+		echo '<tr><td><strong><a href="' . esc_url( admin_url( 'admin.php?page=sssihms-vac&edit=' . $p->ID ) ) . '">' . esc_html( $vac['title'] ) . '</a></strong></td><td>' . esc_html( $cats[ $vac['cat'] ?? '' ] ?? '' ) . '</td><td>' . esc_html( $vac['dept'] ?? '' ) . '</td><td>' . esc_html( $vac['posts'] ?? '' ) . '</td><td>' . esc_html( sssihms_ja_vac_date( $vac['last_date'] ?? '' ) ?: 'Until filled' ) . '</td>'
+			. '<td>' . ( $vac['flyer'] ? '<a href="' . esc_url( wp_get_attachment_url( $vac['flyer'] ) ) . '" target="_blank" rel="noopener">View</a>' : '—' ) . '</td><td>' . $state . '</td>'
+			. '<td><a href="' . esc_url( admin_url( 'admin.php?page=sssihms-vac&edit=' . $p->ID ) ) . '">Edit</a> · <a href="' . esc_url( $tog ) . '">' . ( $vac['open'] ? 'Close' : 'Reopen' ) . '</a> · '
+			. '<a href="' . esc_url( sssihms_ja_admin_url( 'sssihms_vac_state', array( 'id' => $p->ID, 'to' => 'trash' ) ) ) . '" onclick="return confirm(\'Move this vacancy to the trash?\')">Trash</a></td></tr>';
+	}
+	if ( ! $list ) {
+		echo '<tr><td colspan="8">No vacancies yet. Use "Add vacancy".</td></tr>';
+	}
+	echo '</tbody></table></div>';
+}
+
+function sssihms_ja_vac_back( $msg ) {
+	sssihms_ja_vac_flush();
+	wp_safe_redirect( add_query_arg( 'ja_msg', rawurlencode( $msg ), admin_url( 'admin.php?page=sssihms-vac' ) ) );
+	exit;
+}
+
+add_action( 'admin_post_sssihms_vac_save', 'sssihms_ja_vac_save' );
+function sssihms_ja_vac_save() {
+	sssihms_ja_admin_check( 'sssihms_vac_save' );
+	$id   = absint( $_POST['id'] ?? 0 );
+	$prev = $id ? sssihms_ja_vac_get( $id, false ) : null;
+	if ( $id && ! $prev ) {
+		wp_die( 'Vacancy not found.', 404 );
+	}
+	$data = array();
+	foreach ( sssihms_ja_vac_fields() as $k => $f ) {
+		$raw        = wp_unslash( $_POST[ 'vac_' . $k ] ?? '' );
+		$data[ $k ] = 'textarea' === $f[1] ? trim( sanitize_textarea_field( $raw ) ) : trim( sanitize_text_field( $raw ) );
+	}
+	$errors = array();
+	if ( '' === $data['title'] ) {
+		$errors[] = 'Enter the position.';
+	}
+	if ( ! isset( sssihms_ja_categories()[ $data['cat'] ] ) ) {
+		$errors[] = 'Choose a category.';
+	}
+	if ( '' !== $data['posts'] && ( ! ctype_digit( $data['posts'] ) || (int) $data['posts'] < 1 ) ) {
+		$errors[] = 'Number of posts should be a whole number.';
+	}
+	if ( '' !== $data['last_date'] && ! sssihms_ja_vac_date( $data['last_date'] ) ) {
+		$errors[] = 'Enter a valid last date.';
+	}
+	$up = $_FILES['flyer'] ?? null;
+	if ( $up && UPLOAD_ERR_NO_FILE !== $up['error'] ) {
+		$check = wp_check_filetype_and_ext( $up['tmp_name'], $up['name'] );
+		if ( UPLOAD_ERR_OK !== $up['error'] ) {
+			$errors[] = 'The flyer could not be uploaded.';
+		} elseif ( $up['size'] > 5 * MB_IN_BYTES ) {
+			$errors[] = 'The flyer is larger than 5 MB.';
+		} elseif ( ! in_array( strtolower( (string) $check['ext'] ), array( 'jpg', 'jpeg', 'png', 'pdf' ), true ) ) {
+			$errors[] = 'The flyer must be a JPG, PNG or PDF file.';
+		}
+	}
+	if ( $errors ) {
+		wp_die( esc_html( implode( ' ', $errors ) ) . '<p><a href="javascript:history.back()">Go back</a></p>', 'Vacancy not saved', array( 'response' => 400 ) );
+	}
+
+	$title = $data['title'];
+	unset( $data['title'] );
+	$args = array( 'post_type' => 'sssihms_vacancy', 'post_status' => 'private', 'post_title' => $title );
+	$id   = $id ? wp_update_post( array_merge( $args, array( 'ID' => $id ) ) ) : wp_insert_post( $args );
+	update_post_meta( $id, '_vac', $data );
+	update_post_meta( $id, '_vac_open', empty( $_POST['vac_open'] ) ? 0 : 1 );
+	if ( ! empty( $_POST['vac_flyer_remove'] ) ) {
+		delete_post_meta( $id, '_vac_flyer' ); // The file stays in the media library.
+	}
+	if ( $up && UPLOAD_ERR_OK === $up['error'] ) {
+		require_once ABSPATH . 'wp-admin/includes/file.php';
+		require_once ABSPATH . 'wp-admin/includes/media.php';
+		require_once ABSPATH . 'wp-admin/includes/image.php';
+		$att = media_handle_upload( 'flyer', 0, array( 'post_title' => 'Vacancy flyer — ' . $title ) );
+		if ( is_wp_error( $att ) ) {
+			sssihms_ja_vac_back( 'Vacancy saved, but the flyer was not: ' . $att->get_error_message() );
+		}
+		update_post_meta( $id, '_vac_flyer', $att );
+	}
+	sssihms_ja_vac_back( 'Vacancy "' . $title . '" saved.' );
+}
+
+add_action( 'admin_post_sssihms_vac_state', 'sssihms_ja_vac_state' );
+function sssihms_ja_vac_state() {
+	sssihms_ja_admin_check( 'sssihms_vac_state' );
+	$vac = sssihms_ja_vac_get( absint( $_GET['id'] ?? 0 ), false );
+	$to  = sanitize_key( $_GET['to'] ?? '' );
+	if ( ! $vac ) {
+		wp_die( 'Vacancy not found.', 404 );
+	}
+	if ( 'trash' === $to ) {
+		wp_trash_post( $vac['id'] );
+		sssihms_ja_vac_back( 'Vacancy "' . $vac['title'] . '" moved to the trash.' );
+	}
+	update_post_meta( $vac['id'], '_vac_open', 'open' === $to ? 1 : 0 );
+	sssihms_ja_vac_back( 'Vacancy "' . $vac['title'] . '" ' . ( 'open' === $to ? 'reopened' : 'closed' ) . '.' );
+}
+
+/** [sssihms_vacancies]: the whole "Current Vacancies" section, or nothing when none are open. */
+add_shortcode( 'sssihms_vacancies', 'sssihms_ja_vac_render' );
+function sssihms_ja_vac_render() {
+	if ( ! sssihms_ja_is_target() ) {
+		return '';
+	}
+	$cards = '';
+	foreach ( sssihms_ja_vac_all() as $p ) {
+		$vac = sssihms_ja_vac_get( $p->ID );
+		if ( ! $vac ) {
+			continue;
+		}
+		$flyer = '';
+		if ( $vac['flyer'] && get_post( $vac['flyer'] ) ) {
+			$url   = wp_get_attachment_url( $vac['flyer'] );
+			$flyer = wp_attachment_is_image( $vac['flyer'] )
+				? '<a class="vac-flyer" href="' . esc_url( $url ) . '" target="_blank" rel="noopener">' . wp_get_attachment_image( $vac['flyer'], 'medium_large', false, array( 'alt' => 'Flyer: ' . $vac['title'] ) ) . '</a>'
+				: '<p><a class="vac-pdf" href="' . esc_url( $url ) . '" target="_blank" rel="noopener">View the flyer (PDF) →</a></p>';
+		}
+		$facts = array(
+			'Number of posts' => $vac['posts'] ?? '',
+			'Qualification'   => $vac['qual'] ?? '',
+			'Experience'      => $vac['exp'] ?? '',
+			'Last date'       => sssihms_ja_vac_date( $vac['last_date'] ?? '' ),
+		);
+		$dl = '';
+		foreach ( array_filter( $facts, 'strlen' ) as $k => $val ) {
+			$dl .= '<dt>' . esc_html( $k ) . '</dt><dd>' . nl2br( esc_html( $val ) ) . '</dd>';
+		}
+		$meta   = array_filter( array( sssihms_ja_categories()[ $vac['cat'] ] ?? '', $vac['dept'] ?? '' ), 'strlen' );
+		$cards .= '<article class="vac-card">' . ( $flyer && wp_attachment_is_image( $vac['flyer'] ) ? $flyer : '' ) . '<div class="vac-body">'
+			. '<p class="vac-meta">' . esc_html( implode( ' · ', $meta ) ) . '</p><h3>' . esc_html( $vac['title'] ) . '</h3>'
+			. ( $dl ? '<dl>' . $dl . '</dl>' : '' ) . ( ! empty( $vac['details'] ) ? '<p class="vac-details">' . nl2br( esc_html( $vac['details'] ) ) . '</p>' : '' )
+			. ( $flyer && ! wp_attachment_is_image( $vac['flyer'] ) ? $flyer : '' )
+			. '<p class="vac-apply"><a class="btn btn-primary" href="' . esc_url( add_query_arg( 'vacancy', $vac['id'], home_url( '/careers/apply/' ) ) ) . '#job-application">Apply for this post →</a></p></div></article>';
+	}
+	if ( '' === $cards ) {
+		return '';
+	}
+	return '<style>
+.vac-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:24px;margin-top:8px}
+.vac-card{background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.vac-flyer img{display:block;width:100%;height:auto;border-bottom:1px solid var(--border)}
+.vac-body{padding:20px 22px;display:flex;flex-direction:column;flex:1}
+.vac-meta{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--primary-deep);margin:0 0 6px;font-weight:600}
+.vac-card h3{font-family:var(--f-head);font-size:22px;color:var(--text);margin:0 0 12px}
+.vac-card dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0 0 12px;font-size:15px}
+.vac-card dt{color:var(--tm);font-weight:600}.vac-card dd{margin:0;color:var(--text)}
+.vac-details{font-size:15px;color:var(--tm);line-height:1.7;margin:0 0 12px}
+.vac-pdf{color:var(--primary);text-decoration:underline;font-weight:600}
+.vac-apply{margin:auto 0 0;padding-top:8px}
+</style><section class="section section-alt" id="vacancies"><div class="wrap"><span class="eyebrow">Now Recruiting</span><h2 class="section-title">Current Vacancies</h2><div class="vac-grid">' . $cards . '</div></div></section>';
 }
