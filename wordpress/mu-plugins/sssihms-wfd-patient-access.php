@@ -162,6 +162,21 @@ function sssihms_wfd_contact_aliases() {
 add_action( 'template_redirect', 'sssihms_wfd_contact_aliases' );
 
 /**
+ * The old Opportunities page (1159) carried an undated vacancy notice and a Google Form that
+ * HR withdrew (08-Oct-2026). Vacancies and the application form now live on /careers/.
+ */
+function sssihms_wfd_opportunities_redirect() {
+	if ( ! sssihms_wfd_is_target() || is_admin() ) {
+		return;
+	}
+	if ( 'opportunities' === trim( parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ), '/' ) ) {
+		wp_safe_redirect( home_url( '/careers/' ), 301 );
+		exit;
+	}
+}
+add_action( 'template_redirect', 'sssihms_wfd_opportunities_redirect' );
+
+/**
  * Hospital schema. Google builds the map/knowledge card from this — the card
  * carrying the call button and directions that patients actually tap. Divi and
  * Yoast emit only WebPage/BreadcrumbList, which cannot carry an address or phone.
