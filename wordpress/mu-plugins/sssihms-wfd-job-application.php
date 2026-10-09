@@ -18,7 +18,7 @@
  *
  * Vacancies: wp-admin → Job Applications → Vacancies lets HR add, edit and close vacancies with
  * an optional flyer (JPG/PNG/PDF). Open vacancies are listed on the Careers page by the
- * shortcode [sssihms_vacancies]; each links to the form with position and category filled in.
+ * shortcode [sssihms_vacancies]; each links to the form with the category filled in and the vacancy recorded.
  * A vacancy disappears after its last date. The "HR Recruitment" role sees only these screens.
  *
  * Uses sssihms_fa_css(), sssihms_fa_drive_cfg() and sssihms_fa_send_download() from
@@ -53,11 +53,7 @@ function sssihms_ja_categories() {
 function sssihms_ja_fields() {
 	$yn = array( 'Yes', 'No' );
 	return array(
-		'position'     => array( 'Position applied for', 'text', true, '', null ),
-		'dept'         => array( 'Department preferred', 'text', false, '', null ),
-		'heard'        => array( 'How did you hear about us?', 'select', false, '', array( 'Hospital website', 'Newspaper', 'Social media', 'Friend or colleague', 'Sri Sathya Sai Organisation', 'Other' ) ),
-
-		'name'         => array( 'Full name', 'text', true, '', null ),
+		'name'         => array( 'Full name (as per Aadhaar)', 'text', true, '', null ),
 		'dob'          => array( 'Date of birth', 'date', true, '', null ),
 		'gender'       => array( 'Gender', 'radio', false, '', array( 'Male', 'Female' ) ),
 		'mobile'       => array( 'Mobile number (10 digits)', 'tel', true, '', null ),
@@ -70,22 +66,21 @@ function sssihms_ja_fields() {
 		'inst'         => array( 'Institution and university / board', 'text', true, '', null ),
 		'qual_year'    => array( 'Year passed', 'number', true, '', null ),
 		'other_qual'   => array( 'Other qualifications and certifications', 'textarea', false, '', null ),
+		// Required for doctors and nurses only (checked in the handler and the form script).
+		'reg'          => array( 'Council registration number (doctors and nurses)', 'text', false, '', null ),
+		'reg_council'  => array( 'Registered with (e.g. NMC, Karnataka Medical Council, INC, Karnataka State Nursing Council)', 'text', false, '', null ),
 
 		'n_qual'       => array( 'Nursing qualification', 'select', true, 'nursing', array( 'ANM', 'GNM', 'B.Sc Nursing', 'Post Basic B.Sc Nursing', 'M.Sc Nursing' ) ),
-		'n_reg'        => array( 'Nursing council registration number', 'text', true, 'nursing', null ),
-		'n_reg_state'  => array( 'Registered with (INC / state nursing council)', 'text', true, 'nursing', null ),
 		'n_areas'      => array( 'Areas you have worked in', 'checks', false, 'nursing', array( 'ICU', 'CTVS ICU', 'Cardiac OT', 'Cath lab', 'Neuro ICU', 'Ward', 'Dialysis', 'NICU / PICU', 'Other' ) ),
 		'n_bls'        => array( 'BLS / ACLS certificate valid until', 'month', false, 'nursing', null ),
 
 		'd_degree'     => array( 'Degrees and specialty (e.g. MBBS, MD Anaesthesia, DM Cardiology)', 'text', true, 'doctor', null ),
-		'd_reg'        => array( 'NMC / state medical council registration number', 'text', true, 'doctor', null ),
 		'd_post'       => array( 'Post sought', 'select', true, 'doctor', array( 'Resident', 'Registrar', 'Consultant', 'Fellow', 'Other' ) ),
 		'd_expertise'  => array( 'Procedures and areas of expertise', 'textarea', false, 'doctor', null ),
 		'd_pubs'       => array( 'Publications', 'textarea', false, 'doctor', null ),
 
 		't_field'      => array( 'Field', 'select', true, 'tech', array( 'Cath lab', 'Perfusion', 'Operation theatre', 'Anaesthesia', 'Radiology / imaging', 'Laboratory', 'Respiratory therapy', 'Dialysis', 'Biomedical engineering', 'Pharmacy', 'Physiotherapy', 'Other' ) ),
 		't_course'     => array( 'Course and duration', 'text', true, 'tech', null ),
-		't_reg'        => array( 'Council registration number (if applicable)', 'text', false, 'tech', null ),
 		't_equipment'  => array( 'Equipment and systems you have used', 'textarea', false, 'tech', null ),
 
 		'a_function'   => array( 'Area of work', 'select', true, 'admin', array( 'Accounts', 'Human resources', 'Front office', 'IT', 'Stores and purchase', 'Housekeeping', 'Security', 'Other' ) ),
@@ -100,14 +95,6 @@ function sssihms_ja_fields() {
 		'leaving'      => array( 'Reason for leaving', 'text', false, '', null ),
 		'salary'       => array( 'Current monthly salary in ₹ (0 if not working)', 'number', true, '', null ),
 		'notice'       => array( 'Notice period', 'text', false, '', null ),
-
-		'join_date'    => array( 'Earliest date you can join', 'date', true, '', null ),
-		'shifts'       => array( 'Willing to work rotating and night shifts?', 'radio', true, '', $yn ),
-		'stay'         => array( 'Do you need accommodation?', 'radio', true, '', $yn ),
-
-		'seva'         => array( 'Have you done any service (seva) in the Sri Sathya Sai Organisation or its institutions?', 'radio', true, '', $yn ),
-		'seva_details' => array( 'If yes: where, what service and for how long', 'textarea', false, '', null ),
-		'serve_for'    => array( 'If selected, how long would you like to serve at SSSIHMS?', 'select', true, '', array( 'Up to 1 year', '1–3 years', '3–5 years', 'More than 5 years' ) ),
 	);
 }
 
@@ -183,12 +170,6 @@ function sssihms_ja_handle() {
 			$errors[] = 'Enter a valid date of birth.';
 		}
 	}
-	if ( '' !== $v['join_date'] ) {
-		$d = DateTime::createFromFormat( '!Y-m-d', $v['join_date'] );
-		if ( ! $d || $d->format( 'Y-m-d' ) !== $v['join_date'] ) {
-			$errors[] = 'Enter a valid joining date.';
-		}
-	}
 	foreach ( array( 'n_bls', 'exp_from', 'exp_to' ) as $m ) {
 		if ( '' !== $v[ $m ] && ! preg_match( '/^(19|20)\d\d-(0[1-9]|1[0-2])$/', $v[ $m ] ) ) {
 			$errors[] = sssihms_ja_fields()[ $m ][0] . ': enter a month and year.';
@@ -205,9 +186,16 @@ function sssihms_ja_handle() {
 			$errors[] = sssihms_ja_fields()[ $n ][0] . ': enter a number.';
 		}
 	}
-	if ( 'Yes' === $v['seva'] && '' === $v['seva_details'] ) {
-		$errors[] = 'Tell us where and what service you have done in the Sri Sathya Sai Organisation.';
+	if ( in_array( $cat, array( 'nursing', 'doctor' ), true ) ) {
+		foreach ( array( 'reg', 'reg_council' ) as $k ) {
+			if ( '' === $v[ $k ] ) {
+				$errors[] = ( 'reg' === $k ? 'Council registration number' : 'Registered with (council)' ) . ' is required for doctors and nurses.';
+			}
+		}
 	}
+	// Applying from a vacancy on the Careers page: keep which one.
+	$vac        = sssihms_ja_vac_get( absint( $_POST['ja_vacancy'] ?? 0 ) );
+	$v['vacancy'] = $vac ? $vac['id'] : 0;
 	if ( empty( $_POST['consent'] ) ) {
 		$errors[] = 'Please confirm the declaration at the end of the form.';
 	}
@@ -264,7 +252,7 @@ function sssihms_ja_handle() {
 	$catname = sssihms_ja_categories()[ $cat ];
 
 	// Every application carries every column (blank when not asked), so Drive and Excel line up.
-	$rows = array( 'Reference' => $ref, 'Submitted' => current_time( 'd-M-Y H:i' ) . ' IST', 'Category' => $catname, 'Email' => $email );
+	$rows = array( 'Reference' => $ref, 'Submitted' => current_time( 'd-M-Y H:i' ) . ' IST', 'Category' => $catname, 'Vacancy' => $vac ? $vac['title'] : '', 'Email' => $email );
 	foreach ( sssihms_ja_fields() as $key => $f ) {
 		$val = $v[ $key ];
 		if ( '' !== $val && 'date' === $f[1] ) {
@@ -306,9 +294,9 @@ function sssihms_ja_handle() {
 	$html .= '</table>';
 	$sent  = wp_mail(
 		SSSIHMS_JA_TO,
-		'Job application — ' . $catname . ' — ' . $v['position'] . ' — ' . $rows['Full name'] . ' [' . $ref . ']',
+		'Job application — ' . $catname . ' — ' . ( $rows['Vacancy'] ?: 'General application' ) . ' — ' . $rows['Full name (as per Aadhaar)'] . ' [' . $ref . ']',
 		$html,
-		array( 'Content-Type: text/html; charset=UTF-8', 'Reply-To: ' . $rows['Full name'] . ' <' . $email . '>' ),
+		array( 'Content-Type: text/html; charset=UTF-8', 'Reply-To: ' . $rows['Full name (as per Aadhaar)'] . ' <' . $email . '>' ),
 		array_values( $files )
 	);
 	sssihms_ja_rmdir( $tmpdir );
@@ -325,8 +313,8 @@ function sssihms_ja_handle() {
 		return;
 	}
 
-	$ack = 'Dear ' . $rows['Full name'] . ",\n\nThank you for applying to Sri Sathya Sai Institute of Higher Medical Sciences, Whitefield. Your application has been received.\n\n"
-		. "Reference: $ref\nPosition: " . $v['position'] . " ($catname)\n\n"
+	$ack = 'Dear ' . $rows['Full name (as per Aadhaar)'] . ",\n\nThank you for applying to Sri Sathya Sai Institute of Higher Medical Sciences, Whitefield. Your application has been received.\n\n"
+		. "Reference: $ref\nCategory: $catname\n" . ( $rows['Vacancy'] ? 'Vacancy: ' . $rows['Vacancy'] . "\n" : '' ) . "\n"
 		. "The Human Resources department will contact you if your profile matches a requirement.\n\n"
 		. "Human Resources, Sri Sathya Sai Institute of Higher Medical Sciences, EPIP Area, Whitefield, Bengaluru 560066\n"
 		. SSSIHMS_JA_TO . "\n";
@@ -360,10 +348,12 @@ function sssihms_ja_render() {
 	}
 
 	$v = $GLOBALS['sssihms_ja_values'];
-	$vac = $v ? null : sssihms_ja_vac_get( absint( $_GET['vacancy'] ?? 0 ) );
+	$vac = sssihms_ja_vac_get( $v ? (int) ( $v['vacancy'] ?? 0 ) : absint( $_GET['vacancy'] ?? 0 ) );
+	if ( $vac && ! $v ) {
+		$v = array( 'cat' => $vac['cat'] );
+	}
 	if ( $vac ) {
-		$v = array( 'position' => $vac['title'], 'cat' => $vac['cat'] );
-		$out .= '<p class="fa-note">Applying for: <strong>' . esc_html( $vac['title'] ) . '</strong>. You can change the position below.</p>';
+		$out .= '<p class="fa-note">Applying for: <strong>' . esc_html( $vac['title'] ) . '</strong>.</p>';
 	}
 	if ( $GLOBALS['sssihms_ja_errors'] ) {
 		$out .= '<div class="fa-err" role="alert" tabindex="-1" id="ja-errors"><strong>Please correct the following and submit again. Attach your files again too.</strong><ul>';
@@ -423,14 +413,15 @@ function sssihms_ja_render() {
 
 	$out .= '<form method="post" enctype="multipart/form-data" action="#job-application" class="fa-form" id="ja-form">'
 		. '<input type="hidden" name="sssihms_ja" value="1">'
+		. ( $vac ? '<input type="hidden" name="ja_vacancy" value="' . (int) $vac['id'] . '">' : '' )
 		. '<div class="fa-hp" aria-hidden="true"><label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>'
 		. '<p class="fa-note">Fields marked ' . $req . ' are required. We will reply to the email address you give below.</p>'
 
-		. '<h3>1. Position</h3><fieldset class="fa-field"><legend>Category ' . $req . '</legend>';
+		. '<h3>1. Category</h3><fieldset class="fa-field"><legend>Category ' . $req . '</legend>';
 	foreach ( sssihms_ja_categories() as $k => $label ) {
 		$out .= '<label class="fa-opt"><input type="radio" name="category" value="' . $k . '"' . checked( $v['cat'] ?? '', $k, false ) . ' required> ' . esc_html( $label ) . '</label>';
 	}
-	$out .= '</fieldset>' . $group( array( 'position', 'dept', 'heard' ) )
+	$out .= '</fieldset>'
 
 		. '<h3>2. Personal details</h3>'
 		. '<div class="fa-grid">' . $field( 'name' ) . $field( 'dob' ) . $field( 'gender' )
@@ -438,7 +429,7 @@ function sssihms_ja_render() {
 		. $field( 'mobile' ) . $field( 'alt' ) . $field( 'city' ) . $field( 'state' ) . '</div>'
 		. $field( 'languages' )
 
-		. '<h3>3. Education</h3>' . $group( array( 'qual', 'inst', 'qual_year', 'other_qual' ) );
+		. '<h3>3. Education</h3>' . $group( array( 'qual', 'inst', 'qual_year', 'other_qual', 'reg', 'reg_council' ) );
 
 	$n = 4;
 	foreach ( sssihms_ja_categories() as $c => $label ) {
@@ -449,17 +440,15 @@ function sssihms_ja_render() {
 	}
 
 	$out .= '<h3>' . ( $n + 1 ) . '. Experience</h3>' . $group( array( 'exp_years', 'employer', 'designation', 'exp_from', 'exp_to', 'leaving', 'salary', 'notice' ) )
-		. '<h3>' . ( $n + 2 ) . '. Availability</h3>' . $group( array( 'join_date', 'shifts', 'stay' ) )
-		. '<h3>' . ( $n + 3 ) . '. Service</h3>' . $field( 'seva' ) . $field( 'seva_details' ) . $field( 'serve_for' )
-		. '<h3>' . ( $n + 4 ) . '. Documents</h3>' . $file( 'cv' ) . $file( 'certs' ) . $file( 'photo' )
+		. '<h3>' . ( $n + 2 ) . '. Documents</h3>' . $file( 'cv' ) . $file( 'certs' ) . $file( 'photo' )
 
 		. '<label class="fa-opt fa-consent"><input type="checkbox" name="consent" value="1" required> I declare that the information given is true. I agree to SSSIHMS using it to consider me for employment. ' . $req . '</label>'
 		. '<p><button type="submit" class="btn btn-primary">Submit application</button></p>'
-		. '<p class="fa-note">Trouble with the form? Email your CV, stating the position, to <a href="mailto:' . SSSIHMS_JA_TO . '">' . SSSIHMS_JA_TO . '</a>.</p>'
+		. '<p class="fa-note">Trouble with the form? Email your CV to <a href="mailto:' . SSSIHMS_JA_TO . '">' . SSSIHMS_JA_TO . '</a>.</p>'
 		. '</form></div>'
 		. '<script>(function(){var f=document.getElementById("ja-form");if(!f)return;function show(){var c=(f.querySelector("input[name=category]:checked")||{}).value||"";'
 		. 'f.querySelectorAll(".ja-cat").forEach(function(s){var on=s.getAttribute("data-cat")===c;s.hidden=!on;s.querySelectorAll("input,select,textarea").forEach(function(el){el.disabled=!on;if(el.getAttribute("data-req"))el.required=on;});});'
-		. '}'
+		. '["ja-reg","ja-reg_council"].forEach(function(id){var e=document.getElementById(id);if(e)e.required=(c==="nursing"||c==="doctor");});}'
 		. 'f.addEventListener("change",function(e){if(e.target.name==="category")show();});show();})();</script>';
 	return $out;
 }
@@ -531,7 +520,7 @@ function sssihms_ja_drive_push( $post_id ) {
 		}
 	}
 	$rows = get_post_meta( $post_id, '_ja_rows', true );
-	$j    = sssihms_ja_drive_call( array( 'ref' => $app->post_title, 'name' => $rows['Full name'] ?? '', 'row' => $rows, 'files' => $files ) );
+	$j    = sssihms_ja_drive_call( array( 'ref' => $app->post_title, 'name' => $rows['Full name (as per Aadhaar)'] ?? '', 'row' => $rows, 'files' => $files ) );
 	if ( is_array( $j ) && ! empty( $j['folder'] ) ) {
 		update_post_meta( $post_id, '_ja_drive', esc_url_raw( $j['folder'] ) );
 		delete_post_meta( $post_id, '_ja_drive_error' );
@@ -613,7 +602,7 @@ function sssihms_ja_admin_page() {
 			. ( sssihms_fa_drive_cfg() ? '<a class="button" href="' . esc_url( sssihms_ja_admin_url( 'sssihms_ja_drive_all' ) ) . '">Copy pending and failed to Drive now</a>' : '' ) . '</p>';
 	}
 	echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '">' . wp_nonce_field( 'sssihms_ja_status', '_wpnonce', true, false ) . '<input type="hidden" name="action" value="sssihms_ja_status">';
-	echo '<table class="widefat striped"><thead><tr><th>Reference</th><th>Submitted</th><th>Category</th><th>Position</th><th>Name</th><th>Experience</th><th>Mobile</th><th>Files</th><th>Drive</th><th>Status</th></tr></thead><tbody>';
+	echo '<table class="widefat striped"><thead><tr><th>Reference</th><th>Submitted</th><th>Category</th><th>Vacancy</th><th>Name</th><th>Experience</th><th>Mobile</th><th>Files</th><th>Drive</th><th>Status</th></tr></thead><tbody>';
 	$shown = 0;
 	foreach ( array_reverse( $apps ) as $app ) {
 		$cat = get_post_meta( $app->ID, '_ja_cat', true );
@@ -635,7 +624,7 @@ function sssihms_ja_admin_page() {
 			$sel .= '<option value="' . $k . '"' . selected( $st, $k, false ) . '>' . esc_html( $label ) . '</option>';
 		}
 		$sel .= '</select>';
-		echo '<tr><td>' . esc_html( $app->post_title ) . '</td><td>' . esc_html( $r['Submitted'] ?? '' ) . '</td><td>' . esc_html( $r['Category'] ?? '' ) . '</td><td>' . esc_html( $r['Position applied for'] ?? '' ) . '</td><td>' . esc_html( $r['Full name'] ?? '' ) . '</td><td>' . esc_html( $r['Total experience (years; 0 if none)'] ?? '' ) . ' yrs</td><td>' . esc_html( $r['Mobile number (10 digits)'] ?? '' ) . '</td><td>' . implode( ' · ', $links ) . '</td><td>' . $dcell . '</td><td>' . $sel . '</td></tr>';
+		echo '<tr><td>' . esc_html( $app->post_title ) . '</td><td>' . esc_html( $r['Submitted'] ?? '' ) . '</td><td>' . esc_html( $r['Category'] ?? '' ) . '</td><td>' . esc_html( ( $r['Vacancy'] ?? '' ) ?: ( $r['Position applied for'] ?? 'General' ) ) . '</td><td>' . esc_html( $r['Full name (as per Aadhaar)'] ?? '' ) . '</td><td>' . esc_html( $r['Total experience (years; 0 if none)'] ?? '' ) . ' yrs</td><td>' . esc_html( $r['Mobile number (10 digits)'] ?? '' ) . '</td><td>' . implode( ' · ', $links ) . '</td><td>' . $dcell . '</td><td>' . $sel . '</td></tr>';
 	}
 	if ( ! $shown ) {
 		echo '<tr><td colspan="10">No applications.</td></tr>';
@@ -708,7 +697,7 @@ function sssihms_ja_zip() {
 	$zip->open( $tmp, ZipArchive::OVERWRITE );
 	foreach ( sssihms_ja_apps() as $app ) {
 		$r      = (array) get_post_meta( $app->ID, '_ja_rows', true );
-		$folder = sanitize_file_name( ( $r['Category'] ?? '' ) ) . '/' . sanitize_file_name( $app->post_title . ' ' . ( $r['Full name'] ?? '' ) );
+		$folder = sanitize_file_name( ( $r['Category'] ?? '' ) ) . '/' . sanitize_file_name( $app->post_title . ' ' . ( $r['Full name (as per Aadhaar)'] ?? '' ) );
 		foreach ( (array) get_post_meta( $app->ID, '_ja_files', true ) as $path ) {
 			$path = sssihms_ja_safe_path( $path );
 			if ( $path ) {
@@ -727,18 +716,26 @@ function sssihms_ja_xlsx() {
 	$all    = sssihms_ja_fields();
 	$sheets = array();
 	foreach ( sssihms_ja_categories() as $c => $label ) {
-		$head = array( 'Reference', 'Submitted', 'Status', 'Email' );
+		$head = array( 'Reference', 'Submitted', 'Status', 'Vacancy', 'Email' );
 		foreach ( $all as $f ) {
 			if ( '' === $f[3] || $c === $f[3] ) {
 				$head[] = $f[0];
 			}
 		}
+		// Answers to questions since removed from the form (older applications) stay as extra columns.
+		$apps = array_filter( sssihms_ja_apps(), function ( $app ) use ( $c ) {
+			return get_post_meta( $app->ID, '_ja_cat', true ) === $c;
+		} );
+		foreach ( $apps as $app ) {
+			foreach ( array_keys( (array) get_post_meta( $app->ID, '_ja_rows', true ) ) as $k ) {
+				if ( ! in_array( $k, $head, true ) && ! in_array( $k, array( 'Category' ), true ) ) {
+					$head[] = $k;
+				}
+			}
+		}
 		array_push( $head, 'Files', 'Emailed to HR', 'Google Drive folder' );
 		$rows = array( $head );
-		foreach ( sssihms_ja_apps() as $app ) {
-			if ( get_post_meta( $app->ID, '_ja_cat', true ) !== $c ) {
-				continue;
-			}
+		foreach ( $apps as $app ) {
 			$r   = (array) get_post_meta( $app->ID, '_ja_rows', true );
 			$row = array();
 			foreach ( array_slice( $head, 0, -3 ) as $h ) {

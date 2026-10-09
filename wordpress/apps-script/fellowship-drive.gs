@@ -57,17 +57,21 @@ function doPost(e) {
       folder.createFile(Utilities.newBlob(Utilities.base64Decode(f.data), f.mime, f.name));
     });
     const sheet = sheet_(root, form);
-    if (sheet.getLastRow() === 0) {
-      sheet.appendRow(Object.keys(p.row).concat(['Drive folder']));
+    // Match columns by name: add a column for any new question, leave removed ones blank.
+    const keys = Object.keys(p.row).concat(['Drive folder']);
+    let header = sheet.getLastRow() === 0 ? [] : sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+    const added = keys.filter(function (k) { return header.indexOf(k) < 0; });
+    if (added.length) {
+      sheet.getRange(1, header.length + 1, 1, added.length).setValues([added]).setFontWeight('bold');
+      header = header.concat(added);
       sheet.setFrozenRows(1);
-      sheet.getRange(1, 1, 1, sheet.getLastColumn()).setFontWeight('bold');
     }
+    const data = Object.assign({}, p.row, { 'Drive folder': folder.getUrl() });
     // A leading ' keeps text such as "+91…" or "=…" from being read as a formula.
-    const values = Object.keys(p.row).map(function (k) {
-      const v = String(p.row[k]);
+    sheet.appendRow(header.map(function (k) {
+      const v = data[k] === undefined ? '' : String(data[k]);
       return /^[=+\-@]/.test(v) ? "'" + v : v;
-    });
-    sheet.appendRow(values.concat([folder.getUrl()]));
+    }));
     return reply_({ ok: true, folder: folder.getUrl() });
   } catch (err) {
     return reply_({ ok: false, error: String(err) });
