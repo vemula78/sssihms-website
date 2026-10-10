@@ -55,6 +55,14 @@ Only ever delete the whitefield directories — those trees also hold the other 
 Edit `sssihms_wfd_numbers()`. Keys are `tel:` targets in E.164; values are every literal
 spelling that appears in page content. The literals are matched longest-first so a partial
 
+### `sssihms-wfd-chatbot.php`
+
+Loads the FAQ chat bubble from **chat.sssihms.org** on every public Whitefield page (blog 4
+only). The bot answers only from the hospital knowledge base; its code, knowledge-base rules
+and deployment live in the private `sssihms-chatbot` repo. The plugin gives the bubble the
+site accent and lifts it above the sticky Call Help Desk bar below 980px. Deployed
+10-Oct-2026. Deploy and purge caches exactly as for the patient-access plugin above.
+
 ### `sssihms-wfd-site-updates.php`
 
 A **Site Updates** screen in wp-admin (whitefield only, for anyone who can edit pages) that
