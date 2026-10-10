@@ -55,13 +55,18 @@ Only ever delete the whitefield directories — those trees also hold the other 
 Edit `sssihms_wfd_numbers()`. Keys are `tel:` targets in E.164; values are every literal
 spelling that appears in page content. The literals are matched longest-first so a partial
 
-### `sssihms-wfd-chatbot.php`
+### `sssihms-wfd-chatbot.php` — withdrawn, in `wordpress/pending/`
 
 Loads the FAQ chat bubble from **chat.sssihms.org** on every public Whitefield page (blog 4
-only). The bot answers only from the hospital knowledge base; its code, knowledge-base rules
-and deployment live in the private `sssihms-chatbot` repo. The plugin gives the bubble the
-site accent and lifts it above the sticky Call Help Desk bar below 980px. Deployed
-10-Oct-2026. Deploy and purge caches exactly as for the patient-access plugin above.
+only), with the site accent, lifted above the sticky Call Help Desk bar below 980px. The bot
+answers only from the hospital knowledge base; its code and tests live in the private
+`sssihms-chatbot` repo.
+
+Deployed 10-Oct-2026 and **withdrawn the same evening, pending staff review of the bot's
+answers** (the 20-question test report in `sssihms-chatbot/evals/`). The file is kept in
+`wordpress/pending/` so that redeploying `mu-plugins/` does not bring it back by accident; the
+VM holds a copy outside WordPress in `~/wp-mu-plugins-disabled/`. To go live, move it back to
+`mu-plugins/` and deploy and purge caches as for the patient-access plugin above.
 
 ### `sssihms-wfd-site-updates.php`
 
