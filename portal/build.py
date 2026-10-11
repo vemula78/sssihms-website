@@ -52,7 +52,31 @@ ORIGINAL = [
     '“Health care is not just medical care. Medical care is one of the components of what you all are doing. Actually healthcare is medical care, education and nutrition. Health care happens only when all these three are combined…you are doing all the three… An antiballistic missile has been launched by Bhagawan against poverty: Through education, water and health care”.',
     'Dr.A.P.J.Abdul Kalam', 'Former President of India',
 ]
-LINKS = [PG, WF, ABOUT]
+# Sister hospitals, added 11-Oct-2026. Every fact is from the hospital's own site:
+#  SSSGH Puttaparthi - sssgh.org: the-hospital, history (inaugurated 4-Oct-1956) and contact pages
+#  SSSGH Whitefield  - whitefield.sssihms.org/sssgh/ (departments; "since 1976");
+#                      housed in the SSSIHMS Whitefield building (Praveen, 11-Oct-2026)
+#  SSSMH             - sssmh.org.in About/Contact (started 30-Mar-2006; "A Unit of Sri Sathya Sai
+#                      Central Trust"). Its TLS certificate expired 05-Oct-2026.
+GH_PN = 'https://www.sssgh.org/'
+GH_WF = 'https://whitefield.sssihms.org/sssgh/'
+MH = 'https://www.sssmh.org.in/'
+SISTERS = [
+    ('Sri Sathya Sai General Hospital', 'Prasanthi Nilayam, Puttaparthi', '1956',
+     'Inaugurated in 1956 near Prasanthi Nilayam, the hospital serves chiefly the residents of the '
+     'Puttaparthi, Bukkapatnam and Kothacheruvu mandals.',
+     [('Phone', 'tel:+918555287256', '+91 8555-287256 / 289409'),
+      ('Email', 'mailto:medsupgh@sssihms.org.in', 'medsupgh@sssihms.org.in')], GH_PN),
+    ('Sri Sathya Sai General Hospital', 'Whitefield, Bangalore', '1976',
+     'Ophthalmology, obstetrics and gynaecology, orthopaedics, ENT, general medicine, paediatrics, '
+     'general surgery and dental care, housed in the SSSIHMS Whitefield building.',
+     [], GH_WF),
+    ('Sri Sathya Sai Mobile Hospital', 'Villages around Puttaparthi', '2006',
+     'A rural outreach health service started by Bhagawan in 2006. It runs from the 1st to the 12th '
+     'of every month at 12 base villages around Puttaparthi.',
+     [('Email', 'mailto:sssmhdir@sssihms.org.in', 'sssmhdir@sssihms.org.in')], MH),
+]
+LINKS = [PG, WF, ABOUT, GH_PN, GH_WF, MH]
 
 
 # Approved 11-Oct-2026: say "no charge", never "free" (brand wording).
@@ -129,6 +153,19 @@ CSS = """
 .sssi-page .campus img{width:100%;height:240px;object-fit:cover;display:block}
 .sssi-page .campus .in{padding:24px 26px 28px;display:flex;flex-direction:column;flex:1}
 .sssi-page .campus h3{font-size:27px;margin:0 0 2px}
+.sssi-page .campuses .eyebrow.sub{margin-top:52px}
+.sssi-page .sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.sssi-page .sis{background:#fff;border-top:3px solid var(--blue-mid);padding:22px 24px 24px;display:flex;flex-direction:column}
+.sssi-page .sis h3{font-size:21px;margin:0 0 4px}
+.sssi-page .sis .eyebrow{margin-bottom:12px}
+.sssi-page .sis .since{font-size:13px;color:var(--grey-mid);margin:0 0 10px}
+.sssi-page .sis p{font-size:15.5px;margin:0 0 14px}
+.sssi-page .sis dl{margin:0 0 16px;font-size:14.5px}
+.sssi-page .sis dt{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey-mid);margin-top:8px}
+.sssi-page .sis dd{margin:2px 0 0}
+.sssi-page .sis dd a{color:var(--rose-text);font-weight:600;text-decoration:none;word-break:break-word}
+.sssi-page .sis .go{margin-top:auto;color:var(--rose-text);font-weight:700;text-decoration:none;font-size:14.5px}
+.sssi-page .sis .go:hover{text-decoration:underline}
 .sssi-page .campus .eyebrow{margin-bottom:16px}
 .sssi-page .campus dl{margin:0 0 22px;font-size:15px}
 .sssi-page .campus dt{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey-mid);margin-top:10px}
@@ -158,9 +195,9 @@ CSS = """
 .sssi-page .fbot{border-top:1px solid var(--blue-mid);padding:16px 0;font-size:13px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 .sssi-page .fbot .lsb{color:var(--gold);font-style:italic}
 
-@media(max-width:980px){.sssi-page .feat{flex-basis:calc((100% - 22px)/2)}.sssi-page .hero h1{font-size:42px}}
+@media(max-width:980px){.sssi-page .sgrid{grid-template-columns:1fr 1fr}.sssi-page .feat{flex-basis:calc((100% - 22px)/2)}.sssi-page .hero h1{font-size:42px}}
 @media(max-width:700px){
-.sssi-page .cgrid,.sssi-page .fcols{grid-template-columns:1fr}.sssi-page .feat{flex-basis:100%}
+.sssi-page .cgrid,.sssi-page .sgrid,.sssi-page .fcols{grid-template-columns:1fr}.sssi-page .feat{flex-basis:100%}
 .sssi-page .wrap{padding-left:16px;padding-right:16px}
 .sssi-page .hero .ph.l{width:100%}.sssi-page .hero .ph.r{display:none}
 .sssi-page .lock img{height:auto}.sssi-page .hero .wrap{padding:72px 16px 64px}.sssi-page .hero h1{font-size:34px}.sssi-page .hero p{font-size:17px}
@@ -198,6 +235,13 @@ def campus(name, region, phone, email_line, photo, alt, href):
             % (photo, alt, name, region, tel(html.unescape(phone)), phone, email, email_line, href, C[12]))
 
 
+def sister(name, place, since, desc, contacts, href):
+    dl = ''.join('<dt>%s</dt><dd><a href="%s">%s</a></dd>' % c for c in contacts)
+    return ('<article class="sis"><h3>%s</h3><p class="eyebrow">%s</p><p class="since">Since %s</p>'
+            '<p>%s</p>%s<a class="go" href="%s">Visit site &rarr;</a></article>'
+            % (name, place, since, desc, '<dl>%s</dl>' % dl if dl else '', href))
+
+
 def page():
     feats = ''.join('<div class="feat"><h3>%s</h3><p>%s</p></div>' % f for f in FEATURES)
     return (
@@ -215,7 +259,8 @@ def page():
         '<section class="mission"><div class="wrap"><p class="eyebrow">Our mission</p>'
         '<p class="lead">%s</p><p>%s</p></div></section>'
         '<section class="campuses"><div class="wrap"><p class="eyebrow">Two campuses</p>'
-        '<div class="cgrid">%s%s</div></div></section>'
+        '<div class="cgrid">%s%s</div>'
+        '<p class="eyebrow sub">Sister hospitals</p><div class="sgrid">%s</div></div></section>'
         '<section><div class="wrap"><p class="eyebrow">What patients can expect</p>'
         '<div class="fgrid3">%s</div></div></section>'
         '<section class="quote"><div class="wrap"><blockquote>%s</blockquote>'
@@ -226,14 +271,16 @@ def page():
         '<div><h4>Whitefield</h4>Sri Sathya Sai Institute of Higher Medical Sciences,<br>EPIP Area, Whitefield,<br>'
         'Bangalore 560 066,<br>Karnataka, India<a href="%s">%s</a></div>'
         '<div><h4>Sites</h4><a href="%s">SSSIHMS-Prasanthigram</a><a href="%s">SSSIHMS-Whitefield</a>'
+        '<a href="%s">SSSGH-Puttaparthi</a><a href="%s">SSSGH-Whitefield</a><a href="%s">SSSMH</a>'
         '<a href="%s">About Us</a></div></div>'
         '<div class="fbot"><span>&copy; 2026 Sri Sathya Sai Institute of Higher Medical Sciences.</span>'
         '<span class="lsb">Loka Samastha Sukhino Bhavantu</span></div></div></footer>'
         % (C[6], C[10], LOGO, ABOUT, PG, WF, PHOTO_PG, PHOTO_WF, C[0], C[1], C[2], C[3],
            campus(C[4], C[5], C[6], C[7], PHOTO_PG, 'The Prasanthigram hospital building, Puttaparthi', PG),
            campus(C[8], C[9], C[10], C[11], PHOTO_WF, 'The Whitefield hospital building, Bengaluru', WF),
+           ''.join(sister(*x) for x in SISTERS),
            feats, C[25], C[26], C[27],
-           tel(ORIGINAL[6]), C[6], tel(ORIGINAL[10]), C[10], PG, WF, ABOUT))
+           tel(ORIGINAL[6]), C[6], tel(ORIGINAL[10]), C[10], PG, WF, GH_PN, GH_WF, MH, ABOUT))
 
 
 BV = '4.27.9'
