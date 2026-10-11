@@ -931,3 +931,14 @@ Not Whitefield: this is the network's root site, **blog 1, page 31** (`--url=sss
   byte-identical to the payload. Caches purged: `et-cache/1/1` and `cache/page_enhanced/sssihms.org` only.
 - Backup of the previous content and meta: `/home/azureuser/sssihms-org-bak-20261011/` (also `portal/backups/`, not committed).
 - Open: sssmh.org.in's TLS certificate expired 05-Oct-2026, so its "Visit site" link shows a browser warning.
+
+## 2026-10-11 — Fixes from the website audit (Codex, 11-Oct-2026)
+At Praveen's request, the items the web team could fix without a hospital decision (`output/pdf/SSSIHMS_Whitefield_Website_Audit_2026-10-11.pdf`):
+- **Homepage (54830)** — card links go straight to their pages: Book Appointment → `/appointments-admission/` ("How to Book (by phone) →"), Telemedicine → `/telemedicine/`, Sevadal → `/sevadal/` ("About Sevadal"), Volunteer Expertise → `/volunteer-expertise/`. Card text unchanged.
+- **Header layout (54939)** — "Staff Services" link in the utility bar, before the language links, to `/facility-management-services/` (dashboard, guest house, staff login, fleet and BMW tracker links already there).
+- **Contact (71)** — the "Write to Us" form title was a second `<h1>`; now `title_level="h2"`.
+- **Combined statistics (55368)** — collapsible "Text summary of this dashboard" under the iframe: the four department totals, periods and second measure, the 1,95,100 total, and the dashboard's own caveats (compiled 18-Jun-2026, 2026 partial, sessions vs procedure records, 2020 classification change). Figures copied from the dashboard's data; the four totals sum to 1,95,100.
+- **Yoast meta descriptions** for 11 pages that had none: 55980, 663, 590, 55667–55670 (in the page's own language, built from phrases on the page), 54788, 55998, 55368, 52990.
+- **Patient-access mu-plugin** — `sssihms_wfd_page_lang()`: Kannada/Hindi/Telugu/Bengali pages declare `lang="kn|hi|te|bn"` on `<html>`, with the Divi header and footer marked `lang="en"`.
+Not changed: the Biomedical Waste page's second `<h1>` comes from the `sssihms-bmw-tracker` plugin (separate source tree). Privacy notices for the job and fellowship forms are drafted in the emails to HR and the academic office, not published.
+Backups: `/home/azureuser/website-audit-fixes-bak-20261011/`.

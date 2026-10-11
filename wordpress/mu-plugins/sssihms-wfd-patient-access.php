@@ -687,3 +687,39 @@ add_action( 'template_redirect', 'sssihms_wfd_block_author_enum', 1 );
 add_filter( 'author_link', function ( $link ) {
 	return sssihms_wfd_is_target() ? home_url( '/' ) : $link;
 } );
+
+/**
+ * WCAG 3.1.1 — the four patient-information pages are written in Kannada, Hindi,
+ * Telugu and Bengali, but every page declared lang="en-US" (audit 11-Oct-2026).
+ * Declare the page's own language, and mark the English header and footer as
+ * English so screen readers switch back for the navigation.
+ */
+function sssihms_wfd_page_lang() {
+	if ( ! sssihms_wfd_is_target() || ! is_page() ) {
+		return '';
+	}
+	$langs = array( 55667 => 'kn', 55668 => 'hi', 55669 => 'te', 55670 => 'bn' );
+	$id    = (int) get_queried_object_id();
+	return isset( $langs[ $id ] ) ? $langs[ $id ] : '';
+}
+
+add_filter( 'language_attributes', function ( $output ) {
+	$lang = sssihms_wfd_page_lang();
+	return '' === $lang ? $output : preg_replace( '/lang="[^"]*"/', 'lang="' . $lang . '"', $output );
+} );
+
+function sssihms_wfd_lang_buffer() {
+	if ( is_admin() || '' === sssihms_wfd_page_lang() ) {
+		return;
+	}
+	ob_start(
+		function ( $html ) {
+			return str_replace(
+				array( '<header class="et-l et-l--header">', '<footer class="et-l et-l--footer">' ),
+				array( '<header class="et-l et-l--header" lang="en">', '<footer class="et-l et-l--footer" lang="en">' ),
+				$html
+			);
+		}
+	);
+}
+add_action( 'template_redirect', 'sssihms_wfd_lang_buffer', 20 );
