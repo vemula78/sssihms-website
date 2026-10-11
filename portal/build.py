@@ -2,7 +2,8 @@
 """sssihms.org (multisite blog 1, homepage page 31) rebuilt in the Prasanthigram web brand.
 
 The portal's own copy is carried over from the live page as of 11-Oct-2026. Four
-spelling corrections are the only edits to it (TYPOS below); everything else is
+spelling corrections (TYPOS), four rewordings to the site's "no charge" phrasing
+(REWORD) and one dropped panel (DROPPED) are the only edits; everything else is
 asserted verbatim in the output. Photographs are the hospital's own, already
 published on the two campus sites.
 
@@ -54,15 +55,27 @@ ORIGINAL = [
 LINKS = [PG, WF, ABOUT]
 
 
+# Approved 11-Oct-2026: say "no charge", never "free" (brand wording).
+REWORD = {
+    'Completely Free of Charge.': 'Provided at no charge to the patient.',
+    'high quality medical care free of charge to all': 'high quality medical care at no charge to all',
+    'aims to provide free medical care to the sick': 'aims to provide medical care at no charge to the sick',
+    'World-class medical care absolutely free of cost with absolutely no billing counter.':
+        'World-class medical care at no charge to the patient, with no billing counter.',
+}
+# Approved 11-Oct-2026: the 24/7 emergency claim could not be confirmed for either campus.
+DROPPED = {21, 22}
+
+
 def fixed(s):
-    for bad, good in TYPOS.items():
+    for bad, good in list(TYPOS.items()) + list(REWORD.items()):
         s = s.replace(bad, good)
     return s
 
 
 C = {k: html.escape(fixed(v), quote=False) for k, v in enumerate(ORIGINAL)}
 
-FEATURES = [(C[i], C[i + 1]) for i in (13, 15, 17, 19, 21, 23)]
+FEATURES = [(C[i], C[i + 1]) for i in (13, 15, 17, 19, 23)]
 
 CSS = """
 .sssi-page{--blue-deep:#003366;--blue-mid:#1A5276;--gold:#C8A84B;--rose:#D9564B;--rose-hover:#c44a40;
@@ -125,8 +138,9 @@ CSS = """
  text-decoration:none;background:var(--rose);color:#fff;letter-spacing:.04em}
 .sssi-page .btn:hover{background:var(--rose-hover);color:#fff}
 
-.sssi-page .fgrid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.sssi-page .feat{border:1px solid #e3e7eb;border-top:3px solid var(--rose);padding:22px 22px 24px}
+/* five panels: flex so the short last row centres instead of leaving a hole */
+.sssi-page .fgrid3{display:flex;flex-wrap:wrap;justify-content:center;gap:22px}
+.sssi-page .feat{flex:0 1 calc((100% - 44px)/3);border:1px solid #e3e7eb;border-top:3px solid var(--rose);padding:22px 22px 24px}
 .sssi-page .feat h3{font-size:21px;margin:0 0 8px}
 .sssi-page .feat p{margin:0;font-size:15.5px}
 .sssi-page h2.sec{font-size:30px;margin-bottom:26px}
@@ -144,9 +158,9 @@ CSS = """
 .sssi-page .fbot{border-top:1px solid var(--blue-mid);padding:16px 0;font-size:13px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 .sssi-page .fbot .lsb{color:var(--gold);font-style:italic}
 
-@media(max-width:980px){.sssi-page .fgrid3{grid-template-columns:1fr 1fr}.sssi-page .hero h1{font-size:42px}}
+@media(max-width:980px){.sssi-page .feat{flex-basis:calc((100% - 22px)/2)}.sssi-page .hero h1{font-size:42px}}
 @media(max-width:700px){
-.sssi-page .cgrid,.sssi-page .fgrid3,.sssi-page .fcols{grid-template-columns:1fr}
+.sssi-page .cgrid,.sssi-page .fcols{grid-template-columns:1fr}.sssi-page .feat{flex-basis:100%}
 .sssi-page .wrap{padding-left:16px;padding-right:16px}
 .sssi-page .hero .ph.l{width:100%}.sssi-page .hero .ph.r{display:none}
 .sssi-page .lock img{height:auto}.sssi-page .hero .wrap{padding:72px 16px 64px}.sssi-page .hero h1{font-size:34px}.sssi-page .hero p{font-size:17px}
@@ -241,7 +255,12 @@ def flat(x):
 
 inner = page()
 body = flat(inner)
-lost = [s for s in ORIGINAL if flat(fixed(s)) not in body]
+assert all(sum(b in s for s in ORIGINAL) == 1 for b in REWORD), 'a REWORD key no longer matches the copy'
+lost = [s for i, s in enumerate(ORIGINAL) if i not in DROPPED and flat(fixed(s)) not in body]
+kept = [ORIGINAL[i] for i in DROPPED if flat(fixed(ORIGINAL[i])) in body]
+assert not kept, 'DROPPED copy still present: %r' % kept
+free = re.findall(r'(?i)\bfree\b', html.unescape(re.sub(r'<[^>]+>', ' ', inner)))
+assert not free, '"free" still on the page %d times' % len(free)
 assert not lost, 'COPY LOST: %r' % lost
 for u in LINKS + [PHOTO_PG, PHOTO_WF, LOGO]:
     assert u in inner, 'LOST LINK ' + u
@@ -255,6 +274,7 @@ payload = '<div class="sssi-page"><style>' + CSS + SUPPRESS + '</style>' + inner
     '<title>Sri Sathya Sai Institute of Higher Medical Sciences</title>'
     '<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Lato:wght@400;600;700&display=swap" rel="stylesheet">'
     '<style>body{margin:0}</style></head><body>' + payload + '</body></html>')
-print('%d original strings verified, %d spelling fixes applied, %d links/images verified'
-      % (len(ORIGINAL), sum(any(b in s for b in TYPOS) for s in ORIGINAL), len(LINKS) + 3))
+print('%d of %d original strings verified (%d dropped), %d reworded, %d with spelling fixes, %d links/images verified'
+      % (len(ORIGINAL) - len(DROPPED), len(ORIGINAL), len(DROPPED), len(REWORD),
+         sum(any(b in s for b in TYPOS) for s in ORIGINAL), len(LINKS) + 3))
 print('wrote', OUT / 'preview.html', 'and', OUT / 'page-31.divi.txt')
