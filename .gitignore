@@ -4,3 +4,4 @@ screenshots/
 node_modules/
 __pycache__/
 portal/out/
+portal/backups/

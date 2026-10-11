@@ -915,3 +915,19 @@ At Praveen's request (HR feedback forwarded in chat), `sssihms-wfd-job-applicati
 - Apps Script v3 (same deployment): rows are matched to spreadsheet columns by name, adding columns for new questions, so changed questions no longer shift the Drive spreadsheet.
 Tested with two synthetic applications (mail and Drive blocked by a temporary guard): registration required for a doctor, not for an administrative applicant.
 **Incident during clean-up:** the clean-up command set every stored application to draft — including three real ones (HR261008-UMVU, HR261008-DO3F, HR261009-31YW) — and moved HR261009-31YW's files into the backup folder. All three were restored within minutes (status, reference, original post dates incl. GMT for the 6-month retention, Drive links, files). HR261008-DO3F's Drive copy, which had timed out on 08-Oct, was retried and succeeded; all six real applications are now in Drive. Test records 56026/56027 remain as drafts. Backup of the previous plugin: `/home/azureuser/job-form-hr-feedback-bak-20261009/`.
+
+## 2026-10-11 — sssihms.org (blog 1) homepage rebuilt in the Prasanthigram web brand
+Not Whitefield: this is the network's root site, **blog 1, page 31** (`--url=sssihms.org`). Source of truth is
+`portal/build.py`; the page is one `et_pb_code` module, so it is not visually editable in Divi.
+- Copy carried over verbatim (the build asserts it), except, at Praveen's request: four spelling fixes, "free" →
+  "no charge" (4 places), and the "24/7 Emergency Care" panel dropped. Added the settled strip line "Tertiary care,
+  provided at no charge to the patient." and a **Sister hospitals** section (SSSGH Puttaparthi, SSSGH Whitefield,
+  Sri Sathya Sai Mobile Hospital), each fact sourced from that hospital's own site (sources listed in build.py).
+- Media **371–373** uploaded to blog 1 (`uploads/2026/10/`): the three sister-hospital photos from sssgh.org's library.
+- Page meta changed: `_wp_page_template` default → `page-template-blank.php` (hides the Divi header/footer; the page
+  carries its own), `_et_pb_page_layout` `et_right_sidebar` → `et_full_width_page`.
+- The page links its own Playfair Display/Lato stylesheet — blog 1's theme loads only Open Sans.
+- Written with `--user=praveen` (super admin) so kses does not strip the `<style>` block; stored content verified
+  byte-identical to the payload. Caches purged: `et-cache/1/1` and `cache/page_enhanced/sssihms.org` only.
+- Backup of the previous content and meta: `/home/azureuser/sssihms-org-bak-20261011/` (also `portal/backups/`, not committed).
+- Open: sssmh.org.in's TLS certificate expired 05-Oct-2026, so its "Visit site" link shows a browser warning.

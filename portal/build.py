@@ -328,7 +328,9 @@ for x in SISTERS:
     assert (Path(__file__).parent / 'img' / x[4]).is_file(), 'MISSING PHOTO ' + x[4]
 
 OUT.mkdir(exist_ok=True)
-payload = '<div class="sssi-page"><style>' + CSS + SUPPRESS + '</style>' + inner + '</div>'
+# Blog 1's theme loads only Open Sans, so the page brings its own brand fonts.
+FONTS = '<link rel="stylesheet" href="%s">' % 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Lato:wght@400;600;700&display=swap'
+payload = '<div class="sssi-page">' + FONTS + '<style>' + CSS + SUPPRESS + '</style>' + inner + '</div>'
 (OUT / 'page-31.divi.txt').write_text(divi(payload))
 # preview is one self-contained file: photos inlined, since the live upload URLs don't exist yet
 preview_payload = payload
@@ -339,7 +341,6 @@ for x in SISTERS:
     '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">'
     '<meta name="viewport" content="width=device-width,initial-scale=1">'
     '<title>Sri Sathya Sai Institute of Higher Medical Sciences</title>'
-    '<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Lato:wght@400;600;700&display=swap" rel="stylesheet">'
     '<style>body{margin:0}</style></head><body>' + preview_payload + '</body></html>')
 print('%d of %d original strings verified (%d dropped), %d reworded, %d with spelling fixes, %d links/images verified'
       % (len(ORIGINAL) - len(DROPPED), len(ORIGINAL), len(DROPPED), len(REWORD),
