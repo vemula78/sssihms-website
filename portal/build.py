@@ -10,6 +10,7 @@ published on the two campus sites.
     python3 portal/build.py   ->  portal/out/preview.html   (open in a browser)
                                   portal/out/page-31.divi.txt (post_content for page 31)
 """
+import base64
 import html
 import re
 from pathlib import Path
@@ -61,19 +62,28 @@ ORIGINAL = [
 GH_PN = 'https://www.sssgh.org/'
 GH_WF = 'https://whitefield.sssihms.org/sssgh/'
 MH = 'https://www.sssmh.org.in/'
+# Photos (portal/img/) are the hospitals' own, from sssgh.org's media library: the Puttaparthi
+# building (2017/06/1-23111.jpg), a second view of the Whitefield building (2017/02/WfdSuperM_mini-1.jpg)
+# and the mobile-hospital bus, cropped out of its banner (2017/02/mobile-1.jpg, box 420,292,1344,820).
+# Copied rather than hot-linked: sssgh.org is being rebuilt and sssmh.org.in's certificate has expired.
+# On publish they are uploaded to blog 1's media library, which is where IMG_LIVE points.
+IMG_LIVE = 'https://sssihms.org/wp-content/uploads/2026/10/'
 SISTERS = [
     ('Sri Sathya Sai General Hospital', 'Prasanthi Nilayam, Puttaparthi', '1956',
      'Inaugurated in 1956 near Prasanthi Nilayam, the hospital serves chiefly the residents of the '
      'Puttaparthi, Bukkapatnam and Kothacheruvu mandals.',
+     'sssgh-puttaparthi.jpg', 'The Sri Sathya Sai General Hospital building, Prasanthi Nilayam',
      [('Phone', 'tel:+918555287256', '+91 8555-287256 / 289409'),
       ('Email', 'mailto:medsupgh@sssihms.org.in', 'medsupgh@sssihms.org.in')], GH_PN),
     ('Sri Sathya Sai General Hospital', 'Whitefield, Bangalore', '1976',
      'Ophthalmology, obstetrics and gynaecology, orthopaedics, ENT, general medicine, paediatrics, '
      'general surgery and dental care, housed in the SSSIHMS Whitefield building.',
+     'sssgh-whitefield-building.jpg', 'The hospital building at Whitefield, which houses the General Hospital',
      [], GH_WF),
     ('Sri Sathya Sai Mobile Hospital', 'Villages around Puttaparthi', '2006',
      'A rural outreach health service started by Bhagawan in 2006. It runs from the 1st to the 12th '
      'of every month at 12 base villages around Puttaparthi.',
+     'sssmh-mobile-hospital.jpg', 'The Sri Sathya Sai Mobile Hospital bus on a village road',
      [('Email', 'mailto:sssmhdir@sssihms.org.in', 'sssmhdir@sssihms.org.in')], MH),
 ]
 LINKS = [PG, WF, ABOUT, GH_PN, GH_WF, MH]
@@ -155,7 +165,9 @@ CSS = """
 .sssi-page .campus h3{font-size:27px;margin:0 0 2px}
 .sssi-page .campuses .eyebrow.sub{margin-top:52px}
 .sssi-page .sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.sssi-page .sis{background:#fff;border-top:3px solid var(--blue-mid);padding:22px 24px 24px;display:flex;flex-direction:column}
+.sssi-page .sis{background:#fff;border-top:3px solid var(--blue-mid);display:flex;flex-direction:column}
+.sssi-page .sis img{width:100%;height:200px;object-fit:cover;display:block}
+.sssi-page .sis .in{padding:20px 24px 24px;display:flex;flex-direction:column;flex:1}
 .sssi-page .sis h3{font-size:21px;margin:0 0 4px}
 .sssi-page .sis .eyebrow{margin-bottom:12px}
 .sssi-page .sis .since{font-size:13px;color:var(--grey-mid);margin:0 0 10px}
@@ -235,14 +247,15 @@ def campus(name, region, phone, email_line, photo, alt, href):
             % (photo, alt, name, region, tel(html.unescape(phone)), phone, email, email_line, href, C[12]))
 
 
-def sister(name, place, since, desc, contacts, href):
+def sister(img_base, name, place, since, desc, photo, alt, contacts, href):
     dl = ''.join('<dt>%s</dt><dd><a href="%s">%s</a></dd>' % c for c in contacts)
-    return ('<article class="sis"><h3>%s</h3><p class="eyebrow">%s</p><p class="since">Since %s</p>'
-            '<p>%s</p>%s<a class="go" href="%s">Visit site &rarr;</a></article>'
-            % (name, place, since, desc, '<dl>%s</dl>' % dl if dl else '', href))
+    return ('<article class="sis"><img src="%s%s" alt="%s" loading="lazy"><div class="in">'
+            '<h3>%s</h3><p class="eyebrow">%s</p><p class="since">Since %s</p>'
+            '<p>%s</p>%s<a class="go" href="%s">Visit site &rarr;</a></div></article>'
+            % (img_base, photo, alt, name, place, since, desc, '<dl>%s</dl>' % dl if dl else '', href))
 
 
-def page():
+def page(img_base):
     feats = ''.join('<div class="feat"><h3>%s</h3><p>%s</p></div>' % f for f in FEATURES)
     return (
         '<div class="util"><div class="wrap"><span>Prasanthigram %s</span><span>Whitefield %s</span></div></div>'
@@ -278,7 +291,7 @@ def page():
         % (C[6], C[10], LOGO, ABOUT, PG, WF, PHOTO_PG, PHOTO_WF, C[0], C[1], C[2], C[3],
            campus(C[4], C[5], C[6], C[7], PHOTO_PG, 'The Prasanthigram hospital building, Puttaparthi', PG),
            campus(C[8], C[9], C[10], C[11], PHOTO_WF, 'The Whitefield hospital building, Bengaluru', WF),
-           ''.join(sister(*x) for x in SISTERS),
+           ''.join(sister(img_base, *x) for x in SISTERS),
            feats, C[25], C[26], C[27],
            tel(ORIGINAL[6]), C[6], tel(ORIGINAL[10]), C[10], PG, WF, GH_PN, GH_WF, MH, ABOUT))
 
@@ -300,7 +313,7 @@ def flat(x):
     return re.sub(r'\s+', '', html.unescape(re.sub(r'<[^>]+>', ' ', x)))
 
 
-inner = page()
+inner = page(IMG_LIVE)
 body = flat(inner)
 assert all(sum(b in s for s in ORIGINAL) == 1 for b in REWORD), 'a REWORD key no longer matches the copy'
 lost = [s for i, s in enumerate(ORIGINAL) if i not in DROPPED and flat(fixed(s)) not in body]
@@ -309,18 +322,25 @@ assert not kept, 'DROPPED copy still present: %r' % kept
 free = re.findall(r'(?i)\bfree\b', html.unescape(re.sub(r'<[^>]+>', ' ', inner)))
 assert not free, '"free" still on the page %d times' % len(free)
 assert not lost, 'COPY LOST: %r' % lost
-for u in LINKS + [PHOTO_PG, PHOTO_WF, LOGO]:
+for u in LINKS + [PHOTO_PG, PHOTO_WF, LOGO] + [IMG_LIVE + x[4] for x in SISTERS]:
     assert u in inner, 'LOST LINK ' + u
+for x in SISTERS:
+    assert (Path(__file__).parent / 'img' / x[4]).is_file(), 'MISSING PHOTO ' + x[4]
 
 OUT.mkdir(exist_ok=True)
 payload = '<div class="sssi-page"><style>' + CSS + SUPPRESS + '</style>' + inner + '</div>'
 (OUT / 'page-31.divi.txt').write_text(divi(payload))
+# preview is one self-contained file: photos inlined, since the live upload URLs don't exist yet
+preview_payload = payload
+for x in SISTERS:
+    data = base64.b64encode((Path(__file__).parent / 'img' / x[4]).read_bytes()).decode()
+    preview_payload = preview_payload.replace(IMG_LIVE + x[4], 'data:image/jpeg;base64,' + data)
 (OUT / 'preview.html').write_text(
     '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">'
     '<meta name="viewport" content="width=device-width,initial-scale=1">'
     '<title>Sri Sathya Sai Institute of Higher Medical Sciences</title>'
     '<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Lato:wght@400;600;700&display=swap" rel="stylesheet">'
-    '<style>body{margin:0}</style></head><body>' + payload + '</body></html>')
+    '<style>body{margin:0}</style></head><body>' + preview_payload + '</body></html>')
 print('%d of %d original strings verified (%d dropped), %d reworded, %d with spelling fixes, %d links/images verified'
       % (len(ORIGINAL) - len(DROPPED), len(ORIGINAL), len(DROPPED), len(REWORD),
          sum(any(b in s for b in TYPOS) for s in ORIGINAL), len(LINKS) + 3))
