@@ -956,3 +956,11 @@ Backups: `/home/azureuser/cis-tokyo-sola-bak-20261012/`.
 - **New pages:** a page built from scratch, or copied from a page's content without its meta, needs `_sssihms_page_css = 1` to get the styles (`wp post meta update <id> _sssihms_page_css 1`).
 - **Still exposed to editor saves (not changed):** 26 pages have their own `<style>` blocks in other code modules, 17 have `<iframe>`s (statistics dashboards, maps) and the fellowship page has a `<script>`; an editor saving one of those pages in the builder strips them.
 Backups: `/home/azureuser/ctvs-infra-style-bak-20261012/`, `/home/azureuser/page-css-move-bak-20261012/` (previous mu-plugin + `pages/bak-<id>.txt` for all 126).
+- **Same day, the rest of the editor-save exposure** (at Praveen's request), patient-access mu-plugin + 43 pages:
+  - **Component `<style>` blocks** (26 pages, e.g. `.rb-h` ×17, `.gg-stats` ×7, faculty `.fac-side`, contact `.ct-tel`) moved from code modules to post meta `_sssihms_page_css_extra`, printed as `<style id="sssihms-page-css-extra">` right after `page.css` (same hook, priority 2), in original order.
+  - **`<iframe>`s** (17 pages: 12 statistics dashboards, 3 poetry embeds, 2 Google Maps) replaced by `[sssihms_embed src=… title=… style=… width=… height=… loading=… referrerpolicy=…]`. It renders only same-site paths and `maps.google.com/maps?` / `google.com/maps/embed?`. Checked: a kses pass keeps the shortcode, and it renders the same iframe.
+  - **Fellowship (255)** `fa-anchor-fix` script removed from the content; printed by the mu-plugin in `wp_footer` on page 255.
+  - **Inline `style` attributes:** `safe_style_css` gains list-style, overflow-x/-y, animation-delay, font-variant-numeric, word-break; `safecss_filter_attr_allow_css` allows declarations whose only parentheses are rgb/rgba/hsl/hsla colours (these were dropped on 14+ pages' boxes and borders by an editor save).
+  - Checked afterwards against the backups: all 40 published pages that render carry every original CSS block, iframe src and the script; no raw shortcode or CSS text. The 3 poetry pages 301 as before.
+  - Not touched: drafts 54748 and 54458 (old prototypes with Tailwind/Chart.js/YouTube code, unpublished).
+  Backups: `/home/azureuser/page-css-move-bak-20261012/embeds-styles/` (43 pages) and `sssihms-wfd-patient-access.before-embeds.php`.

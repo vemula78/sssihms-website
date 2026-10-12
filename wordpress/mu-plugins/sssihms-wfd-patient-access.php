@@ -744,3 +744,69 @@ function sssihms_wfd_page_css() {
 	echo '<link rel="stylesheet" id="sssihms-page-css" href="' . esc_url( $url ) . '">' . "\n";
 }
 add_action( 'et_before_main_content', 'sssihms_wfd_page_css', 1 );
+
+/**
+ * Per-page CSS (12-Oct-2026). Small component <style> blocks that used to sit inside
+ * code modules on 26 pages now live in post meta _sssihms_page_css_extra, printed
+ * after the shared stylesheet. Builder saves by editors can no longer strip them.
+ */
+add_action( 'et_before_main_content', function () {
+	if ( ! sssihms_wfd_is_target() || ! is_singular() ) {
+		return;
+	}
+	$css = (string) get_post_meta( get_queried_object_id(), '_sssihms_page_css_extra', true );
+	if ( '' !== $css && false === stripos( $css, '</style' ) ) {
+		echo '<style id="sssihms-page-css-extra">' . $css . "</style>\n";
+	}
+}, 2 );
+
+/**
+ * [sssihms_embed] — iframes as a shortcode (12-Oct-2026). Editors' saves stripped raw
+ * <iframe> tags (statistics dashboards, poetry embeds, maps). Only same-site paths and
+ * Google Maps embeds are rendered.
+ */
+function sssihms_wfd_embed_shortcode( $atts ) {
+	$a   = shortcode_atts( array( 'src' => '', 'title' => '', 'style' => '', 'width' => '', 'height' => '', 'loading' => '', 'referrerpolicy' => '' ), $atts, 'sssihms_embed' );
+	$src = html_entity_decode( $a['src'] );
+	$ok  = ( '/' === substr( $src, 0, 1 ) && '//' !== substr( $src, 0, 2 ) )
+		|| 0 === strpos( $src, 'https://maps.google.com/maps?' )
+		|| 0 === strpos( $src, 'https://www.google.com/maps/embed?' );
+	if ( ! $ok ) {
+		return '';
+	}
+	$out = '<iframe src="' . esc_url( $src ) . '"';
+	foreach ( array( 'title', 'width', 'height', 'style', 'loading', 'referrerpolicy' ) as $k ) {
+		if ( '' !== $a[ $k ] ) {
+			$out .= ' ' . $k . '="' . esc_attr( html_entity_decode( $a[ $k ] ) ) . '"';
+		}
+	}
+	return $out . '></iframe>';
+}
+add_shortcode( 'sssihms_embed', 'sssihms_wfd_embed_shortcode' );
+
+/**
+ * Inline style attributes: kses dropped borders and backgrounds written with rgba(),
+ * and a few properties core does not list (list-style, overflow-x, animation-delay…),
+ * whenever an editor saved a page. Plain CSS only — no url(), expressions or script.
+ */
+add_filter( 'safe_style_css', function ( $props ) {
+	return sssihms_wfd_is_target() ? array_merge( $props, array( 'list-style', 'overflow-x', 'overflow-y', 'animation-delay', 'font-variant-numeric', 'word-break' ) ) : $props;
+} );
+add_filter( 'safecss_filter_attr_allow_css', function ( $allow, $css ) {
+	if ( $allow || ! sssihms_wfd_is_target() ) {
+		return $allow;
+	}
+	// Allow only when every "(...)" in the declaration is an rgb/rgba/hsl/hsla colour.
+	$rest = preg_replace( '/\b(?:rgba?|hsla?)\(\s*[0-9.%\s,\/]+\)/i', '', $css );
+	return false === strpos( $rest, '(' ) && false === strpos( $rest, ')' ) && ! preg_match( '/[\\\\&}=<>]|\/\*/', $rest );
+}, 10, 2 );
+
+/**
+ * Fellowship page (255): scroll to #fellowship-admissions after load, which the
+ * page's late layout otherwise pushes out of view. Was a <script> in the content.
+ */
+add_action( 'wp_footer', function () {
+	if ( sssihms_wfd_is_target() && is_page( 255 ) ) {
+		echo '<script id="fa-anchor-fix">window.addEventListener("load",function(){if(location.hash!=="#fellowship-admissions")return;setTimeout(function(){var e=document.getElementById("fellowship-admissions");if(e&&Math.abs(e.getBoundingClientRect().top)>200){e.scrollIntoView();}},1500);});</script>' . "\n";
+	}
+} );
