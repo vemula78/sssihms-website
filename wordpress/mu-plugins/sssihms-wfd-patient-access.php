@@ -723,3 +723,24 @@ function sssihms_wfd_lang_buffer() {
 	);
 }
 add_action( 'template_redirect', 'sssihms_wfd_lang_buffer', 20 );
+
+/**
+ * Shared page stylesheet (12-Oct-2026). It used to be a "Page Stylesheet — shared,
+ * do not edit" code module at the top of 126 pages. Department editors lack
+ * unfiltered_html, so saving a page in the builder stripped its <style> tags and the
+ * whole stylesheet printed as text (Cardiac Surgery Infrastructure, 12-Oct-2026).
+ * Pages flagged with _sssihms_page_css get the file at the spot where the module sat,
+ * just before the main content, so it still loads after Divi's head CSS.
+ */
+function sssihms_wfd_page_css() {
+	if ( ! sssihms_wfd_is_target() || ! is_singular() ) {
+		return;
+	}
+	if ( ! get_post_meta( get_queried_object_id(), '_sssihms_page_css', true ) ) {
+		return;
+	}
+	$file = __DIR__ . '/sssihms-wfd-assets/page.css';
+	$url  = content_url( 'mu-plugins/sssihms-wfd-assets/page.css' ) . '?ver=' . filemtime( $file );
+	echo '<link rel="stylesheet" id="sssihms-page-css" href="' . esc_url( $url ) . '">' . "\n";
+}
+add_action( 'et_before_main_content', 'sssihms_wfd_page_css', 1 );
