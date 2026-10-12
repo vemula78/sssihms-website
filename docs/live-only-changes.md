@@ -942,3 +942,9 @@ At Praveen's request, the items the web team could fix without a hospital decisi
 - **Patient-access mu-plugin** — `sssihms_wfd_page_lang()`: Kannada/Hindi/Telugu/Bengali pages declare `lang="kn|hi|te|bn"` on `<html>`, with the Divi header and footer marked `lang="en"`.
 Not changed: the Biomedical Waste page's second `<h1>` comes from the `sssihms-bmw-tracker` plugin (separate source tree). Privacy notices for the job and fellowship forms are drafted in the emails to HR and the academic office, not published.
 Backups: `/home/azureuser/website-audit-fixes-bak-20261011/`.
+
+## 2026-10-12 — CIS Tokyo 2026 and Dr. Sola's faculty profile
+At Praveen's request (GE HealthCare's thank-you email of 12-Oct-2026 to the Director, and Dr. Sola's CV dated Jun-2026):
+- **Events — Cardiology (713)** — "International" block at the end of "Conferences & Teaching Programmes": Collaboration & Innovation Summit (CIS) 2026, Tokyo, organised by GE HealthCare; Dr. Srikanth Sola and Dr. Prayaag Kini as key speakers. Three photos from GE (media 56046–56048). Only the "Heart Fat & Coronary Risk" photo names its speaker (Dr. Sola, matched to his portrait and to his GE epicardial-fat project); the risk-scoring talk photo is captioned without a name. Summit date not given in the email, so none is stated.
+- **Faculty — Cardiology (108)** — Dr. Sola's honorary card: new portrait (media 56049, cropped 4:5 from the photo supplied), role "MD FACC · Honorary Senior Consultant Cardiologist", current post "Chief Cardiologist, Dr. Sola's Heart Clinic, Bengaluru", and a collapsible "Profile" written only from the CV (SSSIHMS 2008–18 and honorary since 2018; Louisville, Stanford, Duke, Emory; Cleveland Clinic; ABIM; imaging work, 45 peer-reviewed papers; EchoSai.org; IAE/IACVI executive committees; GE HealthCare AI epicardial-fat project since 2025). First faculty card on the site with a profile.
+Backups: `/home/azureuser/cis-tokyo-sola-bak-20261012/`.
