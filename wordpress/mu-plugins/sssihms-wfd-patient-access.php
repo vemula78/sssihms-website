@@ -785,6 +785,40 @@ function sssihms_wfd_embed_shortcode( $atts ) {
 add_shortcode( 'sssihms_embed', 'sssihms_wfd_embed_shortcode' );
 
 /**
+ * [sssihms_proceedings slug="…"] — conference proceedings pages (13-Oct-2026). Each is
+ * built outside WordPress (videos, QR codes, transcripts; ~500 KB) and converted by
+ * wordpress/tools/proceedings_to_wp.py into sssihms-wfd-assets/proceedings/<slug>.html,
+ * .css and .js. The page content holds only the shortcode, so a builder save can't strip it.
+ */
+function sssihms_wfd_proceedings_file( $slug, $ext ) {
+	return __DIR__ . '/sssihms-wfd-assets/proceedings/' . sanitize_key( $slug ) . '.' . $ext;
+}
+
+function sssihms_wfd_proceedings_shortcode( $atts ) {
+	$a    = shortcode_atts( array( 'slug' => '' ), $atts, 'sssihms_proceedings' );
+	$file = sssihms_wfd_proceedings_file( $a['slug'], 'html' );
+	return ( '' !== $a['slug'] && is_readable( $file ) ) ? file_get_contents( $file ) : '';
+}
+add_shortcode( 'sssihms_proceedings', 'sssihms_wfd_proceedings_shortcode' );
+
+add_action( 'wp_enqueue_scripts', function () {
+	if ( ! sssihms_wfd_is_target() || ! is_singular() ) {
+		return;
+	}
+	$content = (string) get_post_field( 'post_content', get_queried_object_id() );
+	if ( ! preg_match( '/\[sssihms_proceedings\s+slug="([a-z0-9_-]+)"/', $content, $m ) ) {
+		return;
+	}
+	$slug = $m[1];
+	$css  = sssihms_wfd_proceedings_file( $slug, 'css' );
+	$js   = sssihms_wfd_proceedings_file( $slug, 'js' );
+	$base = content_url( 'mu-plugins/sssihms-wfd-assets/proceedings/' . $slug );
+	wp_enqueue_style( 'sssihms-proc-fonts', 'https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@600;700&display=swap', array(), null );
+	wp_enqueue_style( 'sssihms-proc', $base . '.css', array(), filemtime( $css ) );
+	wp_enqueue_script( 'sssihms-proc', $base . '.js', array(), filemtime( $js ), true );
+} );
+
+/**
  * Inline style attributes: kses dropped borders and backgrounds written with rgba(),
  * and a few properties core does not list (list-style, overflow-x, animation-delay…),
  * whenever an editor saved a page. Plain CSS only — no url(), expressions or script.
