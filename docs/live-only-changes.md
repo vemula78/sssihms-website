@@ -999,3 +999,18 @@ Backups: `/home/azureuser/proceedings-gcc2025-bak-20261013/` (previous mu-plugin
 - Menu 116 item 55192 (Academics) renamed "CME & Conferences".
 - ConfHub: speed-2026 status set to closed (direct DB update, not via the admin PATCH, so no audit-log row).
 - Backups on the VM: /tmp/bak-54830-cme.txt, /tmp/bak-54956-cme.txt, /tmp/bak-687-cme.txt.
+
+## 2026-10-14 — Inauguration 2001 / First Anniversary 2002 proceedings; Publications menu
+
+- Assets `inauguration-2001.*`, `first-anniversary-2002.*` in mu-plugins/sssihms-wfd-assets/proceedings/, built from
+  ~/Documents/Anniversary and Inauguration/*.html (already scoped under .sssihms-proc; masthead band and body rule
+  dropped, Telugu/Devanagari fonts @imported).
+- Pages 56266 /conferences/inauguration-2001/ and 56268 /conferences/first-anniversary-2002/ ([sssihms_proceedings]).
+- Menu 116, About Hospital -> Publications (56250): Book, GCC 2025, IHC 2025, Inauguration 2001, First Anniversary 2002.
+  The "Conferences" item (56246) under About Hospital was removed; /conferences/ stays under Academics.
+
+## 2026-10-14 — CTVS Achievements (590): Dr. Dipika K gold medal
+
+- Added Dr. Dipika K (C. S. Sadasivan Gold Medal, 23rd NBEMS Convocation, 23-May-2026) to "DNB CTVS — Gold Medals",
+  with photo (attachment 56270). Removed the "now working at…" clauses from the three earlier entries, at the
+  department's request. Backup on the VM: /tmp/bak-590-dipika.txt.
