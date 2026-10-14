@@ -986,3 +986,16 @@ At Praveen's request (handoffs from the conference and book sessions):
 - **Header menu (116)**, under About Hospital: "Conferences" (→ Conferences & CME Archive, 54956) with the two proceedings pages under it (menu items 56246, 56247, 56249); "Publications" (custom link to the book, no Publications page exists yet) with "Sri Sathya Sai Ideal Healthcare (Book)" under it (56250, 56251).
 - Checked at 375 px: no horizontal scroll on any of the three; videos play (Day 3 of GCC starts at 31:30 as set); search and the sticky toolbar work (the site header is not sticky, so `top:0` is clear).
 Backups: `/home/azureuser/proceedings-gcc2025-bak-20261013/` (previous mu-plugin, menu 116 CSV).
+
+## 2026-10-14 — Upcoming CMEs: SPEED 2026 and Cardiac Anaesthesia CME 2026
+
+- Media library: `speed-2026-brochure.pdf`, `cardiac-anaesthesia-cme-2026-brochure.pdf` (uploads/sites/4/2026/10/).
+- Homepage (54830): new code module "Upcoming CMEs & Conferences" (news-grid) before "Latest from SSSIHMS".
+  SPEED shows "Registration closed" and a brochure link only; the anaesthesia CME has Register (ConfHub) and Brochure.
+- /conferences/ (54956): title, H1 and breadcrumb "CME & Conferences" (was "Conference(s) & CME Archive"),
+  subtitle updated, new "Upcoming Events" module before "Recurring CME Series", and GCC 2025 /
+  Ideal Healthcare 2025 proceedings cards at the start of "Past Conferences & Courses". Slug unchanged.
+- /anes-events/ (687): new "Upcoming Events" module with the anaesthesia CME card, before "Academic Events".
+- Menu 116 item 55192 (Academics) renamed "CME & Conferences".
+- ConfHub: speed-2026 status set to closed (direct DB update, not via the admin PATCH, so no audit-log row).
+- Backups on the VM: /tmp/bak-54830-cme.txt, /tmp/bak-54956-cme.txt, /tmp/bak-687-cme.txt.
