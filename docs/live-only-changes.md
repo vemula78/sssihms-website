@@ -1075,3 +1075,6 @@ Server backups: /tmp/bak-pa-fawording.php, /tmp/bak-content-{54830,255}-fawordin
 - Listing pages 625 and 18101: each mapped tile wrapped in a flex column with a "Read online →" link below it
   (Manohriday 12, incl. the Jan 2026 regular issue page; AntharDhwani 16). Tiles, PDF links and PDFs unchanged;
   Manohriday 2015 and 2012–2013 tiles untouched (no pages). Backups: /tmp/bak-content-{625,18101}-readonline.txt.
+- Same day: Manohriday 2016/2017/2018 tiles now link to their existing PDFs (uploads/sites/4/2018/01/Jan16_issue.pdf,
+  2015/05/manohriday_Jan17_lowres-1.pdf, 2015/05/manohriday_Jan18_lowres-website.pdf) instead of the cover image.
+  Backup: /tmp/bak-content-625-pdf1618.txt.
