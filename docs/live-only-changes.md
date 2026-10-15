@@ -1022,3 +1022,8 @@ At Praveen's request, from the department flyer (1-year in-house programme, 01-D
 - Home (**54830**): second line in the notice band linking to `/academics/fellowship/#arthroplasty-fellowship`; Academics "Fellowship Courses" card adds Arthroplasty.
 - `sssihms-wfd-patient-access.php`: the Fellowship page anchor-scroll fix now also handles `#arthroplasty-fellowship`.
 Backups on the VM: `/tmp/bak-255-arthro.txt`, `/tmp/bak-54830-arthro.txt`, `/tmp/bak-patient-access-arthro.php`.
+- Same day, at Praveen's request: Arthroplasty applicants use the website fellowship form.
+  - `sssihms-wfd-fellowship-application.php`: single `SSSIHMS_FA_CLOSES` replaced by per-course last dates (`sssihms_fa_closes()`: ic/ctva 19-Oct-2026, arth 15-Nov-2026); course "Fellowship in Arthroplasty" added; the form lists only courses still open, each with its last date, and closes when none is open; acknowledgement email gives the RGUHS exam line only to IC/CTVA applicants and the programme dates to Arthroplasty applicants; MD/DNB fields shown as "MD/MS/DNB" on the form only (stored labels and Excel columns unchanged). Applications still go to academicblr@.
+  - Apply page (**55980**) banner mentions Arthroplasty and both last dates; Fellowship (**255**) Arthroplasty section gets an "Apply online →" button; home notice Arthroplasty line gets "Apply online →".
+  - Home Academics "Fellowship Courses" card: Radiology removed.
+  - Backups on the VM: `/tmp/bak-{55980,255,54830}-arthro2.txt`, `/tmp/bak-fa-arthro.php`.

@@ -20,7 +20,6 @@
 defined( 'ABSPATH' ) || exit;
 
 const SSSIHMS_FA_TO     = 'academicblr@sssihms.org.in';
-const SSSIHMS_FA_CLOSES = '2026-10-19 23:59:59'; // Last date to apply, site time (IST).
 const SSSIHMS_FA_STORE  = '/srv/www/fellowship-applications'; // Photos and CVs; not web-served.
 
 function sssihms_fa_is_target() {
@@ -31,7 +30,25 @@ function sssihms_fa_courses() {
 	return array(
 		'ic'   => 'Fellowship in Interventional Cardiology',
 		'ctva' => 'Fellowship in Cardio Vascular Anaesthesia',
+		'arth' => 'Fellowship in Arthroplasty',
 	);
+}
+
+/** Last date to apply per course, site time (IST). */
+function sssihms_fa_closes() {
+	return array(
+		'ic'   => '2026-10-19 23:59:59',
+		'ctva' => '2026-10-19 23:59:59',
+		'arth' => '2026-11-15 23:59:59',
+	);
+}
+
+/** Courses still taking applications: key => label. */
+function sssihms_fa_open_courses() {
+	$now = current_time( 'mysql' );
+	return array_intersect_key( sssihms_fa_courses(), array_filter( sssihms_fa_closes(), function ( $c ) use ( $now ) {
+		return $now <= $c;
+	} ) );
 }
 
 /** Text fields in form order: key => array( label, required, section ). */
@@ -69,7 +86,7 @@ function sssihms_fa_files() {
 }
 
 function sssihms_fa_is_open() {
-	return current_time( 'mysql' ) <= SSSIHMS_FA_CLOSES;
+	return (bool) sssihms_fa_open_courses();
 }
 
 /** Validation errors from this request, and the cleaned values to re-fill the form. */
@@ -86,7 +103,7 @@ function sssihms_fa_handle() {
 	$v      = array();
 
 	if ( ! sssihms_fa_is_open() ) {
-		$errors[] = 'Applications closed on 19-Oct-2026.';
+		$errors[] = 'Applications for the 2026–27 fellowships are closed.';
 	}
 	// Honeypot: hidden from people, filled in by most spam bots.
 	if ( ! empty( $_POST['website'] ) ) {
@@ -106,7 +123,7 @@ function sssihms_fa_handle() {
 		$errors[] = 'Enter a valid email address.';
 	}
 
-	$courses      = array_intersect( array_keys( sssihms_fa_courses() ), (array) ( $_POST['courses'] ?? array() ) );
+	$courses      = array_intersect( array_keys( sssihms_fa_open_courses() ), (array) ( $_POST['courses'] ?? array() ) );
 	$v['courses'] = $courses;
 	if ( ! $courses ) {
 		$errors[] = 'Select at least one course.';
@@ -270,7 +287,9 @@ function sssihms_fa_handle() {
 	$ack = "Dear " . $v['name'] . ",\n\nThank you for applying to SSSIHMS, Whitefield. Your application has been received.\n\n"
 		. "Reference: $ref\nCourse(s): $course\n\n"
 		. "Further information about admission will be sent to this email address.\n"
-		. "Entrance exam: Interventional Cardiology Thursday 22-Oct-2026; Cardio Vascular Anaesthesia Friday 23-Oct-2026. Classes begin 02-Nov-2026.\n\n"
+		. ( array_intersect( array( 'ic', 'ctva' ), $courses ) ? "Entrance exam: Interventional Cardiology Thursday 22-Oct-2026; Cardio Vascular Anaesthesia Friday 23-Oct-2026. Classes begin 02-Nov-2026.\n" : '' )
+		. ( in_array( 'arth', $courses, true ) ? "Fellowship in Arthroplasty: 01-Dec-2026 to 30-Nov-2027.\n" : '' )
+		. "\n"
 		. "Academic Section, Sri Sathya Sai Institute of Higher Medical Sciences, Whitefield, Bengaluru\n"
 		. SSSIHMS_FA_TO . " · WhatsApp 080-28004641\n";
 	wp_mail( $email, 'Your fellowship application to SSSIHMS Whitefield [' . $ref . ']', $ack, array( 'Reply-To: Academic Section <' . SSSIHMS_FA_TO . '>' ) );
@@ -305,7 +324,7 @@ function sssihms_fa_render() {
 		return $out;
 	}
 	if ( ! sssihms_fa_is_open() ) {
-		return $out . '<div class="fa-ok"><h3>Applications closed</h3><p>The last date to apply for the 2026–27 fellowships was 19-Oct-2026.</p></div></div>';
+		return $out . '<div class="fa-ok"><h3>Applications closed</h3><p>Applications for the 2026–27 fellowships are closed.</p></div></div>';
 	}
 
 	$v   = $GLOBALS['sssihms_fa_values'];
@@ -321,6 +340,9 @@ function sssihms_fa_render() {
 	}
 
 	$f   = sssihms_fa_fields();
+	// Display only: stored answers and the Excel columns keep the original MD/DNB labels.
+	$f['md'][0]      = 'MD/MS/DNB — institute name and university/board';
+	$f['md_year'][0] = 'MD/MS/DNB — year of completion';
 	$req = '<span class="fa-req" aria-hidden="true">*</span>';
 	$txt = function ( $k, $attrs = '' ) use ( $f, $val, $req ) {
 		return '<div class="fa-field"><label for="fa-' . $k . '">' . esc_html( $f[ $k ][0] ) . ( $f[ $k ][1] ? ' ' . $req : '' ) . '</label>'
@@ -343,8 +365,8 @@ function sssihms_fa_render() {
 		. '<div class="fa-field"><label for="fa-email">Email address ' . $req . '</label><input type="email" id="fa-email" name="email" value="' . $val( 'email' ) . '" required autocomplete="email"></div>'
 
 		. '<h3>2. Course(s) applied</h3><fieldset class="fa-field"><legend>Select the course(s) that you would like to apply for ' . $req . '</legend>';
-	foreach ( sssihms_fa_courses() as $k => $label ) {
-		$out .= '<label class="fa-opt"><input type="checkbox" name="courses[]" value="' . $k . '"' . ( in_array( $k, $v['courses'] ?? array(), true ) ? ' checked' : '' ) . '> ' . esc_html( $label ) . '</label>';
+	foreach ( sssihms_fa_open_courses() as $k => $label ) {
+		$out .= '<label class="fa-opt"><input type="checkbox" name="courses[]" value="' . $k . '"' . ( in_array( $k, $v['courses'] ?? array(), true ) ? ' checked' : '' ) . '> ' . esc_html( $label ) . ' <small>(last date ' . esc_html( mysql2date( 'd-M-Y', sssihms_fa_closes()[ $k ] ) ) . ')</small></label>';
 	}
 	$out .= '</fieldset>'
 
