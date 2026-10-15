@@ -1065,3 +1065,13 @@ Server backups: /tmp/bak-pa-fawording.php, /tmp/bak-content-{54830,255}-fawordin
   56294 /about-hospital/manohriday/manohriday-2026-01/ ([sssihms_proceedings]).
 - Menu 116, About Hospital -> Publications: added both after First Anniversary 2002 (items 56293, 56295).
 - The live 2001/2002 pages were not rebuilt (their local copies changed today only in the dropped menu band).
+
+## 2026-10-15 — Manohriday 2016–2026 and Anthar Dhwani I–XVI read-online pages
+- 27 issue pages built from ~/Documents/Anniversary and Inauguration/{manohriday,anthar-dhwani}/ (same build as the
+  Jan 2026 page; Previous/Next links rewritten to the live URLs), assets in mu-plugins/sssihms-wfd-assets/proceedings/.
+  - Manohriday, children of 625: manohriday-2016-01 … manohriday-2025-01, manohriday-2026-01-19-commemorative
+    (pages 56296, 56298–56304, 56320–56322).
+  - Anthar Dhwani, children of 18101: anthar-dhwani-01-2019-01 … anthar-dhwani-16-2026-07 (pages 56297, 56305–56319).
+- Listing pages 625 and 18101: each mapped tile wrapped in a flex column with a "Read online →" link below it
+  (Manohriday 12, incl. the Jan 2026 regular issue page; AntharDhwani 16). Tiles, PDF links and PDFs unchanged;
+  Manohriday 2015 and 2012–2013 tiles untouched (no pages). Backups: /tmp/bak-content-{625,18101}-readonline.txt.
