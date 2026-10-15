@@ -1034,6 +1034,6 @@ Source: RGUHS/FELLOW/COE/69316/2026-27 Revised Notification 1, dated 12-Oct-2026
 - Fellowship (**255**): "Application window 05–19 Oct" → "Last date to apply: 18-Nov-2026" + supersession note; calendar table → 11-Nov notification, 18-Nov last date, 20-Nov (Fri) exam + provisional merit list (both programmes), 25-Nov joining, 30-Nov classes; flyers swapped to 56280/56281; download link → 56279.
 - Home (**54830**) notice, ANES-Fellowship (**681**) card, Apply page (**55980**) banner/exam line + Yoast description: old dates replaced with 18-Nov / 20-Nov / 30-Nov.
 - `sssihms-wfd-fellowship-application.php`: ic/ctva last date 2026-11-18 23:59:59; acknowledgement email exam line updated.
-- No longer linked anywhere but **still in the media library and reachable by direct URL** (not deleted): 55692 (old notification), 55693/55694 (old flyer PDFs), 55974/55975 (old flyer JPGs).
+- Old media 55692 (notification), 55693/55694 (flyer PDFs), 55974/55975 (flyer JPGs) deleted by Praveen in wp-admin on 15-Oct-2026; their URLs now 404 and no files or thumbnails remain on the server.
 Backups on the VM: `/tmp/bak-{255,54830,681,55980}-rev1.txt`, `/tmp/bak-fa-rev1.php`.
 - 15-Oct-2026: HR's Canva design "ARTHROPLASTY FELLOWSHIP" (DAGGBpw-jpc) now carries "Apply online: whitefield.sssihms.org/academics/fellowship/apply" (linked), approved by Praveen; the website flyer (media 56273) was overwritten in place with the Canva export and thumbnails regenerated. Previous file: `/tmp/bak-arth-flyer-v1.jpg` on the VM.
