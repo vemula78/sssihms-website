@@ -1038,3 +1038,11 @@ Source: RGUHS/FELLOW/COE/69316/2026-27 Revised Notification 1, dated 12-Oct-2026
 Backups on the VM: `/tmp/bak-{255,54830,681,55980}-rev1.txt`, `/tmp/bak-fa-rev1.php`.
 - 15-Oct-2026: HR's Canva design "ARTHROPLASTY FELLOWSHIP" (DAGGBpw-jpc) now carries "Apply online: whitefield.sssihms.org/academics/fellowship/apply" (linked), approved by Praveen; the website flyer (media 56273) was overwritten in place with the Canva export and thumbnails regenerated. Previous file: `/tmp/bak-arth-flyer-v1.jpg` on the VM.
 - 15-Oct-2026, at Praveen's request: `sssihms-wfd-patient-access.php` schedules a one-off WP-Cron event `sssihms_wfd_rguhs_notice_off` for 19-Nov-2026 00:00 IST that removes the RGUHS fellowship line (constant `SSSIHMS_WFD_RGUHS_NOTICE`, exact text) from the home notice band (54830) and flushes the W3TC page cache for it; the Arthroplasty line stays. Done-marker: wp_option `sssihms_wfd_rguhs_notice_off`. If the notice text is edited before then, the exact match fails and nothing is removed.
+
+## 15-Oct-2026 — IC/CVA application form held until 11-Nov-2026
+
+`sssihms-wfd-fellowship-application.php`: new `sssihms_fa_opens()` gives IC and CVA a first day to
+apply of 11-Nov-2026 00:00 IST (RGUHS fellowships circular: admission notification issued that day).
+Until then the form lists only Arthroplasty, with a note that IC/CVA open on 11-Nov-2026; the POST
+handler rejects IC/CVA through the same `sssihms_fa_open_courses()` check. No cron needed — the
+courses reappear by date. Server backup: /tmp/bak-fa-opens.php.

@@ -43,11 +43,28 @@ function sssihms_fa_closes() {
 	);
 }
 
-/** Courses still taking applications: key => label. */
+/** First day to apply, site time (IST); courses not listed are open now. */
+function sssihms_fa_opens() {
+	return array(
+		'ic'   => '2026-11-11 00:00:00', // RGUHS fellowships circular.
+		'ctva' => '2026-11-11 00:00:00',
+	);
+}
+
+/** Courses taking applications now: key => label. */
 function sssihms_fa_open_courses() {
+	$now   = current_time( 'mysql' );
+	$opens = sssihms_fa_opens();
+	return array_intersect_key( sssihms_fa_courses(), array_filter( sssihms_fa_closes(), function ( $c, $k ) use ( $now, $opens ) {
+		return $now <= $c && $now >= ( $opens[ $k ] ?? '' );
+	}, ARRAY_FILTER_USE_BOTH ) );
+}
+
+/** Courses not yet open: key => label. */
+function sssihms_fa_upcoming_courses() {
 	$now = current_time( 'mysql' );
-	return array_intersect_key( sssihms_fa_courses(), array_filter( sssihms_fa_closes(), function ( $c ) use ( $now ) {
-		return $now <= $c;
+	return array_intersect_key( sssihms_fa_courses(), array_filter( sssihms_fa_opens(), function ( $o ) use ( $now ) {
+		return $now < $o;
 	} ) );
 }
 
@@ -367,6 +384,9 @@ function sssihms_fa_render() {
 		. '<h3>2. Course(s) applied</h3><fieldset class="fa-field"><legend>Select the course(s) that you would like to apply for ' . $req . '</legend>';
 	foreach ( sssihms_fa_open_courses() as $k => $label ) {
 		$out .= '<label class="fa-opt"><input type="checkbox" name="courses[]" value="' . $k . '"' . ( in_array( $k, $v['courses'] ?? array(), true ) ? ' checked' : '' ) . '> ' . esc_html( $label ) . ' <small>(last date ' . esc_html( mysql2date( 'd-M-Y', sssihms_fa_closes()[ $k ] ) ) . ')</small></label>';
+	}
+	foreach ( sssihms_fa_upcoming_courses() as $k => $label ) {
+		$out .= '<p class="fa-opt"><small>' . esc_html( $label ) . ': applications open on ' . esc_html( mysql2date( 'd-M-Y', sssihms_fa_opens()[ $k ] ) ) . '.</small></p>';
 	}
 	$out .= '</fieldset>'
 
