@@ -1095,3 +1095,4 @@ Server backups: /tmp/bak-pa-fawording.php, /tmp/bak-content-{54830,255}-fawordin
   Dr. Felix Wüst AG (Switzerland); Praveen was told and asked for it to be published.
 - Same day: Menu 116 → Publications: "Manohriday" (item 56332 → page 625) and "Anthar Dhwani" (56333 → 18101) added
   just before "Swiss Med 2005". "Manohriday, January 2026" (56295) kept.
+- Same day: "Manohriday, January 2026" menu item (56295) removed at Praveen's request; its page (56294) stays live.
