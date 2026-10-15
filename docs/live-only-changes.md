@@ -1036,3 +1036,4 @@ Source: RGUHS/FELLOW/COE/69316/2026-27 Revised Notification 1, dated 12-Oct-2026
 - `sssihms-wfd-fellowship-application.php`: ic/ctva last date 2026-11-18 23:59:59; acknowledgement email exam line updated.
 - No longer linked anywhere but **still in the media library and reachable by direct URL** (not deleted): 55692 (old notification), 55693/55694 (old flyer PDFs), 55974/55975 (old flyer JPGs).
 Backups on the VM: `/tmp/bak-{255,54830,681,55980}-rev1.txt`, `/tmp/bak-fa-rev1.php`.
+- 15-Oct-2026: HR's Canva design "ARTHROPLASTY FELLOWSHIP" (DAGGBpw-jpc) now carries "Apply online: whitefield.sssihms.org/academics/fellowship/apply" (linked), approved by Praveen; the website flyer (media 56273) was overwritten in place with the Canva export and thumbnails regenerated. Previous file: `/tmp/bak-arth-flyer-v1.jpg` on the VM.
