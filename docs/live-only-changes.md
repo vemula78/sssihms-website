@@ -1082,3 +1082,14 @@ Server backups: /tmp/bak-pa-fawording.php, /tmp/bak-content-{54830,255}-fawordin
 ## 2026-10-15 — Nursing XV souvenir re-uploaded (names as photo captions)
 - nursing-college-xv-anniversary-2023.{html,css,js} rebuilt from the corrected source (names moved under their photos);
   image folder unchanged. Previous files: /tmp/bak-souv/ on the VM.
+
+## 2026-10-15 — Magazine pages rebuilt (photos in place); Manohriday Apr–Jun 2013; Swiss Med 2005
+- All 27 issue pages rebuilt from the refreshed sources (photos placed in the text where printed, name captions,
+  sign-offs). manohriday-2026-01 not touched.
+- New: manohriday-2013-04 (page 56326, child of 625); prev none, next 2016-01 (2016-01 Previous now → 2013-04).
+  PDF media **56327** `2026/10/manohriday-april-june-2013.pdf` (unmodified, from Praveen's email archive). Tile
+  "Manohriday Apr-Jun 2013" on 625 now opens that PDF (was the cover jpg) + "Read online →". Backup /tmp/bak-content-625-tile2013.txt.
+- New: Swiss Med 27 (2005) No. 1 — page 56330 /about-hospital/swiss-med-2005-01/ (child of About Hospital, 2), PDF media
+  **56328** `2026/10/swiss-med-2005-journal.pdf` (unmodified), "Download PDF" link added in the hero (`p.pn`).
+  Menu 116 → Publications: "Swiss Med 2005" (item 56331) after "Manohriday, January 2026". Published by Verlag
+  Dr. Felix Wüst AG (Switzerland); Praveen was told and asked for it to be published.

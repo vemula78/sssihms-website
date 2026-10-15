@@ -124,6 +124,9 @@
   .sssihms-proc .lb-btn{top:auto;bottom:10px;transform:none;height:48px}
   .sssihms-proc .facts{grid-template-columns:1fr}
 }
+/* captions under small portraits wrap within the photo's width */
+.sssihms-proc .figs .ph.small{width:min-content;max-width:190px}
+.sssihms-proc .ph figcaption{overflow-wrap:anywhere;line-height:1.35;font-size:13px}
 /* Manohriday additions */
 .sssihms-proc .mano-hero{grid-template-columns:1.4fr 1fr}
 .sssihms-proc .covers.one{grid-template-columns:1fr;max-width:340px;justify-self:end}
