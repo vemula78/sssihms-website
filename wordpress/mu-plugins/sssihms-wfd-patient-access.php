@@ -845,3 +845,32 @@ add_action( 'wp_footer', function () {
 		echo '<script id="fa-anchor-fix">window.addEventListener("load",function(){var h=location.hash;if(h!=="#fellowship-admissions"&&h!=="#arthroplasty-fellowship")return;setTimeout(function(){var e=document.getElementById(h.slice(1));if(e&&Math.abs(e.getBoundingClientRect().top)>200){e.scrollIntoView();}},1500);});</script>' . "\n";
 	}
 } );
+
+/**
+ * Home (54830): one-off removal of the RGUHS fellowship line from the notice band after
+ * the last date to apply (18-Nov-2026, RGUHS Revised Notification 1). The Arthroplasty
+ * line stays. Runs once via WP-Cron; does nothing if the line is already gone.
+ */
+const SSSIHMS_WFD_RGUHS_NOTICE = '<strong>FELLOWSHIP 2026 ADMISSIONS</strong> – Applications are invited for Interventional Cardiology & Cardiac and Vascular Anaesthesia | Last date to apply (RGUHS revised schedule): <strong>18-Nov-2026</strong>; entrance exam 20-Nov-2026. <a href="/academics/fellowship/apply/">Apply online →</a> &nbsp;·&nbsp; <a href="/academics/fellowship/#fellowship-admissions">Flyers, details & RGUHS notification →</a><br>';
+
+add_action( 'init', function () {
+	if ( sssihms_wfd_is_target() && ! get_option( 'sssihms_wfd_rguhs_notice_off' ) && ! wp_next_scheduled( 'sssihms_wfd_rguhs_notice_off' ) ) {
+		wp_schedule_single_event( ( new DateTime( '2026-11-19 00:00:00', wp_timezone() ) )->getTimestamp(), 'sssihms_wfd_rguhs_notice_off' );
+	}
+} );
+
+add_action( 'sssihms_wfd_rguhs_notice_off', function () {
+	if ( ! sssihms_wfd_is_target() ) {
+		return;
+	}
+	$c = get_post_field( 'post_content', 54830 );
+	if ( 1 === substr_count( $c, SSSIHMS_WFD_RGUHS_NOTICE ) ) {
+		kses_remove_filters();
+		wp_update_post( array( 'ID' => 54830, 'post_content' => str_replace( SSSIHMS_WFD_RGUHS_NOTICE, '', $c ), 'page_template' => '' ) );
+		kses_init_filters();
+		if ( function_exists( 'w3tc_flush_post' ) ) {
+			w3tc_flush_post( 54830 );
+		}
+	}
+	update_option( 'sssihms_wfd_rguhs_notice_off', current_time( 'mysql' ), false );
+} );
