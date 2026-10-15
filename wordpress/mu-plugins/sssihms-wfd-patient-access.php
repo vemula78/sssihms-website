@@ -874,3 +874,61 @@ add_action( 'sssihms_wfd_rguhs_notice_off', function () {
 	}
 	update_option( 'sssihms_wfd_rguhs_notice_off', current_time( 'mysql' ), false );
 } );
+
+/**
+ * IC/CVA applications open on 11-Nov-2026 (RGUHS fellowships circular). Until then the home
+ * notice and the fellowship page (255) say so and carry no IC/CVA "Apply online" link; this
+ * one-off job puts the "Applications are invited" wording back on 11-Nov-2026 00:00 IST.
+ * Each swap needs an exact single match, so the restored home line is
+ * SSSIHMS_WFD_RGUHS_NOTICE and the 19-Nov removal above still finds it.
+ * Pairs: post ID => list of array( open wording, held wording ).
+ */
+function sssihms_wfd_fa_wording() {
+	return array(
+		54830 => array(
+			array( SSSIHMS_WFD_RGUHS_NOTICE, '<strong>FELLOWSHIP 2026 ADMISSIONS</strong> – Applications for Interventional Cardiology & Cardiac and Vascular Anaesthesia open on <strong>11-Nov-2026</strong> | Last date to apply (RGUHS revised schedule): <strong>18-Nov-2026</strong>; entrance exam 20-Nov-2026. <a href="/academics/fellowship/#fellowship-admissions">Flyers, details & RGUHS notification →</a><br>' ),
+		),
+		255   => array(
+			array( 'Applications are invited for the <strong>Fellowship in Interventional Cardiology</strong> and the <strong>Fellowship in Cardiac and Vascular Anaesthesia</strong>, conducted under the aegis of the Rajiv Gandhi University of Health Sciences (RGUHS), Karnataka.</p>', 'Applications for the <strong>Fellowship in Interventional Cardiology</strong> and the <strong>Fellowship in Cardiac and Vascular Anaesthesia</strong>, conducted under the aegis of the Rajiv Gandhi University of Health Sciences (RGUHS), Karnataka, open on <strong>11-Nov-2026</strong>.</p>' ),
+			array( 'supersedes the earlier calendar.</p>' . "\n" . '<p class="prose-p"><a class="btn btn-primary" href="/academics/fellowship/apply/" style="color:#fff;text-decoration:none">Apply online →</a></p>', 'supersedes the earlier calendar.</p>' . "\n" . '<p class="prose-p"><strong>Online applications open on 11-Nov-2026.</strong></p>' ),
+		),
+	);
+}
+
+/** Swap to the open ($open = true) or held wording; returns "post:pair" => matched (bool). */
+function sssihms_wfd_fa_wording_swap( $open ) {
+	$done = array();
+	foreach ( sssihms_wfd_fa_wording() as $id => $pairs ) {
+		$c = get_post_field( 'post_content', $id );
+		$n = $c;
+		foreach ( $pairs as $i => $pair ) {
+			list( $from, $to ) = $open ? array( $pair[1], $pair[0] ) : $pair;
+			$done[ "$id:$i" ]  = 1 === substr_count( $n, $from );
+			if ( $done[ "$id:$i" ] ) {
+				$n = str_replace( $from, $to, $n );
+			}
+		}
+		if ( $n !== $c ) {
+			kses_remove_filters();
+			wp_update_post( array( 'ID' => $id, 'post_content' => $n, 'page_template' => '' ) );
+			kses_init_filters();
+			if ( function_exists( 'w3tc_flush_post' ) ) {
+				w3tc_flush_post( $id );
+			}
+		}
+	}
+	return $done;
+}
+
+add_action( 'init', function () {
+	if ( sssihms_wfd_is_target() && ! get_option( 'sssihms_wfd_fa_wording_open' ) && ! wp_next_scheduled( 'sssihms_wfd_fa_wording_open' ) ) {
+		wp_schedule_single_event( ( new DateTime( '2026-11-11 00:00:00', wp_timezone() ) )->getTimestamp(), 'sssihms_wfd_fa_wording_open' );
+	}
+} );
+
+add_action( 'sssihms_wfd_fa_wording_open', function () {
+	if ( ! sssihms_wfd_is_target() ) {
+		return;
+	}
+	update_option( 'sssihms_wfd_fa_wording_open', array( current_time( 'mysql' ), sssihms_wfd_fa_wording_swap( true ) ), false );
+} );

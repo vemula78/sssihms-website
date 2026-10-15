@@ -1046,3 +1046,13 @@ apply of 11-Nov-2026 00:00 IST (RGUHS fellowships circular: admission notificati
 Until then the form lists only Arthroplasty, with a note that IC/CVA open on 11-Nov-2026; the POST
 handler rejects IC/CVA through the same `sssihms_fa_open_courses()` check. No cron needed — the
 courses reappear by date. Server backup: /tmp/bak-fa-opens.php.
+
+## 15-Oct-2026 — IC/CVA page wording held until 11-Nov-2026
+
+Home notice (54830) and fellowship page (255) now say IC/CVA applications open on 11-Nov-2026;
+the IC/CVA "Apply online" link/button is replaced by that line (Arthroplasty links unchanged).
+`sssihms-wfd-patient-access.php` → `sssihms_wfd_fa_wording()` holds the open/held text pairs;
+one-off WP-Cron `sssihms_wfd_fa_wording_open` (11-Nov-2026 00:00 IST) restores the open wording,
+exact single match per pair, and records the per-pair result in option `sssihms_wfd_fa_wording_open`.
+The restored home line equals `SSSIHMS_WFD_RGUHS_NOTICE`, so the 19-Nov removal still matches.
+Server backups: /tmp/bak-pa-fawording.php, /tmp/bak-content-{54830,255}-fawording.txt.
