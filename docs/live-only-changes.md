@@ -1093,3 +1093,5 @@ Server backups: /tmp/bak-pa-fawording.php, /tmp/bak-content-{54830,255}-fawordin
   **56328** `2026/10/swiss-med-2005-journal.pdf` (unmodified), "Download PDF" link added in the hero (`p.pn`).
   Menu 116 → Publications: "Swiss Med 2005" (item 56331) after "Manohriday, January 2026". Published by Verlag
   Dr. Felix Wüst AG (Switzerland); Praveen was told and asked for it to be published.
+- Same day: Menu 116 → Publications: "Manohriday" (item 56332 → page 625) and "Anthar Dhwani" (56333 → 18101) added
+  just before "Swiss Med 2005". "Manohriday, January 2026" (56295) kept.
