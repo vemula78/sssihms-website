@@ -127,6 +127,11 @@
 /* captions under small portraits wrap within the photo's width */
 .sssihms-proc .figs .ph.small{width:min-content;max-width:190px}
 .sssihms-proc .ph figcaption{overflow-wrap:anywhere;line-height:1.35;font-size:13px}
+/* rows of captioned portraits: even frames, tops and names aligned */
+.sssihms-proc .figs.people{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:22px 18px;align-items:start;max-width:900px}
+.sssihms-proc .figs.people .ph,.sssihms-proc .figs.people .ph.small{width:auto;max-width:none;flex:none}
+.sssihms-proc .figs.people .ph img,.sssihms-proc .figs.people .ph.small img{width:100%;max-width:none;max-height:none;aspect-ratio:4/5;object-fit:cover;object-position:50% 25%;border-radius:3px}
+.sssihms-proc .figs.people figcaption{margin-top:8px;font-size:14px;line-height:1.35;color:var(--sss-grey-dark);font-weight:700}
 .sssihms-proc p{padding-bottom:0}
 .sssihms-proc ul,.sssihms-proc ol{line-height:inherit}
 @media print{.et-l--header,.et-l--footer,#wpadminbar{display:none !important}}
