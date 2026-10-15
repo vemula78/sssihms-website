@@ -1056,3 +1056,12 @@ one-off WP-Cron `sssihms_wfd_fa_wording_open` (11-Nov-2026 00:00 IST) restores t
 exact single match per pair, and records the per-pair result in option `sssihms_wfd_fa_wording_open`.
 The restored home line equals `SSSIHMS_WFD_RGUHS_NOTICE`, so the 19-Nov removal still matches.
 Server backups: /tmp/bak-pa-fawording.php, /tmp/bak-content-{54830,255}-fawording.txt.
+
+## 2026-10-15 — Nursing XV Anniversary souvenir and Manohriday January 2026 pages
+- Assets `nursing-college-xv-anniversary-2023.*` and `manohriday-2026-01.*` (+ image folders, 660 and 129 files, no EXIF)
+  in mu-plugins/sssihms-wfd-assets/proceedings/, built from ~/Documents/Anniversary and Inauguration/*.html the same way
+  as the 2001/2002 pages (masthead band with its cross-page menu dropped; `<name>_images/` paths made absolute).
+- Pages 56292 /academics/nursing-and-allied-health/nursing-college-xv-anniversary-2023/ and
+  56294 /about-hospital/manohriday/manohriday-2026-01/ ([sssihms_proceedings]).
+- Menu 116, About Hospital -> Publications: added both after First Anniversary 2002 (items 56293, 56295).
+- The live 2001/2002 pages were not rebuilt (their local copies changed today only in the dropped menu band).
