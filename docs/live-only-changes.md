@@ -1014,3 +1014,11 @@ Backups: `/home/azureuser/proceedings-gcc2025-bak-20261013/` (previous mu-plugin
 - Added Dr. Dipika K (C. S. Sadasivan Gold Medal, 23rd NBEMS Convocation, 23-May-2026) to "DNB CTVS — Gold Medals",
   with photo (attachment 56270). Removed the "now working at…" clauses from the three earlier entries, at the
   department's request. Backup on the VM: /tmp/bak-590-dipika.txt.
+
+## 2026-10-15 — Fellowship in Arthroplasty 2026–27
+At Praveen's request, from the department flyer (1-year in-house programme, 01-Dec-2026 to 30-Nov-2027; last date to apply 15-Nov-2026; applications/enquiries to HR):
+- Flyer uploaded as JPG, media **56273** (landed in `uploads/sites/4/2015/04/` because it is attached to the 2015 Fellowship page).
+- Fellowship (**255**): banner line adds "In-house Fellowship in Arthroplasty."; new module "Fellowship in Arthroplasty" (`module_id="arthroplasty-fellowship"`) before the "Where Fellows Train" gallery — dates, eligibility, last date, the three highlights as on the flyer, the flyer, contact 080-28004640/41 and humanresourcesblr@sssihms.org.in. No stipend shown (the flyer gives none).
+- Home (**54830**): second line in the notice band linking to `/academics/fellowship/#arthroplasty-fellowship`; Academics "Fellowship Courses" card adds Arthroplasty.
+- `sssihms-wfd-patient-access.php`: the Fellowship page anchor-scroll fix now also handles `#arthroplasty-fellowship`.
+Backups on the VM: `/tmp/bak-255-arthro.txt`, `/tmp/bak-54830-arthro.txt`, `/tmp/bak-patient-access-arthro.php`.

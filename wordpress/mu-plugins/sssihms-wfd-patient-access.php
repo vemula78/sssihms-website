@@ -836,11 +836,12 @@ add_filter( 'safecss_filter_attr_allow_css', function ( $allow, $css ) {
 }, 10, 2 );
 
 /**
- * Fellowship page (255): scroll to #fellowship-admissions after load, which the
- * page's late layout otherwise pushes out of view. Was a <script> in the content.
+ * Fellowship page (255): scroll to #fellowship-admissions or #arthroplasty-fellowship
+ * after load, which the page's late layout otherwise pushes out of view. Was a <script>
+ * in the content.
  */
 add_action( 'wp_footer', function () {
 	if ( sssihms_wfd_is_target() && is_page( 255 ) ) {
-		echo '<script id="fa-anchor-fix">window.addEventListener("load",function(){if(location.hash!=="#fellowship-admissions")return;setTimeout(function(){var e=document.getElementById("fellowship-admissions");if(e&&Math.abs(e.getBoundingClientRect().top)>200){e.scrollIntoView();}},1500);});</script>' . "\n";
+		echo '<script id="fa-anchor-fix">window.addEventListener("load",function(){var h=location.hash;if(h!=="#fellowship-admissions"&&h!=="#arthroplasty-fellowship")return;setTimeout(function(){var e=document.getElementById(h.slice(1));if(e&&Math.abs(e.getBoundingClientRect().top)>200){e.scrollIntoView();}},1500);});</script>' . "\n";
 	}
 } );
