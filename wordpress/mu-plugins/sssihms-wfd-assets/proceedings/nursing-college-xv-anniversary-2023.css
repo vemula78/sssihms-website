@@ -124,6 +124,9 @@
   .sssihms-proc .lb-btn{top:auto;bottom:10px;transform:none;height:48px}
   .sssihms-proc .facts{grid-template-columns:1fr}
 }
+/* captions under small portraits wrap within the photo's width */
+.sssihms-proc .figs .ph.small{max-width:190px}
+.sssihms-proc .ph figcaption{overflow-wrap:anywhere;line-height:1.35;font-size:13px}
 .sssihms-proc p{padding-bottom:0}
 .sssihms-proc ul,.sssihms-proc ol{line-height:inherit}
 @media print{.et-l--header,.et-l--footer,#wpadminbar{display:none !important}}

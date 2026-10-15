@@ -1078,3 +1078,7 @@ Server backups: /tmp/bak-pa-fawording.php, /tmp/bak-content-{54830,255}-fawordin
 - Same day: Manohriday 2016/2017/2018 tiles now link to their existing PDFs (uploads/sites/4/2018/01/Jan16_issue.pdf,
   2015/05/manohriday_Jan17_lowres-1.pdf, 2015/05/manohriday_Jan18_lowres-website.pdf) instead of the cover image.
   Backup: /tmp/bak-content-625-pdf1618.txt.
+
+## 2026-10-15 — Nursing XV souvenir re-uploaded (names as photo captions)
+- nursing-college-xv-anniversary-2023.{html,css,js} rebuilt from the corrected source (names moved under their photos);
+  image folder unchanged. Previous files: /tmp/bak-souv/ on the VM.
