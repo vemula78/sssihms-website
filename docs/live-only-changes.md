@@ -1101,3 +1101,5 @@ Server backups: /tmp/bak-pa-fawording.php, /tmp/bak-content-{54830,255}-fawordin
 - nursing-college-xv-anniversary-2023.{html,css} re-uploaded: the 8 College of Nursing teachers and the 9 Editorial
   Committee members are now `.figs.people` grids (same-size 4:5 frames, tops and names aligned). Images and JS
   unchanged. Previous files: /tmp/bak-souv/*.pre-people on the VM.
+- Same day: HTML re-uploaded with caption joins fixed (a wrapped printed line now joins with a space, not "·"):
+  two teacher names and three course captions, in figcaption/data-cap/alt. Previous file: /tmp/bak-souv/*.pre-capjoin.
