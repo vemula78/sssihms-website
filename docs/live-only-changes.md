@@ -1027,3 +1027,12 @@ Backups on the VM: `/tmp/bak-255-arthro.txt`, `/tmp/bak-54830-arthro.txt`, `/tmp
   - Apply page (**55980**) banner mentions Arthroplasty and both last dates; Fellowship (**255**) Arthroplasty section gets an "Apply online →" button; home notice Arthroplasty line gets "Apply online →".
   - Home Academics "Fellowship Courses" card: Radiology removed.
   - Backups on the VM: `/tmp/bak-{55980,255,54830}-arthro2.txt`, `/tmp/bak-fa-arthro.php`.
+
+## 2026-10-15 — RGUHS Revised Notification 1: fellowship admissions dates replaced
+Source: RGUHS/FELLOW/COE/69316/2026-27 Revised Notification 1, dated 12-Oct-2026 (supersedes the earlier calendar), and the two `_redesign` department flyers. Requested by Academics via Praveen.
+- Uploaded: revised notification PDF **56279**, IC flyer **56280**, CVA flyer **56281** (`uploads/sites/4/2026/10/`, JPG 1414×1999 from the redesign PDFs).
+- Fellowship (**255**): "Application window 05–19 Oct" → "Last date to apply: 18-Nov-2026" + supersession note; calendar table → 11-Nov notification, 18-Nov last date, 20-Nov (Fri) exam + provisional merit list (both programmes), 25-Nov joining, 30-Nov classes; flyers swapped to 56280/56281; download link → 56279.
+- Home (**54830**) notice, ANES-Fellowship (**681**) card, Apply page (**55980**) banner/exam line + Yoast description: old dates replaced with 18-Nov / 20-Nov / 30-Nov.
+- `sssihms-wfd-fellowship-application.php`: ic/ctva last date 2026-11-18 23:59:59; acknowledgement email exam line updated.
+- No longer linked anywhere but **still in the media library and reachable by direct URL** (not deleted): 55692 (old notification), 55693/55694 (old flyer PDFs), 55974/55975 (old flyer JPGs).
+Backups on the VM: `/tmp/bak-{255,54830,681,55980}-rev1.txt`, `/tmp/bak-fa-rev1.php`.

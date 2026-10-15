@@ -37,8 +37,8 @@ function sssihms_fa_courses() {
 /** Last date to apply per course, site time (IST). */
 function sssihms_fa_closes() {
 	return array(
-		'ic'   => '2026-10-19 23:59:59',
-		'ctva' => '2026-10-19 23:59:59',
+		'ic'   => '2026-11-18 23:59:59', // RGUHS Revised Notification 1, 12-Oct-2026.
+		'ctva' => '2026-11-18 23:59:59',
 		'arth' => '2026-11-15 23:59:59',
 	);
 }
@@ -287,7 +287,7 @@ function sssihms_fa_handle() {
 	$ack = "Dear " . $v['name'] . ",\n\nThank you for applying to SSSIHMS, Whitefield. Your application has been received.\n\n"
 		. "Reference: $ref\nCourse(s): $course\n\n"
 		. "Further information about admission will be sent to this email address.\n"
-		. ( array_intersect( array( 'ic', 'ctva' ), $courses ) ? "Entrance exam: Interventional Cardiology Thursday 22-Oct-2026; Cardio Vascular Anaesthesia Friday 23-Oct-2026. Classes begin 02-Nov-2026.\n" : '' )
+		. ( array_intersect( array( 'ic', 'ctva' ), $courses ) ? "Entrance exam and provisional merit list: Friday 20-Nov-2026. Classes begin 30-Nov-2026.\n" : '' )
 		. ( in_array( 'arth', $courses, true ) ? "Fellowship in Arthroplasty: 01-Dec-2026 to 30-Nov-2027.\n" : '' )
 		. "\n"
 		. "Academic Section, Sri Sathya Sai Institute of Higher Medical Sciences, Whitefield, Bengaluru\n"
