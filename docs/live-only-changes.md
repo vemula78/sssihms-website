@@ -1103,3 +1103,15 @@ Server backups: /tmp/bak-pa-fawording.php, /tmp/bak-content-{54830,255}-fawordin
   unchanged. Previous files: /tmp/bak-souv/*.pre-people on the VM.
 - Same day: HTML re-uploaded with caption joins fixed (a wrapped printed line now joins with a space, not "·"):
   two teacher names and three course captions, in figcaption/data-cap/alt. Previous file: /tmp/bak-souv/*.pre-capjoin.
+
+## 2026-10-16 — Admin login hardening (network-wide)
+- 132 password-reset requests (mostly 15-Oct-2026, 18:00–23:00 UTC, a handful of IPs) against the first admin
+  account, whose login `?author=1` exposed on every site except Whitefield.
+- User 1 login renamed to a new name (not recorded here — public repo; direct `user_login` update; ID, email, posts, password and 2FA
+  unchanged); network `site_admins` updated to match, so it is still a super admin. Old sessions are logged out.
+- User 2 (last login May 2021; login name and email not recorded here, public repo) removed from sssihms.org (was administrator) and
+  Whitefield (was subscriber); sessions destroyed. Account kept, no role anywhere.
+- New network mu-plugin `sssihms-admin-reset-lock.php`: no reset emails for anyone who is admin anywhere (the form
+  shows the normal "check your email" screen); `?author=N` and author archives redirect home on all sites.
+  Locked-out admin → reset with WP-CLI. Depends on `sssihms-admin-two-factor.php`.
+- Backup of sai_users / sai_usermeta / sai_sitemeta before the change: /home/azureuser/security-bak-20261016/ on the VM.
