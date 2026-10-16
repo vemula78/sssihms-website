@@ -1115,3 +1115,12 @@ Server backups: /tmp/bak-pa-fawording.php, /tmp/bak-content-{54830,255}-fawordin
   shows the normal "check your email" screen); `?author=N` and author archives redirect home on all sites.
   Locked-out admin → reset with WP-CLI. Depends on `sssihms-admin-two-factor.php`.
 - Backup of sai_users / sai_usermeta / sai_sitemeta before the change: /home/azureuser/security-bak-20261016/ on the VM.
+
+## 2026-10-16 — Statistics pages made private, menu links removed
+- At Praveen's request (pages to be revised): 14 statistics pages set to private — 53091 Statistics, 55368 Combined
+  Hospital, 54908 Cardiology, 54959–54968 department pages, 53326 Statistics-GH. Logged-in editors still see and edit
+  them; the public gets 404.
+- 19 menu items deleted: menu 116 (header) 55119 "Statistics" with its 12 children (55370, 55215–55225) and the
+  department "Statistics" items 55133, 55139, 55147, 55167; menu 2 items 53102, 53434.
+- In-page links to these pages remain on 32 published pages (department sub-navigation tabs) and now lead to 404.
+- Before-state (menu JSON + page statuses): /home/azureuser/stats-private-20261016/ on the VM.
