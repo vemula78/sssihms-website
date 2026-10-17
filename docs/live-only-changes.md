@@ -1191,3 +1191,6 @@ wording, Neurology card, FAQ, accessibility statement, per-service icons.
 - Tiles "Manohriday Jan-Mar 2013", "Manohriday Jul-Sep 2013" and "Manohriday 2015" on 625 now open those PDFs (were the
   cover jpgs on cdn.sssihms.org). No read-online pages for these three. All 17 tiles on 625 now open a PDF.
   Backup /tmp/bak-content-625-tiles-2013-2015.txt.
+- Same day, at Praveen's request: 56366 replaced in place by a lighter copy (Ghostscript pdfwrite /ebook, 150 dpi
+  images; text stays vector; 26 pp.) — 61.5 MB → 3.5 MB, same URL. Original (sha1 cede98b1…) kept at
+  /home/azureuser/manohriday-bak-20261017/ on the VM and in ~/Documents/Manohriday.
