@@ -1218,3 +1218,22 @@ Whitefield uploads plus core/theme/plugin static files.
   the CDN. Divi CSS cache is `et-cache/1/4` (CLAUDE.md and wordpress/README.md said `et-cache/*/whitefield…`).
 - Backups on the VM: /home/azureuser/cdn-migration-20261017/ (sai_4 tables before, /srv/www/wfd before, original
   anthar-dhwani-01-2019-01.html).
+
+## 2026-10-17 — Manohriday Jan–Mar 2013, Jul–Sep 2013, Jan 2015 reading pages; Apr–Jun 2013 rebuilt; PDFs swapped
+Pages built in the magazine session from ~/Documents/"Anniversary and Inauguration "/manohriday/ (relayed Praveen
+approval), published with the same route as 2012-10 (build.py → proceedings assets, deploy.php):
+- New, children of 625: **56370** manohriday-2013-01 (102 files, 39 MB), **56371** manohriday-2013-07 (78 files),
+  **56372** manohriday-2015-01 (130 files). Chain 2012-10 → 2013-01 → 2013-04 → 2013-07 → 2015-01 → 2016-01.
+- manohriday-2013-04 rebuilt from the final 24-Sep-2013 edition (html/css/js + whole image folder replaced);
+  2012-10 and 2016-01: only their Next/Previous links changed. Previous server files:
+  /home/azureuser/manohriday-bak-20261017/proceedings-before-pages.tgz.
+- 625: "Read online →" under the Jan-Mar 2013, Jul-Sep 2013 and 2015 tiles (17 in all). Backup /tmp/bak-content-625-readonline3.txt.
+- PDFs replaced in place (same media and URL), Ghostscript pdfwrite /ebook, previous live files kept in the backup folder:
+  - 56327 manohriday-april-june-2013.pdf: 1.3 MB 4-Sep-2013 draft → final 24-Sep-2013 edition
+    (~/Documents/Manohriday/manohriday_April-June_13.pdf, 17.5 MB) at 3.2 MB, 21 pp. (relayed Praveen approval).
+  - 56341 manohriday-october-december-2012.pdf: 43.7 MB Affinity re-export of the 16-Nov-2012 draft → the printed
+    21-Dec-2012 edition (~/Documents/Manohriday/mano_hriday_Oct-Dec_12.pdf, 15.7 MB) at 4.8 MB, 22 pp., images forced
+    to 150 ppi (they sat just under /ebook's downsample threshold). Praveen's choice: follow the printed issue.
+- Checked (Playwright, 1280 and 375 px): all six reading pages and 625 return 200, every image loads, no sideways scroll.
+- Known: manohriday-2013-01 has a broken auto-link `http://media` (printed URL split across lines) — reported to the
+  magazine session to fix in its source.
