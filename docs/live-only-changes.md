@@ -1124,3 +1124,12 @@ Server backups: /tmp/bak-pa-fawording.php, /tmp/bak-content-{54830,255}-fawordin
   department "Statistics" items 55133, 55139, 55147, 55167; menu 2 items 53102, 53434.
 - In-page links to these pages remain on 32 published pages (department sub-navigation tabs) and now lead to 404.
 - Before-state (menu JSON + page statuses): /home/azureuser/stats-private-20261016/ on the VM.
+
+## 2026-10-17 — Manohriday Oct–Dec 2012 page and PDF
+- New: manohriday-2012-10 (page 56340, child of 625), same build as manohriday-2013-04; prev none, next 2013-04.
+  manohriday-2013-04.html re-uploaded with only its Previous link (top and bottom) added → 2012-10; images unchanged.
+  Previous file /tmp/bak-manohriday-2013-04.html on the VM.
+- PDF media **56341** `2026/10/manohriday-october-december-2012.pdf` (43.7 MB, unmodified, sha1 matches the source).
+  Imported with WP-CLI; the wp-admin browser upload limit (PHP 20 MB) would have refused it.
+- Tile "Manohriday Oct-Dec 2012" on 625 now opens that PDF (was the cover jpg on cdn.sssihms.org) + "Read online →".
+  Backup /tmp/bak-content-625-tile2012.txt.
