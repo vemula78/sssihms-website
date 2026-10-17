@@ -111,8 +111,48 @@ function sssihms_wfd_linkify_phones( $content ) {
 add_filter( 'the_content', 'sssihms_wfd_linkify_phones', 20 );
 
 /**
+ * Department tab strips (32 pages) link to the statistics pages, which are private while
+ * they are revised (16-Oct-2026). Visitors who cannot read the target get no tab instead of
+ * a 404; the tabs come back by themselves when the pages are published again.
+ */
+function sssihms_wfd_hide_private_stats_tabs( $content ) {
+	if ( ! sssihms_wfd_is_target() || is_admin() || false === strpos( (string) $content, 'subnav-link' ) || false === stripos( $content, 'statistic' ) ) {
+		return $content;
+	}
+	return preg_replace_callback(
+		'#<a\b[^>]*\bclass="subnav-link"[^>]*>.*?</a>#is',
+		function ( $m ) {
+			if ( ! preg_match( '#href="([^"]*statistic[^"]*)"#i', $m[0], $h ) ) {
+				return $m[0];
+			}
+			$id = url_to_postid( $h[1] );
+			if ( $id && ( 'publish' === get_post_status( $id ) || current_user_can( 'read_post', $id ) ) ) {
+				return $m[0];
+			}
+			return '';
+		},
+		$content
+	);
+}
+add_filter( 'the_content', 'sssihms_wfd_hide_private_stats_tabs', 21 );
+
+/**
+ * List markers (17-Oct-2026, external heuristic review F10). Pages mark every list item with
+ * a "✓", including warnings ("do not pay anyone") and unsolved problems, which reads as
+ * "done". page.css draws a neutral dot in .feature-tick instead; this drops the glyph so
+ * screen readers do not announce "check mark" either.
+ */
+add_filter( 'the_content', function ( $content ) {
+	if ( ! sssihms_wfd_is_target() || is_admin() ) {
+		return $content;
+	}
+	return str_replace( '<span class="feature-tick">✓</span>', '<span class="feature-tick" aria-hidden="true"></span>', (string) $content );
+}, 22 );
+
+/**
  * Sticky tap-to-call bar on phones. Calling the Help Desk is the only way to get
- * an OPD appointment, so it should never be more than one tap away.
+ * an OPD appointment, so it should never be more than one tap away. Emergency sits
+ * beside it (17-Oct-2026, external heuristic review F01): the header top bar scrolls away.
  */
 function sssihms_wfd_call_bar() {
 	if ( ! sssihms_wfd_is_target() ) {
@@ -124,22 +164,26 @@ function sssihms_wfd_call_bar() {
 @media (max-width:980px){
  .sssihms-callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:99999;
   background:#a8631f;box-shadow:0 -2px 14px rgba(0,0,0,.28)}
- .sssihms-callbar a{flex:1;display:flex;align-items:center;justify-content:center;gap:9px;
-  padding:14px 10px;color:#fff;font-family:"Nunito Sans",sans-serif;font-size:16px;font-weight:700;
-  text-decoration:none;line-height:1.2;min-height:48px}
- .sssihms-callbar a+a{border-left:1px solid rgba(255,255,255,.28);flex:0 0 42%}
- .sssihms-callbar small{display:block;font-size:11px;font-weight:600;opacity:.82}
+ .sssihms-callbar a{flex:1 1 0;display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:9px 6px;color:#fff;font-family:"Nunito Sans",sans-serif;font-size:15px;font-weight:700;
+  text-decoration:none;line-height:1.2;min-height:52px;text-align:center}
+ .sssihms-callbar a+a{border-left:1px solid rgba(255,255,255,.28)}
+ .sssihms-callbar .cb-call{flex-grow:1.5}
+ .sssihms-callbar .cb-em{background:#b3261e}
+ .sssihms-callbar small{display:block;font-size:11px;font-weight:600;opacity:.85}
  body{padding-bottom:64px}
  #main-footer{margin-bottom:0}
 }
+@media (max-width:400px){.sssihms-callbar .cb-icon{display:none}.sssihms-callbar a{font-size:14px}}
 @media print{.sssihms-callbar{display:none!important}}
 </style>
 <div class="sssihms-callbar" role="region" aria-label="Contact the hospital">
- <a href="tel:+918047104600" aria-label="Call the Patient Help Desk on +91 80 4710 4600">
-  <span aria-hidden="true">&#9742;</span>
-  <span>Call Help Desk<small>10 AM &ndash; 4 PM, Mon&ndash;Fri</small></span>
+ <a class="cb-call" href="tel:+918047104600" aria-label="Call the Patient Help Desk on +91 80 4710 4600, 10 AM to 4 PM, Monday to Saturday">
+  <span class="cb-icon" aria-hidden="true">&#9742;</span>
+  <span>Call Help Desk<small>10 AM &ndash; 4 PM, Mon&ndash;Sat</small></span>
  </a>
- <a href="/contact-us/"><span>Contact &amp; Directions</span></a>
+ <a class="cb-em" href="/emergency/"><span>Emergency<small>Open 24/7</small></span></a>
+ <a href="/contact-us/"><span>Contact<small>&amp; directions</small></span></a>
 </div>
 	<?php
 }
@@ -230,7 +274,7 @@ function sssihms_wfd_hospital_schema() {
 		'openingHoursSpecification' => array(
 			array(
 				'@type'     => 'OpeningHoursSpecification',
-				'dayOfWeek' => array( 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' ),
+				'dayOfWeek' => array( 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ),
 				'opens'     => '10:00',
 				'closes'    => '16:00',
 				'description' => 'Patient Help Desk, for appointments and enquiries',
@@ -521,9 +565,53 @@ function sssihms_wfd_search_buffer() {
 }
 add_action( 'template_redirect', 'sssihms_wfd_search_buffer', 20 );
 
-/** Presentation. */
+/**
+ * 404 (17-Oct-2026). Divi's own page says "No Results Found" and lists blog categories;
+ * this one names the pages a patient most likely wanted and gives the Help Desk number.
+ * Same injection point and styles as the search page.
+ */
+function sssihms_wfd_404_html() {
+	return '<div class="sssihms-searchhead sssihms-notfound">'
+	     . '<h1>Page not found</h1>'
+	     . '<p class="sssihms-searchmeta">This page may have moved, or the address may be mistyped.</p>'
+	     . '<form role="search" method="get" action="' . esc_url( home_url( '/' ) ) . '" class="sssihms-searchagain">'
+	     . '<label for="sssi-s2">Search this site</label>'
+	     . '<input id="sssi-s2" type="search" name="s" placeholder="Search this site&hellip;">'
+	     . '<button type="submit">Search</button></form>'
+	     . '<p class="sssihms-searchhelp">You may be looking for '
+	     . '<a href="/appointments-admission/">appointments</a>, '
+	     . '<a href="/emergency/">emergency care (open 24/7)</a>, '
+	     . '<a href="/specialties/">departments</a>, '
+	     . '<a href="/help-desk/">the Help Desk</a> or '
+	     . '<a href="/contact-us/">contact details</a>. '
+	     . 'Or call the Patient Help Desk on <a href="tel:+918047104600">+91&nbsp;80&nbsp;4710&nbsp;4600</a> '
+	     . '(10 AM &ndash; 4 PM, Monday to Saturday).</p></div>';
+}
+
+function sssihms_wfd_404_buffer() {
+	if ( is_admin() || ! is_404() || ! sssihms_wfd_is_target() ) {
+		return;
+	}
+	ob_start(
+		function ( $html ) {
+			if ( false !== strpos( $html, 'sssihms-notfound' ) ) {
+				return $html;
+			}
+			foreach ( array( '<div id="left-area"', '<div id="content-area"' ) as $needle ) {
+				$at = strpos( $html, $needle );
+				if ( false !== $at ) {
+					return substr( $html, 0, $at ) . sssihms_wfd_404_html() . substr( $html, $at );
+				}
+			}
+			return $html;
+		}
+	);
+}
+add_action( 'template_redirect', 'sssihms_wfd_404_buffer', 20 );
+
+/** Presentation (search results and the 404 page). */
 function sssihms_wfd_search_css() {
-	if ( ! sssihms_wfd_is_target() || ! is_search() ) {
+	if ( ! sssihms_wfd_is_target() || ! ( is_search() || is_404() ) ) {
 		return;
 	}
 	?>
@@ -551,6 +639,9 @@ body.search .pagination{max-width:900px;margin:0 auto;padding:0 16px}
    pages a patient probably wanted and gives the Help Desk number. */
 body.search .et_pb_no_results,body.search #sidebar,body.search .widget_categories{display:none!important}
 body.search #left-area{width:100%!important;padding-right:0!important}
+body.error404 .not_found,body.error404 #sidebar{display:none!important}
+body.error404 #left-area{width:100%!important;padding-right:0!important}
+body.error404 #main-content .container::before{display:none}
 </style>
 	<?php
 }

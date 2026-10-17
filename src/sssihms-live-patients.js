@@ -381,7 +381,7 @@ PAGES['facilities'] = {
     ] },
     { type:'features', eyebrow:'Accommodation', title:'Sai Salarpuria Dormitory', items:[
       'Sai Salarpuria Dormitory is a low cost dormitory facility for patient attendants of admitted patients.',
-      'The male/female attendants of the patients admitted in the Hospital are permitted to stay in the Salarpuria Block on payment of Rs. 20/- per day.',
+      'The male/female attendants of the patients admitted in the Hospital are permitted to stay in the Salarpuria Block on payment of Rs. 40/- per day.',
       'The receipt for the Salarpuria block can be collected after paying the money in the Administration block between 2:00 pm and 4:00 pm.',
       'Attendants who are unable to collect the receipt can pay the money to the In-charge of the Salarpuria block. This has to be regularized on the next working day.',
       'Mat and blanket is provided to all the patient attendants in the Salarpuria block.',

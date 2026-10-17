@@ -1133,3 +1133,40 @@ Server backups: /tmp/bak-pa-fawording.php, /tmp/bak-content-{54830,255}-fawordin
   Imported with WP-CLI; the wp-admin browser upload limit (PHP 20 MB) would have refused it.
 - Tile "Manohriday Oct-Dec 2012" on 625 now opens that PDF (was the cover jpg on cdn.sssihms.org) + "Read online →".
   Backup /tmp/bak-content-625-tile2012.txt.
+
+## 2026-10-17 — Salarpuria ₹40/day; Help Desk Monday–Saturday; external heuristic review fixes
+Praveen's instructions: Salarpuria block is Rs. 40 per day across the website; the Help Desk works Saturdays too
+(same 10 AM – 4 PM) and volunteers call back missed callers; publish the September 2026 call figures; make the
+review's changes that need no policy change. Not done (policy or facts pending): non-voice channel, menu restructure
+(Bhagawan / Go Green), Find a Doctor, homepage section order (kept by choice), gate names, "only for PATIENT ENTRY"
+wording, Neurology card, FAQ, accessibility statement, per-service icons.
+- **Salarpuria**: 734 Facilities "Rs. 40/- per day", 55656 Coming From Outside Bengaluru "₹40 per day". 734 carries an
+  old-theme template meta (page-template-fullwidth.php) that wp_update_post rejects *after* saving; content saved, meta left.
+- **Hours "Monday to Saturday"** (10 AM – 4 PM unchanged): footer layout 54940, 71 Contact, 52858 Help Desk, 54830 Home
+  (3), 55656, language pages 55667–55670 (ಶನಿವಾರ / शनिवार / శనివారం / শনিবার), mobile call bar, schema.org opening hours.
+- **52858 Help Desk**: busy-line call-back note, call-recording note and emergency pointer under the number; new section
+  "September 2026" (#help-desk-numbers): 33,543 completed calls; 19,329 incoming (773/working day); 14,214 call-backs
+  (474/day, all 30 days); 100+ volunteers; 327 s / 207 s average; 2,500+ hours. Source: Praveen's Exotel pivot sheets.
+- **Header 54939**: Help Desk number as +91 80 4710 4600; red "Emergency 24/7" link; "English" in the language links.
+  **Mobile call bar** (patient-access plugin): Call Help Desk · Emergency (red) · Contact.
+- **Home 54830**: hero "How to Book (by phone)"; card "Book by Phone"; "Emergency Care →" / "Ways to Support →" in place
+  of "Learn More"; "What to bring" → /appointments-admission/#what-to-bring; Nursing "Programme Details →" now
+  /academics/nursing-and-allied-health/ (was tinyurl → closed 2026–27 edumerge form); quote mark aria-hidden; card
+  "Anaesthesiology". The 11-Nov / 19-Nov scheduled notice swaps are untouched (their strings still match once).
+- **735 Appointments**: "On this page" chips + section ids (before-you-come … contact); telemedicine programme sections
+  removed; "Care After You Return Home" shortened to the post-op consultation facts + link to /telemedicine/#nodal-centres;
+  Help Desk number format. 1,851 → 1,308 words. **214 Telemedicine** received the parts that were only on 735:
+  "Need for…" paragraph, "Scaling the Network", "What the Network Must Still Solve", the post-op sentence; id nodal-centres.
+- **For Patients tab strip** (733, 734, 735): "Conditions & Treatments" … + Emergency Care + Coming From Outside Bengaluru.
+- **Spelling** (Indian/British) in menu labels, page titles, H1s, tab labels and breadcrumbs only — body text and URLs
+  unchanged: Anaesthesiology/Anaesthesia (89 132 134 140 677 679 681 683 685 687), Orthopaedics 53288, Paediatrics 53296,
+  SSSGH tab strips (53243–53322), Counselling 210, 733 title "Conditions & Treatments", footer label.
+- **Menu 116**: 11 items moved (not deleted) to new menu 117 "Header removals 17-Oct-2026": Facility Management
+  Services + Dashboard, Guest House Booking, Staff Login, Fleet, BMW Tracker (top-bar "Staff Services" still links there);
+  Get Involved › Help Desk; the four language links under For Patients. 121 → 110 items.
+- **Plugin**: statistics tabs whose target page is not published are dropped for visitors (32 pages; they return when
+  the pages are published); custom 404 with patient links; ✓ list markers drawn as a neutral dot (page.css) and the glyph
+  removed for screen readers.
+- **Help Desk Answers KB** (/srv/www/kb/whitefield/): hours, call-backs, September numbers, Salarpuria ₹40, fellowship dates
+  (RGUHS Revised Notification 1; Arthroplasty added). Before-state kb-before.tgz.
+- Backups: /home/azureuser/heval-bak-20261017/ (content-*.txt, title-*.txt, pre-*.txt per save, menu116.csv, plugin, page.css).
