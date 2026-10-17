@@ -1243,3 +1243,18 @@ approval), published with the same route as 2012-10 (build.py → proceedings as
   draft-only items (HR Initiatives, HCIT notice, water body, "75 doctors attended") gone. manohriday-2013-01 (56370):
   the broken `http://media` link is now one working link to the radiosai.org article (html/css only).
   Previous server files: /home/azureuser/manohriday-bak-20261017/proceedings-before-2012rebuild.tgz.
+
+## 2026-10-17 — Manohriday page (625) redesigned: reading pages first
+Praveen approved the mock-up (~/Documents/Manohriday/manohriday-page-mockup.html).
+- Modules "Read Manohriday" + "Earlier Quarterly Issues" replaced by "Latest Issues" (two featured January 2026 cards:
+  Read online button + Download PDF with size) and "All Issues" (h2 groups "Annual issues 2015 – 2025" and "Quarterly
+  newsletter 2012 – 2013"; each `article.mh-card`: cover → reading page, "Read online" button, "PDF · size" link).
+  All 34 previous links kept, none added. PDF sizes are written into the markup — update them if a PDF is replaced.
+- CSS in post meta `_sssihms_page_css_extra` (was empty), no `<style>` in content. Phone: two covers per row.
+- Backup of the previous content: /home/azureuser/manohriday-bak-20261017/bak-content-625-redesign.txt.
+- sssihms-wfd-site-updates.php: new "Magazine issue" type (child `<article class="mh-card"`) for the two archive grids.
+  Before, the 15-Oct "Read online" wrappers made the Newsletter tab offer every single tile as its own section
+  (17 on 625, 16 on Anthar Dhwani 18101) — a new issue would have gone inside a tile. 625 now offers just the two
+  grids; 18101 still has the wrapper problem (not changed). Previous plugin file in the backup folder above.
+- Featured "Latest issues" is static: when the 2027 issue arrives it must be changed by hand (the form adds to the archive).
+- Checked: 200, 17/17 images, no sideways scroll at 1280 and 375 px, 17 reading pages live.

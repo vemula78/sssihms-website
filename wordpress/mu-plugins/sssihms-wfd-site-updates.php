@@ -20,14 +20,21 @@ function sssihms_up_is_target() {
 }
 
 /**
- * The four kinds of item. `child` is the opening of one card; a container is any <div>
+ * The kinds of item. `child` is the opening of one card; a container is any <div>
  * whose first child is such a card. `where` limits which pages are offered.
+ * `magazine` is the Manohriday archive card (17-Oct-2026): an <article>, so the cover link
+ * inside it is not taken for a newsletter grid.
  */
 function sssihms_up_types() {
 	return array(
 		'newsletter' => array(
 			'label' => 'Newsletter issue',
 			'child' => '<a class="cover-cell"',
+			'pos'   => 'start',
+		),
+		'magazine'   => array(
+			'label' => 'Magazine issue',
+			'child' => '<article class="mh-card"',
 			'pos'   => 'start',
 		),
 		'faculty'    => array(
@@ -159,6 +166,15 @@ function sssihms_up_render( $type, $f, $att ) {
 			return '<a class="cover-cell" href="' . esc_url( $pdf ) . '"><span class="cover-shot"><img src="'
 				. esc_url( $cover ) . '" alt="' . $t( $f['title'] ) . '" loading="lazy" /></span><span class="cover-label">'
 				. $t( $f['title'] ) . '</span></a>';
+
+		case 'magazine':
+			$pdf   = wp_get_attachment_url( $att['file'] );
+			$cover = wp_get_attachment_image_src( $att['cover'], 'medium' )[0];
+			$size  = number_format( filesize( get_attached_file( $att['file'] ) ) / 1e6, 1 ) . ' MB';
+			return '<article class="mh-card"><a class="cover-cell" href="' . esc_url( $pdf ) . '"><span class="cover-shot"><img src="'
+				. esc_url( $cover ) . '" alt="Cover of ' . $t( $f['title'] ) . '" loading="lazy" /></span><span class="cover-label">'
+				. $t( $f['title'] ) . '</span></a><div class="mh-card-actions"><a class="mh-pdf" href="' . esc_url( $pdf )
+				. '" aria-label="Download PDF of ' . $t( $f['title'] ) . ', ' . $size . '">PDF · ' . $size . '</a></div></article>';
 
 		case 'faculty':
 			$face = empty( $att['photo'] )
@@ -358,6 +374,7 @@ function sssihms_up_handle( $type ) {
 	// Required fields first, before anything is uploaded.
 	$need = array(
 		'newsletter' => array( 'title' ),
+		'magazine'   => array( 'title' ),
 		'faculty'    => array( 'name', 'role' ),
 		'event'      => array( 'title', 'text' ),
 		'photos'     => array(),
@@ -375,9 +392,9 @@ function sssihms_up_handle( $type ) {
 	}
 
 	$att = array();
-	if ( 'newsletter' === $type ) {
+	if ( in_array( $type, array( 'newsletter', 'magazine' ), true ) ) {
 		if ( ! $has( 'file' ) || ! $has( 'cover' ) ) {
-			return array( 'ok' => false, 'msg' => 'A newsletter needs both the PDF and a cover image.' );
+			return array( 'ok' => false, 'msg' => 'An issue needs both the PDF and a cover image.' );
 		}
 		foreach ( array( 'file' => 'pdf', 'cover' => 'image' ) as $k => $kind ) {
 			$att[ $k ] = sssihms_up_upload( $k, $page_id, $kind, 'cover' === $k ? $f['title'] : '' );
@@ -591,6 +608,11 @@ function sssihms_up_page() {
 		case 'newsletter':
 			sssihms_up_field( 'Title', 'title', array( 'required' => true, 'help' => 'As it should appear under the cover, e.g. “AntharDhwani XVI – July 2026”.' ) );
 			sssihms_up_field( 'PDF', 'file', array( 'type' => 'file', 'accept' => 'application/pdf', 'required' => true, 'help' => 'Use the low-resolution version; large PDFs are slow on phones.' ) );
+			sssihms_up_field( 'Cover image', 'cover', array( 'type' => 'file', 'accept' => 'image/jpeg,image/png,image/webp', 'required' => true, 'help' => 'A JPG or PNG of the front cover, portrait.' ) );
+			break;
+		case 'magazine':
+			sssihms_up_field( 'Title', 'title', array( 'required' => true, 'help' => 'As it should appear under the cover, e.g. “January 2027”.' ) );
+			sssihms_up_field( 'PDF', 'file', array( 'type' => 'file', 'accept' => 'application/pdf', 'required' => true, 'help' => 'Use the low-resolution version (under 10 MB); large PDFs are slow on phones. The card shows its size.' ) );
 			sssihms_up_field( 'Cover image', 'cover', array( 'type' => 'file', 'accept' => 'image/jpeg,image/png,image/webp', 'required' => true, 'help' => 'A JPG or PNG of the front cover, portrait.' ) );
 			break;
 		case 'faculty':
