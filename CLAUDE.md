@@ -19,7 +19,7 @@ WordPress **multisite**; Whitefield is **blog 4**, DB prefix `sai_4_`. Every WP-
 must carry `--url=whitefield.sssihms.org` or it silently operates on the wrong site.
 
 Two caches, both need purging after any change — Divi's static CSS
-(`wp-content/et-cache/*/whitefield.sssihms.org`) **and** WP Super Cache
+(`wp-content/et-cache/1/4` — network 1, blog 4) **and** WP Super Cache
 (`wp-content/cache/page_enhanced/whitefield.sssihms.org{,:443}`). Delete only the
 whitefield directories; those trees hold the other sites too.
 

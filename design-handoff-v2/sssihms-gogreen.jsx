@@ -5,7 +5,7 @@
 const PAGES = window.PAGES;
 const SUBNAV = window.DEPT_SUBNAV || {};
 const W = 'https://whitefield.sssihms.org/wp-content/uploads/sites/4/';
-const CDN = 'https://cdn.sssihms.org/sssihms/wp-content/uploads/';
+const CDN = 'https://whitefield.sssihms.org/wp-content/uploads/sites/4/';
 
 SUBNAV.gogreen = [
   ['Go Green','gogreen'], ['Solar Power Plant','gg-solar'], ['Waste Management','gg-waste'],

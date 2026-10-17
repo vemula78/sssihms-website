@@ -5,7 +5,7 @@ const PAGES = window.PAGES;
 const U = 'https://whitefield.sssihms.org/wp-content/uploads/sites/4/';
 const IMG = {
   equipment: U + '2015/06/Swami-Blessing-physiotheraphy-equipment.jpg',
-  lamp: 'https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/lighting-lamp-close-up.jpg',
+  lamp: 'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/lighting-lamp-close-up.jpg',
   aerial: U + '2015/04/aerial3.jpg',
   dome: U + '2015/04/dome-tp1.jpg',
   diwali: U + '2015/05/Diwali-hospital-picture-e1430890195276.jpg'

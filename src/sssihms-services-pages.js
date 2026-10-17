@@ -4,7 +4,7 @@
 const PAGES = window.PAGES;
 const SUBNAV = window.DEPT_SUBNAV || {};
 const U = 'https://whitefield.sssihms.org/wp-content/uploads/sites/4/';
-const CDN = 'https://cdn.sssihms.org/sssihms/wp-content/uploads/';
+const CDN = 'https://whitefield.sssihms.org/wp-content/uploads/sites/4/';
 
 SUBNAV.services = [
   ['Overview','services'], ['Radiology','radiology'], ['Lab & Blood Bank','lab-blood-bank'],
@@ -236,10 +236,10 @@ PAGES['counseling'] = {
         'Extensive clinical experience — over forty thousand patients counselled since inception in 2001 — indicates significant benefits for patients.'
       ] },
     { type:'cards', eyebrow:'Presentations and Reports', title:'The Department’s Published Work', cols:2, alt:true, items:[
-      { icon:'◆', title:'Presentation at Mayo Clinic, 2010', desc:'Presentation on SAI Counselling at Mayo Clinic by Mr. Umesh Rao, Advisor Counseling Department, and Mrs. Gita Umesh.', link:{ label:'Open PDF', href:'http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/04/Mayo-Evaluation-piechar1.pdf' } },
+      { icon:'◆', title:'Presentation at Mayo Clinic, 2010', desc:'Presentation on SAI Counselling at Mayo Clinic by Mr. Umesh Rao, Advisor Counseling Department, and Mrs. Gita Umesh.', link:{ label:'Open PDF', href:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/04/Mayo-Evaluation-piechar1.pdf' } },
       { icon:'◆', title:'Duke University Research Conference', desc:'A video clip on SAI Counselling from a presentation that Dr. Krucoff, cardiologist from Duke University, had made at a research conference in Duke University in 2010.', link:{ label:'Watch', href:'https://youtu.be/OkytHQgqytA' } },
-      { icon:'◆', title:'Annual Report 2017', desc:'Annual Report of the Counseling Department for 2017.', link:{ label:'Open PDF', href:'http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/04/Annual-Report-2017-of-Counselling-Dept..pdf' } },
-      { icon:'◆', title:'Statistics for the year 2017', desc:'Department of Counselling graphs and statistics.', link:{ label:'Open PDF', href:'http://cdn.sssihms.org/sssihms/wp-content/uploads/2015/04/Department-of-Counselling-Graphs-2017-9.1.18.pdf' } },
+      { icon:'◆', title:'Annual Report 2017', desc:'Annual Report of the Counseling Department for 2017.', link:{ label:'Open PDF', href:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/04/Annual-Report-2017-of-Counselling-Dept..pdf' } },
+      { icon:'◆', title:'Statistics for the year 2017', desc:'Department of Counselling graphs and statistics.', link:{ label:'Open PDF', href:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/04/Department-of-Counselling-Graphs-2017-9.1.18.pdf' } },
       { icon:'◆', title:'AntharDhwani', desc:'The newsletter of the Counselling Department — fifteen volumes since January 2019.', link:{ label:'All issues', page:'anthardhwani' } }
     ] },
     { type:'gallery', eyebrow:'Gallery', title:'Counselling at the Bedside and in the Wards', items:[

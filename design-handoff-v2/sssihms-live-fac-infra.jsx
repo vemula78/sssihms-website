@@ -5,7 +5,7 @@
 const PAGES = window.PAGES;
 const R = window.__resources || {};
 const U = 'https://whitefield.sssihms.org/wp-content/uploads/sites/4/';
-const CDN = 'https://cdn.sssihms.org/sssihms/wp-content/uploads/';
+const CDN = 'https://whitefield.sssihms.org/wp-content/uploads/sites/4/';
 
 // ── CARDIAC SURGERY · FACULTY ───────────────────────────────────────────────
 PAGES['ctvs-faculty'] = {

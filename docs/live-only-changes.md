@@ -1194,3 +1194,27 @@ wording, Neurology card, FAQ, accessibility statement, per-service icons.
 - Same day, at Praveen's request: 56366 replaced in place by a lighter copy (Ghostscript pdfwrite /ebook, 150 dpi
   images; text stays vector; 26 pp.) — 61.5 MB → 3.5 MB, same URL. Original (sha1 cede98b1…) kept at
   /home/azureuser/manohriday-bak-20261017/ on the VM and in ~/Documents/Manohriday.
+
+## 2026-10-17 — cdn.sssihms.org retired: all media moved to whitefield.sssihms.org
+Praveen: "copy all media out of cdn and we can close that". cdn.sssihms.org was GitHub Pages (CNAME →
+webmaster-sssihms.github.io, repo webmaster-sssihms/sssihms, last commit 08-Nov-2024): an old W3TC mirror of the
+Whitefield uploads plus core/theme/plugin static files.
+- Full copy of the repo (with history): ~/Documents/cdn-sssihms-backup/repo on Praveen's Mac (not in this repo).
+- Of its 3,391 upload files, 3,368 were already on the VM at the same path under uploads/sites/4/ (same size); the
+  23 that were not (2015/05, Swami-PM-* and lighting-lamp-close-up-* sizes) + 19 site-icon sizes from its top-level
+  2017/05 and 2020/07 folders were copied in (list: copied-files.txt in the backup folder below).
+- Whitefield DB (sai_4_* tables only, guid column skipped): `wp search-replace`
+  `http(s)://cdn.sssihms.org/sssihms/wp-content/uploads/` → `https://whitefield.sssihms.org/wp-content/uploads/sites/4/`
+  — 2,121 rows (posts incl. revisions, postmeta serialized-safe, Yoast indexable/links, events, wysija). 0 left.
+  No other live site referenced the CDN (only orphan tables of deleted blogs 2 and 3).
+- 40 linked files were on neither the CDN nor the VM (already broken before); 7 of them appear on live pages:
+  gallery (2 Swami photos), 15th-anniversary post (3 photos), IACTA 2018 and SCORE 2019 brochures. Unchanged.
+- anthar-dhwani-01-2019-01.html: the printed link (truncated "…2017-9.1.1" on the CDN) now opens
+  uploads/sites/4/2015/04/Department-of-Counselling-Graphs-2017-9.1.18.pdf; the printed text is left as printed.
+- wfd.sssihms.org (/srv/www/wfd, August prototype build): 91 CDN links in 19 HTML files rewritten in place to the
+  same Whitefield URLs (all 58 return 200); not rebuilt. design-handoff-v2/*.jsx and src/*.js changed the same way,
+  so a fresh build has no CDN links. The GitHub Pages prototype is not redeployed.
+- Crawl after purge: 367 published pages, 1,591 media URLs, only the 7 known-broken fail; no page loads anything from
+  the CDN. Divi CSS cache is `et-cache/1/4` (CLAUDE.md and wordpress/README.md said `et-cache/*/whitefield…`).
+- Backups on the VM: /home/azureuser/cdn-migration-20261017/ (sai_4 tables before, /srv/www/wfd before, original
+  anthar-dhwani-01-2019-01.html).

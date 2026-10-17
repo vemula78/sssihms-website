@@ -4,7 +4,7 @@
 const PAGES = window.PAGES;
 const SUBNAV = window.DEPT_SUBNAV || {};
 const W = 'https://whitefield.sssihms.org/wp-content/uploads/sites/4/';
-const CDN = 'https://cdn.sssihms.org/sssihms/wp-content/uploads/';
+const CDN = 'https://whitefield.sssihms.org/wp-content/uploads/sites/4/';
 
 SUBNAV.counseling = [['Counselling','counseling'], ['AntharDhwani','anthardhwani']];
 window.DEPT_SUBNAV = SUBNAV;

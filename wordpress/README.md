@@ -45,7 +45,7 @@ Then purge both caches — Divi's static CSS **and** WP Super Cache:
 ```bash
 sudo rm -rf /srv/www/wordpress/wp-content/cache/page_enhanced/whitefield.sssihms.org \
             /srv/www/wordpress/wp-content/cache/page_enhanced/whitefield.sssihms.org:443 \
-            /srv/www/wordpress/wp-content/et-cache/*/whitefield.sssihms.org
+            /srv/www/wordpress/wp-content/et-cache/1/4
 ```
 
 Only ever delete the whitefield directories — those trees also hold the other sites.

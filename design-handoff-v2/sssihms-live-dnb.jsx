@@ -114,7 +114,7 @@ PAGES['nesu-dnb'] = {
   subtitle:'Designed to train and equip future neurosurgeons with the best skills and practices.',
   sections:[
     { type:'intro', eyebrow:'DNB Neurosurgery', title:'Two Streams of Residency Training',
-      image:'https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/06/SSSIHMS-0975.jpg',
+      image:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/06/SSSIHMS-0975.jpg',
       imageLabel:'Brain Aneurysm Surgery under Total Circulatory Arrest',
       body:[
         'SSSIHMS Neurosurgery DNB program is designed to train and equip future neuro surgeons with best skills and practices. SSSIHMS is accredited by NBE to offer Residency program in Neurosurgery under two streams: a 3-year Post graduate training leading to DNB in Neuro surgery and a Direct course of 6 years (post MBBS). The department was first accredited in the year 2003 to train 1 candidate every year.'
@@ -131,7 +131,7 @@ PAGES['nesu-dnb'] = {
       { icon:'◆', title:'Telephone', desc:'080-28411500 ext 415' }
     ] },
     { type:'gallery', eyebrow:'Gallery', title:'In the Operating Theatre', alt:true, items:[
-      { src:'https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/06/SSSIHMS-0975.jpg', caption:'Brain Aneurysm Surgery under Total Circulatory Arrest' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/06/SSSIHMS-0975.jpg', caption:'Brain Aneurysm Surgery under Total Circulatory Arrest' },
       { src:U + '2015/05/DSC04372.jpg', caption:'Neurosurgery in progress' },
       { src:U + '2015/05/DSC04350.jpg', caption:'Neurosurgery in progress' },
       { src:U + '2015/05/DSC04073.jpg', caption:'Spine Surgery in progress' }
@@ -144,7 +144,7 @@ PAGES['anes-dnb'] = {
   subtitle:'NBE Residency Courses in Anaesthesiology and Critical Care.',
   sections:[
     { type:'intro', eyebrow:'NBE Residency Courses', title:'Anaesthesia DNB Residency Programme',
-      image:'https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Photo-2.jpg',
+      image:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Photo-2.jpg',
       imageLabel:'Swami Blessing a child after Neurosurgery',
       body:[
         'The Department of Anaesthesiology and Critical Care at the Sri Sathya Sai Institute of Higher Medical Sciences is accredited by National Board of Examinations to offer 3-year training for primary candidates and 2 year training for secondary candidates leading to DNB Anaesthesiology equivalent of MD Anaesthesia Degree. The department was first accredited in the year 2003 to train one candidate every year. Currently, it is accredited to train 3+3 candidates annually. Anaesthesiology DNB program provides integrated training in all areas of Anaesthesia and critical care with clinical, didactic lecture/seminar and regular video conferencing with overseas faculty from USA. This program is dedicated to produce individuals who will become skilled anaesthesiologists imbibed with human values to render ideal holistic health care.',
@@ -166,10 +166,10 @@ PAGES['anes-dnb'] = {
       { icon:'◆', title:'Telephone & Email', desc:'080-28004640/41, Mobile 9620207698 · registrarblr@sssihms.org.in · anaesthesiablr@sssihms.org.in' }
     ] },
     { type:'gallery', eyebrow:'Gallery', title:'Swami With the Patients', items:[
-      { src:'https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Photo-17-e1430994430309.jpg', caption:'Swami blessing Neuro Patient' },
-      { src:'https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Photo-161.jpg', caption:'Swami blessing a patient' },
-      { src:'https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Photo-25.jpg', caption:'Swami blessing a small child' },
-      { src:'https://cdn.sssihms.org/sssihms/wp-content/uploads/2015/05/Photo-2.jpg', caption:'Swami Blessing a child after Neurosurgery' }
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Photo-17-e1430994430309.jpg', caption:'Swami blessing Neuro Patient' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Photo-161.jpg', caption:'Swami blessing a patient' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Photo-25.jpg', caption:'Swami blessing a small child' },
+      { src:'https://whitefield.sssihms.org/wp-content/uploads/sites/4/2015/05/Photo-2.jpg', caption:'Swami Blessing a child after Neurosurgery' }
     ] }
   ]
 };
