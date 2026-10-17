@@ -1182,3 +1182,12 @@ wording, Neurology card, FAQ, accessibility statement, per-service icons.
   page; Bhagawan and Telemedicine pages added to sources; two dead /services-* sources removed). Now 179 facts, 0
   missing; the 2 private statistics pages remain listed until they are republished.
 - Previous plugin: /home/azureuser/heval-bak-20261017/helpdesk-answers.php.orig.
+
+## 2026-10-17 — Manohriday Jan–Mar 2013, Jul–Sep 2013 and January 2015 PDFs
+- PDFs from ~/Documents/Manohriday, uploaded unmodified (sha1 matches the source), imported with WP-CLI:
+  media **56366** `2026/10/manohriday-january-march-2013.pdf` (61.5 MB, 26 pp.),
+  **56367** `2026/10/manohriday-july-september-2013.pdf` (4.1 MB, 20 pp.),
+  **56368** `2026/10/manohriday-january-2015.pdf` (4.0 MB, 36 pp., 14th Anniversary Commemorative Issue).
+- Tiles "Manohriday Jan-Mar 2013", "Manohriday Jul-Sep 2013" and "Manohriday 2015" on 625 now open those PDFs (were the
+  cover jpgs on cdn.sssihms.org). No read-online pages for these three. All 17 tiles on 625 now open a PDF.
+  Backup /tmp/bak-content-625-tiles-2013-2015.txt.
