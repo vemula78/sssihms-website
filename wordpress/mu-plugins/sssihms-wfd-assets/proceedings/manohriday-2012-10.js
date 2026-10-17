@@ -10,7 +10,7 @@
     img.alt = a.querySelector('img').alt;
     var sec = a.closest('section');
     var h = sec ? sec.querySelector('h2') : null;
-    cap.textContent = [a.dataset.cap, h ? h.textContent : '', 'e-book page ' + a.dataset.page,
+    cap.textContent = [a.dataset.cap, h ? h.textContent : '', 'page ' + a.dataset.page,
       (pos + 1) + ' of ' + set.length].filter(Boolean).join(' · ');
   }
   document.addEventListener('click', function (e) {

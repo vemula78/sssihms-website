@@ -1237,3 +1237,9 @@ approval), published with the same route as 2012-10 (build.py → proceedings as
 - Checked (Playwright, 1280 and 375 px): all six reading pages and 625 return 200, every image loads, no sideways scroll.
 - Known: manohriday-2013-01 has a broken auto-link `http://media` (printed URL split across lines) — reported to the
   magazine session to fix in its source.
+- Same day: manohriday-2012-10 (56340) rebuilt by the magazine session from the printed 21-Dec-2012 edition (the same
+  edition as media 56341): html/css/js + whole image folder replaced (54 files). Editorial, full Case-Based Neurology
+  text, 7-Jun-2008 photo, hall/altar photo with printed Contents, workshop group photo and back-cover details added;
+  draft-only items (HR Initiatives, HCIT notice, water body, "75 doctors attended") gone. manohriday-2013-01 (56370):
+  the broken `http://media` link is now one working link to the radiosai.org article (html/css only).
+  Previous server files: /home/azureuser/manohriday-bak-20261017/proceedings-before-2012rebuild.tgz.

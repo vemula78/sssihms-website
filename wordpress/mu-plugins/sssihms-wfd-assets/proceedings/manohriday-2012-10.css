@@ -164,11 +164,8 @@
 .sssihms-proc .covers2 .ph{flex:0 1 300px}
 .sssihms-proc .sec p,.sssihms-proc .sec li,.sssihms-proc .sec h2,.sssihms-proc .sec h3,.sssihms-proc .toc a{overflow-wrap:anywhere}
 .sssihms-proc .sec img{max-width:100%}
-
-.sssihms-proc .sec p.lead{font-size:18px;color:var(--sss-grey-dark);max-width:720px}
-.sssihms-proc blockquote.poem{max-width:720px;margin:14px 0 6px;padding:4px 0 4px 18px;border-left:3px solid var(--sss-gold)}
-.sssihms-proc blockquote.poem p{margin:0;font-family:var(--font-display);font-style:italic;line-height:1.6}
-.sssihms-proc table.stat .num{text-align:right;font-variant-numeric:tabular-nums}
+/* data tables printed inside a story: headers wrap so the table fits the column */
+.sssihms-proc .tbl table.story th{white-space:normal;vertical-align:bottom;min-width:70px}
 .sssihms-proc p{padding-bottom:0}
 .sssihms-proc ul,.sssihms-proc ol{line-height:inherit}
 @media print{.et-l--header,.et-l--footer,#wpadminbar{display:none !important}}
