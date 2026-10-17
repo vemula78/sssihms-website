@@ -1170,3 +1170,15 @@ wording, Neurology card, FAQ, accessibility statement, per-service icons.
 - **Help Desk Answers KB** (/srv/www/kb/whitefield/): hours, call-backs, September numbers, Salarpuria ₹40, fellowship dates
   (RGUHS Revised Notification 1; Arthroplasty added). Before-state kb-before.tgz.
 - Backups: /home/azureuser/heval-bak-20261017/ (content-*.txt, title-*.txt, pre-*.txt per save, menu116.csv, plugin, page.css).
+
+## 2026-10-17 — Weekly knowledge-base check (Help Desk Answers)
+- `sssihms-wfd-helpdesk-answers.php` (repo copy deployed): WP-Cron `sssihms_kb_check`, weekly, Mondays 06:00 IST, blog 4 only.
+  Every date, rupee amount, phone number, weekday range and time range in a KB file must appear on one of the pages its
+  "Source:" line names (or in the Divi header/footer); the site's own shortcodes are rendered (live BMW figures), Divi
+  layout shortcodes stripped. Files with no website source (procedure volumes) and "To verify" sections are skipped.
+- Report stored in option `sssihms_kb_check`; shown at the top of wp-admin › Help Desk Answers, and any answer holding a
+  missing fact carries "May be out of date". Administrators get a "Run the check now" button.
+- First run: 180 facts, 4 missing (all real) + 4 source problems. KB fixed (go-green BMW totals now point to the live
+  page; Bhagawan and Telemedicine pages added to sources; two dead /services-* sources removed). Now 179 facts, 0
+  missing; the 2 private statistics pages remain listed until they are republished.
+- Previous plugin: /home/azureuser/heval-bak-20261017/helpdesk-answers.php.orig.

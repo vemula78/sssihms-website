@@ -291,6 +291,73 @@ function sssihms_kb_md_html( $md ) {
 	return $html;
 }
 
+/**
+ * Facts that go stale (17-Oct-2026): dates, rupee amounts, phone numbers, weekday ranges and
+ * time ranges, normalised so "18-Nov-2026" = "18 November 2026" and "Rs. 40/-" = "₹40".
+ * Returns key => the text as written.
+ */
+function sssihms_kb_facts( $text ) {
+	$month = function ( $m ) {
+		$i = array_search( strtolower( substr( $m, 0, 3 ) ), array( 'jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec' ), true );
+		return false === $i ? 0 : $i + 1;
+	};
+	$f   = array();
+	$mon = '(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?';
+	if ( preg_match_all( '/\b(\d{1,2})(?:st|nd|rd|th)?[-\s]+' . $mon . '[-\s,]+(\d{4})\b/i', $text, $m, PREG_SET_ORDER ) ) {
+		foreach ( $m as $x ) {
+			if ( $month( $x[2] ) && $x[1] >= 1 && $x[1] <= 31 ) {
+				$f[ sprintf( 'date %04d-%02d-%02d', $x[3], $month( $x[2] ), $x[1] ) ] = $x[0];
+			}
+		}
+	}
+	if ( preg_match_all( '/\b' . $mon . '\s+(\d{1,2})(?:st|nd|rd|th)?,?\s+(\d{4})\b/i', $text, $m, PREG_SET_ORDER ) ) {
+		foreach ( $m as $x ) {
+			if ( $month( $x[1] ) && $x[2] >= 1 && $x[2] <= 31 ) {
+				$f[ sprintf( 'date %04d-%02d-%02d', $x[3], $month( $x[1] ), $x[2] ) ] = $x[0];
+			}
+		}
+	}
+	if ( preg_match_all( '/(?:₹|\bRs\.?|\bINR)\s*([\d,]*\d)/u', $text, $m, PREG_SET_ORDER ) ) {
+		foreach ( $m as $x ) {
+			$v = (int) str_replace( ',', '', $x[1] );
+			if ( $v > 0 ) {
+				$f[ 'amount ₹' . $v ] = $x[0];
+			}
+		}
+	}
+	// Phone numbers: 10 digits once +91 / a leading 0 is dropped.
+	if ( preg_match_all( '/(?<![\d,.])(?:\+91[\s-]*)?\d(?:[\s-]?\d){9,11}(?![\d,])/', $text, $m ) ) {
+		foreach ( $m[0] as $x ) {
+			$d = preg_replace( '/\D/', '', $x );
+			if ( 12 === strlen( $d ) && 0 === strpos( $d, '91' ) ) {
+				$d = substr( $d, 2 );
+			}
+			if ( 11 === strlen( $d ) && '0' === $d[0] ) {
+				$d = substr( $d, 1 );
+			}
+			if ( 10 === strlen( $d ) ) {
+				$f[ 'phone ' . $d ] = trim( $x );
+			}
+		}
+	}
+	$day = '(Mon|Tue|Wed|Thu|Fri|Sat|Sun)[a-z]*\.?';
+	if ( preg_match_all( '/\b' . $day . '\s*(?:to|–|-|—|through)\s*' . $day . '/iu', $text, $m, PREG_SET_ORDER ) ) {
+		foreach ( $m as $x ) {
+			$f[ 'days ' . strtolower( $x[1] ) . '–' . strtolower( $x[2] ) ] = $x[0];
+		}
+	}
+	$t  = '(\d{1,2})(?:[:.](\d{2}))?\s*([ap])\.?\s*m\b\.?';
+	$hm = function ( $h, $mm, $ap ) {
+		return sprintf( '%02d:%02d', (int) $h % 12 + ( 'p' === strtolower( $ap ) ? 12 : 0 ), (int) $mm );
+	};
+	if ( preg_match_all( '/\b' . $t . '\s*(?:to|and|–|-|—)\s*' . $t . '/iu', $text, $m, PREG_SET_ORDER ) ) {
+		foreach ( $m as $x ) {
+			$f[ 'hours ' . $hm( $x[1], $x[2], $x[3] ) . '–' . $hm( $x[4], $x[5], $x[6] ) ] = $x[0];
+		}
+	}
+	return $f;
+}
+
 /* ---------------------------------------------------------------- WordPress */
 
 if ( function_exists( 'add_action' ) ) {
@@ -320,6 +387,167 @@ if ( function_exists( 'add_action' ) ) {
 		add_menu_page( 'Help Desk Answers', 'Help Desk Answers', 'read', 'sssihms-helpdesk', 'sssihms_kb_page', 'dashicons-format-chat', 3 );
 	} );
 
+	/*
+	 * Weekly knowledge-base check (17-Oct-2026). The files are written from the website, which
+	 * changes underneath them (fellowship dates, the Salarpuria charge). Every fact in a file —
+	 * see sssihms_kb_facts() — must still appear on one of the pages its "Source:" line names
+	 * (or in the site header/footer). Anything missing is listed on the Help Desk Answers page,
+	 * and answers that contain it carry a warning. Fix by updating the file, or its Source line.
+	 */
+
+	/** Plain text of a page: Divi layout shortcodes dropped, the site's own shortcodes run (live figures). */
+	function sssihms_kb_check_plain( $html ) {
+		$html = preg_replace( '/\[\/?et_pb_[^\]]*\]/', ' ', (string) $html );
+		$html = do_shortcode( $html );
+		$html = preg_replace( '#<(script|style)\b.*?</\1>#is', ' ', $html );
+		$html = preg_replace( '/<[^>]+>/', ' ', $html );
+		return preg_replace( '/\s+/u', ' ', html_entity_decode( $html, ENT_QUOTES | ENT_HTML5, 'UTF-8' ) );
+	}
+
+	/** array( text, problem ) for one source URL; problem is '' for a public page. */
+	function sssihms_kb_check_source( $url ) {
+		$path = trim( (string) wp_parse_url( $url, PHP_URL_PATH ), '/' );
+		$post = '' === $path ? get_post( (int) get_option( 'page_on_front' ) ) : get_page_by_path( $path );
+		if ( ! $post && url_to_postid( $url ) ) {
+			$post = get_post( url_to_postid( $url ) ); // a post rather than a page
+		}
+		if ( $post ) {
+			return array( sssihms_kb_check_plain( $post->post_content ), 'publish' === $post->post_status ? '' : 'page is ' . $post->post_status );
+		}
+		$file = ABSPATH . $path;
+		if ( is_dir( $file ) ) {
+			$file = rtrim( $file, '/' ) . '/index.html';
+		}
+		$real = realpath( $file );
+		if ( $real && is_file( $real ) && 0 === strpos( $real, realpath( ABSPATH ) ) ) {
+			return array( sssihms_kb_check_plain( file_get_contents( $real ) ), '' );
+		}
+		return array( '', 'page not found' );
+	}
+
+	function sssihms_kb_check_run() {
+		if ( 4 !== get_current_blog_id() || ! is_dir( SSSIHMS_KB_DIR ) ) {
+			return;
+		}
+		$chrome = '';
+		foreach ( array( 'et_header_layout', 'et_footer_layout' ) as $type ) {
+			foreach ( get_posts( array( 'post_type' => $type, 'post_status' => 'publish', 'numberposts' => -1 ) ) as $p ) {
+				$chrome .= ' ' . sssihms_kb_check_plain( $p->post_content );
+			}
+		}
+		$pages  = array();
+		$report = array( 'time' => current_time( 'timestamp' ), 'files' => 0, 'facts' => 0, 'missing' => array(), 'sources' => array() );
+		$files  = array();
+		foreach ( new RecursiveIteratorIterator( new RecursiveDirectoryIterator( SSSIHMS_KB_DIR, FilesystemIterator::SKIP_DOTS ) ) as $f ) {
+			if ( 'md' === strtolower( $f->getExtension() ) && ! in_array( $f->getFilename(), sssihms_kb_skip_files(), true ) ) {
+				$files[] = $f->getPathname();
+			}
+		}
+		sort( $files );
+		foreach ( $files as $path ) {
+			$rel   = ltrim( substr( $path, strlen( rtrim( SSSIHMS_KB_DIR, '/' ) ) ), '/' );
+			$lines = preg_split( '/\R/', file_get_contents( $path ) );
+			$urls  = array();
+			foreach ( array_slice( $lines, 0, 6 ) as $l ) {
+				if ( 0 === strpos( $l, 'Source:' ) && preg_match_all( '#https?://whitefield\.sssihms\.org[^\s,)]*#', $l, $u ) ) {
+					$urls = $u[0];
+				}
+			}
+			if ( ! $urls ) {
+				continue; // e.g. procedure volumes, written from the registers, not the website
+			}
+			$report['files']++;
+			$web = $chrome;
+			foreach ( $urls as $u ) {
+				if ( ! isset( $pages[ $u ] ) ) {
+					$pages[ $u ] = sssihms_kb_check_source( $u );
+				}
+				$web .= ' ' . $pages[ $u ][0];
+				if ( '' !== $pages[ $u ][1] ) {
+					$report['sources'][ $u ][] = $rel;
+					$report['sources'][ $u ]   = array_unique( $report['sources'][ $u ] );
+				}
+			}
+			$have = sssihms_kb_facts( $web );
+			$sec  = '';
+			foreach ( $lines as $n => $l ) {
+				if ( preg_match( '/^#{2,4}\s+(.*)$/', $l, $h ) ) {
+					$sec = $h[1];
+					continue;
+				}
+				if ( 0 === stripos( $sec, 'To verify' ) || preg_match( '/^(Source|Last checked|Updated|Period):/', $l ) ) {
+					continue;
+				}
+				foreach ( sssihms_kb_facts( $l ) as $key => $as ) {
+					$report['facts']++;
+					if ( ! isset( $have[ $key ] ) ) {
+						$report['missing'][] = array( 'file' => $rel, 'line' => $n + 1, 'as' => $as, 'text' => mb_substr( trim( $l ), 0, 200 ) );
+					}
+				}
+			}
+		}
+		foreach ( $report['sources'] as $u => $rels ) {
+			$report['sources'][ $u ] = array( 'problem' => $pages[ $u ][1], 'files' => array_values( $rels ) );
+		}
+		update_option( 'sssihms_kb_check', $report, false );
+		return $report;
+	}
+	add_action( 'sssihms_kb_check', 'sssihms_kb_check_run' );
+
+	// Every Monday, 06:00 site time.
+	add_action( 'init', function () {
+		if ( 4 === get_current_blog_id() && ! wp_next_scheduled( 'sssihms_kb_check' ) ) {
+			wp_schedule_event( ( new DateTime( 'next monday 06:00', wp_timezone() ) )->getTimestamp(), 'weekly', 'sssihms_kb_check' );
+		}
+	} );
+
+	add_action( 'admin_post_sssihms_kb_check_now', function () {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die( 'Not allowed.' );
+		}
+		check_admin_referer( 'sssihms_kb_check_now' );
+		sssihms_kb_check_run();
+		wp_safe_redirect( admin_url( 'admin.php?page=sssihms-helpdesk' ) );
+		exit;
+	} );
+
+	/** The report box at the top of the Help Desk Answers page. */
+	function sssihms_kb_check_box( $r ) {
+		$when = $r ? date_i18n( 'd-M-Y H:i', $r['time'] ) : '';
+		$out  = '';
+		if ( ! $r ) {
+			$out .= '<div class="notice notice-info inline"><p>The weekly knowledge-base check has not run yet.</p>';
+		} elseif ( ! $r['missing'] && ! $r['sources'] ) {
+			$out .= '<div class="notice notice-success inline"><p>Knowledge-base check, ' . esc_html( $when ) . ': all ' . (int) $r['facts']
+			      . ' dates, amounts, phone numbers and hours in the answers match the website.</p>';
+		} else {
+			$parts = array();
+			if ( $r['missing'] ) {
+				$parts[] = count( $r['missing'] ) . ' of ' . (int) $r['facts'] . ' dates, amounts, phone numbers and hours in the answers are no longer on their website pages';
+			}
+			if ( $r['sources'] ) {
+				$parts[] = count( $r['sources'] ) . ' website ' . _n( 'page the answers are taken from is', 'pages the answers are taken from are', count( $r['sources'] ) ) . ' missing or not public';
+			}
+			$out .= '<div class="notice notice-warning inline"><p><strong>Knowledge-base check, ' . esc_html( $when ) . ':</strong> '
+			      . esc_html( implode( '; ', $parts ) ) . '. Answers that rely on them may be out of date. Check the website before reading them out, and tell the web team.</p>';
+			$out .= '<details><summary>Show details</summary><ul style="list-style:disc;margin-left:20px">';
+			foreach ( $r['missing'] as $m ) {
+				$out .= '<li><code>' . esc_html( $m['file'] . ':' . $m['line'] ) . '</code> <strong>' . esc_html( $m['as'] ) . '</strong> — ' . esc_html( $m['text'] ) . '</li>';
+			}
+			foreach ( $r['sources'] as $u => $s ) {
+				$out .= '<li>Source <a href="' . esc_url( $u ) . '" target="_blank" rel="noopener">' . esc_html( $u ) . '</a>: ' . esc_html( $s['problem'] )
+				      . ' (named in ' . esc_html( implode( ', ', $s['files'] ) ) . ')</li>';
+			}
+			$out .= '</ul></details>';
+		}
+		if ( current_user_can( 'manage_options' ) ) {
+			$out .= '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '" style="margin:0 0 8px">'
+			      . wp_nonce_field( 'sssihms_kb_check_now', '_wpnonce', true, false )
+			      . '<input type="hidden" name="action" value="sssihms_kb_check_now"><button class="button">Run the check now</button></form>';
+		}
+		return $out . '</div>';
+	}
+
 	function sssihms_kb_page() {
 		$q     = isset( $_GET['q'] ) ? sanitize_text_field( wp_unslash( $_GET['q'] ) ) : '';
 		$index = sssihms_kb_index();
@@ -329,6 +557,8 @@ if ( function_exists( 'add_action' ) ) {
 			echo '<div class="notice notice-error"><p>The knowledge base folder is missing on the server. Please tell the web team.</p></div></div>';
 			return;
 		}
+		$check = get_option( 'sssihms_kb_check' );
+		echo sssihms_kb_check_box( $check ); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped inside
 		echo '<p>Type a question the way a caller would ask it, e.g. <em>Is treatment free?</em>, <em>How do I reach by Metro?</em>, <em>Do you do knee replacement?</em> Answers are taken word for word from the hospital knowledge base. If none fits, do not guess. Check with your supervisor.</p>';
 		echo '<form method="get"><input type="hidden" name="page" value="sssihms-helpdesk" /><input class="kb-q" type="search" name="q" value="' . esc_attr( $q ) . '" placeholder="Ask a question…" autofocus /> <button class="button button-primary">Find answer</button></form>';
 		if ( '' !== $q ) {
@@ -340,7 +570,17 @@ if ( function_exists( 'add_action' ) ) {
 					if ( $i > 0 && $h['score'] < 0.45 * $hits[0]['score'] ) {
 						break; // Far weaker than the best match; showing it would mislead.
 					}
+					$stale = array();
+					foreach ( $check['missing'] ?? array() as $m ) {
+						if ( $m['file'] === $h['file'] && false !== strpos( $h['body'], $m['as'] ) ) {
+							$stale[] = $m['as'];
+						}
+					}
 					echo '<div class="kb-card"><h3>' . esc_html( '' !== $h['q'] ? $h['q'] : $h['head'] ) . '</h3>';
+					if ( $stale ) {
+						echo '<div class="notice notice-warning inline"><p>May be out of date: <strong>' . esc_html( implode( ', ', array_unique( $stale ) ) )
+						   . '</strong> is no longer on the website page. Check the website before reading this out.</p></div>';
+					}
 					echo '<div class="kb-meta">' . esc_html( $h['title'] ) . ' · ' . esc_html( $h['file'] );
 					if ( $h['source'] ) {
 						echo ' · <a href="' . esc_url( $h['source'] ) . '" target="_blank" rel="noopener">website page</a>';
