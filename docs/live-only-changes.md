@@ -1258,3 +1258,15 @@ Praveen approved the mock-up (~/Documents/Manohriday/manohriday-page-mockup.html
   grids; 18101 still has the wrapper problem (not changed). Previous plugin file in the backup folder above.
 - Featured "Latest issues" is static: when the 2027 issue arrives it must be changed by hand (the form adds to the archive).
 - Checked: 200, 17/17 images, no sideways scroll at 1280 and 375 px, 17 reading pages live.
+
+## 2026-10-17 — AntharDhwani page (18101) redesigned the same way
+At Praveen's request ("do the same for the Anthar Dhwani page").
+- Module "Read AntharDhwani" replaced by "Latest Issues" (Vol. XVI Guru Purnima Edition, July 2026 and Vol. XV Hospital
+  25th Anniversary Special Edition, 19 January 2026 — Read online + Download PDF with size) and "All Issues" (one grid,
+  "Volumes I – XIV, 2019 – 2025", `article.mh-card`: cover → reading page, edition name under the label where the issue
+  has one, Read online, PDF · size). Titles and edition names from the issue pages' titles. All 32 links kept, none added.
+- CSS (same as 625 + `.cover-note` line) in `_sssihms_page_css_extra` (was empty). Both pages: `.mh-card-actions{margin-top:auto}`
+  so the buttons in a row line up.
+- Site Updates: the Newsletter tab now offers no sections anywhere (both its pages moved to the Magazine issue tab, which
+  offers 3 grids: 625 ×2, 18101 ×1). Backup: /home/azureuser/manohriday-bak-20261017/bak-content-18101-redesign.txt.
+- Checked: 200, 16/16 images, no sideways scroll at 1280 and 375 px, no dead links, buttons aligned on both pages.

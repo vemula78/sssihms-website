@@ -76,7 +76,7 @@ adds one item to a section already on a page, without the Divi builder:
 | Tab | Goes into | Card markup | Position |
 |---|---|---|---|
 | Newsletter issue | any `cover-grid` whose cards are bare `a.cover-cell` | `a.cover-cell` — PDF + cover (medium size) | first |
-| Magazine issue | Manohriday archive grids (`article.mh-card`, since 17-Oct-2026) | cover → PDF, title, "PDF · size" link; add "Read online" by hand once a reading page exists | first |
+| Magazine issue | Manohriday and AntharDhwani archive grids (`article.mh-card`, since 17-Oct-2026) | cover → PDF, title, "PDF · size" link; add "Read online" by hand once a reading page exists | first |
 | Faculty member | any grid of `faculty-card` | photo card (medium_large), or initials if no photo | last |
 | Event | `info-card` grids on pages whose path contains `event` | title, pill, text, optional link | first |
 | Photos | any `photo-grid` | up to six `figure.photo-cell`, caption required (large size) | last |
