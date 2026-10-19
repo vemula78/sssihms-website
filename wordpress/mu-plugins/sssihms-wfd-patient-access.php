@@ -758,6 +758,36 @@ function sssihms_wfd_stats_css() {
 add_action( 'wp_footer', 'sssihms_wfd_stats_css', 4 );
 
 /**
+ * Contrast and target-size fixes from the axe-core 4.12.1 scan of 19-Oct-2026.
+ * Ratios (WCAG relative luminance):
+ *   muted text #7a6a55 on --bg-alt #f0e8d6 = 4.28 → #6e604c = 5.00 (6.10 on white),
+ *     the tone rule 1e above already uses for .section-sub; set as --tm inside
+ *     beige sections only, so muted text elsewhere is unchanged;
+ *   call-bar captions: opacity .85 made them #f1e6dd on #a4581f = 4.28 → #fff = 5.26;
+ *   saffron text #c8813a on white/cards = 3.15/3.07 → #96591a = 5.61/5.48;
+ *   white on #c8813a = 3.15 → on #a4581f = 5.26 (as rule 1c);
+ *   404 help links were Divi's default #2ea3f2 = 2.74 on white → #96591a = 5.61.
+ */
+function sssihms_wfd_a11y_contrast_css() {
+	if ( ! sssihms_wfd_is_target() ) {
+		return;
+	}
+	?>
+<style id="sssihms-a11y-contrast">
+.section-alt{--tm:#6e604c}
+.theme-b .section-alt,.theme-b.section-alt{--tm:#5a6a85}
+.sssihms-callbar a small{opacity:1;color:#fff}
+.ct-mail,.vac-pdf,.subnav-link.active,.prose-p a[style*="var(--primary)"]{color:#96591a!important}
+.ct-mail[href^="tel:"]{text-decoration:underline}
+.free-band,.et_pb_contact_submit.et_pb_button{background:#a4581f!important}
+.sssihms-searchhelp a{color:#96591a;text-decoration:underline}
+.ach-group>summary{min-height:26px;box-sizing:border-box}
+</style>
+	<?php
+}
+add_action( 'wp_footer', 'sssihms_wfd_a11y_contrast_css', 6 );
+
+/**
  * Stop author lookups revealing login names. /?author=1 redirected to
  * /author/saiadmin/, handing bots a real admin username (29-Sep-2026: ~20,000
  * failed logins in 30 days, many against real names). ?author=N requests and

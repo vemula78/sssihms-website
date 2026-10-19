@@ -1284,3 +1284,28 @@ committed in the plugin repo); no page content, menu, database or other plugin t
   the server with suffix `.bak-2026-10-19`.
 - Checked: one `<h1>` on each page, both 200, plugin CSS served as `ver=0.11.3`, headings' computed styles identical at
   1280 and 375 px, no new PHP errors. Neither page is in the page cache (served no-cache).
+
+## 2026-10-19 — Accessibility contrast fixes (axe scan)
+Follows the axe-core 4.12.1 scan of 19-Oct-2026 (WCAG 2.2 AA tags, 1366 px and 390 px). One new footer function
+`sssihms_wfd_a11y_contrast_css()` in mu-plugin `sssihms-wfd-patient-access.php` (gated on blog 4 like the rest); no page
+content, database or other plugin touched. Ratios are WCAG relative-luminance values, computed, not estimated.
+- **Muted body text in beige sections** — `#7a6a55` on `--bg-alt #f0e8d6` was 4.28:1. `--tm` is redefined to `#6e604c`
+  inside `.section-alt` only (5.00:1 on beige, 6.10:1 on white) — the tone rule 1e already uses for `.section-sub`.
+  Muted text on white/paper sections is unchanged; `.theme-b` sections keep their own `--tm`.
+- **Mobile call bar captions** ("10 AM – 4 PM, Mon–Sat", "& directions") — `opacity:.85` rendered them `#f1e6dd` on
+  `#a4581f` (4.28:1); now opaque white, 5.26:1. Bar colour unchanged.
+- **Saffron text on white/cards** (`.ct-mail`, `.vac-pdf`, active `.subnav-link`, inline `color:var(--primary)` links in
+  `.prose-p`) — `#c8813a` was 3.15/3.07:1; now `#96591a`, 5.61/5.48:1.
+- **White on saffron** (`.free-band`, Divi contact-form Submit) — 3.15:1 on `#c8813a`; background now `#a4581f`, 5.26:1
+  (as rule 1c).
+- **404 page help links** — Divi default `#2ea3f2` (2.74:1); now `#96591a`, underlined.
+- **link-in-text-block** — Contact Us help-desk phone link (`.ct-mail[href^="tel:"]`) underlined.
+- **target-size** — Achievements (Cardiology) fold-out headings (`.ach-group > summary`) were 23.1 px tall; min-height 26 px.
+- Footer CSS prints at `wp_footer` priority 6, before the call bar's own `<style>` (priority 99), so the caption rule
+  uses `.sssihms-callbar a small` to win on specificity.
+- Result (28 pages that had failures, both viewports): 293 → 8 failing nodes (251 → 8 on 200-status pages);
+  color-contrast 280 → 8, target-size 10 → 0, link-in-text-block 2 → 0. **Left:** the 8 remaining are all on Biomedical
+  Waste Management (Divi default blue on the BMW plugin's report links and the phone links in that page) — the BMW plugin
+  is being changed separately. scrollable-region-focusable (BMW table) also 1 → 0 from that work.
+- Server copy matched the repo before editing; previous file backup kept on the server. `php -l` clean; no new PHP errors
+  from the mu-plugin; page cache purged.
