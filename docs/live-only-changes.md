@@ -616,7 +616,7 @@ Discrepancies found and deliberately not reconciled (awaiting departments): CTVS
 - The bundled page stylesheet hides `.dp-toc-list` below 880 px with no way to open it, so phones had no index. `toc-nav.js` now turns the "Contents" heading into a Show/Hide toggle below 880 px (role=button, keyboard operable, aria-expanded); the list opens in a 60vh scroll box and closes when a poem is tapped. Desktop sidebar unchanged.
 - The site bar injected by `toc-nav.js` (sticky, top 0) was covering the page's own sticky toolbar and hiding the search box after scrolling, at all widths. The toolbar is now pinned below the bar, and poem jump offset / desktop TOC top are computed from the real bar heights.
 - `toc-nav.js` is served with a 1-year Cache-Control, so the three HTML files' script tag became `toc-nav.js?v=20260927` (only change to those files). Bump the version on any future edit to the script.
-- Backups on the VM: `/home/azureuser/toc-nav.js.bak-20260927`, `/home/azureuser/poetry-pages.bak-20260927/`.
+- Backups on the VM: `~/toc-nav.js.bak-20260927`, `~/poetry-pages.bak-20260927/`.
 
 ## 2026-09-27 — Poetry pages: fixes from an independent code audit
 Same three pages. Script now `toc-nav.js?v=20260927b`.
@@ -625,7 +625,7 @@ Same three pages. Script now `toc-nav.js?v=20260927b`.
 - Sticky offsets re-measure through a ResizeObserver (border box) and once per frame on resize, so a late font load or re-wrapping site bar no longer leaves the toolbar under it.
 - On a phone the list opens at the current poem and is capped to the space under the bars (`dvh`, `vh` fallback); the page scrolls the heading up under the bars if the list would run off screen. Desktop TOC height also uses `dvh`.
 - Removed the script's own IntersectionObserver highlight; it disagreed with the bundle's scroll handler. The bundle's handler (inside each page's base64 bundle) now measures from the toolbar's bottom edge instead of its height, so it allows for the site bar: `var off=(tb?tb.getBoundingClientRect().bottom:0)+30;` — the only change inside the bundles (base64 round-trip verified byte-identical before editing).
-- Backups on the VM: `/home/azureuser/poetry-pages.bak-20260927b/` (all four files as they were before this change).
+- Backups on the VM: `~/poetry-pages.bak-20260927b/` (all four files as they were before this change).
 
 ## 2026-09-27 — Poetry pages: fixes from the second audit
 Same three pages; `toc-nav.js` only (HTML files changed only in the script tag, now `?v=20260927c`).
@@ -635,120 +635,120 @@ Same three pages; `toc-nav.js` only (HTML files changed only in the script tag, 
 - Focus is moved after the smooth scroll ends (`scrollend`, 1 s fallback) — iOS Safari before 15.5 ignored `preventScroll` and jumped mid-scroll.
 - With the list open on a phone, the highlighted entry is kept in view inside the list as the page scrolls.
 - Removed the list's 120 px minimum height (it overflowed short landscape screens); the open-list page scroll measures the visual viewport.
-- Backups on the VM: `/home/azureuser/poetry-pages.bak-20260927c/`.
+- Backups on the VM: `~/poetry-pages.bak-20260927c/`.
 
 ## 2026-09-27 — Poetry pages: highlight after a search
 `toc-nav.js` only; script tag now `?v=20260927d`.
 - The bundle's search hides non-matching poems but re-picks the highlighted contents entry only on the next scroll, so a search that did not move the page (e.g. at the top) left a hidden poem lit. After each search input or Clear, `toc-nav.js` fires a synthetic `scroll` so the bundle's own handler re-picks among the poems still showing. No bundle change.
-- Backups on the VM: `/home/azureuser/poetry-pages.bak-20260927d/`.
+- Backups on the VM: `~/poetry-pages.bak-20260927d/`.
 
 ## 2026-09-28 — Faces blurred in four archive photos (History-GH, Dental)
 Faces blurred at the hospital's request (the person had been marked out in black on screenshots): `opd-inauguration-1.jpg`, `ganesha-1.jpg`, `ganesha-3.jpg` (History page, 53322) and `dental-inauguration-1.jpg` (Dental page, 53304). Pixelate + Gaussian blur with a feathered edge over the marked area; nothing else in the photos changed.
 - Every copy was replaced: the WordPress originals (attachments 55593, 55582, 55584, 55579) with all sizes regenerated from them, `uploads/sssihms-assets/sssgh/`, the higher-resolution copies served by wfd.sssihms.org (`/srv/www/wfd/assets/sssgh/`), and `src/assets/sssgh/` in this repo.
 - Site-wide check: all ~23,500 images under `/srv/www` were compared (same-shape candidates, 32×32 greyscale match) — these four photos exist only in those locations. Related event photos were checked by eye for the Dental person; no other appearance found. Different photos of the same person cannot be found automatically (no face recognition).
 - Images are served with a 1-year cache, so the page image URLs now carry `?v=20260928` (History: 3 URLs, Dental: 1). wfd.sssihms.org sends no long cache header and its HTML was left unchanged.
-- Backups on the VM: `/home/azureuser/history-gh-faceblur-bak-20260928/`, `/home/azureuser/faceblur-bak-20260928/`.
+- Backups on the VM: `~/history-gh-faceblur-bak-20260928/`, `~/faceblur-bak-20260928/`.
 - The unblurred versions remain in this repo's git history (commits before this one).
 
 
 ## 2026-09-28 — Home: multi-specialty surgeries stat 1,700+ → 3,300+
 Home page (54830), "Service in Numbers": "Multi-Specialty Surgeries per Year" changed from 1,700+ to 3,300+ at the hospital's request. Only that one value changed.
 - Same change made on "Support the Mission" (55654, /donate/) and the draft "Our Impact" (55676) — the only other places the figure appeared.
-- Backup on the VM: `/home/azureuser/home-stat-bak-20260928/`.
+- Backup on the VM: `~/home-stat-bak-20260928/`.
 
 ## 2026-09-28 — Home: second Swami photo replaced
 The home page (54830) showed `Swami-with-stethoscope-e1487392181378.jpg` twice — beside the 2003 quote and in "The Guiding Light" portrait. The portrait now uses `2026/09/baba-12.jpg` (attachment 55578: close portrait, orange robe, blessing hand). The quote photo is unchanged.
-- Backup on the VM: `/home/azureuser/home-photo-bak-20260928/`.
+- Backup on the VM: `~/home-photo-bak-20260928/`.
 
 ## 2026-09-28 — About Hospital: trustees and executive committee restored
 "More About the Hospital" (page 2) had been migrated as loose paragraphs: the name column of the old Board of Trustees and Hospital Executive Committee tables was lost, several role lines were cut at "Dr."/"Sr.", the Vision/Mission labels were dropped, and the old side-image captions ("Ariel View of Hospital Diwali View") came through as a stray line.
 - Rebuilt from the last pre-redesign revision (54281, 23-Jul-2025): Vision and Mission labels restored; both groups shown as name + roles cards (2 columns, 1 on phones), styles scoped with an `ah-` prefix inside the module. The stray caption line was removed (those photos are already in the Campus section).
 - Text is as in 54281 except missing spaces fixed ("of Commercial", "Research Foundation", "High Court of") and trailing commas dropped. Membership is as of July 2025 — not re-verified.
-- Backup on the VM: `/home/azureuser/about-hospital-bak-20260928/`.
+- Backup on the VM: `~/about-hospital-bak-20260928/`.
 
 ## 2026-09-28 — Genesis: chandelier photo added
 The chandelier section of Genesis (page 587) had no photo — none of its revisions back to 2015, nor the wfd prototype, ever had one. Added `2017/09/Onam-2017-with-chandelier-681x1024.jpg` (attachment 10087, from the Whitefield post "Onam 2017 at SSSIHMS": the chandelier in the dome above the atrium pookalam) beside the text, using the page's existing `intro-grid` + `prose-figure` pattern. The image has inline `height:auto;max-height:none` so the 460 px `prose-figure` cap doesn't crop the chandelier out of the portrait photo.
-- Backup on the VM: `/home/azureuser/genesis-chandelier-bak-20260928/`.
+- Backup on the VM: `~/genesis-chandelier-bak-20260928/`.
 
 ## 2026-09-28 — Manohriday: 2020 cover restored
 The 2020 cover on Manohriday (page 625) had an empty `src`. Set to `2020/01/Manohriday-2020-cover-page-213x300.jpg` (attachment 33805), as in the pre-redesign revision 54635.
-- Backup on the VM: `/home/azureuser/manohriday-bak-20260928/`.
+- Backup on the VM: `~/manohriday-bak-20260928/`.
 
 ## 2026-09-28 — Cardiology: Cathlab Facilities photo
 The "Cathlab Facilities" section of Cardiology (page 81) showed `2022/11/ROTABLATOR.jpg`. Replaced with `2026/09/cardio-equip-siemens-biplane-cathlab.jpg` (attachment 55535, the empty Siemens biplane lab; not used elsewhere on the page), alt and caption "Siemens Biplane Cathlab". The Rotablator photo no longer appears on the page.
-- Backup on the VM: `/home/azureuser/cardiology-cathlab-bak-20260928/`.
+- Backup on the VM: `~/cardiology-cathlab-bak-20260928/`.
 
 ## 2026-09-28 — Cardiology Faculty: photo cards no longer crop faces
 On Cardiology › Faculty (page 108) the Honorary and Visiting photo cards used the shared full-width 280 px photo band inside 2-column cards (560×280, `object-position: center top`). Most photos are portrait headshots, so heads and chins were cut off.
 - Those two grids now carry a `fac-side` class; a scoped `<style>` in the Honorary module lays photo cards out as a 150×188 portrait beside the text (112×140 on phones ≤480 px), matching the initials cards. The shared stylesheet and the Consultants cards are unchanged.
 - Each of the 18 photos has an inline `object-position` computed from its face box (macOS Vision, `sai-photo-band/scripts/detect_faces.swift`) so the face is centred in the frame.
-- Backup on the VM: `/home/azureuser/cardio-faculty-bak-20260928/`.
+- Backup on the VM: `~/cardio-faculty-bak-20260928/`.
 
 ## 2026-09-28 — Cardiology Infrastructure: ATHMA and MedDream PACS
 On Cardiology › Infrastructure (page 104) the "e-HIS, PACS and Echo View Sai" section (heading and module label) is now "ATHMA and MedDream PACS", at the hospital's request. Two paragraphs describe ATHMA (replacing e-HIS) and MedDream PACS (replacing Fuji PACS and Echo View Sai), using only facts already on the HMIS page (212), plus a "More about HMIS →" button to `/hmis/`. "Echo" was added to the list of images archived on MedDream, since Echo View Sai is replaced.
 - Not changed: the HMIS page's own "The System in Detail" section still describes the old Dedalus EM system.
-- Backup on the VM: `/home/azureuser/cardio-infra-bak-20260928/`.
+- Backup on the VM: `~/cardio-infra-bak-20260928/`.
 
 ## 2026-09-28 — MSc Echocardiography: Programme Details rebuilt
 The "Programme Details" module on MSc Echo (page 54169) was an unformatted dump of the old page: sub-headings dropped, lists flattened into paragraphs, sentence starts lost ("…Echocardiography programme are well-positioned for roles in:", "in Echocardiography at SSSIHMS is…"), four of five career roles missing, and text from sections that were disabled on the old page mixed in.
 - Rebuilt from the last pre-redesign revision (54358, 03-Nov-2025), visible sections only: Programme Overview, Key Highlights (11, bold labels), What We Expect from the Student (6), What the Student Can Expect (8), Career Opportunities (intro + 5), closing paragraph. Scoped `pd-` styles inside the module. Wording is the original.
 - The old "CLICK HERE TO APPLY M.Sc ECHOCARDIOGRAPHY ACADEMIC YEAR 2025-26" line (a 2025 edumerge form; its link had already been lost) was not carried over — the page's "Join the MSc Echocardiography Programme" section covers applications.
-- Backup on the VM: `/home/azureuser/msecho-bak-20260928/`.
+- Backup on the VM: `~/msecho-bak-20260928/`.
 
 ## 2026-09-28 — Cardiology Faculty: 15 visiting-faculty photos added, 4 affiliations updated
 At the hospital's request, official profile headshots were sourced from each doctor's employer (or, for Patel/Nannapaneni, society/CME faculty pages) and added to page 108 as attachments 55831–55845 (`2026/09/cardio-visiting-<name>.jpg`, resized ≤600 px): Abhiram Prasad, Arvin Narula, Brahmajee Nallamothu, Collin Cowley, David Nykanen, Eric Nordsieck, Hari Chaliki, Jon Donnelly, Krishna Rao, Madhu Reddy, Mehul Patel, Nischala Nannapaneni, Sanket Shah, Satish Goel, Scott Wall. Same `fac-side` card layout; `object-position` from Vision face boxes. Photos are the employers' copyright — consent from the faculty is advisable.
 - Affiliations updated from current official pages: Nordsieck → Mercy Clinic, St. Louis; Tisma-Dupanovic → Director of EP Services, Nemours Children's Hospital, Orlando; "Sunil Agarwal" → Dr. Suneil Aggarwal, Barts Heart Centre, London (Cromwell Hospital bio: formerly Liverpool, trained in Puttaparthi); Airey → MercyOne North Iowa Heart Center, Mason City (LinkedIn/directories; no official profile found).
 - Not changed: Mehul Patel (left Methodist Le Bonheur; current post unconfirmed), and the uncertain / not-found photos (Dhanekula, Airey, Nayak, Aggarwal; Park, Wijetunga, Tisma-Dupanovic, Swarna).
-- Backup on the VM: `/home/azureuser/cardio-faculty-bak-20260928b/`; source files in `/home/azureuser/visiting-photos-20260928/`.
+- Backup on the VM: `~/cardio-faculty-bak-20260928b/`; source files in `~/visiting-photos-20260928/`.
 
 ## 2026-09-28 — Cardiac Surgery Faculty: page stylesheet repaired
 Cardiac Surgery › Faculty (page 116) rendered as raw text with the CSS printed on the page (and 1826 px wide). The 22-Sep-2026 save (revision 55689, consistent with a Divi visual-builder save) had stripped the `<style>`/`</style>` tags from the "Page Stylesheet" code module and HTML-escaped its contents (`>` → `&gt;` ×6, `&` → `&amp;` ×4 in the Google Fonts URL), which also broke the faculty-card text padding and some nav dropdown rules.
 - Fix: re-wrapped the module in `<style>…</style>` and unescaped `&gt;`/`&amp;` inside it only. All content added in that save (Heads of Department, Legends, gallery) kept as is.
 - Checked all 390 pages/posts on the site with a Page Stylesheet module: no other page has the problem.
 - **Avoid opening these pages in the Divi visual builder** — it rewrites the code modules this way.
-- Backup on the VM: `/home/azureuser/ctvs-faculty-bak-20260928/`.
+- Backup on the VM: `~/ctvs-faculty-bak-20260928/`.
 
 ## 2026-09-28 — Neurosurgery Events: "Events in Detail" removed
 At the hospital's request, removed the "Events in Detail" text module from NESU Events (page 671) — stale 2022 CME notes (venue, fee, KMC credits, registration dates) carried over from the old page. The rest of the page is unchanged.
-- Backup on the VM: `/home/azureuser/nesu-events-bak-20260928/`.
+- Backup on the VM: `~/nesu-events-bak-20260928/`.
 
 ## 2026-09-28 — Anaesthesiology Events: "Events in Detail" removed
 Removed the "Events in Detail" text module from Anes Events (page 687): a migration leftover whose event names had been lost (only descriptions remained) and which still carried an old goo.gl registration form link. The "Academic Events" cards are unchanged.
-- Backup on the VM: `/home/azureuser/anes-events-bak-20260928/`.
+- Backup on the VM: `~/anes-events-bak-20260928/`.
 
 ## 2026-09-28 — Radiology SACRED: "About SACRED" removed
 At the hospital's request, removed the "About SACRED" text module from Radiology › SACRED (page 547) — old delegate notes (registration mail, Gate-2 entry, breakfast coupons, hotels) carried over from the old page. "A Decade of Radiology Teaching" and "The SACRED Archive" are unchanged.
-- Backup on the VM: `/home/azureuser/sacred-bak-20260928/`.
+- Backup on the VM: `~/sacred-bak-20260928/`.
 
 ## 2026-09-28 — History-GH: "The Story in Full" rebuilt; Ganesha photo rotated
 - "The Story in Full" (page 53322) was a fragment dump. Rebuilt from the last pre-redesign revision (54220, 02-Jun-2025): Introduction (Sathya Sai Speaks vol. 13 quote + 6 paragraphs), Early Days, Excerpts from the Inauguration Discourse, An Excerpt from the Discourse of 10 June 2001 (7 paragraphs), The Move to the SSSIHMS Campus, 2016 (3 paragraphs). Scoped `sf-` styles. Discourse text verbatim; fixed only "event eth least" → "even the least" and "This was clinic was donated" → "This clinic was donated". The old departments list and statistics were not repeated (already in their own sections).
 - `ganesha-3.jpg` (attachment 55584, the face-blurred file) was sideways: rotated 90° clockwise (now 1800×1240), sizes regenerated, page URL now `?v=20260928b`. The copies in `sssihms-assets/sssgh/`, wfd.sssihms.org and this repo's `src/assets/sssgh/` were not rotated.
-- Backup on the VM: `/home/azureuser/history-gh-rotate-bak-20260928/`.
+- Backup on the VM: `~/history-gh-rotate-bak-20260928/`.
 
 ## 2026-09-28 — SSSGH: "The General Hospital in Detail" removed
 The module on /sssgh/ (page 53243) was fragments of the *old* page's content, which was a copy of the SSSIHMS home-page teasers (Cardiology, Neurology, CTVS, Anaesthesia with the old "1700 multi-speciality" figure, Neurosurgery, Radiology, DNB, Nursing, Fellowships) plus a broken 2003 quote — nothing about the General Hospital. Removed; the designed SSSGH sections are unchanged.
-- Backup on the VM: `/home/azureuser/sssgh-bak-20260928/`.
+- Backup on the VM: `~/sssgh-bak-20260928/`.
 
 ## 2026-09-28 — OBGYN: cardiotocography photo rotated
 `2022/12/obg-cardiotocography.jpg` (attachment 55764) was sideways; rotated 90° clockwise (now 1138×924), sizes regenerated, OBGYN page (53292) URL now `?v=20260928`.
-- Backup on the VM: `/home/azureuser/obg-ctg-rotate-bak-20260928/`.
+- Backup on the VM: `~/obg-ctg-rotate-bak-20260928/`.
 
 ## 2026-09-28 — Orthopedics: hero photo crop
 The hero (`Dr.-Sundaresh-with-Swami.jpg`, 2049×1423 in a 1144×560 `cover` frame) was centre-cropped, cutting off the top of Dr. Sundaresh's head. Added inline `object-position:50% 4%` on that img (page 53288) — both heads in frame; phones already showed the whole photo.
-- Backup on the VM: `/home/azureuser/ortho-hero-bak-20260928/`.
+- Backup on the VM: `~/ortho-hero-bak-20260928/`.
 
 ## 2026-09-28 — General Medicine: Late Dr. Ramkumar; Dr. Swapna HOD
 At the hospital's request (page 53280): Dr. Ramkumar G has passed away and Dr. Swapna is now HOD.
 - Hero caption "Dr. Ramkumar G, HOD" → "Late Dr. Ramkumar G — a legend who carried the department for several decades" (photo kept; alt updated).
 - His card removed from "The Department Team"; Dr. Swapna (was spelled "Dr. Sapna", Consultant) now "Dr. Swapna", HOD. Archive photo "Bhagawan with Dr. Ramkumar" unchanged.
 - The "Dr Ramkumar, KMC, Manipal" on Anesthesiology Achievements (685) is a different person — unchanged.
-- Backup on the VM: `/home/azureuser/genmed-bak-20260928/`.
+- Backup on the VM: `~/genmed-bak-20260928/`.
 
 ## 2026-09-28 — Dental: second inauguration photo rotated
-`2026/09/dental-inauguration-2.jpg` (attachment 55580) was sideways; rotated 90° clockwise (1800×1275), sizes regenerated, Dental page (53304) URL now `?v=20260928`. Backup: `/home/azureuser/dental-rotate-bak-20260928/`.
+`2026/09/dental-inauguration-2.jpg` (attachment 55580) was sideways; rotated 90° clockwise (1800×1275), sizes regenerated, Dental page (53304) URL now `?v=20260928`. Backup: `~/dental-rotate-bak-20260928/`.
 
 ## 2026-09-28 — Stat grids no longer overflow phones (mu-plugin)
-The 2-column mobile `.stats-grid` used `1fr` columns, which cannot shrink below the widest number, so pages with large figures ("1,43,500+", "29.9 Lakh+") scrolled sideways (About Hospital, History-GH, …). Added `sssihms_wfd_stats_css()` to the server-only mu-plugin `sssihms-wfd-patient-access.php` (footer CSS, blog 4 only): `minmax(0,1fr)` columns ≤768 px; smaller value font, gap and padding ≤480 px. (Earlier note blaming the sub-nav bar was wrong — `.subnav-inner` scrolls within itself.) Backup: `/home/azureuser/muplugin-bak-20260928/`.
+The 2-column mobile `.stats-grid` used `1fr` columns, which cannot shrink below the widest number, so pages with large figures ("1,43,500+", "29.9 Lakh+") scrolled sideways (About Hospital, History-GH, …). Added `sssihms_wfd_stats_css()` to the server-only mu-plugin `sssihms-wfd-patient-access.php` (footer CSS, blog 4 only): `minmax(0,1fr)` columns ≤768 px; smaller value font, gap and padding ≤480 px. (Earlier note blaming the sub-nav bar was wrong — `.subnav-inner` scrolls within itself.) Backup: `~/muplugin-bak-20260928/`.
 
 ## 2026-09-28 — Migration "dump" sections: 17 pages fixed
 Text modules appended at the bottom of redesigned pages that were dumps of the old page (headings dropped, lists flattened, sentences cut, unrelated/hidden text mixed in). Each compared with the page's last pre-redesign revision; rebuilt with original headings/lists/quotes (scoped `rb-` styles) where the content is real and not shown elsewhere, removed where stale, unrelated or duplicated. Wording from the old pages only (typo fixes).
@@ -756,13 +756,13 @@ Text modules appended at the bottom of redesigned pages that were dumps of the o
 - **Removed:** Treatment "Further Detail" · HMIS "The System in Detail" (old Dedalus/Fuji/IMS text) · BSc MIT "Programme Details" · Specialities / Services "… in Detail" (home-page teaser blurbs) · Facilities "Facilities in Detail" (all already shown).
 - Checked live on desktop and 390 px: no CSS-as-text, no horizontal scroll.
 - **For the departments to confirm** (from the old pages, not re-verified): Blood Bank — 3-month (men) / 4-month (women) gap vs the page's "every 90 days", and 080-28004715; Treatment — AVBD sentence ("pulmonary" dropped as apparently wrong), "handful of centres" and acoustic-tumour claims, in-house psychiatrist; Neurosurgery — 158 beds/38 ICU, "first Neuro Navigation in India", Dr. Ravi vs Ravindra Goyal; Anesthesiology — 6 vs 3 ICUs; Help Desk volumes; Careers WhatsApp 080-28004641 (also listed as HR landline); Genesis "Srivatsan/Srivathsan" and "presently CEO, Vidal Health". External Google-Form links on Volunteer/Careers were not carried over.
-- Backups: `/home/azureuser/bulk-20260928/` (`<id>.cur` = before, `new/<id>.new` = after).
+- Backups: `~/bulk-20260928/` (`<id>.cur` = before, `new/<id>.new` = after).
 
 ## 2026-09-28 — Header menu: duplicate Radiology removed
-Menu 116 had Radiology twice — under Departments (55160, with sub-items) and under Services (55177). Deleted item 55177 at the hospital's request. Details saved in `/home/azureuser/menu-bak-20260928/` (item: parent 55176 "Services", position 69, object page 202).
+Menu 116 had Radiology twice — under Departments (55160, with sub-items) and under Services (55177). Deleted item 55177 at the hospital's request. Details saved in `~/menu-bak-20260928/` (item: parent 55176 "Services", position 69, object page 202).
 
 ## 2026-09-28 — Physiotherapy: PM lamp-lighting photo removed
-At the hospital's request, removed the gallery figure "Sri Atal Behari Vajpayee, PM Lighting the Lamp" (`cdn.sssihms.org/…/2015/05/lighting-lamp-close-up.jpg`) and its caption from Physiotherapy (page 206). Other gallery photos unchanged. Backup: `/home/azureuser/physio-photo-bak-20260928/`.
+At the hospital's request, removed the gallery figure "Sri Atal Behari Vajpayee, PM Lighting the Lamp" (`cdn.sssihms.org/…/2015/05/lighting-lamp-close-up.jpg`) and its caption from Physiotherapy (page 206). Other gallery photos unchanged. Backup: `~/physio-photo-bak-20260928/`.
 
 ## 2026-09-28 — Physiotherapy: Advanced Rehabilitation (06-Dec-2025) added
 From the hospital's write-up "Inauguration of Advanced Rehabilitation Facility" (file dated 2026-12-06; the text says 06 December 2025, used here). Page 206:
@@ -770,11 +770,11 @@ From the hospital's write-up "Inauguration of Advanced Rehabilitation Facility" 
 - Milestones: "6 Dec 2025 — Advanced rehabilitation suite inaugurated…".
 - Our Team: added "Head of the Department — Ms. Deepika Rani K, Head of Physiotherapy and Rehabilitation"; "Proposed: Neuro Rehabilitation Centre" card replaced by "Neuro Rehabilitation — Now Open".
 - Not used here (other departments): GE MAC 5 ECGs, Appasamy visual field analyzer, PulzCAD demo, SAI SPARSH launch.
-- Backup: `/home/azureuser/physio-rehab-bak-20260928/`.
+- Backup: `~/physio-rehab-bak-20260928/`.
 
 ## 2026-09-28 — AntharDhwani archive restored
 Counseling › AntharDhwani (page 18101) had been overwritten on 25-Sep-2026 16:19–16:21 by a staff account (revisions 55700–55702) with an old-style block showing only Vol I (Jan 2019) — apparently an attempt to add the missing Vol I cover in the classic editor. Restored the 18-Sep redesign (revision 55394: all 15 issues, Vol I Jan 2019 – Vol XV Jan 2026) and fixed two covers: Vol I now `2019/01/AntharDwani-Jan2019-cover-page-222x300.jpg` (was empty), Vol II now `2019/07/AntharDhwani-II-226x300.jpg` (was showing Vol III's cover). Verified 15 covers, none broken, desktop and phone.
-- The 25-Sep version is kept at `/home/azureuser/anthardhwani-bak-20260928/18101.guna-20260925.html`.
+- The 25-Sep version is kept at `~/anthardhwani-bak-20260928/18101.guna-20260925.html`.
 
 ## 2026-09-29 — Site Updates tool for staff
 Added the mu-plugin `wordpress/mu-plugins/sssihms-wfd-site-updates.php` (deployed): wp-admin › **Site Updates** lets staff add a newsletter issue, a faculty member, an event or photos to an existing section without opening the Divi builder. It detects 93 sections (3 newsletter, 24 faculty, 3 event, 63 photo grids). Tested on draft copies of AntharDhwani, Cardiology Faculty, Radiology Faculty, NESU Events and Physiotherapy (trashed after): each save changed only the inserted card, the count went up by one, text was escaped, and a save against a page that had changed was refused. The browser upload step itself has not yet been run by a logged-in user.
@@ -783,23 +783,23 @@ Added the mu-plugin `wordpress/mu-plugins/sssihms-wfd-site-updates.php` (deploye
 Added a **Remove item** tab to Site Updates: pick a section, tick the items, confirm; only those cards are removed, saved as a revision, and logged as "Removed …" in Recent changes. Media files are kept. Tested on draft copies of AntharDhwani, Cardiology Faculty, NESU Events and Physiotherapy (trashed after): the result equalled the original minus exactly the two ticked cards, removing every item in a section was refused, a stale form was refused, and adding still worked afterwards. The item parser finds all 441 cards in the 93 sections, matching the per-section counts.
 
 ## 2026-09-29 — Treatment: Neurology hidden
-Neurology services are paused for lack of staff, so the two Neurology sections of Treatment (page 733) — "Neurological Conditions Evaluated and Treated Routinely" and "Neurology in Detail" — were switched off with Divi's `disabled="on"` module attribute. Divi then omits them from the page entirely; the content is untouched and they show greyed out in the builder. **To restore:** re-enable the two modules in the builder, or delete ` disabled="on"` from the two `[et_pb_text` tags. Before-copy: `/home/azureuser/treatment-bak-20260929/733.before.html`; revision 55897. No menu item or separate page offered Neurology.
+Neurology services are paused for lack of staff, so the two Neurology sections of Treatment (page 733) — "Neurological Conditions Evaluated and Treated Routinely" and "Neurology in Detail" — were switched off with Divi's `disabled="on"` module attribute. Divi then omits them from the page entirely; the content is untouched and they show greyed out in the builder. **To restore:** re-enable the two modules in the builder, or delete ` disabled="on"` from the two `[et_pb_text` tags. Before-copy: `~/treatment-bak-20260929/733.before.html`; revision 55897. No menu item or separate page offered Neurology.
 
 ## 2026-09-29 — Site Updates: fix saves on pages with the missing template
 135 pages (34 of the tool's 93 sections) still name `page-template-fullwidth.php`, which the current Divi theme does not have. `wp_update_post` saved the content and then returned "Invalid page template" before creating the revision or running the save hooks, so the tool would have shown an error for a change that had in fact been made, with no revision to undo it. Reproduced on a draft carrying that template, then fixed by passing an empty `page_template` so the check is skipped and the template meta is left alone; the same draft then saved with one new revision. `wp post update` from WP-CLI has the same failure on these pages.
 
 ## 2026-09-29 — Appointments & Admission: Metro route
-Added a "By Metro" card, first in the How to Reach the Hospital grid on Appointments & Admission (page 735): Namma Metro Purple Line to Sri Sathya Sai Hospital Metro Station (wording from the hospital; no distance or walking time given). Revision 55898; before-copy `/home/azureuser/appt-bak-20260929/735.before.html`.
+Added a "By Metro" card, first in the How to Reach the Hospital grid on Appointments & Admission (page 735): Namma Metro Purple Line to Sri Sathya Sai Hospital Metro Station (wording from the hospital; no distance or walking time given). Revision 55898; before-copy `~/appt-bak-20260929/735.before.html`.
 - Same day, expanded (revision 55899): "close to the hospital. From Majestic (Nadaprabhu Kempegowda station), take a train towards Whitefield (Kadugodi) and get off at the stop after Nallurhalli. Use the exit on the hospital side." Sources: Wikipedia's station article (Purple Line, adjacent stations Nallurhalli / Pattandur Agrahara, an exit towards the hospital). No walking distance added — none found in a reliable source.
 
 ## 2026-09-29 — Facilities: Metro route
-Facilities (page 734) had no Metro information. Added the same Metro wording as the first point of "Getting to the Hospital". Revision 55900; before-copy `/home/azureuser/fac-bak-20260929/734.before.html`.
+Facilities (page 734) had no Metro information. Added the same Metro wording as the first point of "Getting to the Hospital". Revision 55900; before-copy `~/fac-bak-20260929/734.before.html`.
 
 ## 2026-09-29 — Header menu: Career Opportunities removed from Academics
-Deleted menu item 55193 (Academics › Career Opportunities → /careers/) from the header menu (menu 116). Career Opportunities stays under Opportunities (item 55227), so /careers/ is still reachable. Menu backup before the change: `/home/azureuser/menu116-bak-20260929.json`.
+Deleted menu item 55193 (Academics › Career Opportunities → /careers/) from the header menu (menu 116). Career Opportunities stays under Opportunities (item 55227), so /careers/ is still reachable. Menu backup before the change: `~/menu116-bak-20260929.json`.
 
 ## 2026-09-29 — Rain Water Harvesting: percolation well photos
-Added two photos from the Water Conservation Award nomination deck (slides 2 and 8) under "120 Percolation Wells" on Rain Water Harvesting (page 52712): a finished well (media 55901) and the joint inauguration with community partners and the OBD team (media 55902, the deck's own caption). Both re-encoded at 2000 px with all EXIF removed — the originals carried GPS. Also added one line from the deck: well sites are chosen using GIS, contour and hydrology studies. The 25-Sep figure decision stands: 120 wells kept, the deck's 3 units + 5 pits → 19 → 50 roadmap not used. Photo height is set by a scoped `.gg-pw` rule (440 px desktop, natural height under 700 px). Revision 55905; before-copy `/home/azureuser/rwh-bak-20260929/52712.before.html`.
+Added two photos from the Water Conservation Award nomination deck (slides 2 and 8) under "120 Percolation Wells" on Rain Water Harvesting (page 52712): a finished well (media 55901) and the joint inauguration with community partners and the OBD team (media 55902, the deck's own caption). Both re-encoded at 2000 px with all EXIF removed — the originals carried GPS. Also added one line from the deck: well sites are chosen using GIS, contour and hydrology studies. The 25-Sep figure decision stands: 120 wells kept, the deck's 3 units + 5 pits → 19 → 50 roadmap not used. Photo height is set by a scoped `.gg-pw` rule (440 px desktop, natural height under 700 px). Revision 55905; before-copy `~/rwh-bak-20260929/52712.before.html`.
 
 ## 2026-09-29 — Contact Us rebuilt in the site design
 Contact Us (page 71) was still the March-2023 blue Divi layout (old cdn.sssihms.org photo, Google+ link, no Metro). Rebuilt with the shared page stylesheet and sssi-mod modules:
@@ -807,9 +807,9 @@ Contact Us (page 71) was still the March-2023 blue Divi layout (old cdn.sssihms.
 - **How to Reach the Hospital** — Metro (same wording as Appointments/Facilities), airports, city stations, the two bus-route tables and "where to get off" carried over from the old page unchanged, plus the map embed from Appointments. Added a line asking visitors to confirm routes with BMTC: the route list has not been re-verified.
 - **Write to Us** — the original Divi contact form module kept (still delivers to helpdeskblr@sssihms.org.in), restyled via `module_class="sssi-contact"`; its intro says appointments are by phone.
 - **Follow** — Facebook, X (Twitter), YouTube; the defunct Google+ link dropped.
-Page-scoped CSS lets the bus tables wrap under 480 px (the shared `.data-tbl tbody td{white-space:nowrap}` pushed the Platform column off-screen). Checked at 1400 and 390 px: no horizontal scroll, no shortcode leakage, one form. The form was not test-submitted, as that would email the Help Desk. Revision 55908; before-copy `/home/azureuser/contact-bak-20260929/71.before.html`.
+Page-scoped CSS lets the bus tables wrap under 480 px (the shared `.data-tbl tbody td{white-space:nowrap}` pushed the Platform column off-screen). Checked at 1400 and 390 px: no horizontal scroll, no shortcode leakage, one form. The form was not test-submitted, as that would email the Help Desk. Revision 55908; before-copy `~/contact-bak-20260929/71.before.html`.
 - Same day (revision 55909): HR & Academics email on Contact Us changed from registrarblr@sssihms.org.in to **academicblr@sssihms.org.in**, at Praveen's request, on this page only. The site footer (Theme Builder 54940) still shows registrarblr@.
-- Same day (revision 55910): footer (Theme Builder layout 54940) HR & Academics email also changed registrarblr@ → **academicblr@sssihms.org.in**, link and text. Checked on Home, Contact Us and Emergency. Still mentioning registrarblr@, not changed: library layout 1214, pages 546 (BSc MIT), 679 (Anes DNB), 222 (private), post 1619. Footer before-copy `/home/azureuser/footer-bak-20260929/54940.before.html`.
+- Same day (revision 55910): footer (Theme Builder layout 54940) HR & Academics email also changed registrarblr@ → **academicblr@sssihms.org.in**, link and text. Checked on Home, Contact Us and Emergency. Still mentioning registrarblr@, not changed: library layout 1214, pages 546 (BSc MIT), 679 (Anes DNB), 222 (private), post 1619. Footer before-copy `~/footer-bak-20260929/54940.before.html`.
 
 ## 2026-09-29 — Login security: XML-RPC off, usernames hidden, two-factor for admins
 Kadence Security logs (network-wide, 30 days): ~20,000 failed logins, 608 lockouts, 2,535 banned IPs; attackers used real usernames (saiadmin, sundaresh, user IDs 1/8/9/18). On 29-Sep alone, 627 wp-login and 3,112 XML-RPC login POSTs. The maths captcha keeps no counters and does not cover XML-RPC. Changes, approved by Praveen:
@@ -817,10 +817,10 @@ Kadence Security logs (network-wide, 30 days): ~20,000 failed logins, 608 lockou
 - **Username enumeration blocked** on Whitefield: `?author=N` and `/author/<login>/` now 301 to the home page; author links point home. Added to `sssihms-wfd-patient-access.php`, whose repo copy was first synced with the server (it lacked the colour-scheme, BMW redirect and stats-CSS functions).
 - **Two-factor required for all 11 administrator / super-admin accounts** via the new network mu-plugin `sssihms-admin-two-factor.php` and the Kadence two-factor module (activated; app, email and backup codes). Verified each admin reports the requirement and an editor does not. Login email delivery tested first (wp_mail → praveen@ arrived in seconds; every admin's mail domain has MX records). Each admin gets the set-up screen at next login; until they add an authenticator app, a code is emailed.
 - Not changed: the captcha plugin (it bundles an admin-only advert/installer for another plugin, "image-optimizer-x" — consider replacing it); an old Administrator account on sssihms.org worth reviewing (done 16-Oct-2026: it now has no role anywhere).
-Backups: `/home/azureuser/security-bak-20260929/` (itsec-storage, active modules, previous patient-access plugin).
+Backups: `~/security-bak-20260929/` (itsec-storage, active modules, previous patient-access plugin).
 
 ## 2026-09-30 — Maths captcha plugin removed
-At Praveen's request, `wp-advanced-math-captcha` 2.1.9.1 was network-deactivated and its folder moved out of WordPress to `/home/azureuser/removed-plugins-20260930/` (restorable by moving it back and re-activating; its settings row is kept). Reason: it bundled an admin-area advert/installer for another plugin ("image-optimizer-x"), kept no block counters, and did not cover XML-RPC. Login protection now rests on Kadence Security (brute-force lockouts, IP bans), XML-RPC disabled and mandatory two-factor for administrators. Verified on all five sites: home and wp-login 200, no captcha field on the login form. Side effect: the PHP "Undefined array key woocommerce_login…" warnings it printed on every WP-CLI call are gone.
+At Praveen's request, `wp-advanced-math-captcha` 2.1.9.1 was network-deactivated and its folder moved out of WordPress to `~/removed-plugins-20260930/` (restorable by moving it back and re-activating; its settings row is kept). Reason: it bundled an admin-area advert/installer for another plugin ("image-optimizer-x"), kept no block counters, and did not cover XML-RPC. Login protection now rests on Kadence Security (brute-force lockouts, IP bans), XML-RPC disabled and mandatory two-factor for administrators. Verified on all five sites: home and wp-login 200, no captcha field on the login form. Side effect: the PHP "Undefined array key woocommerce_login…" warnings it printed on every WP-CLI call are gone.
 
 ## 2026-10-02 — Website content corrections (from the knowledge-base review)
 At Praveen's request, 23 text corrections on 14 Whitefield posts, each an exact string replacement saved with `sssihms_up_save` (revisions created):
@@ -831,10 +831,10 @@ At Praveen's request, 23 text corrections on 14 Whitefield posts, each an exact 
 - Typos and wording: "Septemberember" (Bhagawan), AVBD "into the pulmonary valve" → aortic, garbled PTSMA sentence, "Fibrotic" → "Fibreoptic" bronchoscopes, ICD "normal 120 bpm" → "normal resting rate of 60–100 bpm" (Services-Cardiology, Treatment), pericarditis "infection" → "inflammation and thickening" (Treatment, layout 1094).
 - Blood donation: interval stated as 3 months for men, 4 months for women throughout.
 - BMW tracker plugin public tile label "beds in service" → "occupied beds" (plugin repo commit cb5bf3b); 333 remains the total bed count elsewhere.
-Neurology wording left unchanged on instruction (functions part-time). Backups: `/home/azureuser/websitefix-bak-20261002/` (pre-change content of each post + the old plugin file).
+Neurology wording left unchanged on instruction (functions part-time). Backups: `~/websitefix-bak-20261002/` (pre-change content of each post + the old plugin file).
 
 ## 2026-10-02 — Home page Neurology card
-At Praveen's request the Neurology card on the home page (post 54830) now reads "Part-time evening clinic" instead of "Temporarily closed". Backup: `/home/azureuser/websitefix-bak-20261002/54830-pre-neurology.html`.
+At Praveen's request the Neurology card on the home page (post 54830) now reads "Part-time evening clinic" instead of "Temporarily closed". Backup: `~/websitefix-bak-20261002/54830-pre-neurology.html`.
 
 ## 2026-10-02 — Help Desk Answers (staff text bot, search only)
 New mu-plugin `sssihms-wfd-helpdesk-answers.php` (in this repo) adds a wp-admin "Help Desk Answers" page on Whitefield. The knowledge-base Markdown files (27, excluding README and the website-issues list) were placed at `/srv/www/kb/whitefield/` outside the web root. These files are kept out of this public repo. 435 passages indexed. No AI service, no data leaves the server, questions are not logged.
@@ -844,7 +844,7 @@ At Praveen's request:
 - Two flyers uploaded to the Whitefield media library as JPG (media 55974 Interventional Cardiology, 55975 Cardio Vascular Anaesthesia; the supplied WebP files are not an allowed upload type on this multisite).
 - Fellowship page (post 255), admissions section: "Apply online →" button to the Google Form `https://forms.gle/rT41PUBEWy1aTgQo6` below the application window, and a "Flyers" block (both flyers side by side, each opening full size) above Downloads.
 - Home page (post 54830) notice band: "Apply online →" link to the same form, and the existing link renamed "Flyers, details & RGUHS notification →".
-The form returned HTTP 401 to an anonymous request on 05-Oct-2026 (form may be restricted to signed-in domain users). Backups: `/home/azureuser/fellowship-flyers-bak-20261005/`.
+The form returned HTTP 401 to an anonymous request on 05-Oct-2026 (form may be restricted to signed-in domain users). Backups: `~/fellowship-flyers-bak-20261005/`.
 - Same day, at Praveen's request: form link on both pages changed to `https://forms.gle/fCzCRjNHRFbQDKSL6` (it resolves to the same Google Form as the earlier link; still 401 without sign-in).
 
 ## 2026-10-05 — Fellowship application form on the website (replaces the Google Form)
@@ -864,7 +864,7 @@ Rule used: an item stays if the register shows at least one case in the three ye
 - **Added (done, previously not listed):** ASD/VSD/PDA/RSOV device closure, MAPCA coiling, peripheral/carotid/renal stenting and TEVAR/EVAR, coarctation stenting, CRT-D, conduction-system pacing, battery replacement/lead revision; Ebstein repair, epicardial pacing leads, RVOT reconstruction, pericardial effusion drainage, lung wedge resection/bullectomy (replaces "lung resection"); STA-MCA bypass/EDAS, awake craniotomy, PLIF/TLIF incl. minimally invasive TLIF; pterygium surgery; ENT "Common operations" card; General Surgery list from the register; Urology card on the Treatments page ("Two More Departments" → "Three More Departments"); "TVAR/EVAR" typo → "TEVAR/EVAR" on Cardiology.
 - Treatments page banner now states the lists cover July 2023 – June 2026.
 Not changed: the old unlinked pages Services – Cardiology (650) and Services Cardiac Surgery (523); the Neurosurgery milestones (history); the disabled Neurology modules.
-Caveat: some register rows are unnamed or unclassified (CTVS 418, NESU about 200, cath 187), so a rare operation could sit among them. Backups: `/home/azureuser/procedures-update-bak-20261005/`.
+Caveat: some register rows are unnamed or unclassified (CTVS 418, NESU about 200, cath 187), so a rare operation could sit among them. Backups: `~/procedures-update-bak-20261005/`.
 - Same day, at Praveen's request: the two old unlinked pages **Services – Cardiology (650)** and **Services Cardiac Surgery (523)** were moved to the WordPress trash (restorable from Pages › Trash). Menu item 599 "Services" in the unassigned "Cardiac Surgery" menu (29, used by old layouts and the CTVS Blog page) pointed at 523; it now points to the Treatments page (733).
 
 ## 2026-10-07 — Fellowship applications kept on the server, Excel/ZIP export, Google Drive copy
@@ -874,7 +874,7 @@ At Praveen's request, `sssihms-wfd-fellowship-application.php` now also **keeps*
 - New wp-admin menu **Fellowship Applications** (editors and administrators): list with photo/CV download links, **Download Excel (.xlsx)** (one row per application, every answer, bold frozen header, filter; all cells are text so nothing typed becomes a formula) and **Download all photos & CVs (.zip)** (one folder per application).
 - **Google Drive (not yet connected):** `wordpress/apps-script/fellowship-drive.gs` is a Google Apps Script web app that saves each application's files in a Drive sub-folder and adds a row to a "Fellowship applications 2026-27" Google Sheet. Administrators paste its /exec URL on the admin page; a shared secret generated by the plugin (wp_option `sssihms_fa_drive`, not in this repo) authenticates the calls. New applications are copied by WP-Cron about a minute after arriving; a button copies pending/failed ones.
 - Applications made between 05-Oct and 07-Oct-2026 exist only in the academicblr@ mailbox.
-Tested with one synthetic application with mail suppressed (stored, Excel opens in openpyxl and LibreOffice, ZIP correct, anonymous request refused); the test record was set to draft and its files moved to the backup folder. Backup: `/home/azureuser/fellowship-storage-bak-20261007/`.
+Tested with one synthetic application with mail suppressed (stored, Excel opens in openpyxl and LibreOffice, ZIP correct, anonymous request refused); the test record was set to draft and its files moved to the backup folder. Backup: `~/fellowship-storage-bak-20261007/`.
 - Same day: **Google Drive connected.** Apps Script project "SSSIHMS Fellowship applications to Drive" created with clasp in **humanresourcesblr@sssihms.org.in** (Praveen's choice), deployed as a web app (execute as owner, anyone may call; calls without the secret are rejected). `setup()` was run there once; it created the folder "Fellowship applications 2026-27" in that account's My Drive with the spreadsheet inside. The /exec URL is saved in wp_option `sssihms_fa_drive` (not in this repo). Fix: Apps Script replies with a 302 that must be fetched with GET; WordPress re-POSTed it (HTTP 400), so the plugin now follows that redirect itself. One synthetic application (FA26-1007-8MFQ, "ZZTEST DELETE ME") went through to Drive; its server record was set to draft, but its Drive sub-folder and spreadsheet row remain for Praveen to delete. `wordpress/apps-script/` also has the `appsscript.json` manifest; to change the script, edit the repo copy, fill in SECRET in a scratch copy, `clasp push`, then `clasp deploy -i <deployment id>` so the URL stays the same.
 
 ## 2026-10-08 — Online job application form (Career Opportunities)
@@ -884,13 +884,13 @@ At Praveen's request, new mu-plugin `sssihms-wfd-job-application.php` (in this r
 - Kept on the server (private post type `sssihms_ja_app`, files in `/srv/www/job-applications/`). wp-admin **Job Applications**: filter by category, status per application (New / Shortlisted / Selected / Not selected), Excel with one sheet per category, ZIP of files, Drive retry.
 - Copied to Google Drive folder **"Job applications"** (humanresourcesblr's My Drive, created on first use) with its own spreadsheet, through the same Apps Script web app (now version 2: `form: "jobs"` routes to the jobs folder; nothing is ever deleted by the script).
 - **Retention:** a daily WP-Cron job deletes applications **not marked Selected** from the server 6 months after they arrive. At Praveen's instruction the **Drive copies are not deleted**.
-- Careers page (65): "Apply online →" button and one sentence added above the existing postal/email instructions ("To apply, send…" → "You can also apply by sending…"). Backup `bak-65.txt` in `/home/azureuser/job-application-bak-20261008/`.
+- Careers page (65): "Apply online →" button and one sentence added above the existing postal/email instructions ("To apply, send…" → "You can also apply by sending…"). Backup `bak-65.txt` in `~/job-application-bak-20261008/`.
 Tested with one synthetic nursing application (mail suppressed): validation, storage, Excel (4 sheets), Drive copy, and retention (record back-dated 7 months → removed from the server). Its Drive sub-folder "HR261008-C5ZM - ZZTEST DELETE ME" and spreadsheet row remain for deletion by hand.
-- Same day, from HR's marked-up `Careers.docx` (Part 1, Career Opportunities page 65), at Praveen's request: banner tagline "Serve with purpose…" removed; "Who We Seek / A Calling, Not Just a Job" block (six values) removed; "Working at SSSIHMS" now reads "To apply, send your resume to hrblr@sssihms.org.in and upload your details through the application form below:" with an **Application Form →** button to `/careers/apply/` (HR's document linked a Google Form, `forms.gle/43ZLdcm9QhtfhZmT7`; Praveen asked to keep the website form instead); Postal Address removed; Contact HR "WhatsApp: 080-28004641" → "Landline: 080-28004641 / 080-28004640" (HR wrote "/40"). Backup `bak-65-careers-docx.txt` in `/home/azureuser/job-application-bak-20261008/`.
+- Same day, from HR's marked-up `Careers.docx` (Part 1, Career Opportunities page 65), at Praveen's request: banner tagline "Serve with purpose…" removed; "Who We Seek / A Calling, Not Just a Job" block (six values) removed; "Working at SSSIHMS" now reads "To apply, send your resume to hrblr@sssihms.org.in and upload your details through the application form below:" with an **Application Form →** button to `/careers/apply/` (HR's document linked a Google Form, `forms.gle/43ZLdcm9QhtfhZmT7`; Praveen asked to keep the website form instead); Postal Address removed; Contact HR "WhatsApp: 080-28004641" → "Landline: 080-28004641 / 080-28004640" (HR wrote "/40"). Backup `bak-65-careers-docx.txt` in `~/job-application-bak-20261008/`.
   Not changed: the separate Opportunities page (1159, `/opportunities/`), whose vacancy notice HR deleted in Part 2 of the same document.
 - Same day: **Vacancies module.** wp-admin › Job Applications › **Vacancies** (private post type `sssihms_vacancy`): HR adds/edits/closes/trashes vacancies (position, category, department, number of posts, qualification, experience, other details, optional last date) with an optional flyer (JPG/PNG/PDF ≤ 5 MB, saved to the media library). Shortcode `[sssihms_vacancies]` in a new code module on the Careers page (65), above "Working at SSSIHMS", shows open vacancies as cards (flyer image, facts, "Apply for this post →" to `/careers/apply/?vacancy=<id>`, which pre-fills position and category) and outputs nothing when none are open. Vacancies past their last date are hidden automatically; the Careers page cache is flushed on every change and daily at 00:05 IST.
-  New role **HR Recruitment** (`sssihms_hr`: read, upload_files, sssihms_hr) sees only Job Applications and Vacancies; administrators and editors were given the `sssihms_hr` capability (the Job Applications screens now check it instead of edit_others_pages). Tested with a synthetic vacancy via WP-CLI (card, pre-fill, expiry); trashed after. Flyer upload through the browser not yet exercised. Backups `bak-65-vacancies.txt` and the previous plugin in `/home/azureuser/job-application-bak-20261008/`.
-- Same day, at Praveen's request: **/opportunities/ (page 1159) now 301-redirects to /careers/** (`sssihms_wfd_opportunities_redirect()` in `sssihms-wfd-patient-access.php`). HR had withdrawn its undated Cardiology vacancy notice and Google Form in their review. The page itself and the "Opportunities" menu item are unchanged; the menu item now lands on Careers through the redirect. Backup of the previous plugin in `/home/azureuser/job-application-bak-20261008/`.
+  New role **HR Recruitment** (`sssihms_hr`: read, upload_files, sssihms_hr) sees only Job Applications and Vacancies; administrators and editors were given the `sssihms_hr` capability (the Job Applications screens now check it instead of edit_others_pages). Tested with a synthetic vacancy via WP-CLI (card, pre-fill, expiry); trashed after. Flyer upload through the browser not yet exercised. Backups `bak-65-vacancies.txt` and the previous plugin in `~/job-application-bak-20261008/`.
+- Same day, at Praveen's request: **/opportunities/ (page 1159) now 301-redirects to /careers/** (`sssihms_wfd_opportunities_redirect()` in `sssihms-wfd-patient-access.php`). HR had withdrawn its undated Cardiology vacancy notice and Google Form in their review. The page itself and the "Opportunities" menu item are unchanged; the menu item now lands on Careers through the redirect. Backup of the previous plugin in `~/job-application-bak-20261008/`.
 
 ## 2026-10-08 — Content from the Ideal Healthcare conference presentations (Jun-2025)
 At Praveen's request, from the presentations at the "Global Conference on Sri Sathya Sai Ideal Healthcare" (June 2025). Photos extracted to `~/Documents/Presentation-Photos_2026-10-08/` (local only; 321 images, one folder per presentation).
@@ -901,8 +901,8 @@ At Praveen's request, from the presentations at the "Global Conference on Sri Sa
 - **Telemedicine (214)** — cost-effectiveness finding for post-neurosurgical follow-up.
 - **Counselling (210)** — "about 50,000 patients in its first 23 years" (Umesh Rao).
 - **GH Statistics (53326)** — cumulative figures moved from Aug 1976–2022 to Aug 1976–2024 using Dr Geetanjali's charts (three periods summed): OP 38.3 lakh+, admissions 71,216, deliveries 20,731, surgeries 48,271; OBG 8,296 (+3,667 caesareans, 1,318 sterilisations), ophthalmology 9,442, general surgery 7,952, ENT 7,519, orthopaedics 5,626, urology 2,407, plastic 2,044. Plastic surgery and sterilisation totals match the previous page exactly. Caveat: the implied 2023–24 increments (≈1.5 lakh OP and ≈4,200 admissions a year) are higher than the 2017–24 averages in the same charts (≈1.05 lakh, ≈3,000), so the previous "to 2022" figures may have run to an earlier date; to be confirmed with the General Hospital.
-Media 56007–56011. Backups: `/home/azureuser/presentations-content-bak-20261008/`.
-- 09-Oct-2026, at Praveen's request: **Hospital Overview (post 2)** — new "International Collaborations" code module before "More About the Hospital": the two MoUs signed in Tokyo on 20-Jun-2025 (Institute of Science Tokyo, Department of Cardiovascular Surgery; University of Chicago Medicine, Heart and Vascular Center), with signatories and witness, purpose, and the five forms of cooperation as worded in both MoUs (including "collaborative study in medical robotics"). The MoUs name SSSIHMS Prasanthigram; Praveen confirmed they cover both hospitals. Images are crops of the two logos only (media 56023, 56024); the signature pages were not published. Backup `bak-2-mou.txt` in `/home/azureuser/presentations-content-bak-20261008/`.
+Media 56007–56011. Backups: `~/presentations-content-bak-20261008/`.
+- 09-Oct-2026, at Praveen's request: **Hospital Overview (post 2)** — new "International Collaborations" code module before "More About the Hospital": the two MoUs signed in Tokyo on 20-Jun-2025 (Institute of Science Tokyo, Department of Cardiovascular Surgery; University of Chicago Medicine, Heart and Vascular Center), with signatories and witness, purpose, and the five forms of cooperation as worded in both MoUs (including "collaborative study in medical robotics"). The MoUs name SSSIHMS Prasanthigram; Praveen confirmed they cover both hospitals. Images are crops of the two logos only (media 56023, 56024); the signature pages were not published. Backup `bak-2-mou.txt` in `~/presentations-content-bak-20261008/`.
 - 09-Oct-2026: five fellowship CVs received by email before the website form existed were copied to the Drive folder "Fellowship applications 2026-27" through the Apps Script (references FA26-EMAIL-01…05; only name and course in the spreadsheet). They are not in wp-admin.
 
 ## 2026-10-09 — Job application form: HR's feedback
@@ -914,7 +914,7 @@ At Praveen's request (HR feedback forwarded in chat), `sssihms-wfd-job-applicati
 - Excel export keeps answers to removed questions as extra columns, so the six applications received on 08/09-Oct keep every answer.
 - Apps Script v3 (same deployment): rows are matched to spreadsheet columns by name, adding columns for new questions, so changed questions no longer shift the Drive spreadsheet.
 Tested with two synthetic applications (mail and Drive blocked by a temporary guard): registration required for a doctor, not for an administrative applicant.
-**Incident during clean-up:** the clean-up command set every stored application to draft — including three real ones (HR261008-UMVU, HR261008-DO3F, HR261009-31YW) — and moved HR261009-31YW's files into the backup folder. All three were restored within minutes (status, reference, original post dates incl. GMT for the 6-month retention, Drive links, files). HR261008-DO3F's Drive copy, which had timed out on 08-Oct, was retried and succeeded; all six real applications are now in Drive. Test records 56026/56027 remain as drafts. Backup of the previous plugin: `/home/azureuser/job-form-hr-feedback-bak-20261009/`.
+**Incident during clean-up:** the clean-up command set every stored application to draft — including three real ones (HR261008-UMVU, HR261008-DO3F, HR261009-31YW) — and moved HR261009-31YW's files into the backup folder. All three were restored within minutes (status, reference, original post dates incl. GMT for the 6-month retention, Drive links, files). HR261008-DO3F's Drive copy, which had timed out on 08-Oct, was retried and succeeded; all six real applications are now in Drive. Test records 56026/56027 remain as drafts. Backup of the previous plugin: `~/job-form-hr-feedback-bak-20261009/`.
 
 ## 2026-10-11 — sssihms.org (blog 1) homepage rebuilt in the Prasanthigram web brand
 Not Whitefield: this is the network's root site, **blog 1, page 31** (`--url=sssihms.org`). Source of truth is
@@ -929,7 +929,7 @@ Not Whitefield: this is the network's root site, **blog 1, page 31** (`--url=sss
 - The page links its own Playfair Display/Lato stylesheet — blog 1's theme loads only Open Sans.
 - Written with `--user=praveen` (super admin) so kses does not strip the `<style>` block; stored content verified
   byte-identical to the payload. Caches purged: `et-cache/1/1` and `cache/page_enhanced/sssihms.org` only.
-- Backup of the previous content and meta: `/home/azureuser/sssihms-org-bak-20261011/` (also `portal/backups/`, not committed).
+- Backup of the previous content and meta: `~/sssihms-org-bak-20261011/` (also `portal/backups/`, not committed).
 - Open: sssmh.org.in's TLS certificate expired 05-Oct-2026, so its "Visit site" link shows a browser warning.
 
 ## 2026-10-11 — Fixes from the website audit (Codex, 11-Oct-2026)
@@ -941,13 +941,13 @@ At Praveen's request, the items the web team could fix without a hospital decisi
 - **Yoast meta descriptions** for 11 pages that had none: 55980, 663, 590, 55667–55670 (in the page's own language, built from phrases on the page), 54788, 55998, 55368, 52990.
 - **Patient-access mu-plugin** — `sssihms_wfd_page_lang()`: Kannada/Hindi/Telugu/Bengali pages declare `lang="kn|hi|te|bn"` on `<html>`, with the Divi header and footer marked `lang="en"`.
 Not changed: the Biomedical Waste page's second `<h1>` comes from the `sssihms-bmw-tracker` plugin (separate source tree). Privacy notices for the job and fellowship forms are drafted in the emails to HR and the academic office, not published.
-Backups: `/home/azureuser/website-audit-fixes-bak-20261011/`.
+Backups: `~/website-audit-fixes-bak-20261011/`.
 
 ## 2026-10-12 — CIS Tokyo 2026 and Dr. Sola's faculty profile
 At Praveen's request (GE HealthCare's thank-you email of 12-Oct-2026 to the Director, and Dr. Sola's CV dated Jun-2026):
 - **Events — Cardiology (713)** — "International" block at the end of "Conferences & Teaching Programmes": Collaboration & Innovation Summit (CIS) 2026, Tokyo, organised by GE HealthCare; Dr. Srikanth Sola and Dr. Prayaag Kini as key speakers. Three photos from GE (media 56046–56048). Only the "Heart Fat & Coronary Risk" photo names its speaker (Dr. Sola, matched to his portrait and to his GE epicardial-fat project); the risk-scoring talk photo is captioned without a name. Date (19-Sep-2026), the summit description and Dr. Sola's topic (cardiac fat as a CT imaging biomarker for CAD) added from GE's invitation letter to the Director; Dr. Kini's topic in that letter was tentative and does not match the risk-scoring slide, so his talk is described only as part of "cardiac CT and echocardiography". Later the same day Praveen gave Dr. Kini's talk title, added: "Generating Excellence through Genuine Echocardiography". Praveen confirmed the risk-scoring photo is Dr. Kini; caption now "Dr. Prayaag Kini presenting at CIS 2026".
 - **Faculty — Cardiology (108)** — Dr. Sola's honorary card: new portrait (media 56049, cropped 4:5 from the photo supplied), role "MD FACC · Honorary Senior Consultant Cardiologist", current post "Chief Cardiologist, Dr. Sola's Heart Clinic, Bengaluru", and a collapsible "Profile" written only from the CV (SSSIHMS 2008–18 and honorary since 2018; Louisville, Stanford, Duke, Emory; Cleveland Clinic; ABIM; imaging work, 45 peer-reviewed papers; EchoSai.org; IAE/IACVI executive committees; GE HealthCare AI epicardial-fat project since 2025). First faculty card on the site with a profile.
-Backups: `/home/azureuser/cis-tokyo-sola-bak-20261012/`.
+Backups: `~/cis-tokyo-sola-bak-20261012/`.
 
 ## 2026-10-12 — Cardiac Surgery Infrastructure showing CSS as text; shared page stylesheet moved into the mu-plugin
 - **Incident:** at 16:43 and 16:45 the department account `ctvsblr` (editor) saved Cardiac Surgery Infrastructure (112) in the Divi builder (caption "Cardiac surgery in progress" → "Cardiac ICU - Paediatric Patient"). Editors lack `unfiltered_html` on this multisite, so kses stripped the `<style>` tags from the "Page Stylesheet — shared, do not edit" code module and the whole stylesheet printed as text. Restored from revision 55741 with the department's edits kept. It was the only page affected.
@@ -955,7 +955,7 @@ Backups: `/home/azureuser/cis-tokyo-sola-bak-20261012/`.
 - All 126 copies of the module (119 plain, 7 stored with Divi line-break holders) were checked identical to `page.css` after whitespace normalisation, then removed from the content and each post flagged (121 published, 5 drafts). Checked afterwards: all 118 published pages that render load `page.css` and show no CSS text; the other 3 (divine-poetry, sai_padhyam, songs-baba) 301 to static pages.
 - **New pages:** a page built from scratch, or copied from a page's content without its meta, needs `_sssihms_page_css = 1` to get the styles (`wp post meta update <id> _sssihms_page_css 1`).
 - **Still exposed to editor saves (not changed):** 26 pages have their own `<style>` blocks in other code modules, 17 have `<iframe>`s (statistics dashboards, maps) and the fellowship page has a `<script>`; an editor saving one of those pages in the builder strips them.
-Backups: `/home/azureuser/ctvs-infra-style-bak-20261012/`, `/home/azureuser/page-css-move-bak-20261012/` (previous mu-plugin + `pages/bak-<id>.txt` for all 126).
+Backups: `~/ctvs-infra-style-bak-20261012/`, `~/page-css-move-bak-20261012/` (previous mu-plugin + `pages/bak-<id>.txt` for all 126).
 - **Same day, the rest of the editor-save exposure** (at Praveen's request), patient-access mu-plugin + 43 pages:
   - **Component `<style>` blocks** (26 pages, e.g. `.rb-h` ×17, `.gg-stats` ×7, faculty `.fac-side`, contact `.ct-tel`) moved from code modules to post meta `_sssihms_page_css_extra`, printed as `<style id="sssihms-page-css-extra">` right after `page.css` (same hook, priority 2), in original order.
   - **`<iframe>`s** (17 pages: 12 statistics dashboards, 3 poetry embeds, 2 Google Maps) replaced by `[sssihms_embed src=… title=… style=… width=… height=… loading=… referrerpolicy=…]`. It renders only same-site paths and `maps.google.com/maps?` / `google.com/maps/embed?`. Checked: a kses pass keeps the shortcode, and it renders the same iframe.
@@ -963,7 +963,7 @@ Backups: `/home/azureuser/ctvs-infra-style-bak-20261012/`, `/home/azureuser/page
   - **Inline `style` attributes:** `safe_style_css` gains list-style, overflow-x/-y, animation-delay, font-variant-numeric, word-break; `safecss_filter_attr_allow_css` allows declarations whose only parentheses are rgb/rgba/hsl/hsla colours (these were dropped on 14+ pages' boxes and borders by an editor save).
   - Checked afterwards against the backups: all 40 published pages that render carry every original CSS block, iframe src and the script; no raw shortcode or CSS text. The 3 poetry pages 301 as before.
   - Not touched: drafts 54748 and 54458 (old prototypes with Tailwind/Chart.js/YouTube code, unpublished).
-  Backups: `/home/azureuser/page-css-move-bak-20261012/embeds-styles/` (43 pages) and `sssihms-wfd-patient-access.before-embeds.php`.
+  Backups: `~/page-css-move-bak-20261012/embeds-styles/` (43 pages) and `sssihms-wfd-patient-access.before-embeds.php`.
 
 ## 2026-10-12 — Academics department review (tracked changes in 01-Academics-Overview, 02-DNB-Programmes, 03-Fellowship-Courses .docx)
 Applied as marked; nursing college review still pending. Tidied only punctuation/hyphens into prose and the official name "National Board of Examinations in Medical Sciences (NBEMS)".
@@ -971,11 +971,11 @@ Applied as marked; nursing college review still pending. Tidied only punctuation
 - **DNB (257):** banner line and accreditation name; "DNB Programmes Offered" heading removed; cards renamed DrNB with durations, eligibility reduced to the qualification (CET, seats and years removed); NBEMS counselling; DNB=MCh/DM equivalence sentence removed; "Stipend as per the policy of the Government." added; new "Achievements" sub-heading: ten trainees with gold medals across all specialties (was three); Training paragraphs trimmed as marked; Quality goal ends "…high quality care is provided." (the doc deleted "in a cost effective manner" leaving "in a"); three goals added (Holistic Patient Care, Evidence-Based Practice, Emergency & Life Support), "[1]" citation marks dropped. **Kept although struck:** the page title H1 "DNB/DrNB Postgraduate Programmes" (a page needs one).
 - **Fellowship (255):** banner line lists the three fellowships incl. Pediatric Cardiac Surgery; "within", DM/DrNB, "Anaesthesia"; "Four Components"/"Three Components" goal headings removed; CTVA stipend sentence removed from the description (the Applications & Stipends box, not marked, still shows Rs 1,02,000); CTVA side photo removed; "research/dissertation" → "research"; new section "Fellowship in Pediatric Cardiac Surgery — Goals" (four goals as written) before Applications & Stipends.
 - **Contact (71):** academic office comment "Not to put these HR and academics contact number in the contact list" — the Academics (080 2800 4640) and HR (080 2800 4641) numbers removed from the "HR & Academics" card; the two email addresses and the Careers button kept.
-Backups: `/home/azureuser/academics-review-bak-20261012/`.
+Backups: `~/academics-review-bak-20261012/`.
 
 ## 2026-10-13 — CIS Tokyo 2026: three more photos
 - **Events — Cardiology (713)**, CIS 2026 block: three more photos from GE added after the "Dr. Prayaag Kini presenting at CIS 2026" figure (media 56241–56243). Dr. Sola's photo was kept at its supplied size (719×775), not upscaled.
-Backup: `/tmp/bak-713-tokyo2.txt` on the server, and `/home/azureuser/cis-tokyo-sola-bak-20261012/`.
+Backup: `/tmp/bak-713-tokyo2.txt` on the server, and `~/cis-tokyo-sola-bak-20261012/`.
 
 ## 2026-10-13 — Conference proceedings pages and the "Sri Sathya Sai Ideal Healthcare" book
 At Praveen's request (handoffs from the conference and book sessions):
@@ -985,7 +985,7 @@ At Praveen's request (handoffs from the conference and book sessions):
 - **Book "Sri Sathya Sai Ideal Healthcare" (100 Years of Sri Sathya Sai)**: static folder `/srv/www/wordpress/ideal-healthcare/` (index.html + 273 photos in two sizes, 59 MB), served directly by Apache, not WordPress. Not in this repo; source and build script are in Praveen's "Ideal Healthcare Web" folder. Praveen confirmed publication of the Divine Discourses (pp. 49–114). A top bar and footer link back to the hospital site were added in the book's template. As a folder in the shared web root it also opens on the other sites' domains. Source-document errors in the p8/p14/p37 tables are kept as printed.
 - **Header menu (116)**, under About Hospital: "Conferences" (→ Conferences & CME Archive, 54956) with the two proceedings pages under it (menu items 56246, 56247, 56249); "Publications" (custom link to the book, no Publications page exists yet) with "Sri Sathya Sai Ideal Healthcare (Book)" under it (56250, 56251).
 - Checked at 375 px: no horizontal scroll on any of the three; videos play (Day 3 of GCC starts at 31:30 as set); search and the sticky toolbar work (the site header is not sticky, so `top:0` is clear).
-Backups: `/home/azureuser/proceedings-gcc2025-bak-20261013/` (previous mu-plugin, menu 116 CSV).
+Backups: `~/proceedings-gcc2025-bak-20261013/` (previous mu-plugin, menu 116 CSV).
 
 ## 2026-10-14 — Upcoming CMEs: SPEED 2026 and Cardiac Anaesthesia CME 2026
 
@@ -1114,7 +1114,7 @@ Server backups: /tmp/bak-pa-fawording.php, /tmp/bak-content-{54830,255}-fawordin
 - New network mu-plugin `sssihms-admin-reset-lock.php`: no reset emails for anyone who is admin anywhere (the form
   shows the normal "check your email" screen); `?author=N` and author archives redirect home on all sites.
   Locked-out admin → reset with WP-CLI. Depends on `sssihms-admin-two-factor.php`.
-- Backup of sai_users / sai_usermeta / sai_sitemeta before the change: /home/azureuser/security-bak-20261016/ on the VM.
+- Backup of sai_users / sai_usermeta / sai_sitemeta before the change: ~/security-bak-20261016/ on the VM.
 
 ## 2026-10-16 — Statistics pages made private, menu links removed
 - At Praveen's request (pages to be revised): 14 statistics pages set to private — 53091 Statistics, 55368 Combined
@@ -1123,7 +1123,7 @@ Server backups: /tmp/bak-pa-fawording.php, /tmp/bak-content-{54830,255}-fawordin
 - 19 menu items deleted: menu 116 (header) 55119 "Statistics" with its 12 children (55370, 55215–55225) and the
   department "Statistics" items 55133, 55139, 55147, 55167; menu 2 items 53102, 53434.
 - In-page links to these pages remain on 32 published pages (department sub-navigation tabs) and now lead to 404.
-- Before-state (menu JSON + page statuses): /home/azureuser/stats-private-20261016/ on the VM.
+- Before-state (menu JSON + page statuses): ~/stats-private-20261016/ on the VM.
 
 ## 2026-10-17 — Manohriday Oct–Dec 2012 page and PDF
 - New: manohriday-2012-10 (page 56340, child of 625), same build as manohriday-2013-04; prev none, next 2013-04.
@@ -1169,7 +1169,7 @@ wording, Neurology card, FAQ, accessibility statement, per-service icons.
   removed for screen readers.
 - **Help Desk Answers KB** (/srv/www/kb/whitefield/): hours, call-backs, September numbers, Salarpuria ₹40, fellowship dates
   (RGUHS Revised Notification 1; Arthroplasty added). Before-state kb-before.tgz.
-- Backups: /home/azureuser/heval-bak-20261017/ (content-*.txt, title-*.txt, pre-*.txt per save, menu116.csv, plugin, page.css).
+- Backups: ~/heval-bak-20261017/ (content-*.txt, title-*.txt, pre-*.txt per save, menu116.csv, plugin, page.css).
 
 ## 2026-10-17 — Weekly knowledge-base check (Help Desk Answers)
 - `sssihms-wfd-helpdesk-answers.php` (repo copy deployed): WP-Cron `sssihms_kb_check`, weekly, Mondays 06:00 IST, blog 4 only.
@@ -1181,7 +1181,7 @@ wording, Neurology card, FAQ, accessibility statement, per-service icons.
 - First run: 180 facts, 4 missing (all real) + 4 source problems. KB fixed (go-green BMW totals now point to the live
   page; Bhagawan and Telemedicine pages added to sources; two dead /services-* sources removed). Now 179 facts, 0
   missing; the 2 private statistics pages remain listed until they are republished.
-- Previous plugin: /home/azureuser/heval-bak-20261017/helpdesk-answers.php.orig.
+- Previous plugin: ~/heval-bak-20261017/helpdesk-answers.php.orig.
 
 ## 2026-10-17 — Manohriday Jan–Mar 2013, Jul–Sep 2013 and January 2015 PDFs
 - PDFs from ~/Documents/Manohriday, uploaded unmodified (sha1 matches the source), imported with WP-CLI:
@@ -1193,7 +1193,7 @@ wording, Neurology card, FAQ, accessibility statement, per-service icons.
   Backup /tmp/bak-content-625-tiles-2013-2015.txt.
 - Same day, at Praveen's request: 56366 replaced in place by a lighter copy (Ghostscript pdfwrite /ebook, 150 dpi
   images; text stays vector; 26 pp.) — 61.5 MB → 3.5 MB, same URL. Original (sha1 cede98b1…) kept at
-  /home/azureuser/manohriday-bak-20261017/ on the VM and in ~/Documents/Manohriday.
+  ~/manohriday-bak-20261017/ on the VM and in ~/Documents/Manohriday.
 
 ## 2026-10-17 — cdn.sssihms.org retired: all media moved to whitefield.sssihms.org
 Praveen: "copy all media out of cdn and we can close that". cdn.sssihms.org was GitHub Pages (CNAME →
@@ -1216,7 +1216,7 @@ Whitefield uploads plus core/theme/plugin static files.
   so a fresh build has no CDN links. The GitHub Pages prototype is not redeployed.
 - Crawl after purge: 367 published pages, 1,591 media URLs, only the 7 known-broken fail; no page loads anything from
   the CDN. Divi CSS cache is `et-cache/1/4` (CLAUDE.md and wordpress/README.md said `et-cache/*/whitefield…`).
-- Backups on the VM: /home/azureuser/cdn-migration-20261017/ (sai_4 tables before, /srv/www/wfd before, original
+- Backups on the VM: ~/cdn-migration-20261017/ (sai_4 tables before, /srv/www/wfd before, original
   anthar-dhwani-01-2019-01.html).
 
 ## 2026-10-17 — Manohriday Jan–Mar 2013, Jul–Sep 2013, Jan 2015 reading pages; Apr–Jun 2013 rebuilt; PDFs swapped
@@ -1226,7 +1226,7 @@ approval), published with the same route as 2012-10 (build.py → proceedings as
   **56372** manohriday-2015-01 (130 files). Chain 2012-10 → 2013-01 → 2013-04 → 2013-07 → 2015-01 → 2016-01.
 - manohriday-2013-04 rebuilt from the final 24-Sep-2013 edition (html/css/js + whole image folder replaced);
   2012-10 and 2016-01: only their Next/Previous links changed. Previous server files:
-  /home/azureuser/manohriday-bak-20261017/proceedings-before-pages.tgz.
+  ~/manohriday-bak-20261017/proceedings-before-pages.tgz.
 - 625: "Read online →" under the Jan-Mar 2013, Jul-Sep 2013 and 2015 tiles (17 in all). Backup /tmp/bak-content-625-readonline3.txt.
 - PDFs replaced in place (same media and URL), Ghostscript pdfwrite /ebook, previous live files kept in the backup folder:
   - 56327 manohriday-april-june-2013.pdf: 1.3 MB 4-Sep-2013 draft → final 24-Sep-2013 edition
@@ -1242,7 +1242,7 @@ approval), published with the same route as 2012-10 (build.py → proceedings as
   text, 7-Jun-2008 photo, hall/altar photo with printed Contents, workshop group photo and back-cover details added;
   draft-only items (HR Initiatives, HCIT notice, water body, "75 doctors attended") gone. manohriday-2013-01 (56370):
   the broken `http://media` link is now one working link to the radiosai.org article (html/css only).
-  Previous server files: /home/azureuser/manohriday-bak-20261017/proceedings-before-2012rebuild.tgz.
+  Previous server files: ~/manohriday-bak-20261017/proceedings-before-2012rebuild.tgz.
 
 ## 2026-10-17 — Manohriday page (625) redesigned: reading pages first
 Praveen approved the mock-up (~/Documents/Manohriday/manohriday-page-mockup.html).
@@ -1251,7 +1251,7 @@ Praveen approved the mock-up (~/Documents/Manohriday/manohriday-page-mockup.html
   newsletter 2012 – 2013"; each `article.mh-card`: cover → reading page, "Read online" button, "PDF · size" link).
   All 34 previous links kept, none added. PDF sizes are written into the markup — update them if a PDF is replaced.
 - CSS in post meta `_sssihms_page_css_extra` (was empty), no `<style>` in content. Phone: two covers per row.
-- Backup of the previous content: /home/azureuser/manohriday-bak-20261017/bak-content-625-redesign.txt.
+- Backup of the previous content: ~/manohriday-bak-20261017/bak-content-625-redesign.txt.
 - sssihms-wfd-site-updates.php: new "Magazine issue" type (child `<article class="mh-card"`) for the two archive grids.
   Before, the 15-Oct "Read online" wrappers made the Newsletter tab offer every single tile as its own section
   (17 on 625, 16 on Anthar Dhwani 18101) — a new issue would have gone inside a tile. 625 now offers just the two
@@ -1268,7 +1268,7 @@ At Praveen's request ("do the same for the Anthar Dhwani page").
 - CSS (same as 625 + `.cover-note` line) in `_sssihms_page_css_extra` (was empty). Both pages: `.mh-card-actions{margin-top:auto}`
   so the buttons in a row line up.
 - Site Updates: the Newsletter tab now offers no sections anywhere (both its pages moved to the Magazine issue tab, which
-  offers 3 grids: 625 ×2, 18101 ×1). Backup: /home/azureuser/manohriday-bak-20261017/bak-content-18101-redesign.txt.
+  offers 3 grids: 625 ×2, 18101 ×1). Backup: ~/manohriday-bak-20261017/bak-content-18101-redesign.txt.
 - Checked: 200, 16/16 images, no sideways scroll at 1280 and 375 px, no dead links, buttons aligned on both pages.
 
 ## 2026-10-19 — Biomedical Waste page: single H1 (BMW Tracker 0.11.3)
@@ -1309,3 +1309,10 @@ content, database or other plugin touched. Ratios are WCAG relative-luminance va
   is being changed separately. scrollable-region-focusable (BMW table) also 1 → 0 from that work.
 - Server copy matched the repo before editing; previous file backup kept on the server. `php -l` clean; no new PHP errors
   from the mu-plugin; page cache purged.
+
+## 2026-10-19 — Biomedical Waste page: monthly table reachable by keyboard (BMW Tracker 0.11.4)
+- The monthly category-wise waste table, which scrolls sideways on phones, now has `tabindex="0"`, `role="region"` and an
+  accessible name, so it can be reached and scrolled by keyboard (WCAG 2.1.1, axe `scrollable-region-focusable`).
+- BMW Tracker plugin 0.11.3 → 0.11.4 (plugin repo); three plugin files deployed, server copies verified unchanged
+  beforehand and backed up on the server. axe re-run at mobile and desktop widths: rule cleared.
+- Remaining on this page: Divi-blue (#2ea3f2) phone and report links fail contrast (8 elements) — not yet changed.
