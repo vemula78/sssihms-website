@@ -1316,3 +1316,15 @@ content, database or other plugin touched. Ratios are WCAG relative-luminance va
 - BMW Tracker plugin 0.11.3 → 0.11.4 (plugin repo); three plugin files deployed, server copies verified unchanged
   beforehand and backed up on the server. axe re-run at mobile and desktop widths: rule cleared.
 - Remaining on this page: Divi-blue (#2ea3f2) phone and report links fail contrast (8 elements) — not yet changed.
+
+## 2026-10-19 — Magazine reading pages: larger, more readable text
+At Praveen's request ("the text in the publication is too small to read").
+- All 33 reading pages (Manohriday 2012-10 … 2026-01, Anthar Dhwani 01 … 16): one marked block ("readability 2026-10-19")
+  appended to each issue's CSS in mu-plugins/sssihms-wfd-assets/proceedings/. Body 16px → 17px phone / 19px desktop
+  (clamp, rem), line length ~95 → ~75 characters (34em), captions 13–14px → 15px, contents/tables +1px. Sizes only.
+- Checked (Playwright, 390 and 1366 px): all 33 return 200, no sideways scroll, all images load.
+  Previous CSS files backed up on the server, outside the web root.
+- Repo copies of the 33 .css files synced from the server (each = previous repo copy + the block). The magazine build
+  scripts now add readable.css last, so a rebuild keeps the change.
+- Not changed: Swiss Med 2005, conference and souvenir pages (same stylesheet pattern; not in scope).
+

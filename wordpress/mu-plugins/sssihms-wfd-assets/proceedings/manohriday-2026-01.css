@@ -148,3 +148,17 @@
 .sssihms-proc p{padding-bottom:0}
 .sssihms-proc ul,.sssihms-proc ol{line-height:inherit}
 @media print{.et-l--header,.et-l--footer,#wpadminbar{display:none !important}}
+
+/* readability 2026-10-19: body 17px phone -> 19px desktop, lines <= ~75 characters, captions and tables >= 15px */
+.sssihms-proc{font-size:clamp(1.0625rem,0.95rem + 0.4vw,1.1875rem);line-height:1.65}
+.sssihms-proc .sec p,.sssihms-proc .sec ul,.sssihms-proc .thought,.sssihms-proc blockquote.pull,.sssihms-proc blockquote.poem,.sssihms-proc .sec p.lead{max-width:34em}
+.sssihms-proc .sec h3{font-size:1.2em}
+.sssihms-proc .sec p.lead{font-size:1.1em}
+.sssihms-proc .deck{font-size:1.15em}
+.sssihms-proc .by{font-size:.95em}
+.sssihms-proc .thought p,.sssihms-proc blockquote.pull p{font-size:1.1em}
+.sssihms-proc .ph figcaption,.sssihms-proc .covers figcaption,.sssihms-proc .figs.people figcaption,.sssihms-proc .sec p.cap,.sssihms-proc .names,.sssihms-proc .pn,.sssihms-proc .artlinks,.sssihms-proc .period,.sssihms-proc #lb figcaption{font-size:.9375rem}
+.sssihms-proc .centre,.sssihms-proc .toc li,.sssihms-proc .contents li,.sssihms-proc .facts dd,.sssihms-proc .tbl h4{font-size:1rem}
+.sssihms-proc .contents .au,.sssihms-proc .sec p.note,.sssihms-proc .src,.sssihms-proc .foot .small,.sssihms-proc .thought cite{font-size:.875rem}
+.sssihms-proc table,.sssihms-proc table.stat{font-size:.9375rem}
+.sssihms-proc th,.sssihms-proc .facts dt,.sssihms-proc .contents h3{font-size:.8125rem}
