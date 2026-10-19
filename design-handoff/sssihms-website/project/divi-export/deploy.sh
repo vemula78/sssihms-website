@@ -8,9 +8,10 @@
 set -euo pipefail
 
 # ---- connection details (from the SPEED-2026 cheat sheet) -----------------
-KEY="${SSSIHMS_KEY:-$HOME/Downloads/sssihms-web-vm2023_key.pem}"
-HOST="azureuser@20.219.253.136"
-PORT=2222
+[ -f "${SSSIHMS_DEPLOY_ENV:-$HOME/.config/sssihms/deploy.env}" ] && . "${SSSIHMS_DEPLOY_ENV:-$HOME/.config/sssihms/deploy.env}"
+KEY="${SSSIHMS_KEY:-${SSH_KEY:?set SSH_KEY (or create ~/.config/sssihms/deploy.env)}}"
+HOST="${SSH_HOST:?set SSH_HOST}"
+PORT="${SSH_PORT:?set SSH_PORT}"
 
 SSH_OPTS=(-i "$KEY" -p "$PORT" -o ServerAliveInterval=60)
 SCP_OPTS=(-i "$KEY" -P "$PORT")

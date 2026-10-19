@@ -21,7 +21,7 @@ bash deploy.sh
 ```
 
 That uploads this folder to `/tmp/divi-export` on the VM and runs the importer.
-If your key isn't at `~/Downloads/sssihms-web-vm2023_key.pem`:
+Server, port, user and key path come from `~/.config/sssihms/deploy.env` (local, not in git). To use a different key:
 
 ```bash
 SSSIHMS_KEY=/path/to/your_key.pem bash deploy.sh
@@ -46,11 +46,11 @@ SSSIHMS_KEY=/path/to/your_key.pem bash deploy.sh
 
 ```bash
 # 1. on your Mac — upload
-scp -P 2222 -i ~/Downloads/sssihms-web-vm2023_key.pem -r divi-export \
-    azureuser@20.219.253.136:/tmp/divi-export
+scp -P <port> -i <key> -r divi-export \
+    <user>@<server>:/tmp/divi-export
 
 # 2. SSH in
-ssh -i ~/Downloads/sssihms-web-vm2023_key.pem -p 2222 azureuser@20.219.253.136
+ssh -i <key> -p <port> <user>@<server>
 
 # 3. on the VM — import
 bash /tmp/divi-export/import-on-vm.sh

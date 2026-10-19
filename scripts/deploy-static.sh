@@ -17,9 +17,10 @@
 
 set -euo pipefail
 
-SSH_KEY="${SSH_KEY:-$HOME/Downloads/sssihms-web-vm2023_key.pem}"
-SSH_HOST="${SSH_HOST:-azureuser@20.219.253.136}"
-SSH_PORT="${SSH_PORT:-2222}"
+[ -f "${SSSIHMS_DEPLOY_ENV:-$HOME/.config/sssihms/deploy.env}" ] && . "${SSSIHMS_DEPLOY_ENV:-$HOME/.config/sssihms/deploy.env}"
+SSH_KEY="${SSH_KEY:?set SSH_KEY (or create ~/.config/sssihms/deploy.env)}"
+SSH_HOST="${SSH_HOST:?set SSH_HOST}"
+SSH_PORT="${SSH_PORT:?set SSH_PORT}"
 REMOTE_ROOT="${REMOTE_ROOT:-/srv/www/wordpress/static}"
 BASE_URL="${BASE_URL:-https://whitefield.sssihms.org/static}"
 

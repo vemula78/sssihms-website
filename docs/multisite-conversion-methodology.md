@@ -13,7 +13,7 @@ everything below applies with a different `--url` and table prefix. DB
 VM access:
 
 ```bash
-ssh -i ~/Downloads/sssihms-web-vm2023_key.pem -p 2222 azureuser@20.219.253.136
+ssh -i <key> -p <port> <user>@<server>   # values: ~/.config/sssihms/deploy.env (local, not in git)
 ```
 
 ---

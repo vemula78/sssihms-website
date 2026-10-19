@@ -6,7 +6,7 @@ The commands you'll reach for most. Full details in SPEED-2026-VM-Reference.md.
 
 ## Connect to the VM (run on your Mac)
 ```bash
-ssh -i ~/Downloads/sssihms-web-vm2023_key.pem -p 2222 -o ServerAliveInterval=60 azureuser@20.219.253.136
+ssh -i <key> -p <port> -o ServerAliveInterval=60 <user>@<server>
 ```
 
 ## The two pages
@@ -41,7 +41,7 @@ mysql -u wordpress -p sssihms_master_db -e "DELETE FROM speed_delegates WHERE em
 ## Upload a file (Mac → VM)
 On Mac:
 ```bash
-scp -P 2222 -i ~/Downloads/sssihms-web-vm2023_key.pem FILENAME azureuser@20.219.253.136:/tmp/
+scp -P <port> -i <key> FILENAME <user>@<server>:/tmp/
 ```
 On VM (example: an app file):
 ```bash

@@ -32,9 +32,9 @@ Every hook is gated on `get_current_blog_id() === 4`, so the other blogs in the 
 #### Deploying
 
 ```bash
-scp -i <key> -P 2222 wordpress/mu-plugins/sssihms-wfd-patient-access.php \
-    azureuser@<vm>:/tmp/
-ssh -i <key> -p 2222 azureuser@<vm> \
+scp -i <key> -P <port> wordpress/mu-plugins/sssihms-wfd-patient-access.php \
+    <user>@<vm>:/tmp/
+ssh -i <key> -p <port> <user>@<vm> \
     'php -l /tmp/sssihms-wfd-patient-access.php \
      && sudo cp /tmp/sssihms-wfd-patient-access.php /srv/www/wordpress/wp-content/mu-plugins/ \
      && sudo chown www-data:www-data /srv/www/wordpress/wp-content/mu-plugins/sssihms-wfd-patient-access.php'
@@ -117,7 +117,7 @@ methods (authenticator app, email, backup codes); **XML-RPC disabled** network-w
 was taking ~3,000 login attempts a day and bypasses the login-page captcha. Its only real
 user was the Jetpack connection on Whitefield, whose Jetpack Social has no social accounts
 connected — re-enable XML-RPC (Security › Settings › WordPress Tweaks) if Jetpack is needed.
-Settings backup: `/home/azureuser/security-bak-20260929/`.
+Settings backup: `security-bak-20260929/` in the admin user's home on the server.
 
 ### `sssihms-wfd-helpdesk-answers.php`
 
