@@ -1270,3 +1270,17 @@ At Praveen's request ("do the same for the Anthar Dhwani page").
 - Site Updates: the Newsletter tab now offers no sections anywhere (both its pages moved to the Magazine issue tab, which
   offers 3 grids: 625 ×2, 18101 ×1). Backup: /home/azureuser/manohriday-bak-20261017/bak-content-18101-redesign.txt.
 - Checked: 200, 16/16 images, no sideways scroll at 1280 and 375 px, no dead links, buttons aligned on both pages.
+
+## 2026-10-19 — Biomedical Waste page: single H1 (BMW Tracker 0.11.3)
+Follows up the 11-Oct audit item left as "Not changed". Plugin change only (`sssihms-bmw-tracker` 0.11.2 → 0.11.3,
+committed in the plugin repo); no page content, menu, database or other plugin touched.
+- **Biomedical Waste Management (54788)** — the plugin's "Biomedical Waste Management Disclosure" hero heading was a
+  second `<h1>` under the theme's page title; now `<h2 class="bmw-public-title">`, styled by the same CSS rule, so it looks
+  the same. The section headings below it were already `<h2>` and were not shifted.
+- **BMW Staff Portal (54787)** — the login card's "Biomedical Waste Tracker" heading (and the "Access not assigned" card)
+  had the same defect; now `<h2 class="bmw-login-title">`. Screens shown after staff sign in still carry their own `<h1>`
+  (shared with wp-admin; not changed).
+- Four plugin files replaced; the server copy matched the plugin repo exactly beforehand. Previous files backed up on
+  the server with suffix `.bak-2026-10-19`.
+- Checked: one `<h1>` on each page, both 200, plugin CSS served as `ver=0.11.3`, headings' computed styles identical at
+  1280 and 375 px, no new PHP errors. Neither page is in the page cache (served no-cache).
