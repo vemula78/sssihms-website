@@ -30,6 +30,17 @@ RESET = (f'{SCOPE} p{{padding-bottom:0}}\n{SCOPE} ul,{SCOPE} ol{{line-height:inh
          # Printing the proceedings should not print the site header and footer.
          '@media print{.et-l--header,.et-l--footer,#wpadminbar{display:none !important}}\n')
 
+# Larger reading text (added 2026-10-20, same targets as the magazine pages' readable.css). Keep last.
+READABLE = '''
+/* readability 2026-10-20: body 17px phone -> 19px desktop, transcript lines <= ~75 characters, captions >= 15px */
+.sssihms-proc{font-size:clamp(1.0625rem,0.95rem + 0.4vw,1.1875rem);line-height:1.65}
+.sssihms-proc .tx{font-size:1em;max-width:calc(34em + 44px)}
+.sssihms-proc .day1,.sssihms-proc .extra p.lead{max-width:34em}
+.sssihms-proc .talk h3,.sssihms-proc .day1 h3{font-size:1.1em}
+.sssihms-proc .video figcaption,.sssihms-proc .note,.sssihms-proc ul.panel,.sssihms-proc .qrcard p,.sssihms-proc nav.toc{font-size:.9375rem}
+.sssihms-proc .wc,.sssihms-proc .bar .count,.sssihms-proc .stats span,.sssihms-proc .qrcard a{font-size:.875rem}
+'''
+
 
 def between(s, start, end):
     i = s.index(start) + len(start)
@@ -68,7 +79,7 @@ def scope_css(css):
         out.append(m.group(0).strip() + '\n' + scope_rules(css[m.end():i - 1]) + '}\n')
         pos = i
     out.append(scope_rules(css[pos:]))
-    return ''.join(out) + RESET
+    return ''.join(out) + RESET + READABLE
 
 
 def main(src, slug):

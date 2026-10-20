@@ -110,3 +110,14 @@
 .sssihms-proc p{padding-bottom:0}
 .sssihms-proc ul,.sssihms-proc ol{line-height:inherit}
 @media print{.et-l--header,.et-l--footer,#wpadminbar{display:none !important}}
+
+/* readability 2026-10-20: body 17px phone -> 19px desktop, lines <= ~75 characters, captions >= 15px */
+.sssihms-proc{font-size:clamp(1.0625rem,0.95rem + 0.4vw,1.1875rem);line-height:1.65}
+.sssihms-proc .spk-body{max-width:calc(34em + 88px)}
+.sssihms-proc .spk-body>p{max-width:34em}
+.sssihms-proc .en,.sssihms-proc .te,.sssihms-proc .spk-body .hi{font-size:1em}
+.sssihms-proc .te.verse{font-size:1.03em}
+.sssihms-proc .vnote,.sssihms-proc .ol-who,.sssihms-proc .excerpt,.sssihms-proc .dais li{font-size:.9375rem}
+.sssihms-proc .dais li b,.sssihms-proc .facts dd{font-size:1rem}
+.sssihms-proc .facts dt{font-size:.8125rem}
+.sssihms-proc .foot .small{font-size:.875rem}

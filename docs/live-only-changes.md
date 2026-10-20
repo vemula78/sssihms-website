@@ -1367,3 +1367,19 @@ only humanresourcesblr@.
   social links), no sideways scroll, no script errors, axe-core 4.12.1 no violations.
 - mu-plugin: server copy matched the repo before upload; previous file in `~/a11y-backups-2026-10-20/` on the server;
   `php -l` clean; page cache flushed.
+
+## 2026-10-20 — Swiss Med, conference and souvenir reading pages: larger, more readable text
+Follow-on to the 19-Oct magazine change, for the 6 reading pages it did not cover.
+- swiss-med-2005-01, nursing-college-xv-anniversary-2023, gcc-2025, ideal-healthcare-2025, inauguration-2001,
+  first-anniversary-2002: one marked block ("readability 2026-10-20") appended to each page's CSS in
+  mu-plugins/sssihms-wfd-assets/proceedings/. Same targets as the magazines: body (speeches, discourse, video
+  transcripts) 15.5–16.5px → 17px phone / 19px desktop (clamp, rem), line length ~100–110 → ~75 characters (34em),
+  captions, video notes and speaker lists 13–14.5px → 15px. Swiss Med and the Nursing souvenir use the magazine
+  stylesheet and take readable.css unchanged; the conference and 2001/2002 pages have selectors adapted to their
+  own layout. Sizes only.
+- Checked (Playwright, 390 and 1366 px): all 6 return 200, no sideways scroll, all images load, videos, QR codes
+  and transcripts unchanged. Server files matched the repo beforehand; previous CSS backed up on the server in
+  `~/publication-backups-2026-10-20/proceedings/`. Page cache purged.
+- Repo copies synced from the server (each = previous repo copy + the block). proceedings_to_wp.py now appends
+  the conference block, and the souvenir build script adds readable.css last; Swiss Med's build already did.
+  Inauguration 2001 / First Anniversary 2002 have no build script — re-add the block by hand if they are reconverted.
