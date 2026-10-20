@@ -2,8 +2,8 @@
 """sssihms.org (multisite blog 1, homepage page 31) rebuilt in the Prasanthigram web brand.
 
 The portal's own copy is carried over from the live page as of 11-Oct-2026. Four
-spelling corrections (TYPOS), four rewordings to the site's "no charge" phrasing
-(REWORD) and one dropped panel (DROPPED) are the only edits; everything else is
+spelling corrections (TYPOS), four rewordings to the site's "no charge" phrasing and one
+HR address change (REWORD), and one dropped panel (DROPPED) are the only edits; everything else is
 asserted verbatim in the output. Photographs are the hospital's own, already
 published on the two campus sites.
 
@@ -96,6 +96,8 @@ REWORD = {
     'aims to provide free medical care to the sick': 'aims to provide medical care at no charge to the sick',
     'World-class medical care absolutely free of cost with absolutely no billing counter.':
         'World-class medical care at no charge to the patient, with no billing counter.',
+    # 20-Oct-2026, Praveen: one HR address for Whitefield, as on whitefield.sssihms.org.
+    'hrblr@sssihms.org.in': 'humanresourcesblr@sssihms.org.in',
 }
 # Approved 11-Oct-2026: the 24/7 emergency claim could not be confirmed for either campus.
 DROPPED = {21, 22}

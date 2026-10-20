@@ -1342,8 +1342,13 @@ only humanresourcesblr@.
   reach the PHP process), so they were rebuilt from the updated content by the exact reverse swap; this is lossless
   because none of these entries contained `humanresourcesblr@` beforehand (checked before the change).
 - **Not changed:** expired/private `job_listing` posts and their `_application` meta (not public), draft page 51401, the
-  Post SMTP mail log, the sssihms.org portal (blog 1, one occurrence; `portal/build.py`), and the design-handoff/mockup
-  sources in this repo.
+  Post SMTP mail log, and the design-handoff/mockup sources in this repo.
+- **sssihms.org (blog 1), same day, at Praveen's request:** homepage page 31 — the Whitefield campus card's
+  "hrblr@sssihms.org.in (for employment queries)" (link and text) → humanresourcesblr@. `portal/build.py` records it as a
+  REWORD, so a rebuild keeps it; the rebuilt `page-31.divi.txt` differs from the previous build only in that line, the
+  live content matched the previous build beforehand and matches the new one after (sha256). `_et_pb_truncate_post`
+  updated the same way; backups `blog1-bak-*-31.txt` in the same server folder (written and verified before the
+  update); page cache flushed. Live homepage shows only humanresourcesblr@.
 
 ## 2026-10-20 — Biomedical Waste page: links meet contrast (BMW Tracker 0.11.5)
 - The last 8 failing nodes of the 19-Oct scan (4 per viewport): the two phone links and the Form IV "View annual report"
