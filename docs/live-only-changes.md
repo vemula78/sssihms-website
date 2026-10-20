@@ -1388,3 +1388,29 @@ Follow-on to the 19-Oct magazine change, for the 6 reading pages it did not cove
 - Repo copies synced from the server (each = previous repo copy + the block). proceedings_to_wp.py now appends
   the conference block, and the souvenir build script adds readable.css last; Swiss Med's build already did.
   Inauguration 2001 / First Anniversary 2002 have no build script — re-add the block by hand if they are reconverted.
+
+## 2026-10-20 — Keyboard use and link names (keyboard/link-text check)
+Read-only check first (25 pages, full Tab walks at 390 and 1366 px, axe-core 4.12.1): no axe violations, no vague or
+empty link text, no traps, every stop has a visible focus ring. Fixed the menu-independent findings:
+- **mu-plugin** `sssihms-wfd-patient-access.php`, new `sssihms_wfd_keyboard_nav()` (wp_footer priority 8, blog 4 only):
+  - Skip link now moves focus to `#main-content` (Divi's smooth-scroll handler had cancelled the jump and left focus on
+    the link, so the next Tab returned to the header — all 25 pages). After the fix the next Tab is the page's first link.
+  - Desktop menu: submenus open while focus is inside their parent (`:focus-within`), so the 101 submenu links are
+    reachable by Tab (were 0); parents have `aria-haspopup`/`aria-expanded`; Escape closes the open submenu and returns
+    focus to its parent. Menu content and order unchanged (restructuring waits for D1). The skip link bypasses the
+    longer header.
+  - Mobile menu button (`.mobile_menu_bar`, a span) is now a focusable button named "Menu" with `aria-expanded`;
+    Enter/Space toggle it, Escape in the open menu closes it and returns focus to it.
+  - Phones: `scroll-padding-bottom:80px` so the fixed call bar no longer hides focused links (Cardiology: 7 → 1 of 52).
+  - `sssihms_wfd_external_links()` also gives same-site `target=_blank` links (PDF brochures, flyers) a spoken
+    "(opens in a new tab)".
+- **Page content** (aria-label added to the existing link, visible text unchanged, label contains the visible text):
+  Home 54830 the two "Brochure (PDF)" buttons → "SPEED 2026 Brochure (PDF)" / "Cardiac Anaesthesia CME 2026 Brochure
+  (PDF)"; Kannada/Hindi/Telugu/Bengali 55667–55670 in-content "English" → "For Patients (English)"; Appointments 735
+  in-page "Contact" → "Contact details on this page"; Donate 55654 the two "289703" phone links → "Call 08555 289703".
+  Written with `$wpdb->update` after checking every expected match count; backups `bak-content-<id>-linknames.txt` (7)
+  and the previous mu-plugin (`…bak-2026-10-20-keyboard`) in `~/a11y-backups-2026-10-20/` on the server; cache flushed.
+- Tested by injection, then live: skip link, Tab into submenus (all visible), Escape, mobile button (Tab, Enter, Space,
+  Escape), names above; axe no violations on the 9 changed pages at both widths; no script errors.
+- **Waits for D1 (menu decision):** the header is now ~110 Tab stops on desktop and the open mobile menu 110; the
+  length belongs to the menu restructure.

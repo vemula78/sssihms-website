@@ -810,6 +810,8 @@ add_action( 'wp_footer', 'sssihms_wfd_a11y_contrast_css', 6 );
  * linked images) get the spoken note only; one with an aria-label has the note added to
  * that label, since the label replaces the link text. mailto:/tel: links are not touched.
  * Runs once in the footer, so it covers page content, header, footer and menu alike.
+ * Same-site links that open a new tab (PDF brochures, flyers) get "(opens in a new tab)",
+ * spoken only, no arrow (keyboard/link-text check, 20-Oct-2026).
  */
 function sssihms_wfd_external_links() {
 	if ( ! sssihms_wfd_is_target() ) {
@@ -827,13 +829,15 @@ function sssihms_wfd_external_links() {
  var links=document.querySelectorAll('a[href]');
  for(var i=0;i<links.length;i++){
   var a=links[i],u;
-  if(a.classList.contains('sssihms-ext'))continue;
+  if(a.classList.contains('sssihms-ext')||a.classList.contains('sssihms-newtab'))continue;
   try{u=new URL(a.href);}catch(e){continue;}
-  if((u.protocol!=='http:'&&u.protocol!=='https:')||u.hostname===location.hostname)continue;
-  var tab=a.target==='_blank',note=tab?'opens another website in a new tab':'opens another website';
+  if(u.protocol!=='http:'&&u.protocol!=='https:')continue;
+  var tab=a.target==='_blank',ext=u.hostname!==location.hostname;
+  if(!ext&&!tab)continue;
+  var note=ext?(tab?'opens another website in a new tab':'opens another website'):'opens in a new tab';
   if(tab&&!/\bnoopener\b/.test(a.rel))a.rel=(a.rel+' noopener').trim();
-  a.classList.add('sssihms-ext');
-  var textLink=a.textContent.trim()!==''&&!a.querySelector('img,svg,picture,video');
+  a.classList.add(ext?'sssihms-ext':'sssihms-newtab');
+  var textLink=ext&&a.textContent.trim()!==''&&!a.querySelector('img,svg,picture,video');
   var label=a.getAttribute('aria-label');
   if(label){a.setAttribute('aria-label',label+' ('+note+')');}
   else{var s=document.createElement('span');s.className='sssihms-sr';s.textContent=' ('+note+')';a.appendChild(s);}
@@ -844,6 +848,68 @@ function sssihms_wfd_external_links() {
 	<?php
 }
 add_action( 'wp_footer', 'sssihms_wfd_external_links', 7 );
+
+/**
+ * Keyboard use, from the keyboard check of 20-Oct-2026 (25 pages, Tab walks at 390 and 1366 px):
+ *  1. Skip link: Divi's smooth-scroll click handler (it matches a[href*="#"]) scrolled to the
+ *     content but left focus on the link, so the next Tab went back into the header. A
+ *     capture-phase handler now moves focus to #main-content first.
+ *  2. Desktop menu: submenus were opened by hover only (visibility/opacity), so Tab skipped all
+ *     101 submenu links. They now open while focus is inside their parent (:focus-within);
+ *     parents carry aria-haspopup/aria-expanded; Escape closes the open submenu and returns
+ *     focus to its parent link. The menu's content and order are unchanged.
+ *  3. Mobile menu button: a <span> Tab could not reach. Now a named, focusable button that
+ *     Enter/Space toggle, with aria-expanded kept in step with Divi's opened/closed class;
+ *     Escape inside the open menu closes it and returns focus to the button.
+ *  4. Phones: the fixed call bar (52px) hid focused footer links; scroll-padding keeps them clear.
+ */
+function sssihms_wfd_keyboard_nav() {
+	if ( ! sssihms_wfd_is_target() ) {
+		return;
+	}
+	?>
+<style id="sssihms-keyboard">
+#main-content[tabindex="-1"]:focus{outline:none!important;box-shadow:none!important}
+.et_pb_menu .et-menu li.menu-item-has-children:focus-within>ul.sub-menu{visibility:visible;opacity:1}
+.et_pb_menu .et-menu li.sssi-sub-closed>ul.sub-menu{visibility:hidden!important;opacity:0!important}
+@media (max-width:980px){html{scroll-padding-bottom:80px}}
+</style>
+<script id="sssihms-keyboard-js">
+(function(){
+ document.addEventListener('click',function(e){
+  var a=e.target.closest&&e.target.closest('a.sssihms-skip'),t=document.getElementById('main-content');
+  if(!a||!t)return;
+  e.preventDefault();e.stopImmediatePropagation();
+  t.setAttribute('tabindex','-1');t.focus({preventScroll:true});t.scrollIntoView({block:'start'});
+ },true);
+ var parents=document.querySelectorAll('.et_pb_menu .et-menu li.menu-item-has-children');
+ for(var i=0;i<parents.length;i++)(function(li){
+  var a=li.querySelector(':scope>a');if(!a)return;
+  a.setAttribute('aria-haspopup','true');a.setAttribute('aria-expanded','false');
+  li.addEventListener('focusin',function(){li.classList.remove('sssi-sub-closed');a.setAttribute('aria-expanded','true');});
+  li.addEventListener('focusout',function(e){if(!li.contains(e.relatedTarget)){li.classList.remove('sssi-sub-closed');a.setAttribute('aria-expanded','false');}});
+  li.addEventListener('keydown',function(e){
+   if(e.key!=='Escape'||li.classList.contains('sssi-sub-closed'))return;
+   e.stopPropagation();a.focus();li.classList.add('sssi-sub-closed');a.setAttribute('aria-expanded','false');
+  });
+ })(parents[i]);
+ var bars=document.querySelectorAll('.et_mobile_nav_menu .mobile_menu_bar');
+ for(var j=0;j<bars.length;j++)(function(bar){
+  var nav=bar.closest('.mobile_nav');if(!nav)return;
+  bar.setAttribute('role','button');bar.tabIndex=0;bar.setAttribute('aria-label','Menu');
+  function sync(){
+   bar.setAttribute('aria-expanded',nav.classList.contains('opened')?'true':'false');
+   var m=nav.querySelector('ul[id]');if(m)bar.setAttribute('aria-controls',m.id);
+  }
+  sync();new MutationObserver(sync).observe(nav,{attributes:true,attributeFilter:['class'],childList:true});
+  bar.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();bar.click();}});
+  nav.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('opened')){bar.click();bar.focus();}});
+ })(bars[j]);
+})();
+</script>
+	<?php
+}
+add_action( 'wp_footer', 'sssihms_wfd_keyboard_nav', 8 );
 
 /**
  * Stop author lookups revealing login names. /?author=1 redirected to
