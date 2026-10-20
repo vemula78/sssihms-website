@@ -738,6 +738,22 @@ function sssihms_wfd_bmw_redirect() {
 add_action( 'template_redirect', 'sssihms_wfd_bmw_redirect', 5 );
 
 /**
+ * The Emergency Care page (55655) lives at /emergency/. /emergency-care/ — its title, and
+ * the address the 19-Oct-2026 accessibility check tried — returned 404. Only while it is
+ * a 404, so a real page at that slug would win. 20-Oct-2026.
+ */
+function sssihms_wfd_emergency_alias() {
+	if ( ! sssihms_wfd_is_target() || ! is_404() ) {
+		return;
+	}
+	if ( 'emergency-care' === trim( parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ), '/' ) ) {
+		wp_safe_redirect( home_url( '/emergency/' ), 301 );
+		exit;
+	}
+}
+add_action( 'template_redirect', 'sssihms_wfd_emergency_alias' );
+
+/**
  * Stat cards ("Service in Numbers" etc.) overflowed phone screens: the 2-column
  * mobile grid used 1fr, which cannot shrink below the widest number
  * ("1,43,500+", "29.9 Lakh+" at 46px), so pages scrolled sideways.
@@ -786,6 +802,48 @@ function sssihms_wfd_a11y_contrast_css() {
 	<?php
 }
 add_action( 'wp_footer', 'sssihms_wfd_a11y_contrast_css', 6 );
+
+/**
+ * Links that leave whitefield.sssihms.org are marked (audit F15, 20-Oct-2026): a small
+ * arrow after text links, and for screen readers "(opens another website)" — "… in a new
+ * tab" when target=_blank, which also gets rel=noopener. Icon-only links (social icons,
+ * linked images) get the spoken note only; one with an aria-label has the note added to
+ * that label, since the label replaces the link text. mailto:/tel: links are not touched.
+ * Runs once in the footer, so it covers page content, header, footer and menu alike.
+ */
+function sssihms_wfd_external_links() {
+	if ( ! sssihms_wfd_is_target() ) {
+		return;
+	}
+	?>
+<style id="sssihms-ext-links">
+.sssihms-ext-icon{display:inline-block;width:.7em;height:.7em;margin-left:.25em;vertical-align:baseline;background:currentColor;
+ -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M4 1h7v7h-1.6V3.7L2.1 11 1 9.9l7.3-7.3H4z'/%3E%3C/svg%3E") center/contain no-repeat;
+ mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M4 1h7v7h-1.6V3.7L2.1 11 1 9.9l7.3-7.3H4z'/%3E%3C/svg%3E") center/contain no-repeat}
+.sssihms-sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+</style>
+<script id="sssihms-ext-links-js">
+(function(){
+ var links=document.querySelectorAll('a[href]');
+ for(var i=0;i<links.length;i++){
+  var a=links[i],u;
+  if(a.classList.contains('sssihms-ext'))continue;
+  try{u=new URL(a.href);}catch(e){continue;}
+  if((u.protocol!=='http:'&&u.protocol!=='https:')||u.hostname===location.hostname)continue;
+  var tab=a.target==='_blank',note=tab?'opens another website in a new tab':'opens another website';
+  if(tab&&!/\bnoopener\b/.test(a.rel))a.rel=(a.rel+' noopener').trim();
+  a.classList.add('sssihms-ext');
+  var textLink=a.textContent.trim()!==''&&!a.querySelector('img,svg,picture,video');
+  var label=a.getAttribute('aria-label');
+  if(label){a.setAttribute('aria-label',label+' ('+note+')');}
+  else{var s=document.createElement('span');s.className='sssihms-sr';s.textContent=' ('+note+')';a.appendChild(s);}
+  if(textLink){var ic=document.createElement('span');ic.className='sssihms-ext-icon';ic.setAttribute('aria-hidden','true');a.appendChild(ic);}
+ }
+})();
+</script>
+	<?php
+}
+add_action( 'wp_footer', 'sssihms_wfd_external_links', 7 );
 
 /**
  * Stop author lookups revealing login names. /?author=1 redirected to

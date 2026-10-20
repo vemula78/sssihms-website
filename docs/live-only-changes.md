@@ -1328,3 +1328,42 @@ At Praveen's request ("the text in the publication is too small to read").
   scripts now add readable.css last, so a rebuild keeps the change.
 - Not changed: Swiss Med 2005, conference and souvenir pages (same stylesheet pattern; not in scope).
 
+
+## 2026-10-20 — One HR email address: humanresourcesblr@ only
+At Praveen's instruction ("keep only humanresourcesblr"). `hrblr@sssihms.org.in` → `humanresourcesblr@sssihms.org.in`
+(link text and `mailto:`) in the post content of 11 Whitefield (blog 4) entries: footer layout 54940 (every page),
+pages Home 37, Careers 65, Contact Us 71, Opportunities 1159 (redirects to /careers/), Volunteer Expertise 52990, Divi
+library layout 1166, and the old vacancy posts 7286, 7315, 52111, 53787. 18 occurrences; 0 left in published content. No
+page showed both addresses before, so none now shows the same address twice. Divi's `_et_pb_truncate_post` excerpt cache
+updated the same way on 9 posts. Written with `$wpdb->update` (string swap only, no kses pass, no revision); page cache
+flushed. Live check: Home, Careers, Contact Us, Volunteer Expertise, Opportunities, HOD Radiology, General Surgeon show
+only humanresourcesblr@.
+- **Backups** `~/hr-email-bak-20261020/` on the server (20 files). The first write of these failed (the path did not
+  reach the PHP process), so they were rebuilt from the updated content by the exact reverse swap; this is lossless
+  because none of these entries contained `humanresourcesblr@` beforehand (checked before the change).
+- **Not changed:** expired/private `job_listing` posts and their `_application` meta (not public), draft page 51401, the
+  Post SMTP mail log, the sssihms.org portal (blog 1, one occurrence; `portal/build.py`), and the design-handoff/mockup
+  sources in this repo.
+
+## 2026-10-20 — Biomedical Waste page: links meet contrast (BMW Tracker 0.11.5)
+- The last 8 failing nodes of the 19-Oct scan (4 per viewport): the two phone links and the Form IV "View annual report"
+  / "Download CSV" links fell through to Divi's `#2ea3f2` (2.75:1). The plugin's public stylesheet now gives links inside
+  `.bmw-public-disclosure` its own `--bmw-blue #1a5276` (8.36:1), underlined. Plugin repo, DECISIONS.md entry.
+- Two plugin files deployed after confirming the server copies matched the previous release; backups on the server in
+  `~/bmw-backups/link-contrast-2026-10-20/`. axe-core 4.12.1 after deploy: no violations at 390 or 1366 px.
+
+## 2026-10-20 — /emergency-care/ redirects to /emergency/
+- New `sssihms_wfd_emergency_alias()` in mu-plugin `sssihms-wfd-patient-access.php`: a 404 at `/emergency-care/` sends a
+  301 to `/emergency/` (Emergency Care, page 55655). Only on a 404, so a real page at that slug would take over.
+
+## 2026-10-20 — External links marked (audit F15)
+- New `sssihms_wfd_external_links()` (wp_footer priority 7, blog 4 only) in the same mu-plugin. Every `http(s)` link to a
+  host other than whitefield.sssihms.org gets class `sssihms-ext`, a small arrow icon after the text (`aria-hidden`, CSS
+  mask, `currentColor`) and a visually hidden "(opens another website)" — "… in a new tab" for `target=_blank`, which
+  also gains `rel=noopener`. Links with an `aria-label` get the note in the label; links without text (images, icons) get
+  the spoken note only. `mailto:`/`tel:` and same-site links untouched. Covers page content, header, menu and footer.
+- Tested by injection first, then live (390 and 1366 px) on Home, Contact Us, Transparency, Donate, Emergency, Biomedical
+  Waste and Careers: 5–21 links marked per page (Google Maps, srisathyasai.org menu items and annual reports, SBI Collect,
+  social links), no sideways scroll, no script errors, axe-core 4.12.1 no violations.
+- mu-plugin: server copy matched the repo before upload; previous file in `~/a11y-backups-2026-10-20/` on the server;
+  `php -l` clean; page cache flushed.
