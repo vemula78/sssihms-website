@@ -1831,3 +1831,15 @@ Source: `obg website content.docx` (the 08-Oct-2026 review export of /obgyn/, re
   under Services: Services tab strip (Dietary's) plus their own tab, breadcrumb "Departments · Services · …"; Library
   parent 63 → 0 (/library/). Still drafts for the owner's review. Neurology 56481 stays a draft; Hospital
   Administration 56465 stays a draft until the department sends text. Backups: ~/brochure-backups-20261021/services-drafts/.
+
+## 2026-10-21 — Dietary photos fill their frames; AHA life-support training on Anaesthesiology Events
+- **Dietary 52894:** the 23 gallery images carry inline `height:300px;object-fit:cover` (420 px for the therapeutic-diet
+  tray grid) instead of the shared 240 px `contain`, so tall phone photos no longer sit in beige bars. Crop point
+  `50% 50%`, except the attendant photo (`50% 30%`) and "Swami blessing dietary exhibits" (`50% 0%`). Page only;
+  page.css unchanged.
+- **Anaesthesiology Events 687:** new code module "AHA Life Support Training" after Academic Events, from text the
+  owner supplied: AHA-affiliated CPR courses since 2012; BLS and ACLS at the AHA International Training Site with the
+  Phoenix Institute of Defibrillation & Research Education (Dr. Ashok Garg, annual inspection); instructors Dr. Kolli S.
+  Chalam and Mrs. Hemanjali; 2021: 44 full BLS courses and 56 renewals; 800 certified to 31-Dec-2021. Four
+  info-cards without icon divs, like the page's other cards.
+- Backups: ~/brochure-backups-20261021/{dietary-pws-library,anaes}/.
