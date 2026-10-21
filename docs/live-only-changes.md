@@ -1848,3 +1848,8 @@ Source: `obg website content.docx` (the 08-Oct-2026 review export of /obgyn/, re
   rotated upright; film edges trimmed; 1600 px, sRGB, metadata stripped. They sit side by side (flex 3:2, height
   `clamp(260px,38vw,460px)`) and stack on phones. Caption "Bhagawan Sri Sathya Sai Baba in the Dietary department,
   21-Dec-2000". The kitchen photo moved to the top of "How Meals Reach Patients".
+- **Dietary 52894, therapeutic-diet trays (owner, 21-Oct):** all eight trays are now landscape and whole. The six
+  upright shots were rotated 90° anticlockwise, so their handwritten labels read along the bottom. Each is cropped to
+  7:5 centred on the tray (1260×900, made from the already-redacted uploads), as new media 56560–56567 (old 56471–56475,
+  56500–56502 kept in the library). The grid's 9 images use `aspect-ratio:7/5;object-fit:cover`, the tube-feed photo
+  included.
