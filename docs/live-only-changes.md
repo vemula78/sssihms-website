@@ -1843,3 +1843,8 @@ Source: `obg website content.docx` (the 08-Oct-2026 review export of /obgyn/, re
   Chalam and Mrs. Hemanjali; 2021: 44 full BLS courses and 56 renewals; 800 certified to 31-Dec-2021. Four
   info-cards without icon divs, like the page's other cards.
 - Backups: ~/brochure-backups-20261021/{dietary-pws-library,anaes}/.
+- **Dietary 52894, top photos (owner, 21-Oct):** the intro image is now two photos of Bhagawan in the Dietary department on
+  21-Dec-2000 (media 56558, 56559), from the owner's archive scans `34.tif` and `36.tif`. 36 was scanned sideways and is
+  rotated upright; film edges trimmed; 1600 px, sRGB, metadata stripped. They sit side by side (flex 3:2, height
+  `clamp(260px,38vw,460px)`) and stack on phones. Caption "Bhagawan Sri Sathya Sai Baba in the Dietary department,
+  21-Dec-2000". The kitchen photo moved to the top of "How Meals Reach Patients".
