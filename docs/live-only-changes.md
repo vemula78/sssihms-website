@@ -1853,3 +1853,21 @@ Source: `obg website content.docx` (the 08-Oct-2026 review export of /obgyn/, re
   7:5 centred on the tray (1260×900, made from the already-redacted uploads), as new media 56560–56567 (old 56471–56475,
   56500–56502 kept in the library). The grid's 9 images use `aspect-ratio:7/5;object-fit:cover`, the tube-feed photo
   included.
+
+## 2026-10-21 — Site Health follow-up: WordPress 7.1.3, plugins off, updates (network-wide)
+- **Backup first** (server, root-only folder ~/wp-update-backup-20261021/): full network database dump (895 tables,
+  187 MB gz) and code archive of /srv/www/wordpress without uploads and caches (446 MB); both verified readable.
+- **WordPress 7.0.7 → 7.1.3** (`wp core update`, `core update-db --network`: 6/6 sites), core checksums verify.
+- **Network-deactivated** (not deleted): `wp-file-manager` 8.0.3 (unused since Apr-2026; full file access from any
+  admin account), `jetpack-social` 10.0.0 (its only connection was a 2017 LinkedIn link; it needs XML-RPC, which the
+  site blocks with 403, hence Site Health's "requests from WordPress.com are blocked").
+- **Updated:** wpforms-lite 1.10.1.1 → 2.0.2.2 (active on Whitefield, no forms exist); inactive default themes
+  Twenty Twenty-Two/-Four/-Five.
+- **Kept:** Social Media Feather (its share-button code loads on both sites; sssihms.org also loads ShareThis). Its
+  ShareThis terms prompt is the owner's to accept. No persistent object cache (page cache in place; no Redis).
+- **Checks after update:** 20 Whitefield pages + sssihms.org return 200 (deliberate 404 test returns 404); card icons
+  and the call bar render; 0 PHP errors in apache2 error.log / wfd-error.log since the update (15:39 UTC). Older
+  "esc_html_x" fatals come from bots requesting twentytwentythree/patterns/*.php directly; they predate the update.
+- **Azure Backup:** the owner says it is run from the ERPNext session. This VM has no Azure VM-snapshot extension
+  (only RunCommandLinux), so the VM has not yet been backed up by Azure Backup, or the backup covers another machine.
+  Asked the ERPNext session to confirm.
