@@ -1414,3 +1414,41 @@ empty link text, no traps, every stop has a visible focus ring. Fixed the menu-i
   Escape), names above; axe no violations on the 9 changed pages at both widths; no script errors.
 - **Waits for D1 (menu decision):** the header is now ~110 Tab stops on desktop and the open mobile menu 110; the
   length belongs to the menu restructure.
+
+## 2026-10-21 — Lab & Blood Bank pages from the department brochure
+Source: the department's brochure text (Aug 2025), its `graphs.doc` and seven photos. Written with `$wpdb->update` after
+checking every expected match count and the pre-write hash; no revisions; cache flushed. Backups
+`bak-content-412.txt`, `bak-content-1247.txt` in `~/labbb-backups-20261021/` on the server.
+- **Lab & Blood Bank (412)**, 1,164 → 1,526 words:
+  - Overview: the department's vision statement.
+  - "What the Laboratory Covers" cards: daily workload line (`info-card-meta`, "Each day (2025): …") on Biochemistry
+    (240 samples, 1,400 tests), Microbiology (12–15 culture samples), Haematology & Clinical Pathology (80 clinical
+    pathology samples), Histopathology (10 samples), Blood Bank (80 investigations, 40 units crossmatched); scope
+    sentences (biochemistry test menu, round the clock; serology; clinical pathology specimens; FNAC, PAP, fluid and
+    liquid-based cytology, frozen sections). **Headings renamed:** Microbiology → "Microbiology & Serology",
+    Histopathology → "Histopathology & Cytopathology". ◆ icon + `info-card-head` order unchanged on all 9 cards.
+  - Outsourced card and QA list: "accredited" → "NABL-accredited". QA list +5 (pre-analytical QC, internal QC +
+    EQA in every section, LIS since 2001 with delta/reflex/duplicate checks, 24×7 cross-trained technicians, equipment
+    upkeep); new sub-block "Infection Control and Hospital Committees" (HICC chaired by the Director, Microbiologist
+    as Secretary; outbreak protocols per CDC; antibiotic escalation/de-escalation; Ethics Committee) inside the same
+    section, so background alternation is unchanged.
+  - Blood Bank list +2: families need not arrange blood; licensed by the Drugs Control Department of India.
+  - BSc MLT card: four-year programme under RGUHS; alumni destinations.
+  - "The Laboratory at Work" gallery +2: media **56389** `2026/10/wfd-lab-biochemistry.jpg` (caption "Biochemistry
+    analysers"), **56390** `2026/10/wfd-lab-histopathology.jpg` ("Histopathology — microtome and cryostat").
+    Re-encoded 1600 px, q82, EXIF/GPS stripped (colour profile kept).
+- **Lab Infrastructure (1247)**, 615 → 633 words: SD Biosensor F100 (biochemistry), Tulip fully automated ELISA
+  processor (microbiology; brochure model name "Euphoriea" not used, unverified), Nikon E200 microscope, Eziprep
+  liquid-based cytology (pathology).
+- Unchanged: /services/ card (61), menu items, Blood Donation (52021); brochure does not contradict them.
+- **Photos not used:** Haematology (analyser screen shows a legible sample ID and a full blood-count result); both
+  blood-donation photos (donors identifiable). The single-donor photo is the same image already live in the 412
+  gallery as `2015/04/lab-blood-donation.jpg` — left in place, flagged for Praveen. Microbiology and Blood Bank photos
+  are already live (`lab-microbiology.jpg`, `lab-blood-bank.jpg`); not re-uploaded.
+- **graphs.doc:** five charts, no text — the three test-volume trend charts already on 412, plus Blood Bank
+  "components prepared" and "discard %" (2003–2025). Nothing new used: the components chart's title and series name
+  disagree on what it counts; the discard figures already on the page match it.
+- **Conflicts left for the department (live value kept):** department name "Laboratory Medicine" (site) vs "Laboratory
+  Diagnostics" (brochure); growth hormone added 2011 (site milestone) vs 2004; procalcitonin 2024 vs 2025; component
+  separation "97%" vs "> 97%"; "Leica microtomes" (plural) vs one Leica RM2125RTS; discard rate "1.8% in 2025" comes
+  from a file saved 12-Aug-2025, so 2025 is a part year.
