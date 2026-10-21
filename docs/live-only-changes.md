@@ -1813,3 +1813,21 @@ No photos skipped. No other pages touched; no menu changes.
 - **Photo rule (owner, 21-Oct):** faces of patients, donors, students and visitors may be published; legible names,
   MRNs, barcodes, results, wristbands, whiteboards, papers and CCTV feeds are blurred before upload.
 - Backups: ~/brochure-backups-20261021/{con,ctvs,heldback-a}/.
+
+## 2026-10-21 — OBGYN: department's tracked-change review applied, faculty and honorary consultant photo cards
+Source: `obg website content.docx` (the 08-Oct-2026 review export of /obgyn/, returned with tracked changes by the department on 14 and 19-Oct-2026) plus the department's photo folders (`dept photos/`, `Faculty SSSIHMS OBG/`, `Honourary consultants OBG/`). Page **53292** only, edited with `$wpdb->update` + `clean_post_cache` (no revision, no kses), each replacement matched exactly once. Hash checked before each write. Two writes; the second only set the photo focal point on two cards.
+- **Spectrum of Services:** added "advanced laparoscopic surgeries for endometriosis, laparoscopic tubal recanalisation, myomectomy, laparoscopic fertility preservation surgeries for prolapse"; removed "tubectomy in certain cases" (both department edits).
+- **Beds, Theatres and Volumes:** spelling only ("Operation Theatre", "Gynaecology"). Figures unchanged; the docx gives no period for them.
+- **The Department Team (Faculty):** four photo cards (cols 4) with designation, qualifications and interests from the docx faculty table: Dr. Sharmila Nagendran (HOD and **Additional Senior** Consultant, was "HOD and Consultant"), Dr. **Neekita** Pradhan (was "Nikhita", initials avatar), Dr. Kavya Kshatriya and Dr. Rachitha M. Prasad (Junior Consultants, new). Below them, a 2-photo grid: the four consultants, and the department's doctors and nurses.
+- **Present Infrastructure:** +2 photos (labour room with two delivery tables; Phoenix radiant warmer, whiteboard blurred).
+- **Legends & Honorary Consultants:** Dr. Rajalakshmi removed (department deletion); the honorary-consultant text list was replaced in place by nine photo cards (cols 3): "Honorary Consultant / Since YEAR", names and years unchanged. Dr. Sushila Shetty and Dr. Praveena Shenoy have inline `object-position:50% 60%` (tight close-ups).
+- **Conferences and Presentations:** Dr. Sharmila Nagendran +2 (Gnanavarsha 2025; Endogyn 2026 video), card heading "Dr. Nikhita Pradhan" → "Dr. Neekita Pradhan" +1 (AICOG 2026), Dr. Kavya Kshatriya +1 (SLCOG 2026), new card **"Dr. Rachitha M. Prasad"** (Endogyn 2026 poster), Special Initiatives + "HPV vaccination drive for staff and students of SSSIHMS".
+- Media **56541–56557** (17, `uploads/sites/4/2026/10/obg-*.jpg`): headshots cropped 4:5 and never upscaled (≤800×1000; small sources kept at native size, e.g. Sita Rajan 205×256); dept photos ≤1600 px; quality 82; EXIF/GPS stripped. Dr. Shivakumar's circular frame was filled with the sampled backdrop colour before cropping.
+- Not used: two dept photos are re-encodes of images already on the page (`obg-gynaec-ot-laparoscopy.jpg` 55766, `obg-labour-room.jpg` 55767). The old `Sharmila-obg.jpg` (53391) stays in the library, no longer on the page.
+- Words (rendered main area): 730 → 953.
+- Backup on the VM: `~/brochure-backups-20261021/obg/` (`content-53292-before.txt`, sha256 5ee3dfd3…; `content-53292-after.txt`, sha256 cb53a8a5…).
+- Still open (unchanged by the department): "established 1976" banner vs "2012 — Formation of the OBG department"; "50–60 deliveries per month" (no period) vs 554 newborns in 2024.
+- **Services drafts (owner, 21-Oct):** Finance & Accounts 56466, Patient Welfare Services 56491 and Library 56492 sit
+  under Services: Services tab strip (Dietary's) plus their own tab, breadcrumb "Departments · Services · …"; Library
+  parent 63 → 0 (/library/). Still drafts for the owner's review. Neurology 56481 stays a draft; Hospital
+  Administration 56465 stays a draft until the department sends text. Backups: ~/brochure-backups-20261021/services-drafts/.
