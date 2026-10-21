@@ -150,6 +150,51 @@ add_filter( 'the_content', function ( $content ) {
 }, 22 );
 
 /**
+ * Card icons (21-Oct-2026, external heuristic review F10). Every service card carried the
+ * same "◆" glyph. Each glyph is swapped for the icon named after the card's heading in
+ * sssihms-wfd-assets/card-icons.php; cards whose heading is not listed keep the glyph.
+ * Icons and glyphs are decorative — the heading carries the meaning — so both are hidden
+ * from screen readers.
+ */
+add_filter( 'the_content', function ( $content ) {
+	if ( ! sssihms_wfd_is_target() || is_admin() || false === strpos( (string) $content, '-icon' ) ) {
+		return $content;
+	}
+	static $icons = null;
+	if ( null === $icons ) {
+		$icons = require __DIR__ . '/sssihms-wfd-assets/card-icons.php';
+	}
+	$page = $icons['pages'][ (string) get_post_field( 'post_name', get_the_ID() ) ] ?? '';
+	$size = array( 'info-card-icon' => 26, 'acad-icon' => 24, 'pat-icon' => 38, 'inv-icon' => 40 );
+	return preg_replace_callback(
+		'#<div class="(info-card-icon|acad-icon|pat-icon|inv-icon)"([^>]*)>\s*(◆|◈|◇|✦|⬡|❤|✚)\s*</div>((?:(?!-icon").){0,300}?<h3[^>]*>(.*?)</h3>)#su',
+		function ( $m ) use ( $icons, $page, $size ) {
+			$heading = trim( preg_replace( '/\s+/u', ' ', html_entity_decode( wp_strip_all_tags( $m[5] ), ENT_QUOTES, 'UTF-8' ) ) );
+			$name    = $page ? $page : ( $icons['map'][ $heading ] ?? '' );
+			if ( '' === $name || ! isset( $icons['svg'][ $name ] ) ) {
+				return '<div class="' . $m[1] . '"' . $m[2] . ' aria-hidden="true">' . $m[3] . '</div>' . $m[4];
+			}
+			$px = $size[ $m[1] ];
+			return '<div class="' . $m[1] . ' sssi-icon"' . $m[2] . ' aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="' . $px . '" height="' . $px . '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" focusable="false">' . $icons['svg'][ $name ] . '</svg></div>' . $m[4];
+		},
+		(string) $content
+	);
+}, 23 );
+
+add_action( 'wp_head', function () {
+	if ( ! sssihms_wfd_is_target() ) {
+		return;
+	}
+	echo '<style id="sssihms-card-icons">'
+		. '.info-card-icon.sssi-icon{width:46px;height:46px;border-radius:10px;background:#f6e7d2;color:#a4581f;display:flex;align-items:center;justify-content:center;margin-bottom:14px;line-height:0}'
+		. '.acad-icon.sssi-icon{line-height:0}'
+		. '.pat-icon.sssi-icon{opacity:1!important;color:#a4581f;line-height:0}'
+		. '.inv-icon.sssi-icon{opacity:1;color:#f6e7d2;line-height:0}'
+		. '.sssi-icon svg{display:inline-block;flex-shrink:0}'
+		. '</style>' . "\n";
+}, 30 );
+
+/**
  * Sticky tap-to-call bar on phones. Calling the Help Desk is the only way to get
  * an OPD appointment, so it should never be more than one tap away. Emergency sits
  * beside it (17-Oct-2026, external heuristic review F01): the header top bar scrolls away.
