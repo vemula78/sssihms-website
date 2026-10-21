@@ -1452,3 +1452,364 @@ checking every expected match count and the pre-write hash; no revisions; cache 
   Diagnostics" (brochure); growth hormone added 2011 (site milestone) vs 2004; procalcitonin 2024 vs 2025; component
   separation "97%" vs "> 97%"; "Leica microtomes" (plural) vs one Leica RM2125RTS; discard rate "1.8% in 2025" comes
   from a file saved 12-Aug-2025, so 2025 is a part year.
+
+## 2026-10-21 — Cardiology pages from the department brochure (Aug 2025 condensed write-up)
+Source: `Department of Cardiology-Condensed version.docx` + 4 photos. Most of the write-up was already live
+(overview, CCU 36 beds, cathlabs, academic record, publications); only the gaps were added. Live facts were kept
+where they differ (OPD and cathlab volumes).
+- **Overview 81** (/cardiology/), words 1067 → 1111:
+  - "Individual Attention, Customized Evaluation": new paragraph — intravascular imaging, fractional flow reserve
+    (FFR) and AI-assisted echocardiography.
+  - "Procedures Performed" grid: 4 new items after Coronary Angioplasty (Intravascular Imaging-guided Coronary
+    Angioplasty; Rotablation, Intravascular Lithotripsy (IVL) and Calcium Modification; Fractional Flow Reserve
+    (FFR) Assessment; Alcohol Septal Ablation). Two existing items extended: "Radiofrequency Ablation (2D and 3D
+    mapping)", "Conduction System Pacing, including Left Bundle Branch Area Pacing".
+- **Infrastructure 104** (/cardiology/infrastructure/), words 552 → 592:
+  - Cardiology OPD: new paragraph — GE Vivid Ultra E95 and Philips EPIC CVx v11 with AI-assisted analysis (no counts).
+  - Cathlabs and CCU: CCU sentence — special support for paediatric patients and complex emergencies.
+  - "Diagnostic Equipment in the OPD" grid: 6th photo — existing media **52786** (IMG_5808, 1024×768 size; byte-identical
+    to the brochure's "Dr. Barooah -scaled.jpg"), alt "Dr. Barooah performing a paediatric echocardiogram on a Philips iE33".
+    No new media imported.
+- No change: Faculty 108, Achievements 663, Events 713 (brochure has nothing new for them). No drafts, no new cards.
+- Photos held back: Cath procedure in progress (patient name + WS MRN on the cathlab monitor); Dr. Reeta with patients
+  and Prayag Kini with patient (recognisable faces of a child / accompanying person). **Both of the latter are already
+  live as faculty photos on 108 (media 52758, 52762)** — left unchanged, flagged to the owner.
+- Written with `$wpdb->update` after checking each expected match count was 1; `clean_post_cache`; W3TC flushed.
+  Backups: `~/brochure-backups-20261021/cardiology/post-81-before.html`, `post-104-before.html` on the server.
+- Checked live: both pages 200, new text present, subnav/feature items/photo cells intact (28 feature items on 81,
+  20 photo cells on 104), all 24 + 32 image URLs 200.
+
+## 2026-10-21 — Cardiac Surgery (CTVS) pages from the department brochure
+Source: `CTVS Brochure writeup.docx` (13-Aug-2025) and 26 photos. Written with `$wpdb->update` after checking every
+expected match count (all 1) and that each page's sha256 still matched the backup; no revisions; `clean_post_cache`;
+W3TC flushed. Backups `post-85.html`, `post-112.html`, `post-590.html` + `manifest.tsv` (sha256) in
+`~/brochure-backups-20261021/ctvs/` on the server.
+- **Infrastructure — CTVS (112)**, 327 → 654 words:
+  - "Four Theatres" text: + laminar airflow and HEPA filtration in all four cardiac theatre suites.
+  - "A 19-Bed, Fully Monitored ICU" text: + paragraph on Siemens/GE ventilators for adult, paediatric and neonatal
+    patients, Nihon Kohden Life Scope continuous haemodynamic monitoring, infection-control and life-support facilities.
+    Bed count left at 19 (brochure says 18; see conflicts).
+  - "Theatres and Intensive Care" gallery +2: **56442** `2026/10/ctvs-operating-theatre.jpg` ("A cardiac surgery
+    operating theatre"), **56444** `2026/10/ctvs-surgery-in-progress.jpg` ("Open-heart surgery in progress").
+  - New code module "Equipment in Pictures" (section "Our Equipment", plain `section` after the `section-alt`
+    equipment list) — 18 `info-card-img` photo cards, `aspect-ratio:1/1` on the figure and `object-fit:contain` on the
+    img (inline) so portrait equipment shots are not cropped; group headings `h3.rb-h`. No ◆ icon on photo cards
+    (follows the photo-card pattern on Patient Speak, 1218).
+    - Operating Theatre: Schaerer Axis OT Table (56407), Dr. Mach LED Operating Lights (56410), GE Avance CS2
+      Anaesthesia Machine (56412), Valleylab Force FX Diathermy Machine (56414), Luxtec Surgeon's Headlight (56416),
+      Surgical Instruments (56418)
+    - Perfusion: Stöckert S5 Heart-Lung Machine (56419), Mercury Heater-Cooler Unit (56421), Dideco Compact Advanced
+      Autotransfusion System (56424), Medtronic ACT II Machine (56426), Maquet CS100 Intra-Aortic Balloon Pump (56427)
+    - Intensive Care Unit: GE Carescape R860 Ventilator (56429), Siemens Servo 300 Ventilator (56431), Smiths Medical
+      Graseby 2100 Syringe Pump (56433), CodeMaster Defibrillator (56435)
+    - Imaging and Monitoring: Philips EPIQ Colour Doppler (56436), Nihon Kohden Life Scope Patient Monitor (56438),
+      Techno Medica GASTAT-720 Blood Gas Analyser (56440)
+  - Existing equipment-list cards ("Operating Theatres", "Intensive Care") unchanged.
+- **Cardiac Surgery overview (85)**, 1,068 → 1,283 words:
+  - Intro: + all ages (newborns to elderly); "an average of 1,200 surgeries a year" (brochure figure, not reconciled
+    against the register); referrals from across India and abroad.
+  - New code module "Surgical Services" (`section-alt`, between Faculty and Common Open-Heart Procedures), 6 cards
+    with ◆ icon: Adult Cardiac Surgery, Paediatric Cardiac Surgery, Vascular Surgery, Thoracic Surgery, Minimally
+    Invasive Surgery, Post-operative Rehabilitation (Sai Rehabilitation Program, SRP).
+  - "Training in Cardiac Surgery": grid `--cols:3` → `--cols:2`; BSc Perfusion card + "three years of study followed
+    by a one-year internship, under RGUHS"; new card "CME and Workshops" (◆ icon, link to /achievements-ctvs/).
+- **Achievements — Cardiac Surgery (590)**, 1,281 → 1,352 words: "Beyond the Operating Theatre" +2 cards (◆ icon):
+  "International Collaborations", "Alumni Across India and Abroad".
+- **Faculty — CTVS (116):** unchanged — the brochure has no faculty content.
+- **Media:** 20 imports, IDs 56407–56444 (2026/10/ctvs-*.jpg), re-encoded ≤1600 px, q82, auto-oriented, EXIF/GPS
+  stripped (ImageMagick; three originals carried a rotate-90 orientation tag). Two crops: R860 ventilator (left third
+  removed — an ICU patient's face was in frame); Stöckert S5 (bottom strip removed — a perfusion chart with a patient
+  label, MRN and barcode was in frame). Several photos carry a burned-in camera date stamp (2025/08/13).
+- **Photos held back:** `CTVS ICU.jpg`, `CTVS ICU (2).jpg`, `CTVS ICU.jpeg` (patients' faces visible);
+  `Hill-Rom ICU Patient Bed.jpg` (occupied bed, patient's face visible); `CTVS OT (2).jpg` (OT whiteboard shows a
+  patient name, date, blood group and height). `CTVS OT.jpg` is clean but was not used (gallery kept to 4).
+- **Conflicts left for the department (live value kept):** ICU 19 beds (site) vs 18 Hill-Rom beds (brochure);
+  heart-lung machines "LivaNova Sorin S5 PRO & Essenz" (site) vs "Stocker/Stockhert S5" (brochure; console reads
+  Stöckert S5); fellowships — site lists Paediatric Cardiac Surgery only, brochure adds adult cardiac surgery;
+  BSc Perfusion on 590 "a three-year allied-health degree" vs brochure and /bsc-perfusion/ "3 years + 1-year
+  internship"; masterclass reach "55+ countries" (site) vs "over 50" (brochure); defibrillator labelled Agilent in
+  the brochure, unit carries the Hewlett-Packard logo (caption neutral "CodeMaster").
+
+## 2026-10-21 — College of Nursing: brochure material (Aug 2025) → page 259 + draft child page 56422
+Source: `~/Downloads/CON - BROCHURE/` (`ACADEMIC CONTENT FOR DRAFT BROCHURE ABRIDGED.docx` + 7 photo folders, 82 photos,
+all viewed). The docx is Institute-wide (all UG/PG/DNB/fellowship programmes); its nursing-specific facts are few.
+- **Page 259** (`/academics/nursing-and-allied-health/`): one paragraph added at the end of "Born of Bhagawan's Call",
+  after "…no tuition fees are charged.": the 4-year programme includes a mandatory internship period, is fully
+  residential (community living; growth of body, mind and spirit), and students have consistently won gold medals and
+  state ranks. Written with `$wpdb->update` (single-occurrence check, content hash checked against the backup first),
+  `clean_post_cache`. 1,417 → 1,460 words. No other section, card, admissions text or link touched.
+- **New draft page 56422** "College of Nursing" (`college-of-nursing`, parent 259, `post_status=draft`, not in any
+  menu): banner, Bhagawan's "purpose of education" quote from the brochure, "Education for Body, Mind and Spirit" intro
+  (with a button back to page 259), then six photo sections: Body — Sports, Fitness and Service; Mind — Yoga and
+  Meditation; Spirit — Prayer and Devotion; EHV — Values, Brought to Life; Co-curricular — Learning Beyond the Syllabus;
+  Extra-curricular — Celebrations and Campus Life. Builder meta copied from 259 (`_et_pb_use_builder=on`, default
+  template, `et_right_sidebar`, `_sssihms_page_css=1`), Yoast metadesc set. 404 words, 16 photos. Preview:
+  `https://whitefield.sssihms.org/?page_id=56422&preview=true` (logged in). Page 259 does not link to it yet; add a link
+  when it is published.
+- **Media** (blog 4, `2026/10/`, resized ≤1600 px, q82, EXIF/XMP/GPS stripped, alt text set): 56391 con-kho-kho,
+  56392 con-table-tennis, 56393 con-sports-meet-2025, 56394 con-yoga, 56395 con-yoga-day, 56396 con-suprabhatam,
+  56397 con-nagarasankeerthanam, 56398 con-gratitude-programme-brindavan, 56399 con-ehv-programme-1 (600 px source),
+  56400 con-ehv-programme-2 (583 px source), 56401 con-lamp-lighting-2025, 56402 con-cne-2025,
+  56403 con-world-water-day, 56404 con-onam, 56406 con-independence-day, 56409 con-annual-day-2025. All used only on
+  draft 56422.
+- **Backups** `~/brochure-backups-20261021/con/` on the server: `259-post_content.txt` (sha256 `accb037d…07ff3`,
+  matched the DB) and `259-post.json` (post + meta).
+- **Not changed:** the souvenir 56292, the home-page B.Sc Nursing notice (brochure has nothing newer), admissions /
+  fees / seats / eligibility / affiliation text, the AHS cards, menus. W3TC flushed; page 259 200 with all 13 existing
+  sections, all 34 image URLs 200.
+
+## 21-Oct-2026 — support-department brochures (FMS, HMIS, Admin, Finance & Accounts)
+
+Applied directly to the live database with `$wpdb->update` + `clean_post_cache` (no kses, no revision).
+Each write was gated on the sha256 of the content it was built from. Source: the Aug-2025 brochure
+material (`FMS Brochure.docx`, `HMIS Profile for Brochure.docx`,
+`Finance And Accounts Brochure Basic 13082025.docx`, `Admin brochure/` photos).
+Backups: `~/brochure-backups-20261021/support/` on the server (`post-212*`, `post-55711*`: content + JSON of row and meta).
+
+| What | Where | In the prototype? |
+|---|---|---|
+| New `et_pb_code` section "Department by Department" (18 cards, 16 with photos) and a gallery "Around the Campus" (8 photos), inserted before "Service Beyond Infrastructure". 517 → 1,473 words. Page stays out of all menus. | page **55711** `/facility-management-services/` | **no — drifted** |
+| Three paragraphs added to the ATHMA, MedDream and NAV text modules; new `et_pb_code` section "Systems for Staff and Services" (4 cards) inserted before "Using Data to Improve Care". 1,036 → 1,344 words | page **212** `/hmis/` | **no — drifted** |
+| **Draft** "Hospital Administration" (`hospital-administration`), sibling of /hmis/ with the same Divi meta, `_sssihms_page_css`, banner and Services tab strip. The intro says text is still needed from the department, plus an 11-photo gallery | page **56465** (draft) | n/a |
+| **Draft** "Finance & Accounts" (`finance-accounts`), the same skeleton: Core Philosophy (3 cards), Governance and Transparency (2 cards), and a link to /transparency/ | page **56466** (draft) | n/a |
+
+New card headings: FMS: Electrical · HVAC · Utilities and Maintenance · Biomedical Engineering ·
+Central Sterile Services Department (CSSD) · Laundry · Telephone and Communication · Landscaping ·
+Transport · Housekeeping · Estate Office · Audio-Visual Services · Security · CCTV Surveillance ·
+Fire and Safety · Organic Waste Converter · Water Treatment and Recycling · Seva Dal.
+HMIS: Attendance, Leave and Payroll · Secure Entry · Service Desk · One IT Team for the Trust’s Hospitals.
+Finance draft: No Billing Counter · Funded by Donations · Research and CSR Support ·
+Collective Decision-Making · Due Diligence. All use the `◆` placeholder icon.
+
+Media imported (blog 4, `2026/10/`, EXIF stripped, ≤1600 px, q82): **56405–56462** (35 attachments;
+the IDs in between belong to other agents): 24 `fms-*.jpg` on page 55711 and 11 `admin-*.jpg` on draft 56465.
+Three FMS images (`fms-audio-visual-mixer`, `fms-owc-compost-centre`, `fms-stp-unit`) come from the
+images embedded in `FMS Brochure.docx` and are at their native size (464–693 px), not upscaled.
+
+Deliberately not published:
+- the HMIS hosting and infrastructure section of the brochure (cloud provider, virtualisation and SAN, VPN, product versions, attendance, payroll, access-control and ticketing product names)
+- the Finance "Annual Expenditure ₹500+ Million" figure
+- the CCTV camera count
+- the Seva Dal headcount, which conflicts with /sevadal/
+
+Server housekeeping: `chmod 755 ~` was run by mistake during media staging, then set to
+`750` (the `HOME_MODE` in `/etc/login.defs`). The original mode was not recorded.
+
+## 21-Oct-2026 — Neurosciences brochure (Aug 2025) → Neurosurgery pages; Neurology draft
+
+Source: `~/Downloads/Neurosciences Brochure, photos 2025/` (Neuro_Sciences_Brochure_Centenary2025.docx,
+Neurology_Department_Brochure  final.docx, 9 photos). Applied with `$wpdb->update` + `clean_post_cache` (no kses, no
+revision); each write was gated on the DB sha256 still matching the backup. All edits are pure insertions, apart from
+one grid column count. Backups: server `~/brochure-backups-20261021/neuro/` (post-<id>.html + db-sha.txt).
+W3TC flushed; all six pages 200, existing sections intact, all 20 image URLs 200.
+
+- **Neurosurgery overview (87)**, 977 → 1,140 words: the "Advanced Neurosciences" section gets one new paragraph
+  (the motto "Healing Hands, Enlightened Minds", the brochure's "Legacy of Excellence" mission line, and end-to-end
+  care from routine to complex). New text module **"Our Care Pathway"** (section-alt, before the free-of-charge band):
+  5 pathway ticks; sub-heading "Our Promise to Every Patient" with 5 cards (*Completely Free of Charge, Holistic Care,
+  Collaborative Expertise, Cutting-Edge Technology, Compassionate Service*); Bhagawan quote "In the service of
+  humanity lies the true worship of the Divine."
+- **Services (559)**, 1,673 → 1,745 words: new code module **"Centres of Expertise"** (section-alt, first after the
+  banner), 6 cards: *Complex Brain & Spinal Tumours, Vascular Neurosurgery, Minimally Invasive Spine Surgery,
+  Endoscopic Skull Base Surgery, Endovascular Neurosurgery, Paediatric Neurosurgery*.
+- **Faculty (126)**, 102 → 124 words: Visiting Faculty, Dr Ravi Goyal + detail line "ICU and ward nurse training";
+  new faculty card **Alpa Uchil** — Nurse Practitioner, Johns Hopkins School of Nursing, Maryland, USA; ICU and ward
+  nurse training. Existing names and designations unchanged.
+- **Infrastructure (122)**, 380 → 397 words: "In the Operating Theatre" gallery + second row (`photo-grid pg-2`,
+  2 cols): media **56468** `2026/10/www-nesu-medtronic-neuro-navigation.jpg` (alt "Medtronic StealthStation
+  neuro-navigation system in use in a neurosurgery operating theatre"; caption "Medtronic neuro-navigation in use"),
+  **56469** `2026/10/www-nesu-leica-microscope-theatre.jpg` (alt "Leica operating microscope in use during
+  neurosurgery"; caption "Operating under the Leica microscope"). EXIF rotation applied, then re-encoded at 1600 px,
+  q82, with EXIF/GPS stripped (colour profile kept). New card **"Support Services"** (high-definition imaging, advanced
+  laboratories, telemedicine follow-ups) in the "Wards, Theatres and Equipment" grid (third card in a 2-col grid).
+- **Achievements (669)**, 5,036 → 5,069 words: new card **"Nursing Excellence"** in "Standing & Contributions"
+  (ICU/ward nurse training by Dr Ravi Goyal and Alpa Uchil; 190 nurses certified 2016–2025). That grid changed from
+  `--cols:3` to `--cols:2` so the four cards sit 2×2.
+- **Events (671)**, 89 → 104 words: new text module **"In the Community"** (section-alt): stroke awareness
+  programmes, rural health camps, public education on neurological health.
+- **Neurology draft 56481** (new, `post_status=draft`, slug `neurology`, 409 words), modelled on 87: same
+  section/row/column wrapper, banner with `2022/11/Neurology.png`, in-page subnav (#overview/#services/#faculty/
+  #infrastructure), meta copied from 87 (`_wp_page_template` fullwidth, `_et_pb_use_builder` on, Divi layout flags,
+  `_sssihms_page_css`=1). Sections: "Healing Beyond Boundaries"; "Our Clinical Spectrum", 5 cards (*Acute Neurological
+  Emergencies, Chronic Neurological Disorders, Neuromuscular & Movement Disorders, Headache & Migraine Clinics,
+  Neuro-rehabilitation*); "Faculty", 2 cards (*Our Neurologists; Learning, Research & Sharing Knowledge*) plus a visible
+  `[Draft: faculty names and designations to be supplied by the department before publication.]` note; "Tools for
+  Precision", 4 cards (*Neuroimaging, Neurophysiology Laboratories, Stroke Unit, Neurocritical Care*); "In the Spirit of
+  Service"; free-of-charge band. No photos. Not published, not linked from the /specialties/ card (59 untouched),
+  in no menu (`nav_menu_options.auto_add` is empty). Preview: `https://whitefield.sssihms.org/?page_id=56481&preview=true`.
+  Waits on decision D3.
+- **Photos held back (7):** Neuro ward (seated patient's face and wristband, other patients in beds); Neuro ICU
+  (ventilated child's face, bed number 132); Neuro OPD front desk (waiting room full of identifiable patients and a
+  child); Neurology EEG, Neurology NCV, Neurology OPD 1, Neurology OPD 2 (patients' faces; OPD 1 also has patient
+  paperwork on the desk). All four Neurology photos failed, so the draft has no images.
+- **Not used / conflicts (live value kept):** "70 neuro beds — 50-bed ward + 20-bed Neuro ICU" (infrastructure 122
+  already says 50 + 20; overview 87 "Department in Detail" says a 158-bed neurosciences facility with a 38-bed ICU);
+  "1,500–1,800 neurosurgical procedures annually" (the register on the statistics dashboard gives 1,726 / 1,819 /
+  1,880 / 2,016 for 2022–2025); Dr Ravi Goyal "Retired Neurosurgeon, Florida" + "MD, FRCS, FRCS, FACS" (faculty 126:
+  "Consultant Neurosurgeon, USA"; overview 87: "Dr. Ravindra Goyal — McLaren-Flint Hospital, USA"; FRCS duplicated in
+  the source, so qualifications not added). Neuro ICU kit, OT equipment, DNB and research bullets are already live, so
+  they were not duplicated. "Centenary 2025" appears only in the source file name; there is no centenary wording on
+  the pages.
+
+## 2026-10-21 — Dietary Services published; Patient Welfare Services and Library drafts (department brochures)
+Source: `Dietary Write-up.docx` and 29 photos (Aug 2025); `Patient Welfare Services Brochure Writeup.docx` and
+`Patient_Welfare_Services_OnePager.docx`; `Library Brochure.docx` and 13 photos. Pages written with `$wpdb->update` after
+checking the pre-write sha256 and every expected anchor count; no revisions; W3TC flushed. Backups in
+`~/brochure-backups-20261021/dietary-pws-library/` on the server: `bak-content-52894.txt`, `bak-content-61.txt`,
+`bak-post-*.json`, `bak-meta-*.json`, `bak-menu-116.csv` (all 110 items before the add),
+`bak-content-52894-heldback.txt`, `bak-content-56492-heldback.txt`.
+- **Dietary (52894, `/dietary/`, top-level like `/physiotherapy/`)**: the existing 2022 Divi page (blue slider) was rebuilt
+  in the Physiotherapy layout, 89 → 851 words (797 before the held-back photos), and renamed "Dietary" → "Dietary Services". Meta now matches 206:
+  `page-template-fullwidth.php`, `_sssihms_page_css=1`, builder 4.27.0. Banner + Services subnav (with a "Dietary"
+  tab, on this page only), then: Food That Is Medicine (the live facts kept: the only department inaugurated by
+  Bhagawan, 21-Dec-2000; "the food … will be medicine"), Meals Through the Day (6 cards), Therapeutic Diets (diet
+  list), How Meals Reach Patients (4 cards), Food Safety and Quality, Diet Counselling at Discharge, Seva in the Kitchen,
+  and the "Every Service Here Is Free of Charge" band.
+  New card headings: Three Main Meals, Snacks, Night-time Milk, Nutritional Supplements, Linked to the HMIS, For
+  Attendants of Children, Prepared in Our Kitchen, Plated and Sent to Every Ward, Served on Safe Tableware, Washed and
+  Dried by Machine.
+- **Services (61)**: new 7th card "Dietary Services" after Physiotherapy, with a `btn btn-outline` link to `/dietary/`.
+  281 → 308 words.
+- **Menu 116**: item **56490** "Dietary Services" → page 52894, parent 55176 (Services), position 65, between
+  Physiotherapy (64) and Telemedicine (now 66). WP-CLI shifted every later item by +1 (110 → 111 items).
+- **Drafts (not published, not in menus)**: **56491** "Patient Welfare Services" (`patient-welfare-services`, top-level,
+  modelled on Facilities 734, For Patients subnav, 576 words); **56492** "Library" (`academics/library`, parent 63,
+  modelled on Fellowship 255, 197 words, 6 photos).
+- **Media, first pass**: 56470–56480, 56482–56489 (19). The tray shots were cropped to drop the name and bed labels. The
+  salt-restricted tray also had a handwritten slip behind its "1 g salt" tag, which was blurred.
+- **Media, held-back pass** (Praveen: "post the photos you held back"; faces left as they are, text identifiers
+  blurred on the full-resolution originals): 56493–56503 on Dietary, 56504 on the Library draft. All 1600 px max,
+  q82, EXIF/GPS stripped. Not uploaded twice; no duplicates were in the library.
+- Reused existing media 1540 `2015/06/Swami-blessing-dietary-exhibits.jpg` in the Seva gallery.
+- Not changed: "Types of Diets" (236, published, empty content), the other Services pages' subnavs.
+
+## 2026-10-21 — Held-back brochure photos: Cardiology, Lab & Blood Bank, Cardiac Surgery
+Praveen asked for the photos held back earlier on 21-Oct to be posted, faces included. Text identifiers were blurred
+on the full-resolution original before upload (ImageMagick `-region … -blur`), each region was re-checked at full
+size, and the photos were re-encoded at 1600 px, q82, with EXIF/GPS stripped. Pages were written with `$wpdb->update`
+(WHERE ID + old content), after checking every expected anchor count; no revisions; `clean_post_cache`; W3TC flushed.
+Backups (`post-<id>.before.html` / `.after.html`) are in `~/brochure-backups-20261021/heldback-a/` on the server.
+
+- **Cardiology overview (81)**, 1,215 → 1,244 words: new gallery module "Care in Practice" (eyebrow "In the
+  Department", `photo-grid pg-3`, plain `section`) inserted after "What Sets the Department Apart":
+  - **56512** `2026/10/cardiology-cath-procedure-in-progress.jpg`, "A procedure in progress in the cathlab".
+    Redacted: the cathlab monitor's patient name (three places) and the MRN / DOB / date block.
+  - **52758** (existing 2022 upload, byte-identical to the brochure file, no EXIF) `2022/11/Dr.-Reeta-with-patients-1024x768.jpg`,
+    "Dr. Reeta Varyani with patients in the Cardiology OPD". Not redacted: the only legible text is the doctor's door
+    plate and a furniture asset tag.
+  - **56513** `2026/10/cardiology-consultation-dr-prayaag-kini.jpg`, "Dr. Prayaag Kini examining a young patient"
+    (spelling "Prayaag" as on the faculty page). Redacted: a handwritten note on a desk leaflet (a person's name and
+    phone number) and a handwritten number on a second leaflet.
+- **Cardiology infrastructure (104)**: not changed. The cath photo went to the overview, which the brief allowed.
+- **Lab & Blood Bank (412)**, 1,526 → 1,537 words, "The Laboratory at Work" gallery has 11 → 13 photos:
+  - **56514** `2026/10/lab-haematology-sysmex-xq-320.jpg`, "Haematology — Sysmex XQ-320 analyser", placed after
+    Histopathology. Redacted: the whole analyser screen (sample ID, date, full blood-count result, barcode) and the
+    sample-tube barcodes in the rack.
+  - **56515** `2026/10/blood-bank-donors-donating.jpg`, "Voluntary donors in the donation room", placed after the
+    existing "Voluntary blood donation". Not redacted: the only text is the wall protocol notice and furniture asset tags.
+  - `2015/04/lab-blood-donation.jpg` was kept.
+- **Cardiac Surgery infrastructure (112)**, 655 → 688 words:
+  - "Theatres and Intensive Care" gallery (`pg-2`) has 4 → 8 photos: **56519** `ctvs-ot-surgery-team` "The surgical
+    team at work"; **56518** `ctvs-ot-surgery-anaesthesia-station` "Anaesthesia and monitoring during open-heart
+    surgery" (redacted: the whole whiteboard, which showed date, name, age/sex, IP no., diagnosis, blood group,
+    height and weight, plus the anaesthesia chart with its barcode and handwritten patient fields); **56516**
+    `ctvs-icu-nursing-care-2` "Nursing care in the cardiac surgery ICU"; **56517** `ctvs-icu-ward-view` "The cardiac
+    surgery ICU". The ICU photos and OT team photo needed no redaction: the monitors, charts and slips are not legible.
+  - "Intensive Care Unit" equipment group: new card **"Hill-Rom ICU Patient Bed"** (same markup as the sibling cards,
+    no ◆ icon), **56520** `ctvs-icu-hill-rom-patient-bed-768x576.jpg`. Redacted: the burned-in camera timestamp.
+    The bed's Hill-Rom equipment label was left as it is.
+  - "18-bed" ICU and "LivaNova Sorin S5" were not touched.
+- **Not posted:** `Blood donation.JPG` is the same frame as the live `2015/04/lab-blood-donation.jpg`, so it would
+  have been a duplicate. `CTVS ICU.jpg` is a near-duplicate of `CTVS ICU (2).jpg` (same scene, seconds apart).
+  The redacted-ready copies are in the scratchpad `heldback-a/final/` folder.
+- **Flag (not my page):** the Cardiology faculty page (108) already uses the unredacted 2022 original
+  `2022/11/Prayag-Kini-with-patient.jpg` (media 52762). The desk leaflet in it carries a handwritten name and phone
+  number, and the file still has iPhone EXIF.
+
+## 21-Oct-2026 — held-back brochure photos published (College of Nursing, FMS, Hospital Administration)
+
+Praveen asked for the photos held back earlier on 21-Oct to be published; faces of students, patients and visitors
+are his decision. The only redaction was blurring live CCTV feeds. Written with `$wpdb->update` + `clean_post_cache`
+(no kses, no revision). Each write was gated on the sha256 of the backed-up content. W3TC flushed.
+Backups: `~/brochure-backups-20261021/heldback-b/` on the server (`<id>-post_content.txt` + `<id>-post.json` for
+56422, 55711, 56465).
+
+| What | Where | In the prototype? |
+|---|---|---|
+| 11 photos: +3 in "Sports, Fitness and Service" (chess, carrom, blood donation drive), +3 in "Prayer and Devotion" (Gratitude Programme, two Crystal Anniversary), new "Community Health" sub-grid (`h3.split-title` + 2-col `photo-grid`, 4 photos) under "Learning Beyond the Syllabus", one `prose-figure` (Adult Health Nursing lab) under the intro button. 436 → 498 words | page **56422** `/academics/nursing-and-allied-health/college-of-nursing/` | **no — drifted** |
+| 4 photos: CCTV Surveillance card gets an `info-card-img`; "Around the Campus" gallery +3 (Estate Office, GE CT scanner, hospital car). 1,439 → 1,458 words | page **55711** `/facility-management-services/` | **no — drifted** |
+| 5 photos added to the "Campus and Amenities" gallery (Food Court ×2, Student Food Court, Patient Attender Dormitory, Patient Attenders' Block). Still `draft` | page **56465** (draft) | n/a |
+
+Media (blog 4, `2026/10/`, ≤1600 px, q82, APP1–15 metadata stripped, never upscaled; alt text set):
+56521 con-chess · 56522 con-carrom · 56523 con-blood-donation (583 px source, Word shadow trimmed) ·
+56524 con-gratitude-programme · 56525 con-crystal-anniversary · 56526 con-crystal-anniversary-kulwant-hall (1080 px source) ·
+56527 con-chn-health-education (862 px source, shadow trimmed) · 56528 con-community-postings · 56529 con-diabetes-day ·
+56530 con-immunisation-week · 56531 con-adult-health-nursing-lab · 56532 fms-cctv-monitoring · 56533 fms-estate-office-cctv ·
+56534 fms-biomedical-ct-scanner · 56535 fms-transport-staff-car · 56536 admin-food-court-serving ·
+56537 admin-food-court-dining-hall · 56538 admin-student-food-court · 56539 admin-attender-dormitory · 56540 admin-attenders-block.
+
+Redactions (originals untouched; redacted masters in `scratchpad/heldback-b/work/`):
+- `CCTV MONITORING.JPG` → 56532: all 16 camera tiles blurred, and the partly visible camera IP address in the device list.
+- `ESTATE OFFICE.jpg` → 56533: the wall-mounted CCTV display blurred (polygon mask; monitor bezel, desk and staff left sharp).
+
+No card headings added or renamed. Word counts here are of the stripped text and are not comparable with the
+earlier agents' counts. Skipped as instructed: DSC08182 (blurred), the near-duplicates (incl. "Copy of" files by sha256),
+the fire montage. Not in this brief and not posted: DSC08201 (a second telephone-console-room shot; screens and a
+handwritten register on the desk).
+
+## 21-Oct-2026 — Held-back Neurosciences brochure photos published (owner decision)
+
+Praveen asked for the photos held back on 21-Oct ("post the photos you held back"). Faces of patients and the
+public are his call and were left as they are; only text identifiers were redacted. Source:
+`~/Downloads/Neurosciences Brochure, photos 2025/` (originals untouched). Redaction: ImageMagick `-region … -blur 0x16`
+on auto-oriented full-resolution copies; every region re-checked at full resolution as unreadable. Then 1600 px,
+q82, EXIF/GPS stripped (the three Display P3 photos converted to sRGB first). Edits via `$wpdb->update` +
+`clean_post_cache` (no kses, no revision), gated on the DB sha256 matching the backup and on each anchor occurring
+exactly once. Pure insertions. Backups: server `~/brochure-backups-20261021/heldback-neuro/` (post-122.html,
+post-56481.html, db-sha.txt). W3TC flushed; 122 returns 200 with all existing sections intact, and all 19 image
+URLs on it return 200; served files byte-identical to the redacted finals.
+
+| What | Where | In the prototype? |
+|---|---|---|
+| 3-photo gallery (`photo-grid pg-3`) appended to "Wards, Theatres and Equipment": **56505** `2026/10/www-nesu-neuro-ward.jpg` ("Neurosurgery ward"), **56506** `www-nesu-neuro-icu.jpg` ("Neuro ICU"), **56507** `www-nesu-opd-front-desk.jpg` ("Registration at the Neuro OPD front desk") | page **122** (/neurosurgery/infrastructure/), 535 → 543 words | **no — drifted** |
+| 2-photo grid (`pg-2`) in overview "Healing Beyond Boundaries": **56510** `www-neurology-opd-1.jpg` ("Examination in the Neurology OPD"), **56511** `www-neurology-opd-2.jpg` ("Consultation in the Neurology OPD") | draft **56481** (still `draft`), 611 → 628 words | n/a — draft |
+| 2-photo grid (`pg-2`) in "Tools for Precision": **56508** `www-neurology-eeg.jpg` ("EEG recording in the neurophysiology laboratory"), **56509** `www-neurology-ncv.jpg` ("Nerve conduction (NCV) study") | draft **56481** | n/a — draft |
+
+Word counts: `str_word_count(wp_strip_all_tags())`, which differs from the method used in the earlier neuro entry.
+
+Redactions:
+- **OPD 1:** referral letter, emergency case sheet with barcode, and billing slip on the desk. These were legible, so blurring was required.
+- **OPD 2:** handwritten medicine envelopes and the referral form under them.
+- **Precautionary** (not legible, but patient records or ID fields):
+  - Ward: the case-sheet stack on the trolley.
+  - ICU: the monitor's patient/bed header strip.
+  - OPD front desk: a registration slip held in the waiting area, the case files and papers on the desk, a file label, and two handwritten wall papers.
+  - NCV: the results screen and a form on the desk.
+- **Not redacted:**
+  - ICU bed number "132".
+  - Ward sign "BEDS 61-66 / WARD L".
+  - The wristband, which has no visible print.
+  - The EEG screen, which shows the program menu with no patient data.
+  - Asset tags such as "WS/FU/SC01/19", which are furniture codes, not MRNs.
+
+No photos skipped. No other pages touched; no menu changes.
+
+## 2026-10-21 — Service-card icons (audit F10) and follow-ups to the brochure updates
+- **Card icons (plugin, repo copy deployed):** every `info-card-icon` / `acad-icon` / `pat-icon` / `inv-icon` glyph (◆ ◈ ◇ ✦ ⬡ ❤ ✚)
+  is swapped by a `the_content` filter (priority 23) for the icon named after the card's h3 in
+  `sssihms-wfd-assets/card-icons.php` (Lucide, ISC; chest X-ray and lungs drawn for the site). Unlisted headings keep
+  their glyph; glyphs and icons are `aria-hidden`. Curled apostrophes are matched as straight ones. Styles printed in
+  `wp_head` (page.css is not loaded on every page). 133 cards on 29 pages at launch, then the headings added by today's
+  brochure updates (190 headings, 106 icons). Backups: ~/a11y-backups-2026-10-21/.
+- **College of Nursing 56422:** intro paragraphs `max-width:none` (they sat in a 580 px column); published at
+  /academics/nursing-and-allied-health/college-of-nursing/; page 259 links to it ("Life at the College: Body, Mind and
+  Spirit →").
+- **Cardiac Surgery (owner decisions):** ICU 19 → 18 beds (85, 112); equipment card and media 56419 alt "Stöckert S5" →
+  "LivaNova Sorin S5" (the page's own name for the machine); gallery captions/alts of DSC08263 (surgery) and DSC08273
+  (paediatric ICU) were swapped on 112 and are corrected. The infant ICU photo stays (owner decision). The Statistics
+  tab is already hidden from visitors by `sssihms_wfd_hide_private_stats_tabs`.
+- **Cardiology faculty 108:** Dr. Kini's photo now uses the redacted copy (media 56513; a handwritten name and phone
+  number on a desk leaflet blurred) instead of the 2022 original 52762, same photo and 4:3 framing.
+- **Photo rule (owner, 21-Oct):** faces of patients, donors, students and visitors may be published; legible names,
+  MRNs, barcodes, results, wristbands, whiteboards, papers and CCTV feeds are blurred before upload.
+- Backups: ~/brochure-backups-20261021/{con,ctvs,heldback-a}/.
