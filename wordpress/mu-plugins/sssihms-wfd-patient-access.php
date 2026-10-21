@@ -170,6 +170,7 @@ add_filter( 'the_content', function ( $content ) {
 		'#<div class="(info-card-icon|acad-icon|pat-icon|inv-icon)"([^>]*)>\s*(◆|◈|◇|✦|⬡|❤|✚)\s*</div>((?:(?!-icon").){0,300}?<h3[^>]*>(.*?)</h3>)#su',
 		function ( $m ) use ( $icons, $page, $size ) {
 			$heading = trim( preg_replace( '/\s+/u', ' ', html_entity_decode( wp_strip_all_tags( $m[5] ), ENT_QUOTES, 'UTF-8' ) ) );
+			$heading = str_replace( array( '’', '‘' ), "'", $heading ); // wptexturize curls apostrophes
 			$name    = $page ? $page : ( $icons['map'][ $heading ] ?? '' );
 			if ( '' === $name || ! isset( $icons['svg'][ $name ] ) ) {
 				return '<div class="' . $m[1] . '"' . $m[2] . ' aria-hidden="true">' . $m[3] . '</div>' . $m[4];
