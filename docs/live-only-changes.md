@@ -1878,3 +1878,13 @@ Source: `obg website content.docx` (the 08-Oct-2026 review export of /obgyn/, re
   Media 56568, 1016×640 JPEG rendered from the PDF at 300 dpi. The eCard code, QR code and "scan this QR code" line
   are removed (the code text erased with a morphological close so the watermark stays), and the back half (training
   centre and instructor IDs) is not used. Backup: ~/brochure-backups-20261021/acls-ecard-20261022/.
+
+## 2026-10-22 — Emergency: road accidents and major injuries
+- **Emergency 55655:** new code module "Road Accidents" (`#road-accidents`) between "Come Straight In" and "What to
+  Expect", text as approved by the owner: specialist heart and brain hospital, no round-the-clock general-speciality
+  cover, road-accident / major trauma cases not admitted, call 108 (ambulance) or 112 and go to a trauma centre;
+  anyone brought in is given first aid, stabilised and helped to transfer (owner: "we stabilise and refer").
+- "Come Straight to the Hospital": "Every patient who reaches our Emergency Department is attended to" now reads "For a
+  heart or brain emergency which is not due to trauma, every patient … is attended to. For road accidents and major
+  injuries, see below" (link to the new section).
+- Backup: ~/brochure-backups-20261021/emergency-roadaccidents-20261022/.
