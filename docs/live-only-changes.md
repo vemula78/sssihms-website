@@ -1871,3 +1871,10 @@ Source: `obg website content.docx` (the 08-Oct-2026 review export of /obgyn/, re
 - **Azure Backup:** the owner says it is run from the ERPNext session. This VM has no Azure VM-snapshot extension
   (only RunCommandLinux), so the VM has not yet been backed up by Azure Backup, or the backup covers another machine.
   Asked the ERPNext session to confirm.
+
+## 2026-10-22 — ACLS Instructor eCard on Anaesthesiology Events
+- **Anaesthesiology Events 687, AHA Life Support Training:** a captioned figure below the four cards shows the front of
+  Dr. Kolli S. Chalam's AHA ACLS Instructor eCard (issued 30-Jul-2026, renew by Jul-2028), from the owner's eCard PDF.
+  Media 56568, 1016×640 JPEG rendered from the PDF at 300 dpi. The eCard code, QR code and "scan this QR code" line
+  are removed (the code text erased with a morphological close so the watermark stays), and the back half (training
+  centre and instructor IDs) is not used. Backup: ~/brochure-backups-20261021/acls-ecard-20261022/.
