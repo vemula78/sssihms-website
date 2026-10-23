@@ -1899,3 +1899,8 @@ Source: `obg website content.docx` (the 08-Oct-2026 review export of /obgyn/, re
 - **Menu 116:** FMS item **55712** moved back from menu 117 to Departments › Services, last after HMIS
   (menu_order 112). Its old staff-link children (55716, 55719–55722) stay parked in menu 117.
 - Backup: ~/brochure-backups-20261021/staffservices-20261023/ (header content, menu item terms + meta).
+- Same day: two more cards on **56574**, after Guest House Booking — **Sai Salarpuria Attendants Block**
+  (`/maintenance-staff-portal/?hem_tab=attendants`) and **Transport** (`?hem_tab=fleet`, the portal's Fleet tab:
+  transport requests, vehicle/driver assignment, trips). Signed-out visitors go to `/login/` with the tab kept in
+  `redirect_to`; a user without that tab's role lands on their default portal tab. Backup `page-56574.txt` in the
+  same folder.
