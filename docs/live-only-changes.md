@@ -1917,3 +1917,8 @@ Source: `obg website content.docx` (the 08-Oct-2026 review export of /obgyn/, re
   1600 px, no metadata), Bhagawan at the inauguration of the Philips FD10 cathlab, 2010. It sits after the two 2001
   photos, three across on desktop and stacked on phones. Caption is now "Bhagawan blessing the cathlab, 2001, and
   inaugurating the Philips FD10 cathlab, 2010". Backup: ~/brochure-backups-20261021/cardio-hero-fd10/page-81.txt.
+- Same day: the lower gallery on 81 ("2001 · Bhagawan Blesses the Cathlab") no longer repeats the two 2001 hero photos.
+  Only `2026/09/cardio-department-staff.jpg` was left, so the section is retitled "Our Team · The Cardiology
+  Department" (Divi admin label too). It is now a single centred figure, using `pg-2` sizing with inline
+  `--cols:1;grid-template-columns:1fr;max-width:760px;margin:0 auto`. Backup:
+  ~/brochure-backups-20261021/cardio-gallery-trim/page-81.txt.
