@@ -1888,3 +1888,14 @@ Source: `obg website content.docx` (the 08-Oct-2026 review export of /obgyn/, re
   heart or brain emergency which is not due to trauma, every patient … is attended to. For road accidents and major
   injuries, see below" (link to the new section).
 - Backup: ~/brochure-backups-20261021/emergency-roadaccidents-20261022/.
+
+## 2026-10-23 — Staff Services page; Facility Management back under Services
+- **New page 56574 "Staff Services"** (`/staff-services/`): banner + four link cards — Staff Login (`/login/`),
+  Maintenance Dashboard (`/maintenance-staff-portal/`), Guest House Booking (`/guest-house-booking/`), BMW Tracker
+  (`/bmw-tracker/`). Same Divi meta as FMS 55711 (`_et_pb_use_builder`, `et_no_sidebar`, `_sssihms_page_css`). Not in
+  any menu. Fleet left out: `/fleet/` returns 404 (the Apache alias is gone; prototype backup dated 01-Oct-2026).
+- **Header layout 54939:** top-bar "Staff Services" now links to `/staff-services/` instead of
+  `/facility-management-services/`.
+- **Menu 116:** FMS item **55712** moved back from menu 117 to Departments › Services, last after HMIS
+  (menu_order 112). Its old staff-link children (55716, 55719–55722) stay parked in menu 117.
+- Backup: ~/brochure-backups-20261021/staffservices-20261023/ (header content, menu item terms + meta).
