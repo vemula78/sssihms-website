@@ -1904,3 +1904,12 @@ Source: `obg website content.docx` (the 08-Oct-2026 review export of /obgyn/, re
   transport requests, vehicle/driver assignment, trips). Signed-out visitors go to `/login/` with the tab kept in
   `redirect_to`; a user without that tab's role lands on their default portal tab. Backup `page-56574.txt` in the
   same folder.
+
+## 2026-10-23 — Cardiology overview hero: the two 2001 Swami cathlab photos
+- **Page 81** (`/cardiology/`): the `intro-hero-media` image changed from `2015/05/Biplane-Cathlab.jpg` (caption "Siemens
+  Artis Zee Biplane Cathlab") to the two 2001 photos side by side — `2026/09/cardio-swami-cathlab-2001-a.jpg` and
+  `-b.jpg`. Caption is now "Bhagawan blessing the cathlab, 2001". The layout is set with inline styles (grid
+  `auto-fit minmax(280px,1fr)`, 3:2 crop), so the photos stack on phones. The department group photo was left out by
+  owner choice. The biplane photo is still used on Cardiology Infrastructure (104). The 2001 gallery section further
+  down the page is unchanged.
+- Backup: ~/brochure-backups-20261021/cardiohero-20261023/page-81.txt.
