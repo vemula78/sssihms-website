@@ -1922,3 +1922,8 @@ Source: `obg website content.docx` (the 08-Oct-2026 review export of /obgyn/, re
   Department" (Divi admin label too). It is now a single centred figure, using `pg-2` sizing with inline
   `--cols:1;grid-template-columns:1fr;max-width:760px;margin:0 auto`. Backup:
   ~/brochure-backups-20261021/cardio-gallery-trim/page-81.txt.
+- Same day: a fourth hero photo, **media 56623** `2026/10/cardio-swami-team-walk.jpg`. It is owner-supplied, alt
+  "Bhagawan walking with doctors and staff of the hospital". The original is only 439×366: a 2 px dark edge was
+  trimmed, it was cropped to 3:2 (435×290) keeping the heads, and metadata was stripped. Year and occasion are not
+  known, so the caption is unchanged. The grid minimum went from 280px to 150px: four across on desktop, 2×2 on phones.
+  Backup: ~/brochure-backups-20261021/cardio-hero-4th/page-81.txt (taken before both edits).
