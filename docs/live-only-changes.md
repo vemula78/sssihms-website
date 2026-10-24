@@ -1960,3 +1960,19 @@ At Praveen's request ("we need to create a form on website not the google form")
 - **Page 56628** /patient-feedback/ (published): page banner + form, `_sssihms_page_css` 1, and `_sssihms_page_css_extra` `.sssi .et_pb_column_4_4{width:100%}` (Divi's dynamic CSS sets no width on the floated 4_4 column, so a short-content page shrank to its content width).
 - Checked: desktop 1400 and mobile 390 px, no horizontal scroll; browser and server validation (no contact, 9-digit phone, missing fields, honeypot); a full submission simulated in WP-CLI with `pre_wp_mail` intercepting the email (nothing sent), stored, listed in admin, then deleted.
 - The Google Form was set to **not accepting responses**, with a closed message pointing to /patient-feedback/. The QR poster was regenerated for https://whitefield.sssihms.org/patient-feedback/ and re-sent to ea.directorwfd@ and subramaniayan.m@ (12:36 IST), replacing the 12:01 email that pointed to the Google Form.
+
+## 2026-10-24 — Patient Welfare Services published under Services
+Praveen: "patient welfare services does not seem to figure any where. can it put under services". Backups in
+`~/brochure-backups-20261021/pws-publish/` on the server (content-56491/61-before, post/meta-56491-before, menu-116-before.csv).
+Pages written with `$wpdb->update` (WHERE ID + old content) after a dry pass (each anchor once, div balance unchanged);
+Divi static CSS cleared for both; W3TC flushed.
+- **56491 `/patient-welfare-services/`**: draft → published (`wp_publish_post`, date set to 24-Oct-2026). One change to the
+  21-Oct draft: the Grievance Management card now ends "<a href="/patient-feedback/">Patient Feedback form</a> →"
+  (same pattern as the Sevadal card). Yoast description added (it had none). 559 words rendered.
+- **Services (61)**: 8th card "Patient Welfare Services" after HMIS, `btn btn-outline` link. 6,092 → 6,523 bytes.
+- **Menu 116 (live header)**: item **56633** "Patient Welfare Services" → 56491, parent 55176 (Services), position 69, after
+  HMIS. Later items shifted +1 (Facility Management Services 102 → 103); 113 items.
+- Checked: 200 on desktop and mobile, page.css loads, banner full width, no horizontal scroll on mobile, all 13 internal links 200.
+- Not changed: the other Services pages' subnavs (only Dietary and this page carry the Patient Welfare tab); Finance & Accounts 56466 and Library 56492 stay drafts.
+- Open: the Help Desk section says patients can "upload previous medical reports through a secure link"; the public
+  report-upload pages (54798/54799) were made private on 24-Oct-2026, so the department should confirm how that link is given.
