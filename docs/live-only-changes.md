@@ -1943,3 +1943,13 @@ Source: `obg website content.docx` (the 08-Oct-2026 review export of /obgyn/, re
 
 ## 2026-10-24 — Patient ticketing pages made private
 At Praveen's request ("make the patient ticketing form private"), pages **54798** "Submit Your Reports" (/submit-your-reports/) and **54799** "Check Your Report Status" (/check-your-status/) changed from publish to **private**; both now return 404 to visitors. No menu item or page linked to either. The `patient-ticketing` plugin was already **inactive**, so both pages had been showing the raw `[patient_report_submit]` / `[patient_ticket_status]` shortcode text, and neither page could send mail (the plugin's table holds 2 tickets, last 11-Sep-2026). Not changed: the Divi "Write to Us" form on Contact Us (page 71), which still delivers to helpdeskblr@ (Apache logs show 1–5 submissions a day, 10–24 Oct), and the Frappe `/submit-report` pages on erp. and care.sssihms.org (0 tickets; no notification email set). To undo: `wp post update 54798 54799 --post_status=publish`.
+
+## 2026-10-24 — helpdeskblr@ removed from the website; Contact Us form turned off
+At Praveen's request (junk reaching helpdeskblr@), the address was removed everywhere it appeared on whitefield.sssihms.org, and the "Write to Us" form was taken off Contact Us:
+- **Contact Us (page 71):** the email line under the Patient Help Desk card removed (phone and hours kept); the "Write to Us / Send a Message" intro code module and the Divi `et_pb_contact_form` module (which had `captcha="off"` and delivered to helpdeskblr@) removed, 2,364 bytes. Yoast meta description: "Patient queries: helpdeskblr@sssihms.org.in." dropped.
+- **Footer (Theme Builder 54940):** the "Patient Queries" block removed.
+- **Tele-consultations (39190):** "Patient Enquiry : helpdeskblr@..." line removed from the map pin.
+- **Library layout 1214** (/contact-us-2/, not used on any page): the email line removed.
+- **mu-plugin `sssihms-wfd-patient-access.php`:** both `email` entries removed from the Hospital JSON-LD (telephone kept).
+- **Help Desk Answers KB** (`patients/help-desk-and-telemedicine.md`, `patients/contact-and-directions.md`): email removed; the bot now says the Help Desk is reached by phone and that the site has no message form.
+Checked live: /, /contact-us/, /help-desk/, /appointments-admission/, /emergency/, /telemedicine/tele-consultations/ all 200 with no `helpdeskblr`; the only `<form>` on Contact Us is site search. Not changed: the `pt_settings` option of the inactive patient-ticketing plugin (not displayed), mail logs and revisions (records). Backups: ~/brochure-backups-20261021/helpdesk-email/ (page-71, 54940, 39190, 1214, the Yoast description, and the mu-plugin before). To turn the form back on, restore page 71 from that backup.

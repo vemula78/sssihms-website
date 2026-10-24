@@ -302,13 +302,11 @@ function sssihms_wfd_hospital_schema() {
 			'longitude' => '77.7292023',
 		),
 		'telephone'           => '+91-80-4710-4600',
-		'email'               => 'helpdeskblr@sssihms.org.in',
 		'contactPoint'        => array(
 			array(
 				'@type'             => 'ContactPoint',
 				'contactType'       => 'Patient Help Desk',
 				'telephone'         => '+91-80-4710-4600',
-				'email'             => 'helpdeskblr@sssihms.org.in',
 				'availableLanguage' => array( 'en', 'kn', 'hi', 'te', 'ta' ),
 			),
 			array(
