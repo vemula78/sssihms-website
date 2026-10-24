@@ -1990,3 +1990,21 @@ Praveen: "publish finance and library too". Backups in `~/brochure-backups-20261
   parent 55176 (Services), after Patient Welfare Services. 115 items.
 - Checked: 200 on desktop and mobile, no horizontal scroll on mobile, all internal links 200 (including /transparency/).
 - Not changed: the Services tab strips still differ from page to page (Finance's has no Dietary tab; none lists all three new pages).
+
+## 2026-10-24 — One Services tab strip on every Services page; Dietary text edits
+**Tab strip** (Praveen: "make the tab strip consistent on all services pages"). Every page whose strip links to `/services/`
+now carries the same 11 tabs: Overview, Radiology, Lab & Blood Bank, Physiotherapy, Dietary, Telemedicine, Counselling,
+HMIS, Patient Welfare, Finance & Accounts, Library; the current page's tab has `subnav-link active` (the CSS already existed).
+- Pages: 61, 206, 212, 214, 52894, 56491, 56466, 56492 (published) and drafts 55801 CSSD, 56465 Hospital Administration
+  (no own tab yet; add it when they are published). Each strip matched once, div and anchor balance unchanged.
+- Not changed: Radiology (202, 218, 220, 546), Lab & Blood Bank (412) and Counselling (210) keep their own department tab
+  strips (sub-pages). Facility Management Services (55711, in the Services menu) has no strip and is not a tab.
+- Backups `~/brochure-backups-20261021/services-tabstrip/`: `before-<id>.txt` were rebuilt by exact reversal of the
+  unique new strip (the www-data write into the home folder failed); `after-<id>.txt`; `page.css.before`.
+- **page.css**: `.subnav-link` side padding 14px → 11px so 11 tabs fit the 1,200 px wrap (strip was 1,257 px). Affects
+  every tab strip on the site. Deployed (md5 f40c1270…).
+**Dietary 52894** (Praveen's edits): "Therapeutic Diets" lost its eyebrow "Prescribed by Doctors" and its paragraph was
+replaced with Praveen's text (daily dietitian rounds, coordination with the Medical and Nursing teams); eyebrow "From
+Kitchen to Ward" → "From Diet Planning to Meal Delivery"; card "Prepared in Our Kitchen" → "Prepared with Care, Served
+with Devotion"; eyebrow "Selfless Service" → "Seva in Action" (heading "Seva in the Kitchen" kept). Backups in
+`~/brochure-backups-20261021/dietary-edits-20261024/`.
