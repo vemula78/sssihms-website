@@ -1976,3 +1976,17 @@ Divi static CSS cleared for both; W3TC flushed.
 - Not changed: the other Services pages' subnavs (only Dietary and this page carry the Patient Welfare tab); Finance & Accounts 56466 and Library 56492 stay drafts.
 - Open: the Help Desk section says patients can "upload previous medical reports through a secure link"; the public
   report-upload pages (54798/54799) were made private on 24-Oct-2026, so the department should confirm how that link is given.
+
+## 2026-10-24 — Finance & Accounts and Library published under Services
+Praveen: "publish finance and library too". Backups in `~/brochure-backups-20261021/finance-library-publish/` on the server
+(post/meta JSON for 56466 and 56492, content-61-before, menu-116-before.csv). Same method as Patient Welfare Services
+(dry pass, anchor once, div balance unchanged, `$wpdb->update` WHERE ID + old content, Divi static CSS cleared, W3TC flushed).
+- **56466 `/finance-accounts/`** and **56492 `/library/`**: draft → published, dated 24-Oct-2026, content unchanged from the
+  21-Oct drafts. Yoast description added to Library (Finance already had one). 198 and 212 words rendered; no sidebar,
+  all 7 Library photos load (56484–56489, 56504).
+- **Services (61)**: cards 9 and 10, "Finance & Accounts" and "Library", after Patient Welfare Services, each with a
+  `btn btn-outline` link. 6,523 → 7,313 bytes.
+- **Menu 116**: items **56636** "Finance & Accounts" (→ 56466, position 70) and **56637** "Library" (→ 56492, position 71),
+  parent 55176 (Services), after Patient Welfare Services. 115 items.
+- Checked: 200 on desktop and mobile, no horizontal scroll on mobile, all internal links 200 (including /transparency/).
+- Not changed: the Services tab strips still differ from page to page (Finance's has no Dietary tab; none lists all three new pages).
