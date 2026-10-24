@@ -1927,3 +1927,8 @@ Source: `obg website content.docx` (the 08-Oct-2026 review export of /obgyn/, re
   trimmed, it was cropped to 3:2 (435×290) keeping the heads, and metadata was stripped. Year and occasion are not
   known, so the caption is unchanged. The grid minimum went from 280px to 150px: four across on desktop, 2×2 on phones.
   Backup: ~/brochure-backups-20261021/cardio-hero-4th/page-81.txt (taken before both edits).
+- 24-Oct-2026: the fourth photo was removed again. The owner said it belongs to Neurosurgery, not Cardiology.
+  It is the same picture as `2015/04/neurosurgery-bhagawan-with-team.jpg`, already in the team gallery on Neurosurgery
+  (page 87, "Bhagawan with the neurosurgical team"), so page 87 was not changed. Page 81 is byte-identical to the
+  cardio-hero-4th backup: three hero photos, grid minimum back to 280px. Media 56623 stays in the library, unused.
+  Backup of the state before: ~/brochure-backups-20261021/cardio-hero-unshift/page-81.txt.
