@@ -1932,3 +1932,11 @@ Source: `obg website content.docx` (the 08-Oct-2026 review export of /obgyn/, re
   (page 87, "Bhagawan with the neurosurgical team"), so page 87 was not changed. Page 81 is byte-identical to the
   cardio-hero-4th backup: three hero photos, grid minimum back to 280px. Media 56623 stays in the library, unused.
   Backup of the state before: ~/brochure-backups-20261021/cardio-hero-unshift/page-81.txt.
+
+## 2026-10-24 — Neurosurgery overview hero
+- Page 87 (/neurosurgery/): the "Advanced Neurosciences" intro is now an `intro-hero` with the owner's photo,
+  `2015/04/neurosurgery-bhagawan-with-team.jpg` (439×366), captioned "Bhagawan with the neurosurgical team". Because the
+  file is small, the media box is inline `max-width:640px` and the image is shown whole (`height:auto;max-height:none;
+  object-fit:contain`) rather than full-width and cropped: 640×534 on desktop, 319×266 on phones. The text sits in
+  `intro-hero-text` (900px max), as on Cardiology. The same photo was removed from the team gallery lower down, which
+  is now two photos with `--cols:2`. Backup: ~/brochure-backups-20261021/nesu-hero/page-87.txt.
