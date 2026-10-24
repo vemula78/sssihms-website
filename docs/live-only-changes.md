@@ -1940,3 +1940,6 @@ Source: `obg website content.docx` (the 08-Oct-2026 review export of /obgyn/, re
   object-fit:contain`) rather than full-width and cropped: 640×534 on desktop, 319×266 on phones. The text sits in
   `intro-hero-text` (900px max), as on Cardiology. The same photo was removed from the team gallery lower down, which
   is now two photos with `--cols:2`. Backup: ~/brochure-backups-20261021/nesu-hero/page-87.txt.
+
+## 2026-10-24 — Patient ticketing pages made private
+At Praveen's request ("make the patient ticketing form private"), pages **54798** "Submit Your Reports" (/submit-your-reports/) and **54799** "Check Your Report Status" (/check-your-status/) changed from publish to **private**; both now return 404 to visitors. No menu item or page linked to either. The `patient-ticketing` plugin was already **inactive**, so both pages had been showing the raw `[patient_report_submit]` / `[patient_ticket_status]` shortcode text, and neither page could send mail (the plugin's table holds 2 tickets, last 11-Sep-2026). Not changed: the Divi "Write to Us" form on Contact Us (page 71), which still delivers to helpdeskblr@ (Apache logs show 1–5 submissions a day, 10–24 Oct), and the Frappe `/submit-report` pages on erp. and care.sssihms.org (0 tickets; no notification email set). To undo: `wp post update 54798 54799 --post_status=publish`.
