@@ -39,7 +39,7 @@ function sssihms_fa_closes() {
 	return array(
 		'ic'   => '2026-11-18 23:59:59', // RGUHS Revised Notification 1, 12-Oct-2026.
 		'ctva' => '2026-11-18 23:59:59',
-		'arth' => '2026-11-15 23:59:59',
+		'arth' => '2026-10-27 00:00:00', // Closed early on 27-Oct-2026 (was 15-Nov-2026).
 	);
 }
 
@@ -341,6 +341,15 @@ function sssihms_fa_render() {
 		return $out;
 	}
 	if ( ! sssihms_fa_is_open() ) {
+		$now  = current_time( 'mysql' );
+		$soon = array_filter( sssihms_fa_opens(), function ( $o ) use ( $now ) {
+			return $o > $now;
+		} );
+		if ( $soon ) {
+			return $out . '<div class="fa-ok"><h3>Applications not yet open</h3><p>Online applications for the '
+				. esc_html( implode( ' and the ', array_intersect_key( sssihms_fa_courses(), $soon ) ) )
+				. ' open on ' . esc_html( mysql2date( 'd-M-Y', min( $soon ) ) ) . '.</p></div></div>';
+		}
 		return $out . '<div class="fa-ok"><h3>Applications closed</h3><p>Applications for the 2026–27 fellowships are closed.</p></div></div>';
 	}
 

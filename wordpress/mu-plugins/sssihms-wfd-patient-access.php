@@ -1138,7 +1138,8 @@ add_action( 'wp_footer', function () {
 /**
  * Home (54830): one-off removal of the RGUHS fellowship line from the notice band after
  * the last date to apply (18-Nov-2026, RGUHS Revised Notification 1). The Arthroplasty
- * line stays. Runs once via WP-Cron; does nothing if the line is already gone.
+ * line was removed on 27-Oct-2026, so the now-empty notice band goes too. Runs once via
+ * WP-Cron; does nothing if the line is already gone.
  */
 const SSSIHMS_WFD_RGUHS_NOTICE = '<strong>FELLOWSHIP 2026 ADMISSIONS</strong> – Applications are invited for Interventional Cardiology & Cardiac and Vascular Anaesthesia | Last date to apply (RGUHS revised schedule): <strong>18-Nov-2026</strong>; entrance exam 20-Nov-2026. <a href="/academics/fellowship/apply/">Apply online →</a> &nbsp;·&nbsp; <a href="/academics/fellowship/#fellowship-admissions">Flyers, details & RGUHS notification →</a><br>';
 
@@ -1155,7 +1156,9 @@ add_action( 'sssihms_wfd_rguhs_notice_off', function () {
 	$c = get_post_field( 'post_content', 54830 );
 	if ( 1 === substr_count( $c, SSSIHMS_WFD_RGUHS_NOTICE ) ) {
 		kses_remove_filters();
-		wp_update_post( array( 'ID' => 54830, 'post_content' => str_replace( SSSIHMS_WFD_RGUHS_NOTICE, '', $c ), 'page_template' => '' ) );
+		$c = str_replace( SSSIHMS_WFD_RGUHS_NOTICE, '', $c );
+		$c = str_replace( '<div class="notice-band" role="region" aria-label="Notice"><div class="notice-inner"><span class="notice-tag">Notice</span><p></p></div></div>', '', $c );
+		wp_update_post( array( 'ID' => 54830, 'post_content' => $c, 'page_template' => '' ) );
 		kses_init_filters();
 		if ( function_exists( 'w3tc_flush_post' ) ) {
 			w3tc_flush_post( 54830 );
