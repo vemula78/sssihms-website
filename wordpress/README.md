@@ -112,6 +112,10 @@ filter; this file answers that filter. With a reason set, Kadence forces the set
 login (no Skip) and, until an authenticator app is configured, emails a one-time code.
 Deliberately not gated to blog 4: user accounts are shared across the network.
 
+From 28-Oct-2026 it also requires two-factor login for the patient feedback portal's staff roles on
+Whitefield (`sssihms_pws`, `sssihms_fb_coord`, `sssihms_fb_owner`, `sssihms_fb_esc1`,
+`sssihms_fb_esc2`), as the portal SOP asks (section 7).
+
 Kadence settings changed alongside it (29-Sep-2026): two-factor module activated with all
 methods (authenticator app, email, backup codes); **XML-RPC disabled** network-wide. XML-RPC
 was taking ~3,000 login attempts a day and bypasses the login-page captcha. Its only real
@@ -133,3 +137,48 @@ The knowledge base itself is **not in this repo**. It lives outside the web root
 The index rebuilds on its own when any file's size or time changes. Build the archive with
 `COPYFILE_DISABLE=1` on a Mac, or macOS `._*` metadata files land beside the `.md` files and are
 indexed as junk.
+
+### `sssihms-wfd-feedback-portal.php`
+
+Phase 1 of the Digital Patient Feedback Portal SOP (draft 0.1, 26-Oct-2026), built 28-Oct-2026.
+Shortcode `[sssihms_feedback_portal]`, with its script in `sssihms-wfd-assets/feedback-portal.js`.
+It is on the private test page `/feedback-portal-test/` (`test="1"`, so its tickets are marked
+TEST). The public `/patient-feedback/` page still runs the older `sssihms-wfd-patient-feedback.php`
+form until SMS is connected and the pilot starts.
+
+- **Patients:** mobile number verified by SMS OTP (6 digits, 10 minutes, at most 3 an hour per
+  number, locked for 30 minutes after 5 wrong tries, then 24 hours without a new OTP). Text and/or
+  a voice note recorded in the browser (up to 3 minutes). Category from Annexure B, location from
+  the QR code's `?src=` code, consent notice. They get a ticket number `FB-YYMMDD-NNNN`, and later
+  a one-tap Satisfied / Not satisfied page at `/?fbr=<token>`.
+- **Staff** (wp-admin → Feedback Tickets): queues, triage, assign, resolution note, reply and
+  resolve, close or route out, merge, extend, notes, hold, and erasure on the patient's request.
+  Everything goes in an append-only history. Owners see only their tickets and no contact details.
+  Assisted and paper entry happen on the form itself when a Cell user is logged in.
+- **Scheduler** (WP-Cron, every 5 minutes): reminders at 50% and 90% of each limit, escalation,
+  auto-close 3 working days after resolution, last month's report by email on the 1st, and
+  retention (off until decision D6 is confirmed in Settings).
+- **Storage:** tables `sai_4_sssihms_fb_tickets`, `_log` and `_otp` (OTPs and IPs are kept only as
+  keyed hashes). Recordings go in `wp-content/sssihms-feedback-private/`, which Apache denies
+  (403); staff play them through `admin-post.php`.
+
+**Connecting SMS (hospital IT).** Either answer the filter
+
+```php
+add_filter( 'sssihms_fb_sms_send', function ( $result, $to, $text, $key, $dlt_template_id ) {
+	// $to = "91" + 10 digits; $key = otp | ack | assigned | resolved. Return true once accepted.
+}, 10, 5 );
+```
+
+or define `SSSIHMS_EXOTEL_SID`, `_KEY`, `_TOKEN`, `_SENDER`, `_DLT_ENTITY` (and optionally `_HOST`)
+in `wp-config.php` for the built-in Exotel call. That call has not yet been run against Exotel.
+Enter the DLT template ID for each message under Feedback Tickets → Settings. While neither is in
+place, only logged-in Cell staff can finish an OTP, and the code is shown on screen.
+
+**Other channels (WhatsApp, phase 3).** `POST /wp-json/sssihms-fb/v1/intake` is on once
+`SSSIHMS_FB_INTAKE_SECRET` (32+ characters) is defined. Each request is signed with the headers
+`X-SSSIHMS-Timestamp` (Unix seconds, within 5 minutes) and `X-SSSIHMS-Signature` (hex
+HMAC-SHA256 of `<timestamp>.<raw body>`). The JSON body has `channel`, `ext_ref` (a repeat
+returns the same ticket), `phone`, `phone_verified`, `category`, `text`, `patient_name`,
+`patient_id`, `src`, `email`, `audio_base64` and `audio_mime`.
+

@@ -1,8 +1,9 @@
 <?php
 /**
  * Plugin Name: SSSIHMS — Two-Factor Required for Administrators
- * Description: Makes Kadence Security's two-factor login mandatory for super admins and for
- *              anyone who is an Administrator on any site of the network.
+ * Description: Makes Kadence Security's two-factor login mandatory for super admins, for
+ *              anyone who is an Administrator on any site of the network, and for the patient
+ *              feedback portal's staff roles on Whitefield.
  *
  * Kadence Security Basic ships the two-factor module but leaves "who must use it" to the Pro
  * add-on, which answers through the `itsec_two_factor_requirement_reason` filter. This file
@@ -29,15 +30,32 @@ function sssihms_2fa_is_admin_anywhere( $user ) {
 	return false;
 }
 
+/**
+ * Feedback portal staff on Whitefield (blog 4) see patients' names, numbers and recordings, so
+ * the portal SOP (section 7) extends two-factor login to them. Roles from
+ * sssihms-wfd-feedback-portal.php; sssihms_pws is the Patient Welfare Services role.
+ */
+function sssihms_2fa_is_feedback_staff( $user ) {
+	global $wpdb;
+	$caps = get_user_meta( $user->ID, $wpdb->get_blog_prefix( 4 ) . 'capabilities', true );
+	return is_array( $caps ) && array_intersect_key( $caps, array_flip( array( 'sssihms_pws', 'sssihms_fb_coord', 'sssihms_fb_owner', 'sssihms_fb_esc1', 'sssihms_fb_esc2' ) ) );
+}
+
 add_filter( 'itsec_two_factor_requirement_reason', function ( $reason, $user ) {
 	if ( $reason || ! $user instanceof WP_User ) {
 		return $reason;
 	}
-	return sssihms_2fa_is_admin_anywhere( $user ) ? 'sssihms_administrator' : $reason;
+	if ( sssihms_2fa_is_admin_anywhere( $user ) ) {
+		return 'sssihms_administrator';
+	}
+	return sssihms_2fa_is_feedback_staff( $user ) ? 'sssihms_feedback_staff' : $reason;
 }, 10, 2 );
 
 add_filter( 'itsec_two_factor_requirement_reason_description', function ( $description, $reason = '' ) {
 	// Kadence passes the reason as the first argument.
+	if ( 'sssihms_feedback_staff' === $description ) {
+		return 'Two-factor login is required for patient feedback portal staff.';
+	}
 	return 'sssihms_administrator' === $description
 		? 'Two-factor login is required for administrator accounts on SSSIHMS websites.'
 		: $description;
