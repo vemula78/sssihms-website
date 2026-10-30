@@ -23,15 +23,16 @@ Two caches, both need purging after any change — Divi's static CSS
 (`wp-content/cache/page_enhanced/whitefield.sssihms.org{,:443}`). Delete only the
 whitefield directories; those trees hold the other sites too.
 
-VM access and deploy commands: [wordpress/README.md](wordpress/README.md).
+VM access and deploy commands: `wordpress/README.md`. The `wordpress/` folder is a **separate private
+repository** (`vemula78/sssihms-wordpress-server`, cloned here and ignored by this public repo).
 
 ## Read these before changing a live page
 
 - **[docs/live-only-changes.md](docs/live-only-changes.md)** — every change made directly to
   the database, which pages have drifted from the prototype, and why. Read it first; it is
   the difference between the repo and reality.
-- [wordpress/README.md](wordpress/README.md) — the `mu-plugins` patient-access plugin.
-  **It exists only on the server**; a VM rebuild loses it unless redeployed from here.
+- `wordpress/README.md` (private repo, see above) — the `mu-plugins` patient-access plugin.
+  **It exists only on the server**; a VM rebuild loses it unless redeployed from that repo.
 - [docs/multisite-conversion-methodology.md](docs/multisite-conversion-methodology.md)
 - [docs/missing-upload-assets.md](docs/missing-upload-assets.md)
 

@@ -5,3 +5,6 @@ node_modules/
 __pycache__/
 portal/out/
 portal/backups/
+
+# Server-side code lives in a separate private repo (vemula78/sssihms-wordpress-server), cloned here
+/wordpress/
